@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MedLib - Medical Student Library</title>
+<title>MedLib - Medical Education Library</title>
 
 <style>
 
@@ -16,17 +17,15 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #f5f9fc;
+    background: #f4f9fb;
     color: #17202a;
 }
-
-/* HEADER */
 
 header {
     background: #087f8c;
     color: white;
-    padding: 25px 15px;
     text-align: center;
+    padding: 25px 15px;
 }
 
 .logo {
@@ -36,26 +35,23 @@ header {
 
 .tagline {
     margin-top: 8px;
-    font-size: 17px;
+    opacity: 0.9;
 }
 
-/* HERO */
-
 .hero {
-    padding: 45px 20px;
-    text-align: center;
     background: white;
+    text-align: center;
+    padding: 40px 20px;
 }
 
 .hero h1 {
-    font-size: 34px;
-    margin-bottom: 15px;
+    font-size: 32px;
+    margin-bottom: 12px;
 }
 
 .hero p {
     color: #5f6b73;
-    font-size: 17px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .search {
@@ -68,536 +64,1582 @@ header {
     outline: none;
 }
 
-/* CONTAINER */
-
 .container {
     max-width: 1100px;
     margin: auto;
     padding: 30px 20px;
 }
 
-.section-title {
+.page-title {
     margin-bottom: 20px;
 }
-
-/* SUBJECT GRID */
 
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 18px;
+    gap: 16px;
 }
-
-/* CARDS */
 
 .card {
     background: white;
-    padding: 28px 15px;
-    border-radius: 18px;
+    padding: 25px 15px;
+    border-radius: 17px;
     text-align: center;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    box-shadow: 0 3px 12px rgba(0,0,0,0.07);
     cursor: pointer;
     transition: 0.2s;
+    margin-bottom: 12px;
 }
 
 .card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
 }
 
 .card:active {
-    transform: scale(0.97);
+    transform: scale(0.98);
 }
 
 .icon {
-    font-size: 42px;
-    margin-bottom: 12px;
+    font-size: 40px;
+    margin-bottom: 10px;
 }
 
 .card h3 {
     font-size: 17px;
 }
 
-/* FEATURES */
+.card p {
+    color: #5f6b73;
+    margin-top: 8px;
+    font-size: 14px;
+}
 
-.features {
-    margin-top: 45px;
+.topic-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 14px 0;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    cursor: pointer;
+}
+
+.topic-card:hover {
+    transform: translateY(-2px);
+}
+
+.topic-card p {
+    margin-top: 8px;
+    color: #5f6b73;
+}
+
+.back-button {
+    border: none;
+    background: #087f8c;
+    color: white;
+    padding: 14px 22px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.section {
+    margin-top: 35px;
 }
 
 .feature {
     background: white;
     padding: 20px;
     border-radius: 15px;
-    margin-bottom: 15px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    margin: 12px 0;
 }
-
-.feature p {
-    margin-top: 7px;
-    color: #5f6b73;
-}
-
-/* TOPIC PAGE */
-
-.topic-container {
-    max-width: 900px;
-    margin: auto;
-    padding: 30px 20px;
-}
-
-.topic-card {
-    background: white;
-    padding: 22px;
-    margin: 15px 0;
-    border-radius: 15px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.07);
-}
-
-.topic-card h3 {
-    margin-bottom: 8px;
-}
-
-.topic-card p {
-    color: #5f6b73;
-}
-
-/* BUTTON */
-
-.back-button {
-    margin-top: 25px;
-    padding: 14px 22px;
-    border: none;
-    border-radius: 10px;
-    background: #087f8c;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.back-button:active {
-    transform: scale(0.97);
-}
-
-/* FOOTER */
 
 footer {
     margin-top: 40px;
     padding: 25px;
-    text-align: center;
     background: #17202a;
     color: white;
+    text-align: center;
+}
+
+.small-text {
+    color: #5f6b73;
+    margin-bottom: 20px;
 }
 
 </style>
+
 </head>
 
 <body>
 
-<!-- HEADER -->
 
 <header>
-    <div class="logo">🩺 MedLib</div>
-    <div class="tagline">The Medical Student Library</div>
+
+<div class="logo">🩺 MedLib</div>
+
+<div class="tagline">
+Medical Education Library
+</div>
+
 </header>
 
 
-<!-- HOME PAGE -->
+<!-- ================= HOME ================= -->
 
 <div id="homePage">
 
-    <section class="hero">
+<section class="hero">
 
-        <h1>Study Medicine. Anywhere. 📚</h1>
+<h1>
+Study Medicine. Anywhere. 📚
+</h1>
 
-        <p>
-            Free and legally accessible medical learning resources
-            for students.
-        </p>
+<p>
+Resources for medical, dental, physiotherapy,
+nursing, pharmacy and allied-health students.
+</p>
 
-        <input
-            id="searchBox"
-            class="search"
-            type="text"
-            placeholder="🔍 Search Anatomy, Physiology, Pharmacology..."
-            onkeyup="searchSubjects()"
-        >
+<input
+id="searchBox"
+class="search"
+type="text"
+placeholder="🔍 Search courses..."
+onkeyup="searchCourses()"
+>
 
-    </section>
-
-
-    <div class="container">
-
-        <h2 class="section-title">📚 Subjects</h2>
-
-        <div class="grid" id="subjects">
-
-            <!-- ANATOMY -->
-
-            <div class="card" onclick="openSubject('anatomy')">
-                <div class="icon">🦴</div>
-                <h3>Anatomy</h3>
-            </div>
+</section>
 
 
-            <!-- PHYSIOLOGY -->
+<div class="container">
 
-            <div class="card" onclick="openSubject('physiology')">
-                <div class="icon">❤️</div>
-                <h3>Physiology</h3>
-            </div>
+<h2 class="page-title">
+🎓 Choose Your Course
+</h2>
 
+<p class="small-text">
+Select your course to explore subjects and study topics.
+</p>
 
-            <!-- BIOCHEMISTRY -->
-
-            <div class="card" onclick="openSubject('biochemistry')">
-                <div class="icon">🧪</div>
-                <h3>Biochemistry</h3>
-            </div>
+<div id="courseGrid" class="grid"></div>
 
 
-            <!-- PATHOLOGY -->
+<div class="section">
 
-            <div class="card" onclick="openSubject('pathology')">
-                <div class="icon">🔬</div>
-                <h3>Pathology</h3>
-            </div>
+<h2>🚀 MedLib Features</h2>
 
+<div class="feature">
+📖 <b>Open-access resources</b>
+<p>
+Find legally accessible educational resources.
+</p>
+</div>
 
-            <!-- PHARMACOLOGY -->
+<div class="feature">
+📝 <b>Student Notes</b>
+<p>
+Organized notes for quick revision.
+</p>
+</div>
 
-            <div class="card" onclick="openSubject('pharmacology')">
-                <div class="icon">💊</div>
-                <h3>Pharmacology</h3>
-            </div>
+<div class="feature">
+❓ <b>MCQs & PYQs</b>
+<p>
+Practice questions for examinations.
+</p>
+</div>
 
+<div class="feature">
+🧠 <b>Flashcards</b>
+<p>
+Quick revision for important concepts.
+</p>
+</div>
 
-            <!-- MICROBIOLOGY -->
+<div class="feature">
+🩻 <b>Medical Diagrams</b>
+<p>
+Visual learning resources.
+</p>
+</div>
 
-            <div class="card" onclick="openSubject('microbiology')">
-                <div class="icon">🦠</div>
-                <h3>Microbiology</h3>
-            </div>
+</div>
 
-
-            <!-- FORENSIC -->
-
-            <div class="card" onclick="openSubject('forensic')">
-                <div class="icon">⚖️</div>
-                <h3>Forensic Medicine</h3>
-            </div>
-
-
-            <!-- COMMUNITY -->
-
-            <div class="card" onclick="openSubject('community')">
-                <div class="icon">🌍</div>
-                <h3>Community Medicine</h3>
-            </div>
-
-
-            <!-- MEDICINE -->
-
-            <div class="card" onclick="openSubject('medicine')">
-                <div class="icon">🩺</div>
-                <h3>Medicine</h3>
-            </div>
-
-
-            <!-- SURGERY -->
-
-            <div class="card" onclick="openSubject('surgery')">
-                <div class="icon">🏥</div>
-                <h3>Surgery</h3>
-            </div>
-
-        </div>
-
-
-        <!-- FEATURES -->
-
-        <div class="features">
-
-            <h2 class="section-title">🚀 More Coming</h2>
-
-            <div class="feature">
-                📖 <b>Open-access textbooks</b>
-                <p>
-                    Legally accessible books and learning resources.
-                </p>
-            </div>
-
-            <div class="feature">
-                📝 <b>Student Notes</b>
-                <p>
-                    Share and discover useful study notes.
-                </p>
-            </div>
-
-            <div class="feature">
-                ❓ <b>MCQs & PYQs</b>
-                <p>
-                    Practice questions for medical examinations.
-                </p>
-            </div>
-
-            <div class="feature">
-                🧠 <b>Flashcards</b>
-                <p>
-                    Quick revision for important topics.
-                </p>
-            </div>
-
-            <div class="feature">
-                🩻 <b>Medical Diagrams</b>
-                <p>
-                    Study anatomy and clinical concepts visually.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </div>
 
 
-<!-- SUBJECT PAGE -->
+<!-- ================= COURSE PAGE ================= -->
+
+<div id="coursePage" style="display:none;">
+
+<div class="container">
+
+<h1 id="courseTitle"></h1>
+
+<p id="courseDescription" class="small-text"></p>
+
+<div id="subjectGrid"></div>
+
+<button class="back-button" onclick="goHome()">
+← Back to Courses
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ================= SUBJECT PAGE ================= -->
 
 <div id="subjectPage" style="display:none;">
 
-    <div class="topic-container">
+<div class="container">
 
-        <h1 id="subjectTitle"></h1>
+<h1 id="subjectTitle"></h1>
 
-        <p id="subjectDescription"></p>
+<p id="subjectDescription" class="small-text"></p>
 
+<div id="topicGrid"></div>
 
-        <div id="topicList"></div>
+<button class="back-button" onclick="goCourses()">
+← Back to Subjects
+</button>
 
-
-        <button class="back-button" onclick="goHome()">
-            ← Back to Subjects
-        </button>
-
-    </div>
+</div>
 
 </div>
 
 
-<!-- FOOTER -->
+<!-- ================= TOPIC PAGE ================= -->
+
+<div id="topicPage" style="display:none;">
+
+<div class="container">
+
+<h1 id="topicTitle"></h1>
+
+<p class="small-text">
+Study material
+</p>
+
+<div id="topicContent"></div>
+
+<button class="back-button" onclick="goSubject()">
+← Back to Topics
+</button>
+
+</div>
+
+</div>
+
 
 <footer>
-    © 2026 MedLib · Built for medical students
+
+© 2026 MedLib · Built for medical students
+
 </footer>
 
 
 <script>
 
-/* SUBJECT DATA */
 
-const subjects = {
+/* =====================================================
+   COURSE DATABASE
+===================================================== */
 
-    anatomy: {
-        title: "🦴 Anatomy",
-        description: "Medical Student Anatomy Library",
-        topics: [
-            ["📖", "General Anatomy", "Anatomical terminology, tissues, bones and joints."],
-            ["💪", "Upper Limb", "Bones, muscles, nerves, vessels and joints."],
-            ["🦵", "Lower Limb", "Hip, knee, ankle, foot, muscles and nerves."],
-            ["🫁", "Thorax", "Thoracic wall, lungs, heart and mediastinum."],
-            ["🧠", "Head & Neck", "Brain, cranial nerves, face and neck anatomy."],
-            ["🩻", "Neuroanatomy", "Spinal cord, brain and nervous system."]
-        ]
-    },
 
-    physiology: {
-        title: "❤️ Physiology",
-        description: "Medical Student Physiology Library",
-        topics: [
-            ["🩸", "Blood", "Blood composition, RBC, WBC, haemoglobin and coagulation."],
-            ["❤️", "Cardiovascular System", "Heart, cardiac cycle, ECG and cardiac output."],
-            ["🫁", "Respiratory System", "Lung volumes, ventilation, gas exchange and oxygen transport."],
-            ["🧠", "Nervous System", "Neurons, synapses and nervous system physiology."],
-            ["💪", "Muscle Physiology", "Muscle contraction and neuromuscular junction."],
-            ["🫘", "Renal Physiology", "Kidney function, urine formation and regulation."]
-        ]
-    },
+const courses = {
 
-    biochemistry: {
-        title: "🧪 Biochemistry",
-        description: "Medical Student Biochemistry Library",
-        topics: [
-            ["🍞", "Carbohydrates", "Glycolysis, TCA cycle and gluconeogenesis."],
-            ["🥩", "Proteins", "Amino acids and protein metabolism."],
-            ["🥑", "Lipids", "Fatty acids, cholesterol and lipid metabolism."],
-            ["⚡", "Energy Metabolism", "ATP production and energy pathways."],
-            ["💊", "Vitamins", "Water-soluble and fat-soluble vitamins."]
-        ]
-    },
 
-    pathology: {
-        title: "🔬 Pathology",
-        description: "Medical Student Pathology Library",
-        topics: [
-            ["🧫", "Cell Injury", "Causes and mechanisms of cell injury."],
-            ["🔥", "Inflammation", "Acute and chronic inflammation."],
-            ["🩸", "Hematology", "Anaemia, leukemia and blood disorders."],
-            ["🦠", "Infections", "Pathological changes caused by infections."]
-        ]
-    },
+/* ================= MBBS ================= */
 
-    pharmacology: {
-        title: "💊 Pharmacology",
-        description: "Medical Student Pharmacology Library",
-        topics: [
-            ["💊", "General Pharmacology", "Drug actions, absorption and distribution."],
-            ["❤️", "Cardiovascular Drugs", "Drugs used in cardiovascular conditions."],
-            ["🧠", "CNS Drugs", "Drugs acting on the central nervous system."],
-            ["🦠", "Antimicrobial Drugs", "Antibiotics and antimicrobial agents."]
-        ]
-    },
+"MBBS": {
 
-    microbiology: {
-        title: "🦠 Microbiology",
-        description: "Medical Student Microbiology Library",
-        topics: [
-            ["🧫", "Bacteriology", "Study of bacteria and bacterial diseases."],
-            ["🦠", "Virology", "Viruses and viral diseases."],
-            ["🍄", "Mycology", "Fungi and fungal infections."],
-            ["🪱", "Parasitology", "Parasites and parasitic diseases."]
-        ]
-    },
+icon: "🩺",
 
-    forensic: {
-        title: "⚖️ Forensic Medicine",
-        description: "Medical Student Forensic Medicine Library",
-        topics: [
-            ["⚖️", "Legal Medicine", "Medical law and medico-legal concepts."],
-            ["🩸", "Injuries", "Types of injuries and their examination."],
-            ["☠️", "Poisons", "Important poisons and toxicology."]
-        ]
-    },
+subjects: {
 
-    community: {
-        title: "🌍 Community Medicine",
-        description: "Medical Student Community Medicine Library",
-        topics: [
-            ["🏥", "Public Health", "Basic concepts of public health."],
-            ["📊", "Epidemiology", "Study of disease distribution and determinants."],
-            ["💉", "Vaccination", "Immunization and vaccination programs."],
-            ["👨‍👩‍👧", "Family Health", "Family and community health."]
-        ]
-    },
+"First Year": [
 
-    medicine: {
-        title: "🩺 Medicine",
-        description: "Medical Student Medicine Library",
-        topics: [
-            ["❤️", "Cardiology", "Common cardiovascular diseases."],
-            ["🫁", "Respiratory Medicine", "Common respiratory diseases."],
-            ["🧠", "Neurology", "Common neurological conditions."],
-            ["🫘", "Nephrology", "Kidney diseases and disorders."]
-        ]
-    },
+"Anatomy",
+"Physiology",
+"Biochemistry"
 
-    surgery: {
-        title: "🏥 Surgery",
-        description: "Medical Student Surgery Library",
-        topics: [
-            ["🔪", "General Surgery", "Basic principles of surgery."],
-            ["🩹", "Wounds", "Wound healing and wound management."],
-            ["🦴", "Orthopaedics", "Bones, joints and musculoskeletal surgery."],
-            ["🚑", "Emergency Surgery", "Basic surgical emergencies."]
-        ]
-    }
+],
+
+"Second Year": [
+
+"Pathology",
+"Pharmacology",
+"Microbiology",
+"Forensic Medicine"
+
+],
+
+"Clinical Subjects": [
+
+"General Medicine",
+"General Surgery",
+"Pediatrics",
+"Obstetrics & Gynecology",
+"Orthopedics",
+"Ophthalmology",
+"ENT",
+"Dermatology",
+"Psychiatry",
+"Radiology",
+"Anesthesiology",
+"Community Medicine"
+
+]
+
+}
+
+},
+
+
+/* ================= BDS ================= */
+
+"BDS": {
+
+icon: "🦷",
+
+subjects: {
+
+"Basic Sciences": [
+
+"General Anatomy",
+"Physiology",
+"Biochemistry",
+"Dental Anatomy",
+"Oral Histology"
+
+],
+
+"Preclinical": [
+
+"General Pathology",
+"Microbiology",
+"Pharmacology",
+"Dental Materials",
+"Preclinical Prosthodontics",
+"Preclinical Conservative Dentistry"
+
+],
+
+"Clinical": [
+
+"Oral Pathology",
+"Prosthodontics",
+"Conservative Dentistry",
+"Endodontics",
+"Periodontology",
+"Orthodontics",
+"Oral & Maxillofacial Surgery",
+"Pedodontics",
+"Public Health Dentistry"
+
+]
+
+}
+
+},
+
+
+/* ================= BPT ================= */
+
+"BPT": {
+
+icon: "💪",
+
+subjects: {
+
+"Basic Sciences": [
+
+"Anatomy",
+"Physiology",
+"Biochemistry",
+"Psychology",
+"Sociology"
+
+],
+
+"Physiotherapy Sciences": [
+
+"Biomechanics",
+"Exercise Therapy",
+"Electrotherapy",
+"Pathology",
+"Pharmacology"
+
+],
+
+"Clinical Physiotherapy": [
+
+"Orthopedics",
+"Neurology",
+"Cardiopulmonary Physiotherapy",
+"Musculoskeletal Physiotherapy",
+"Neurological Physiotherapy",
+"Pediatric Physiotherapy",
+"Geriatric Physiotherapy",
+"Sports Physiotherapy",
+"Community Physiotherapy"
+
+],
+
+"Research": [
+
+"Research Methodology",
+"Biostatistics",
+"Clinical Practice"
+
+]
+
+}
+
+},
+
+
+/* ================= BSC NURSING ================= */
+
+"B.Sc Nursing": {
+
+icon: "👩‍⚕️",
+
+subjects: {
+
+"Basic Sciences": [
+
+"Anatomy",
+"Physiology",
+"Biochemistry",
+"Nutrition",
+"Psychology",
+"Sociology"
+
+],
+
+"Nursing Sciences": [
+
+"Nursing Foundation",
+"Medical-Surgical Nursing",
+"Child Health Nursing",
+"Mental Health Nursing",
+"Community Health Nursing",
+"Obstetric & Gynecological Nursing",
+"Midwifery"
+
+],
+
+"Professional Subjects": [
+
+"Pharmacology",
+"Pathology",
+"Microbiology",
+"Research Methodology",
+"Nursing Education"
+
+]
+
+}
+
+},
+
+
+/* ================= B PHARM ================= */
+
+"B.Pharm": {
+
+icon: "💊",
+
+subjects: {
+
+"Basic Sciences": [
+
+"Human Anatomy & Physiology",
+"Biochemistry",
+"Pathophysiology"
+
+],
+
+"Pharmaceutical Sciences": [
+
+"Pharmaceutics",
+"Pharmaceutical Analysis",
+"Pharmaceutical Chemistry",
+"Pharmacognosy",
+"Pharmaceutical Microbiology"
+
+],
+
+"Clinical Sciences": [
+
+"Pharmacology",
+"Medicinal Chemistry",
+"Clinical Pharmacy",
+"Pharmacy Practice",
+"Pharmacokinetics"
+
+],
+
+"Advanced": [
+
+"Industrial Pharmacy",
+"Pharmaceutical Biotechnology",
+"Quality Assurance",
+"Biopharmaceutics"
+
+]
+
+}
+
+},
+
+
+/* ================= D PHARM ================= */
+
+"D.Pharm": {
+
+icon: "💊",
+
+subjects: {
+
+"Core": [
+
+"Pharmaceutics",
+"Pharmaceutical Chemistry",
+"Pharmacognosy",
+"Human Anatomy & Physiology",
+"Social Pharmacy"
+
+],
+
+"Clinical": [
+
+"Pharmacology",
+"Community Pharmacy",
+"Hospital Pharmacy",
+"Biochemistry & Clinical Pathology"
+
+]
+
+}
+
+},
+
+
+/* ================= GNM ================= */
+
+"GNM": {
+
+icon: "👩‍⚕️",
+
+subjects: {
+
+"Basic Sciences": [
+
+"Anatomy & Physiology",
+"Psychology",
+"Sociology",
+"Nutrition"
+
+],
+
+"Nursing": [
+
+"Nursing Foundation",
+"Medical-Surgical Nursing",
+"Child Health Nursing",
+"Mental Health Nursing",
+"Community Health Nursing",
+"Midwifery"
+
+],
+
+"Additional": [
+
+"First Aid",
+"Health Education"
+
+]
+
+}
+
+},
+
+
+/* ================= BAMS ================= */
+
+"BAMS": {
+
+icon: "🌿",
+
+subjects: {
+
+"Basic Subjects": [
+
+"Sanskrit & Samhita",
+"Padartha Vijnana",
+"Kriya Sharira",
+"Rachana Sharira"
+
+],
+
+"Preclinical": [
+
+"Dravyaguna",
+"Rasashastra",
+"Swasthavritta",
+"Agada Tantra",
+"Roga Nidana"
+
+],
+
+"Clinical": [
+
+"Kayachikitsa",
+"Shalya Tantra",
+"Shalakya Tantra",
+"Prasuti Tantra",
+"Kaumarabhritya",
+"Panchakarma"
+
+]
+
+}
+
+},
+
+
+/* ================= BHMS ================= */
+
+"BHMS": {
+
+icon: "🌿",
+
+subjects: {
+
+"Basic Sciences": [
+
+"Anatomy",
+"Physiology",
+"Biochemistry"
+
+],
+
+"Homeopathy": [
+
+"Organon of Medicine",
+"Homeopathic Pharmacy",
+"Materia Medica"
+
+],
+
+"Clinical": [
+
+"Pathology",
+"Forensic Medicine",
+"Community Medicine",
+"Surgery",
+"Medicine",
+"Obstetrics & Gynecology",
+"Pediatrics"
+
+]
+
+}
+
+},
+
+
+/* ================= BNYS ================= */
+
+"BNYS": {
+
+icon: "🌿",
+
+subjects: {
+
+"Basic Sciences": [
+
+"Anatomy",
+"Physiology",
+"Biochemistry",
+"Pathology",
+"Microbiology"
+
+],
+
+"Core": [
+
+"Yoga",
+"Naturopathy",
+"Nutrition",
+"Hydrotherapy",
+"Acupuncture"
+
+],
+
+"Clinical": [
+
+"Manipulative Therapies",
+"Community Medicine",
+"Clinical Practice"
+
+]
+
+}
+
+},
+
+
+/* ================= BUMS ================= */
+
+"BUMS": {
+
+icon: "🌿",
+
+subjects: {
+
+"Basic Sciences": [
+
+"Anatomy",
+"Physiology",
+"Biochemistry"
+
+],
+
+"Unani Sciences": [
+
+"Ilmul Advia",
+"Mahiyatul Amraz",
+"Tahaffuzi wa Samaji Tib",
+"Ilmul Saidla"
+
+],
+
+"Clinical": [
+
+"Moalajat",
+"Jarahat",
+"Amraz-e-Atfal",
+"Niswan wa Qabalat"
+
+]
+
+}
+
+},
+
+
+/* ================= ALLIED HEALTH ================= */
+
+"Allied Health Sciences": {
+
+icon: "🏥",
+
+subjects: {
+
+"Common Subjects": [
+
+"Anatomy",
+"Physiology",
+"Biochemistry",
+"Pathology",
+"Microbiology",
+"Pharmacology",
+"Medical Terminology"
+
+],
+
+"Professional": [
+
+"Research Methodology",
+"Clinical Practice",
+"Patient Care"
+
+]
+
+}
+
+},
+
+
+/* ================= MLT ================= */
+
+"Medical Laboratory Technology": {
+
+icon: "🔬",
+
+subjects: {
+
+"Basic Sciences": [
+
+"Anatomy",
+"Physiology",
+"Biochemistry"
+
+],
+
+"Laboratory Sciences": [
+
+"Clinical Biochemistry",
+"Hematology",
+"Microbiology",
+"Histopathology",
+"Immunology",
+"Blood Banking",
+"Clinical Pathology"
+
+]
+
+}
+
+},
+
+
+/* ================= RADIOLOGY ================= */
+
+"Radiology & Medical Imaging": {
+
+icon: "🩻",
+
+subjects: {
+
+"Basic": [
+
+"Anatomy",
+"Physiology",
+"Radiation Physics",
+"Radiation Protection"
+
+],
+
+"Imaging": [
+
+"Radiographic Positioning",
+"Radiographic Procedures",
+"CT",
+"MRI",
+"Ultrasound",
+"Patient Care"
+
+]
+
+}
+
+},
+
+
+/* ================= RESPIRATORY ================= */
+
+"Respiratory Therapy": {
+
+icon: "🫁",
+
+subjects: {
+
+"Basic": [
+
+"Anatomy",
+"Physiology",
+"Respiratory Physiology"
+
+],
+
+"Clinical": [
+
+"Pulmonary Medicine",
+"Respiratory Pharmacology",
+"Mechanical Ventilation",
+"Critical Care",
+"Pulmonary Function Testing",
+"Sleep Medicine"
+
+]
+
+}
+
+},
+
+
+/* ================= CARDIAC ================= */
+
+"Cardiac Care Technology": {
+
+icon: "❤️",
+
+subjects: {
+
+"Basic": [
+
+"Anatomy",
+"Physiology"
+
+],
+
+"Cardiac Sciences": [
+
+"Cardiology",
+"ECG",
+"Echocardiography",
+"Cardiac Catheterization",
+"Critical Care",
+"Emergency Cardiac Care"
+
+]
+
+}
+
+},
+
+
+/* ================= OPTOMETRY ================= */
+
+"Optometry": {
+
+icon: "👁️",
+
+subjects: {
+
+"Basic": [
+
+"Ocular Anatomy",
+"Ocular Physiology",
+"Optics",
+"Visual Optics"
+
+],
+
+"Clinical": [
+
+"Ophthalmic Pathology",
+"Contact Lenses",
+"Binocular Vision",
+"Low Vision",
+"Clinical Optometry"
+
+]
+
+}
+
+},
+
+
+/* ================= ANESTHESIA ================= */
+
+"Anesthesia Technology": {
+
+icon: "😷",
+
+subjects: {
+
+"Basic": [
+
+"Anatomy",
+"Physiology",
+"Pharmacology"
+
+],
+
+"Clinical": [
+
+"Anesthesia Equipment",
+"General Anesthesia",
+"Regional Anesthesia",
+"Airway Management",
+"Critical Care",
+"Emergency Medicine"
+
+]
+
+}
+
+},
+
+
+/* ================= PHYSICIAN ASSISTANT ================= */
+
+"Physician Assistant": {
+
+icon: "🩺",
+
+subjects: {
+
+"Basic": [
+
+"Anatomy",
+"Physiology",
+"Pathology",
+"Pharmacology"
+
+],
+
+"Clinical": [
+
+"Medicine",
+"Surgery",
+"Pediatrics",
+"Obstetrics & Gynecology",
+"Emergency Medicine",
+"Clinical Skills"
+
+]
+
+}
+
+},
+
+
+/* ================= SPEECH ================= */
+
+"Speech & Hearing": {
+
+icon: "🗣️",
+
+subjects: {
+
+"Basic": [
+
+"Anatomy",
+"Physiology",
+"Neurology"
+
+],
+
+"Professional": [
+
+"Audiology",
+"Speech Pathology",
+"Language Development",
+"Phonetics",
+"Clinical Audiology"
+
+]
+
+}
+
+},
+
+
+/* ================= NUTRITION ================= */
+
+"Nutrition & Dietetics": {
+
+icon: "🥗",
+
+subjects: {
+
+"Basic": [
+
+"Human Nutrition",
+"Biochemistry",
+"Food Science"
+
+],
+
+"Clinical": [
+
+"Clinical Nutrition",
+"Therapeutic Diets",
+"Community Nutrition",
+"Public Health Nutrition",
+"Nutrition Assessment"
+
+]
+
+}
+
+},
+
+
+/* ================= ORTHOTICS ================= */
+
+"Orthotics & Prosthetics": {
+
+icon: "🦵",
+
+subjects: {
+
+"Basic": [
+
+"Anatomy",
+"Physiology",
+"Biomechanics"
+
+],
+
+"Professional": [
+
+"Orthotics",
+"Prosthetics",
+"Gait Analysis",
+"Materials & Fabrication",
+"Clinical Practice"
+
+]
+
+}
+
+}
 
 };
 
 
-/* OPEN SUBJECT */
-
-function openSubject(subject) {
-
-    const data = subjects[subject];
-
-    if (!data) {
-        return;
-    }
-
-    document.getElementById("homePage").style.display = "none";
-
-    document.getElementById("subjectPage").style.display = "block";
-
-    document.getElementById("subjectTitle").innerText = data.title;
-
-    document.getElementById("subjectDescription").innerText =
-        data.description;
+/* =====================================================
+   DISPLAY COURSES
+===================================================== */
 
 
-    const topicList = document.getElementById("topicList");
+function displayCourses() {
 
-    topicList.innerHTML = "";
+const grid =
+document.getElementById("courseGrid");
+
+grid.innerHTML = "";
 
 
-    data.topics.forEach(function(topic) {
+Object.keys(courses).forEach(function(course) {
 
-        const topicCard = document.createElement("div");
+const data = courses[course];
 
-        topicCard.className = "topic-card";
+const card =
+document.createElement("div");
 
-        topicCard.innerHTML = `
-            <h3>${topic[0]} ${topic[1]}</h3>
-            <p>${topic[2]}</p>
-        `;
+card.className = "card";
 
-        topicList.appendChild(topicCard);
+card.setAttribute("data-course", course);
 
-    });
+card.innerHTML = `
 
-    window.scrollTo(0, 0);
+<div class="icon">
+${data.icon}
+</div>
+
+<h3>
+${course}
+</h3>
+
+<p>
+Tap to explore
+</p>
+
+`;
+
+card.onclick = function() {
+
+openCourse(course);
+
+};
+
+grid.appendChild(card);
+
+});
+
 }
 
 
-/* BACK TO HOME */
+/* =====================================================
+   SEARCH COURSES
+===================================================== */
+
+
+function searchCourses() {
+
+const query =
+document.getElementById("searchBox")
+.value
+.toLowerCase();
+
+
+const cards =
+document.querySelectorAll("#courseGrid .card");
+
+
+cards.forEach(function(card) {
+
+const course =
+card.getAttribute("data-course")
+.toLowerCase();
+
+
+if (course.includes(query)) {
+
+card.style.display = "block";
+
+} else {
+
+card.style.display = "none";
+
+}
+
+});
+
+}
+
+
+/* =====================================================
+   OPEN COURSE
+===================================================== */
+
+
+function openCourse(course) {
+
+const data = courses[course];
+
+if (!data) return;
+
+
+document.getElementById("homePage")
+.style.display = "none";
+
+document.getElementById("coursePage")
+.style.display = "block";
+
+document.getElementById("subjectPage")
+.style.display = "none";
+
+document.getElementById("topicPage")
+.style.display = "none";
+
+
+document.getElementById("courseTitle")
+.innerText =
+data.icon + " " + course;
+
+
+document.getElementById("courseDescription")
+.innerText =
+"Choose a subject area";
+
+
+const grid =
+document.getElementById("subjectGrid");
+
+grid.innerHTML = "";
+
+
+Object.keys(data.subjects).forEach(function(category) {
+
+
+const categoryTitle =
+document.createElement("h2");
+
+categoryTitle.style.marginTop = "25px";
+
+categoryTitle.innerText =
+category;
+
+grid.appendChild(categoryTitle);
+
+
+data.subjects[category].forEach(function(subject) {
+
+const card =
+document.createElement("div");
+
+card.className = "topic-card";
+
+card.innerHTML = `
+
+<h3>📚 ${subject}</h3>
+
+<p>
+Tap to explore this subject
+</p>
+
+`;
+
+card.onclick = function() {
+
+openSubject(course, subject);
+
+};
+
+grid.appendChild(card);
+
+});
+
+});
+
+window.scrollTo(0,0);
+
+}
+
+
+/* =====================================================
+   OPEN SUBJECT
+===================================================== */
+
+
+function openSubject(course, subject) {
+
+document.getElementById("coursePage")
+.style.display = "none";
+
+document.getElementById("subjectPage")
+.style.display = "block";
+
+document.getElementById("topicPage")
+.style.display = "none";
+
+
+document.getElementById("subjectTitle")
+.innerText =
+"📖 " + subject;
+
+
+document.getElementById("subjectDescription")
+.innerText =
+course + " · " + subject;
+
+
+const grid =
+document.getElementById("topicGrid");
+
+grid.innerHTML = "";
+
+
+/* GENERAL TOPICS */
+
+const topics = [
+
+"Introduction",
+
+"Important Concepts",
+
+"Definitions",
+
+"Classification",
+
+"Anatomy / Structure",
+
+"Physiology / Function",
+
+"Clinical Features",
+
+"Diagnosis",
+
+"Treatment / Management",
+
+"Important Exam Points",
+
+"MCQs",
+
+"Revision Notes"
+
+];
+
+
+topics.forEach(function(topic) {
+
+const card =
+document.createElement("div");
+
+card.className = "topic-card";
+
+card.innerHTML = `
+
+<h3>📘 ${topic}</h3>
+
+<p>
+Tap to study
+</p>
+
+`;
+
+card.onclick = function() {
+
+openTopic(course, subject, topic);
+
+};
+
+grid.appendChild(card);
+
+});
+
+window.scrollTo(0,0);
+
+}
+
+
+/* =====================================================
+   OPEN TOPIC
+===================================================== */
+
+
+function openTopic(course, subject, topic) {
+
+document.getElementById("subjectPage")
+.style.display = "none";
+
+document.getElementById("topicPage")
+.style.display = "block";
+
+
+document.getElementById("topicTitle")
+.innerText =
+"📚 " + topic;
+
+
+const content =
+document.getElementById("topicContent");
+
+
+content.innerHTML = `
+
+<div class="topic-card">
+
+<h3>🎓 ${subject}</h3>
+
+<p>
+Course: ${course}
+</p>
+
+</div>
+
+
+<div class="topic-card">
+
+<h3>📖 Study Notes</h3>
+
+<p>
+Study notes for <b>${topic}</b> will be
+available here.
+</p>
+
+<p style="margin-top:12px;">
+
+We can add structured explanations,
+important points, diagrams and tables
+to this section.
+
+</p>
+
+</div>
+
+
+<div class="topic-card">
+
+<h3>❓ MCQs</h3>
+
+<p>
+Practice questions for ${topic}
+will be added here.
+</p>
+
+</div>
+
+
+<div class="topic-card">
+
+<h3>📝 Exam Revision</h3>
+
+<p>
+Important examination points and
+quick revision notes will appear here.
+</p>
+
+</div>
+
+
+<div class="topic-card">
+
+<h3>📚 Open Educational Resources</h3>
+
+<p>
+We will add links to legally accessible
+educational resources here.
+</p>
+
+</div>
+
+`;
+
+window.scrollTo(0,0);
+
+}
+
+
+/* =====================================================
+   BACK TO COURSES
+===================================================== */
+
 
 function goHome() {
 
-    document.getElementById("subjectPage").style.display = "none";
+document.getElementById("homePage")
+.style.display = "block";
 
-    document.getElementById("homePage").style.display = "block";
+document.getElementById("coursePage")
+.style.display = "none";
 
-    window.scrollTo(0, 0);
+document.getElementById("subjectPage")
+.style.display = "none";
+
+document.getElementById("topicPage")
+.style.display = "none";
+
+
+document.getElementById("searchBox")
+.value = "";
+
+
+displayCourses();
+
+window.scrollTo(0,0);
+
+}
+
+
+/* =====================================================
+   BACK TO SUBJECTS
+===================================================== */
+
+
+function goCourses() {
+
+document.getElementById("coursePage")
+.style.display = "block";
+
+document.getElementById("subjectPage")
+.style.display = "none";
+
+document.getElementById("topicPage")
+.style.display = "none";
+
+window.scrollTo(0,0);
+
 }
 
 
-/* SEARCH */
-
-function searchSubjects() {
-
-    const query =
-        document.getElementById("searchBox").value.toLowerCase();
-
-    const cards =
-        document.querySelectorAll("#subjects .card");
+/* =====================================================
+   BACK TO TOPICS
+===================================================== */
 
 
-    cards.forEach(function(card) {
+function goSubject() {
 
-        const text =
-            card.innerText.toLowerCase();
+document.getElementById("subjectPage")
+.style.display = "block";
 
-        if (text.includes(query)) {
+document.getElementById("topicPage")
+.style.display = "none";
 
-            card.style.display = "block";
-
-        } else {
-
-            card.style.display = "none";
-
-        }
-
-    });
+window.scrollTo(0,0);
 
 }
+
+
+/* =====================================================
+   START WEBSITE
+===================================================== */
+
+
+displayCourses();
 
 </script>
 
