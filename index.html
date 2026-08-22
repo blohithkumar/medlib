@@ -1,183 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>MedLib - Medical Student Library</title>
 
 <style>
 
-* {
-    box-sizing: border-box;
+*{
+box-sizing:border-box;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f8fa;
-    color: #17202a;
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f4f8fa;
+color:#17202a;
 }
 
-header {
-    background: #087f8c;
-    color: white;
-    text-align: center;
-    padding: 25px 15px;
+header{
+background:#087f8c;
+color:white;
+text-align:center;
+padding:25px 15px;
 }
 
-.logo {
-    font-size: 30px;
-    font-weight: bold;
+.logo{
+font-size:30px;
+font-weight:bold;
 }
 
-.tagline {
-    margin-top: 8px;
+.tagline{
+margin-top:7px;
 }
 
-.hero {
-    background: white;
-    text-align: center;
-    padding: 35px 20px;
+.hero{
+background:white;
+text-align:center;
+padding:35px 20px;
 }
 
-.hero h1 {
-    margin: 0 0 12px;
-    font-size: 30px;
+.hero h1{
+margin:0 0 12px;
+font-size:30px;
 }
 
-.hero p {
-    color: #5f6b73;
+.hero p{
+color:#5f6b73;
 }
 
-.search {
-    width: 100%;
-    max-width: 650px;
-    padding: 15px 18px;
-    border: 1px solid #ccd6dc;
-    border-radius: 30px;
-    font-size: 16px;
-    outline: none;
+.search{
+width:100%;
+max-width:650px;
+padding:15px 18px;
+border:1px solid #ccd6dc;
+border-radius:30px;
+font-size:16px;
+outline:none;
 }
 
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 28px 18px;
+.container{
+max-width:1100px;
+margin:auto;
+padding:28px 18px;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(145px, 1fr)
-    );
-    gap: 15px;
+.grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(145px,1fr));
+gap:15px;
 }
 
-.card {
-    background: white;
-    padding: 25px 12px;
-    border-radius: 16px;
-    text-align: center;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.07);
-    cursor: pointer;
-    user-select: none;
+.card{
+background:white;
+padding:24px 12px;
+border-radius:16px;
+text-align:center;
+box-shadow:
+0 3px 12px rgba(0,0,0,.07);
+cursor:pointer;
 }
 
-.card:active {
-    transform: scale(0.96);
+.card:active{
+transform:scale(.97);
 }
 
-.icon {
-    font-size: 40px;
-    margin-bottom: 10px;
+.icon{
+font-size:40px;
+margin-bottom:10px;
 }
 
-.card h3 {
-    margin: 5px 0;
-    font-size: 16px;
+.card h3{
+margin:5px 0;
+font-size:16px;
 }
 
-.card p {
-    color: #68757d;
-    font-size: 13px;
+.card p{
+color:#68757d;
+font-size:13px;
 }
 
-.item {
-    background: white;
-    padding: 20px;
-    border-radius: 14px;
-    margin-bottom: 12px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-    cursor: pointer;
+.item{
+background:white;
+padding:20px;
+border-radius:14px;
+margin-bottom:12px;
+box-shadow:
+0 3px 10px rgba(0,0,0,.06);
+cursor:pointer;
 }
 
-.item:active {
-    transform: scale(0.98);
+.item:active{
+transform:scale(.98);
 }
 
-.item h3 {
-    margin: 0 0 8px;
+.item h3{
+margin:0 0 8px;
 }
 
-.item p {
-    margin: 0;
-    color: #68757d;
+.item p{
+margin:0;
+color:#68757d;
 }
 
-.year {
-    background: #087f8c;
-    color: white;
-    padding: 14px 18px;
-    border-radius: 12px;
-    margin-bottom: 15px;
-    cursor: pointer;
+.year{
+background:#087f8c;
+color:white;
+padding:15px 18px;
+border-radius:12px;
+margin-bottom:15px;
+cursor:pointer;
 }
 
-.topic-box {
-    background: white;
-    padding: 22px;
-    border-radius: 15px;
-    margin-bottom: 15px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+.resource{
+background:white;
+padding:20px;
+border-radius:15px;
+margin-bottom:15px;
+box-shadow:
+0 3px 10px rgba(0,0,0,.06);
 }
 
-.back {
-    border: none;
-    background: #087f8c;
-    color: white;
-    padding: 13px 20px;
-    border-radius: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 15px;
+.resource h3{
+margin-top:0;
 }
 
-.hidden {
-    display: none;
+.resource p{
+color:#68757d;
+line-height:1.5;
 }
 
-footer {
-    background: #17202a;
-    color: white;
-    text-align: center;
-    padding: 25px;
-    margin-top: 40px;
+.resource a{
+display:inline-block;
+background:#087f8c;
+color:white;
+text-decoration:none;
+padding:11px 16px;
+border-radius:9px;
+margin-top:8px;
 }
 
-.notice {
-    background: #fff8df;
-    padding: 15px;
-    border-radius: 12px;
-    margin: 20px 0;
-    line-height: 1.5;
+.resource a:active{
+transform:scale(.97);
+}
+
+.back{
+border:none;
+background:#087f8c;
+color:white;
+padding:13px 20px;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+margin-top:15px;
+}
+
+.hidden{
+display:none;
+}
+
+.notice{
+background:#fff8df;
+padding:16px;
+border-radius:12px;
+margin:20px 0;
+line-height:1.5;
+}
+
+footer{
+background:#17202a;
+color:white;
+text-align:center;
+padding:25px;
+margin-top:40px;
 }
 
 </style>
 
 </head>
+
 
 <body>
 
@@ -206,14 +232,14 @@ Study Medicine Anywhere 📚
 </h1>
 
 <p>
-Courses • Subjects • Topics • Notes • MCQs • Resources
+Books • Notes • MCQs • PYQs • Diagrams
 </p>
 
 <input
 id="search"
 class="search"
 type="text"
-placeholder="🔍 Search MBBS, BPT, Anatomy, Pharmacology..."
+placeholder="🔍 Search courses..."
 >
 
 </div>
@@ -222,267 +248,329 @@ placeholder="🔍 Search MBBS, BPT, Anatomy, Pharmacology..."
 <div class="container">
 
 <h2>
-🎓 Medical & Healthcare Courses
+🎓 Choose Your Course
 </h2>
 
 <div class="notice">
 
-MedLib is being built as a learning-resource platform.
-Books and documents will be added only from
-legal/open-access sources or material we have permission
-to distribute.
+MedLib provides links to free and legally
+accessible educational resources. We do not
+host or distribute pirated copyrighted books.
 
 </div>
+
 
 <div id="courseList" class="grid">
 
 
-<div class="card" data-name="MBBS"
+<div class="card"
+data-name="MBBS"
 onclick="openCourse('MBBS')">
 
 <div class="icon">🩺</div>
+
 <h3>MBBS</h3>
+
 <p>Medicine & Surgery</p>
 
 </div>
 
 
-<div class="card" data-name="BDS"
+<div class="card"
+data-name="BDS"
 onclick="openCourse('BDS')">
 
 <div class="icon">🦷</div>
+
 <h3>BDS</h3>
+
 <p>Dental Surgery</p>
 
 </div>
 
 
-<div class="card" data-name="BPT"
+<div class="card"
+data-name="BPT"
 onclick="openCourse('BPT')">
 
 <div class="icon">💪</div>
+
 <h3>BPT</h3>
+
 <p>Physiotherapy</p>
 
 </div>
 
 
-<div class="card" data-name="BSc Nursing"
+<div class="card"
+data-name="BSc Nursing"
 onclick="openCourse('B.Sc Nursing')">
 
 <div class="icon">👩‍⚕️</div>
+
 <h3>B.Sc Nursing</h3>
+
 <p>Nursing</p>
 
 </div>
 
 
-<div class="card" data-name="GNM Nursing"
+<div class="card"
+data-name="GNM"
 onclick="openCourse('GNM')">
 
 <div class="icon">👩‍⚕️</div>
+
 <h3>GNM</h3>
+
 <p>Nursing</p>
 
 </div>
 
 
-<div class="card" data-name="BPharm Pharmacy"
+<div class="card"
+data-name="BPharm"
 onclick="openCourse('B.Pharm')">
 
 <div class="icon">💊</div>
+
 <h3>B.Pharm</h3>
+
 <p>Pharmacy</p>
 
 </div>
 
 
-<div class="card" data-name="DPharm Pharmacy"
+<div class="card"
+data-name="DPharm"
 onclick="openCourse('D.Pharm')">
 
 <div class="icon">💊</div>
+
 <h3>D.Pharm</h3>
+
 <p>Pharmacy</p>
 
 </div>
 
 
-<div class="card" data-name="PharmD Doctor Pharmacy"
+<div class="card"
+data-name="PharmD"
 onclick="openCourse('Pharm.D')">
 
 <div class="icon">💊</div>
+
 <h3>Pharm.D</h3>
+
 <p>Doctor of Pharmacy</p>
 
 </div>
 
 
-<div class="card" data-name="BAMS Ayurveda"
+<div class="card"
+data-name="BAMS"
 onclick="openCourse('BAMS')">
 
 <div class="icon">🌿</div>
+
 <h3>BAMS</h3>
+
 <p>Ayurveda</p>
 
 </div>
 
 
-<div class="card" data-name="BHMS Homeopathy"
+<div class="card"
+data-name="BHMS"
 onclick="openCourse('BHMS')">
 
 <div class="icon">🌿</div>
+
 <h3>BHMS</h3>
+
 <p>Homeopathy</p>
 
 </div>
 
 
-<div class="card" data-name="BUMS Unani"
+<div class="card"
+data-name="BUMS"
 onclick="openCourse('BUMS')">
 
 <div class="icon">🌿</div>
+
 <h3>BUMS</h3>
-<p>Unani Medicine</p>
+
+<p>Unani</p>
 
 </div>
 
 
-<div class="card" data-name="BNYS Naturopathy Yoga"
+<div class="card"
+data-name="BNYS"
 onclick="openCourse('BNYS')">
 
 <div class="icon">🧘</div>
+
 <h3>BNYS</h3>
+
 <p>Naturopathy & Yoga</p>
 
 </div>
 
 
-<div class="card" data-name="BSMS Siddha"
+<div class="card"
+data-name="BSMS"
 onclick="openCourse('BSMS')">
 
 <div class="icon">🌿</div>
+
 <h3>BSMS</h3>
-<p>Siddha Medicine</p>
+
+<p>Siddha</p>
 
 </div>
 
 
-<div class="card" data-name="BSc MLT Medical Laboratory"
+<div class="card"
+data-name="MLT"
 onclick="openCourse('B.Sc MLT')">
 
 <div class="icon">🔬</div>
+
 <h3>B.Sc MLT</h3>
+
 <p>Medical Laboratory</p>
 
 </div>
 
 
-<div class="card" data-name="Medical Imaging Radiology"
+<div class="card"
+data-name="Medical Imaging"
 onclick="openCourse('Medical Imaging')">
 
 <div class="icon">🩻</div>
+
 <h3>Medical Imaging</h3>
+
 <p>Radiology</p>
 
 </div>
 
 
-<div class="card" data-name="Optometry"
+<div class="card"
+data-name="Optometry"
 onclick="openCourse('Optometry')">
 
 <div class="icon">👁️</div>
+
 <h3>Optometry</h3>
+
 <p>Eye Care</p>
 
 </div>
 
 
-<div class="card" data-name="Respiratory Therapy"
+<div class="card"
+data-name="Respiratory Therapy"
 onclick="openCourse('Respiratory Therapy')">
 
 <div class="icon">🫁</div>
+
 <h3>Respiratory Therapy</h3>
+
 <p>Respiratory Care</p>
 
 </div>
 
 
-<div class="card" data-name="Cardiac Care"
+<div class="card"
+data-name="Cardiac Care"
 onclick="openCourse('Cardiac Care')">
 
 <div class="icon">❤️</div>
+
 <h3>Cardiac Care</h3>
-<p>Cardiovascular Care</p>
+
+<p>Cardiac Sciences</p>
 
 </div>
 
 
-<div class="card" data-name="Anaesthesia Technology"
+<div class="card"
+data-name="Anaesthesia"
 onclick="openCourse('Anaesthesia Technology')">
 
 <div class="icon">😷</div>
-<h3>Anaesthesia Technology</h3>
-<p>Anaesthesia</p>
+
+<h3>Anaesthesia</h3>
+
+<p>Technology</p>
 
 </div>
 
 
-<div class="card" data-name="Operation Theatre Technology"
+<div class="card"
+data-name="OT Technology"
 onclick="openCourse('Operation Theatre Technology')">
 
 <div class="icon">🏥</div>
+
 <h3>OT Technology</h3>
+
 <p>Operation Theatre</p>
 
 </div>
 
 
-<div class="card" data-name="Dialysis Technology"
+<div class="card"
+data-name="Dialysis"
 onclick="openCourse('Dialysis Technology')">
 
 <div class="icon">🩸</div>
-<h3>Dialysis Technology</h3>
+
+<h3>Dialysis</h3>
+
 <p>Renal Care</p>
 
 </div>
 
 
-<div class="card" data-name="Emergency Trauma Care"
+<div class="card"
+data-name="Emergency"
 onclick="openCourse('Emergency Trauma Care')">
 
 <div class="icon">🚑</div>
+
 <h3>Emergency Care</h3>
-<p>Trauma Care</p>
+
+<p>Trauma</p>
 
 </div>
 
 
-<div class="card" data-name="Occupational Therapy"
+<div class="card"
+data-name="Occupational Therapy"
 onclick="openCourse('Occupational Therapy')">
 
 <div class="icon">🧠</div>
+
 <h3>Occupational Therapy</h3>
+
 <p>Rehabilitation</p>
 
 </div>
 
 
-<div class="card" data-name="Audiology Speech Language Pathology"
+<div class="card"
+data-name="BASLP"
 onclick="openCourse('BASLP')">
 
 <div class="icon">👂</div>
+
 <h3>BASLP</h3>
-<p>Audiology & Speech</p>
 
-</div>
-
-
-<div class="card" data-name="Medical Records"
-onclick="openCourse('Medical Records')">
-
-<div class="icon">📋</div>
-<h3>Medical Records</h3>
-<p>Health Information</p>
+<p>Speech & Hearing</p>
 
 </div>
 
@@ -494,9 +582,10 @@ onclick="openCourse('Medical Records')">
 </section>
 
 
-<!-- COURSE PAGE -->
+<!-- COURSE -->
 
-<section id="coursePage" class="hidden">
+<section id="coursePage"
+class="hidden">
 
 <div class="container">
 
@@ -508,8 +597,11 @@ Select your year or semester.
 
 <div id="yearList"></div>
 
-<button class="back" onclick="goHome()">
+<button class="back"
+onclick="goHome()">
+
 ← Back to Courses
+
 </button>
 
 </div>
@@ -517,9 +609,10 @@ Select your year or semester.
 </section>
 
 
-<!-- SUBJECT PAGE -->
+<!-- SUBJECT -->
 
-<section id="subjectPage" class="hidden">
+<section id="subjectPage"
+class="hidden">
 
 <div class="container">
 
@@ -531,8 +624,11 @@ Select your year or semester.
 
 <div id="subjectList"></div>
 
-<button class="back" onclick="goCourse()">
+<button class="back"
+onclick="goCourse()">
+
 ← Back
+
 </button>
 
 </div>
@@ -540,9 +636,10 @@ Select your year or semester.
 </section>
 
 
-<!-- TOPIC PAGE -->
+<!-- TOPICS -->
 
-<section id="topicPage" class="hidden">
+<section id="topicPage"
+class="hidden">
 
 <div class="container">
 
@@ -554,8 +651,11 @@ Select your year or semester.
 
 <div id="topicList"></div>
 
-<button class="back" onclick="goSubject()">
+<button class="back"
+onclick="goSubject()">
+
 ← Back
+
 </button>
 
 </div>
@@ -563,73 +663,161 @@ Select your year or semester.
 </section>
 
 
-<!-- RESOURCE PAGE -->
+<!-- RESOURCES -->
 
-<section id="resourcePage" class="hidden">
+<section id="resourcePage"
+class="hidden">
 
 <div class="container">
 
 <h1 id="topicTitle"></h1>
 
 
-<div class="topic-box">
+<div class="resource">
 
-<h3>📖 Study Notes</h3>
+<h3>
+📚 Free Books
+</h3>
 
 <p>
-Detailed notes for this topic will be added here.
+Find legally accessible medical textbooks
+and biomedical books.
+</p>
+
+<a
+href="https://www.ncbi.nlm.nih.gov/books/"
+target="_blank">
+
+Open NCBI Bookshelf
+
+</a>
+
+</div>
+
+
+<div class="resource">
+
+<h3>
+📖 Anatomy & Physiology
+</h3>
+
+<p>
+OpenStax provides a free Anatomy and
+Physiology textbook online and as PDF.
+</p>
+
+<a
+href="https://openstax.org/books/anatomy-and-physiology-2e/"
+target="_blank">
+
+Open Free Textbook
+
+</a>
+
+</div>
+
+
+<div class="resource">
+
+<h3>
+🧑‍⚕️ Nursing Resources
+</h3>
+
+<p>
+Free nursing learning materials and
+open educational resources.
+</p>
+
+<a
+href="https://www.ncbi.nlm.nih.gov/books/"
+target="_blank">
+
+Open Nursing Resources
+
+</a>
+
+</div>
+
+
+<div class="resource">
+
+<h3>
+🌍 WHO Resources
+</h3>
+
+<p>
+Guidelines, training materials and
+healthcare learning resources from WHO.
+</p>
+
+<a
+href="https://www.who.int/publications"
+target="_blank">
+
+Open WHO Resources
+
+</a>
+
+</div>
+
+
+<div class="resource">
+
+<h3>
+📝 Notes</h3>
+
+<p>
+MedLib notes for this topic will be
+added here.
 </p>
 
 </div>
 
 
-<div class="topic-box">
+<div class="resource">
 
-<h3>📝 Important Questions</h3>
+<h3>
+❓ MCQs</h3>
 
 <p>
-University and examination questions will be added here.
+Practice questions will be added here.
 </p>
 
 </div>
 
 
-<div class="topic-box">
+<div class="resource">
 
-<h3>❓ MCQs</h3>
+<h3>
+📋 PYQs</h3>
 
 <p>
-Practice MCQs will be added here.
+University and entrance examination
+questions will be added here.
 </p>
 
 </div>
 
 
-<div class="topic-box">
+<div class="resource">
 
-<h3>🩻 Diagrams</h3>
+<h3>
+🩻 Diagrams</h3>
 
 <p>
-Educational diagrams will be added here.
+Educational diagrams and illustrations
+will be added here.
 </p>
 
 </div>
 
 
-<div class="topic-box">
+<button
+class="back"
+onclick="goTopics()">
 
-<h3>📚 Open-Access Resources</h3>
-
-<p>
-Legal and freely accessible learning resources will be
-linked here.
-</p>
-
-</div>
-
-
-<button class="back" onclick="goTopics()">
 ← Back to Topics
+
 </button>
 
 </div>
@@ -641,6 +829,10 @@ linked here.
 
 © 2026 MedLib
 
+<br><br>
+
+Free education. Legal resources. Better healthcare.
+
 </footer>
 
 
@@ -648,44 +840,35 @@ linked here.
 <script>
 
 
-/* =====================================================
-   MEDLIB DATABASE
-===================================================== */
+/* ============================
+DATABASE
+============================ */
 
-var database = {
+var database={
 
 
-/* ================= MBBS ================= */
+"MBBS":{
 
-"MBBS": {
-
-"1st Year": [
-
+"1st Year":[
 "Anatomy",
 "Physiology",
 "Biochemistry"
-
 ],
 
-"2nd Year": [
-
+"2nd Year":[
 "Pathology",
 "Pharmacology",
 "Microbiology",
 "Forensic Medicine"
-
 ],
 
-"3rd Year Part 1": [
-
+"3rd Year":[
 "Community Medicine",
 "Ophthalmology",
 "Otorhinolaryngology"
-
 ],
 
-"3rd Year Part 2": [
-
+"Final Year":[
 "General Medicine",
 "General Surgery",
 "Orthopaedics",
@@ -695,90 +878,54 @@ var database = {
 "Dermatology",
 "Radiology",
 "Anaesthesiology"
-
-],
-
-"Additional": [
-
-"AETCOM",
-"Early Clinical Exposure",
-"Research Methodology",
-"Medical Ethics"
-
 ]
 
 },
 
 
-/* ================= BDS ================= */
+"BDS":{
 
-"BDS": {
-
-"1st Year": [
-
-"General Anatomy",
+"1st Year":[
+"Anatomy",
 "Physiology",
 "Biochemistry",
 "Dental Anatomy",
 "Oral Histology"
-
 ],
 
-"2nd Year": [
-
+"2nd Year":[
 "Pathology",
 "Microbiology",
 "Pharmacology",
 "Preclinical Prosthodontics",
 "Preclinical Conservative Dentistry"
-
 ],
 
-"3rd Year": [
-
+"3rd Year":[
 "General Medicine",
 "General Surgery",
 "Oral Pathology",
 "Periodontology",
 "Prosthodontics",
 "Conservative Dentistry"
-
 ],
 
-"4th Year": [
-
+"Final Year":[
 "Oral Medicine",
 "Oral Surgery",
 "Orthodontics",
 "Pedodontics",
 "Prosthodontics",
 "Periodontology",
-"Conservative Dentistry",
 "Public Health Dentistry"
-
-],
-
-"Internship": [
-
-"Clinical Dentistry",
-"Oral Surgery",
-"Prosthodontics",
-"Conservative Dentistry",
-"Orthodontics",
-"Periodontology",
-"Pedodontics"
-
 ]
 
 },
 
 
-/* ================= BPT ================= */
+"BPT":{
 
-"BPT": {
-
-"1st Year": [
-
+"1st Year":[
 "Anatomy",
 "Physiology",
 "Biochemistry",
@@ -786,23 +933,18 @@ var database = {
 "Sociology",
 "English",
 "Introduction to Physiotherapy"
-
 ],
 
-"2nd Year": [
-
+"2nd Year":[
 "Biomechanics",
 "Exercise Therapy",
 "Electrotherapy",
 "Pathology",
 "Microbiology",
-"Pharmacology",
-"Clinical Observation"
-
+"Pharmacology"
 ],
 
-"3rd Year": [
-
+"3rd Year":[
 "General Medicine",
 "General Surgery",
 "Orthopaedics",
@@ -810,1645 +952,760 @@ var database = {
 "Cardiopulmonary Physiotherapy",
 "Paediatrics",
 "Sports Physiotherapy"
-
 ],
 
-"4th Year": [
-
+"4th Year":[
 "Musculoskeletal Physiotherapy",
 "Neurological Physiotherapy",
 "Cardiopulmonary Physiotherapy",
 "Community Physiotherapy",
 "Paediatric Physiotherapy",
-"Women Health Physiotherapy",
-"Research Methodology",
-"Clinical Practice"
-
+"Women's Health Physiotherapy",
+"Research Methodology"
 ],
 
-"Internship": [
-
-"Musculoskeletal Rehabilitation",
+"Internship":[
+"Clinical Physiotherapy",
+"Orthopaedic Rehabilitation",
 "Neurological Rehabilitation",
 "Cardiopulmonary Rehabilitation",
-"Paediatric Rehabilitation",
 "Community Rehabilitation"
-
 ]
 
 },
 
 
-/* ================= NURSING ================= */
+"B.Sc Nursing":{
 
-"B.Sc Nursing": {
-
-"1st Year": [
-
+"1st Year":[
 "Anatomy",
 "Physiology",
-"Biochemistry",
 "Nutrition",
 "Psychology",
 "Nursing Foundation",
-"Introduction to Nursing",
 "Microbiology"
-
 ],
 
-"2nd Year": [
-
+"2nd Year":[
 "Medical Surgical Nursing",
 "Pharmacology",
 "Pathology",
-"Genetics",
-"Community Health Nursing",
-"Child Health Nursing"
-
-],
-
-"3rd Year": [
-
-"Medical Surgical Nursing",
 "Child Health Nursing",
-"Mental Health Nursing",
 "Community Health Nursing"
-
 ],
 
-"4th Year": [
+"3rd Year":[
+"Medical Surgical Nursing",
+"Mental Health Nursing",
+"Child Health Nursing",
+"Community Health Nursing"
+],
 
+"4th Year":[
 "Midwifery",
 "Obstetrical Nursing",
 "Community Health Nursing",
 "Nursing Research",
-"Management of Nursing Services"
-
+"Nursing Management"
 ]
 
 },
 
 
-/* ================= GNM ================= */
+"GNM":{
 
-"GNM": {
-
-"1st Year": [
-
+"1st Year":[
 "Anatomy and Physiology",
 "Microbiology",
-"Behavioural Sciences",
+"Psychology",
 "Nursing Foundation",
 "First Aid",
 "Community Health Nursing"
-
 ],
 
-"2nd Year": [
-
+"2nd Year":[
 "Medical Surgical Nursing",
 "Pharmacology",
 "Child Health Nursing",
 "Mental Health Nursing"
-
 ],
 
-"3rd Year": [
-
+"3rd Year":[
 "Midwifery",
 "Community Health Nursing",
 "Medical Surgical Nursing",
 "Nursing Education",
 "Nursing Administration"
-
 ]
 
 },
 
 
-/* ================= BPHARM ================= */
+"B.Pharm":{
 
-"B.Pharm": {
-
-"1st Year": [
-
+"1st Year":[
 "Human Anatomy and Physiology",
-"Pharmaceutical Analysis",
 "Pharmaceutics",
-"Pharmaceutical Inorganic Chemistry",
+"Pharmaceutical Analysis",
+"Pharmaceutical Chemistry",
 "Communication Skills",
-"Remedial Mathematics",
 "Remedial Biology"
-
 ],
 
-"2nd Year": [
-
+"2nd Year":[
 "Pathophysiology",
-"Pharmaceutical Organic Chemistry",
-"Physical Pharmaceutics",
 "Pharmacology",
 "Pharmacognosy",
-"Biochemistry"
-
+"Biochemistry",
+"Physical Pharmaceutics"
 ],
 
-"3rd Year": [
-
+"3rd Year":[
 "Medicinal Chemistry",
 "Pharmacology",
-"Pharmacognosy",
 "Industrial Pharmacy",
 "Pharmaceutical Biotechnology",
-"Pharmaceutical Engineering"
-
+"Pharmacognosy"
 ],
 
-"4th Year": [
-
+"4th Year":[
 "Pharmacotherapy",
-"Biopharmaceutics",
-"Pharmaceutical Regulatory Science",
-"Pharmaceutical Marketing",
 "Clinical Pharmacy",
+"Biopharmaceutics",
 "Pharmacovigilance",
 "Research Project"
-
 ]
 
 },
 
 
-/* ================= DPHARM ================= */
+"D.Pharm":{
 
-"D.Pharm": {
-
-"1st Year": [
-
+"1st Year":[
 "Pharmaceutics",
 "Pharmaceutical Chemistry",
 "Pharmacognosy",
 "Human Anatomy and Physiology",
 "Social Pharmacy"
-
 ],
 
-"2nd Year": [
-
+"2nd Year":[
 "Pharmacology",
 "Community Pharmacy",
 "Biochemistry",
 "Clinical Pathology",
 "Hospital Pharmacy",
 "Drug Store Management"
-
 ]
 
 },
 
 
-/* ================= PHARMD ================= */
+"Pharm.D":{
 
-"Pharm.D": {
-
-"1st Year": [
-
+"1st Year":[
 "Human Anatomy and Physiology",
 "Pharmaceutics",
 "Medicinal Biochemistry",
-"Pharmaceutical Organic Chemistry",
+"Organic Chemistry",
 "Pharmacognosy"
-
 ],
 
-"2nd Year": [
-
+"2nd Year":[
 "Pathophysiology",
 "Pharmacology",
-"Pharmaceutical Microbiology",
+"Microbiology",
 "Pharmacotherapeutics",
 "Community Pharmacy"
-
 ],
 
-"3rd Year": [
-
+"3rd Year":[
 "Pharmacology",
 "Pharmacotherapeutics",
 "Hospital Pharmacy",
-"Clinical Pharmacy",
-"Pharmaceutical Analysis"
-
+"Clinical Pharmacy"
 ],
 
-"4th Year": [
-
+"4th Year":[
 "Pharmacotherapeutics",
 "Hospital Pharmacy",
 "Clinical Pharmacy",
-"Biostatistics",
 "Research Methodology"
-
 ],
 
-"5th Year": [
-
+"5th Year":[
 "Clinical Research",
 "Clinical Pharmacy",
 "Pharmacotherapeutics",
 "Drug Information"
-
 ],
 
-"6th Year": [
-
+"6th Year":[
 "Clinical Internship"
-
 ]
 
 },
 
 
-/* ================= BAMS ================= */
+"BAMS":{
 
-"BAMS": {
-
-"1st Professional": [
-
+"1st Professional":[
 "Padartha Vijnana",
 "Sanskrit",
 "Rachana Sharira",
 "Kriya Sharira",
-"Maulik Siddhanta",
-"History of Ayurveda"
-
+"Maulik Siddhanta"
 ],
 
-"2nd Professional": [
-
+"2nd Professional":[
 "Dravyaguna Vijnana",
 "Rasashastra",
 "Roga Nidana",
 "Charaka Samhita",
-"Swasthavritta",
-"Agada Tantra"
-
+"Swasthavritta"
 ],
 
-"3rd Professional": [
-
+"3rd Professional":[
 "Kayachikitsa",
 "Shalya Tantra",
 "Shalakya Tantra",
 "Prasuti Tantra",
 "Kaumarabhritya"
-
 ],
 
-"4th Professional": [
-
+"4th Professional":[
 "Kayachikitsa",
 "Panchakarma",
 "Shalya Tantra",
 "Shalakya Tantra",
 "Prasuti Tantra",
-"Kaumarabhritya",
-"Research Methodology"
-
+"Kaumarabhritya"
 ]
 
 },
 
 
-/* ================= BHMS ================= */
+"BHMS":{
 
-"BHMS": {
-
-"1st Year": [
-
+"1st Year":[
 "Anatomy",
 "Physiology",
 "Biochemistry",
 "Homeopathic Pharmacy",
 "Organon of Medicine"
-
 ],
 
-"2nd Year": [
-
+"2nd Year":[
 "Pathology",
 "Microbiology",
 "Materia Medica",
-"Organon of Medicine",
-"Forensic Medicine"
-
+"Forensic Medicine",
+"Organon of Medicine"
 ],
 
-"3rd Year": [
-
-"Materia Medica",
-"Organon of Medicine",
+"3rd Year":[
+"Medicine",
 "Surgery",
 "Obstetrics and Gynaecology",
-"Practice of Medicine"
-
+"Materia Medica",
+"Organon of Medicine"
 ],
 
-"4th Year": [
-
+"4th Year":[
 "Practice of Medicine",
 "Surgery",
+"Community Medicine",
 "Materia Medica",
-"Organon of Medicine",
-"Community Medicine"
-
+"Organon of Medicine"
 ]
 
 },
 
 
-/* ================= BUMS ================= */
+"BUMS":{
 
-"BUMS": {
-
-"1st Year": [
-
+"1st Year":[
 "Anatomy",
 "Physiology",
-"Mantiq",
 "Arabic",
+"Mantiq",
 "History of Medicine"
-
 ],
 
-"2nd Year": [
-
+"2nd Year":[
 "Ilmul Advia",
 "Mahiyatul Amraz",
 "Tashreeh",
 "Munafeul Aza",
 "Ilmul Saidla"
-
 ],
 
-"3rd Year": [
-
+"3rd Year":[
 "Moalajat",
+"Jarahat",
 "Ilmul Qabalat",
 "Ilmul Atfal",
-"Jarahat",
 "Ilmul Samoom"
-
 ],
 
-"4th Year": [
-
+"4th Year":[
 "Moalajat",
 "Jarahat",
 "Ilmul Qabalat",
 "Ilmul Atfal",
 "Community Medicine"
-
 ]
 
 },
 
 
-/* ================= BNYS ================= */
+"BNYS":{
 
-"BNYS": {
-
-"1st Year": [
-
+"1st Year":[
 "Anatomy",
 "Physiology",
 "Biochemistry",
 "Yoga",
 "Philosophy"
-
 ],
 
-"2nd Year": [
-
+"2nd Year":[
 "Pathology",
 "Microbiology",
 "Nutrition",
 "Yoga Therapy",
 "Naturopathy"
-
 ],
 
-"3rd Year": [
-
+"3rd Year":[
 "General Medicine",
 "General Surgery",
 "Yoga Therapy",
-"Manipulative Therapies",
+"Manipulative Therapy",
 "Acupuncture"
-
 ],
 
-"4th Year": [
-
+"4th Year":[
 "Clinical Naturopathy",
 "Yoga Therapy",
 "Physiotherapy",
 "Community Medicine",
 "Research Methodology"
-
-],
-
-"Internship": [
-
-"Clinical Naturopathy",
-"Yoga Therapy",
-"Community Health",
-"Hospital Training"
-
 ]
 
 },
 
 
-/* ================= BSMS ================= */
+"BSMS":{
 
-"BSMS": {
-
-"1st Year": [
-
+"1st Year":[
 "Human Anatomy",
 "Physiology",
 "Siddha Basic Principles",
 "Sanskrit",
 "Tamil"
-
 ],
 
-"2nd Year": [
-
-"Pharmacognosy",
+"2nd Year":[
 "Gunapadam",
 "Pathology",
 "Microbiology",
-"Siddha Pharmacology"
-
+"Pharmacology"
 ],
 
-"3rd Year": [
-
+"3rd Year":[
 "Maruthuvam",
 "Varmam",
-"Sirappu Maruthuvam",
 "Surgery",
 "Paediatrics"
-
 ],
 
-"4th Year": [
-
+"4th Year":[
 "Medicine",
 "Surgery",
 "Obstetrics",
 "Paediatrics",
 "Community Medicine"
-
 ]
 
 },
 
 
-/* ================= MLT ================= */
+"B.Sc MLT":{
 
-"B.Sc MLT": {
-
-"1st Year": [
-
+"1st Year":[
 "Anatomy",
 "Physiology",
 "Biochemistry",
 "Pathology",
 "Microbiology"
-
 ],
 
-"2nd Year": [
-
+"2nd Year":[
 "Hematology",
 "Clinical Biochemistry",
 "Histopathology",
 "Medical Microbiology",
 "Immunology"
-
 ],
 
-"3rd Year": [
-
+"3rd Year":[
 "Blood Banking",
 "Clinical Pathology",
 "Molecular Diagnostics",
 "Parasitology",
 "Immunohematology"
-
 ],
 
-"4th Year": [
-
+"4th Year":[
 "Advanced Laboratory Techniques",
 "Molecular Diagnostics",
-"Clinical Laboratory Management",
-"Research Methodology",
-"Internship"
-
+"Laboratory Management",
+"Research Methodology"
 ]
 
 },
 
 
-/* ================= MEDICAL IMAGING ================= */
+"Medical Imaging":{
 
-"Medical Imaging": {
-
-"1st Year": [
-
+"1st Year":[
 "Anatomy",
 "Physiology",
 "Physics",
 "Radiation Physics",
 "Radiographic Positioning"
-
 ],
 
-"2nd Year": [
-
+"2nd Year":[
 "Radiographic Techniques",
 "Radiation Protection",
 "Contrast Media",
 "Pathology",
 "Imaging Equipment"
-
 ],
 
-"3rd Year": [
-
+"3rd Year":[
 "CT",
 "MRI",
 "Ultrasound",
 "Special Radiography",
 "Interventional Radiology"
-
 ],
 
-"Internship": [
-
+"Internship":[
 "Radiography",
 "CT",
 "MRI",
-"Ultrasound",
-"Hospital Training"
-
+"Ultrasound"
 ]
 
 },
 
 
-/* ================= OPTOMETRY ================= */
+"Optometry":{
 
-"Optometry": {
-
-"1st Year": [
-
+"1st Year":[
 "Anatomy",
 "Physiology",
 "General Optics",
 "Ocular Anatomy",
 "Biochemistry"
-
 ],
 
-"2nd Year": [
-
-"Geometrical Optics",
+"2nd Year":[
 "Visual Optics",
 "Optometric Instruments",
 "Clinical Examination",
 "Contact Lenses"
-
 ],
 
-"3rd Year": [
-
+"3rd Year":[
 "Binocular Vision",
 "Low Vision",
 "Paediatric Optometry",
 "Clinical Optometry",
 "Ocular Diseases"
-
 ],
 
-"4th Year": [
-
+"4th Year":[
 "Advanced Optometry",
 "Community Optometry",
 "Research Methodology",
 "Clinical Practice"
-
 ]
 
 },
 
 
-/* ================= RESPIRATORY ================= */
+"Respiratory Therapy":{
 
-"Respiratory Therapy": {
-
-"1st Year": [
-
+"1st Year":[
 "Anatomy",
 "Physiology",
 "Biochemistry",
 "Microbiology",
-"Introduction to Respiratory Care"
-
+"Respiratory Care"
 ],
 
-"2nd Year": [
-
-"Respiratory Care",
+"2nd Year":[
 "Pulmonary Function Testing",
 "Pharmacology",
 "Pathology",
 "Mechanical Ventilation"
-
 ],
 
-"3rd Year": [
-
+"3rd Year":[
 "Critical Care",
 "Mechanical Ventilation",
 "Neonatal Respiratory Care",
 "Emergency Respiratory Care",
 "Pulmonary Rehabilitation"
-
 ],
 
-"Internship": [
-
+"Internship":[
 "ICU",
 "Respiratory Ward",
-"Emergency Department",
-"Pulmonary Function Laboratory"
-
+"Emergency Department"
 ]
 
 },
 
 
-/* ================= CARDIAC ================= */
+"Cardiac Care":{
 
-"Cardiac Care": {
-
-"1st Year": [
-
+"1st Year":[
 "Anatomy",
 "Physiology",
-"Biochemistry",
-"Introduction to Cardiac Care"
-
+"Biochemistry"
 ],
 
-"2nd Year": [
-
+"2nd Year":[
 "Cardiology",
 "ECG",
 "Pathology",
 "Pharmacology",
 "Cardiac Diagnostics"
-
 ],
 
-"3rd Year": [
-
+"3rd Year":[
 "Critical Care",
 "Cardiac Catheterization",
 "Echocardiography",
 "Emergency Cardiac Care",
 "Cardiac Rehabilitation"
-
 ],
 
-"Internship": [
-
+"Internship":[
 "Cardiac ICU",
 "CCU",
-"Cardiac Diagnostics",
-"Emergency Care"
-
+"Cardiac Diagnostics"
 ]
 
 },
 
 
-/* ================= ANAESTHESIA ================= */
+"Anaesthesia Technology":{
 
-"Anaesthesia Technology": {
-
-"1st Year": [
-
+"1st Year":[
 "Anatomy",
 "Physiology",
 "Biochemistry",
 "Microbiology",
 "Basic Anaesthesia"
-
 ],
 
-"2nd Year": [
-
+"2nd Year":[
 "Pharmacology",
 "Anaesthesia Equipment",
 "General Anaesthesia",
 "Regional Anaesthesia",
 "Patient Monitoring"
-
 ],
 
-"3rd Year": [
-
+"3rd Year":[
 "Critical Care",
 "Emergency Medicine",
 "Paediatric Anaesthesia",
 "Obstetric Anaesthesia",
 "Pain Management"
-
 ],
 
-"Internship": [
-
+"Internship":[
 "Operation Theatre",
 "ICU",
-"Emergency",
-"Anaesthesia Department"
-
+"Emergency"
 ]
 
 },
 
 
-/* ================= OT TECHNOLOGY ================= */
+"Operation Theatre Technology":{
 
-"Operation Theatre Technology": {
-
-"1st Year": [
-
+"1st Year":[
 "Anatomy",
 "Physiology",
 "Microbiology",
 "Basic Nursing",
 "Introduction to OT"
-
 ],
 
-"2nd Year": [
-
+"2nd Year":[
 "Surgical Procedures",
 "Surgical Instruments",
 "Sterilization",
 "Anaesthesia",
 "Patient Preparation"
-
 ],
 
-"3rd Year": [
-
+"3rd Year":[
 "Advanced Surgery",
 "Emergency Surgery",
 "Trauma",
 "Critical Care",
 "OT Management"
-
 ],
 
-"Internship": [
-
+"Internship":[
 "General Surgery OT",
 "Orthopaedic OT",
-"Emergency OT",
-"Speciality OT"
-
+"Emergency OT"
 ]
 
 },
 
 
-/* ================= DIALYSIS ================= */
+"Dialysis Technology":{
 
-"Dialysis Technology": {
-
-"1st Year": [
-
+"1st Year":[
 "Anatomy",
 "Physiology",
 "Biochemistry",
 "Pathology",
 "Microbiology"
-
 ],
 
-"2nd Year": [
-
+"2nd Year":[
 "Nephrology",
 "Dialysis Principles",
 "Haemodialysis",
 "Pharmacology",
 "Water Treatment"
-
 ],
 
-"3rd Year": [
-
+"3rd Year":[
 "Advanced Dialysis",
 "Peritoneal Dialysis",
 "Critical Care",
 "Dialysis Complications",
 "Renal Transplantation"
-
 ],
 
-"Internship": [
-
+"Internship":[
 "Dialysis Unit",
-"Nephrology Department",
-"ICU",
-"Renal Care"
-
+"Nephrology",
+"ICU"
 ]
 
 },
 
 
-/* ================= EMERGENCY ================= */
+"Emergency Trauma Care":{
 
-"Emergency Trauma Care": {
-
-"1st Year": [
-
+"1st Year":[
 "Anatomy",
 "Physiology",
 "First Aid",
 "Basic Life Support",
 "Emergency Nursing"
-
 ],
 
-"2nd Year": [
-
+"2nd Year":[
 "Trauma Care",
 "Emergency Medicine",
 "Pharmacology",
-"Patient Assessment",
-"Emergency Procedures"
-
+"Patient Assessment"
 ],
 
-"3rd Year": [
-
+"3rd Year":[
 "Advanced Life Support",
 "Critical Care",
 "Disaster Management",
-"Trauma Surgery",
-"Emergency Pharmacology"
-
+"Trauma Surgery"
 ],
 
-"Internship": [
-
+"Internship":[
 "Emergency Department",
 "Trauma Centre",
-"ICU",
-"Ambulance Services"
-
+"ICU"
 ]
 
 },
 
 
-/* ================= OCCUPATIONAL THERAPY ================= */
+"Occupational Therapy":{
 
-"Occupational Therapy": {
-
-"1st Year": [
-
+"1st Year":[
 "Anatomy",
 "Physiology",
 "Psychology",
 "Sociology",
 "Introduction to Occupational Therapy"
-
 ],
 
-"2nd Year": [
-
+"2nd Year":[
 "Biomechanics",
 "Exercise Therapy",
 "Occupational Therapy Techniques",
 "Pathology",
 "Pharmacology"
-
 ],
 
-"3rd Year": [
-
+"3rd Year":[
 "Neurology",
 "Orthopaedics",
 "Paediatrics",
 "Psychiatry",
 "Hand Therapy"
-
 ],
 
-"4th Year": [
-
+"4th Year":[
 "Neurological Rehabilitation",
 "Musculoskeletal Rehabilitation",
 "Paediatric Rehabilitation",
 "Community Rehabilitation",
 "Research Methodology"
-
 ]
 
 },
 
 
-/* ================= BASLP ================= */
+"BASLP":{
 
-"BASLP": {
-
-"1st Year": [
-
+"1st Year":[
 "Anatomy",
 "Physiology",
 "Psychology",
 "Basic Acoustics",
 "Introduction to Speech and Hearing"
-
 ],
 
-"2nd Year": [
-
+"2nd Year":[
 "Speech Language Pathology",
 "Audiology",
 "Phonetics",
 "Neurology",
 "Diagnostic Audiology"
-
 ],
 
-"3rd Year": [
-
+"3rd Year":[
 "Clinical Audiology",
 "Speech Disorders",
 "Language Disorders",
 "Voice Disorders",
 "Rehabilitation"
-
 ],
 
-"4th Year": [
-
+"4th Year":[
 "Advanced Audiology",
-"Advanced Speech Therapy",
-"Clinical Practice",
-"Research Methodology",
-"Internship"
-
-]
-
-},
-
-
-/* ================= MEDICAL RECORDS ================= */
-
-"Medical Records": {
-
-"1st Year": [
-
-"Medical Terminology",
-"Anatomy",
-"Physiology",
-"Health Information Systems"
-
-],
-
-"2nd Year": [
-
-"Medical Coding",
-"Medical Classification",
-"Hospital Administration",
-"Health Statistics"
-
-],
-
-"3rd Year": [
-
-"Electronic Health Records",
-"Health Information Management",
-"Medical Legal Issues",
-"Hospital Management"
-
-],
-
-"Internship": [
-
-"Medical Records Department",
-"Hospital Information System",
-"Health Information Management"
-
-]
-
-}
-
-};
-
-
-/* =====================================================
-   TOPIC DATABASE
-===================================================== */
-
-var commonTopics = {
-
-"Anatomy": [
-
-"General Anatomy",
-"Upper Limb",
-"Lower Limb",
-"Thorax",
-"Abdomen",
-"Pelvis",
-"Head and Neck",
-"Neuroanatomy"
-
-],
-
-"Physiology": [
-
-"General Physiology",
-"Blood",
-"Nerve and Muscle",
-"Cardiovascular System",
-"Respiratory System",
-"Digestive System",
-"Renal System",
-"Endocrine System",
-"Reproductive System"
-
-],
-
-"Biochemistry": [
-
-"Carbohydrates",
-"Proteins",
-"Lipids",
-"Enzymes",
-"Vitamins",
-"Minerals",
-"Molecular Biology",
-"Clinical Biochemistry"
-
-],
-
-"Pathology": [
-
-"Cell Injury",
-"Inflammation",
-"Haemodynamic Disorders",
-"Neoplasia",
-"Hematology",
-"Systemic Pathology"
-
-],
-
-"Pharmacology": [
-
-"General Pharmacology",
-"Autonomic Nervous System",
-"CNS Pharmacology",
-"Cardiovascular Drugs",
-"Antimicrobial Drugs",
-"Endocrine Drugs",
-"Chemotherapy"
-
-],
-
-"Microbiology": [
-
-"Bacteriology",
-"Virology",
-"Mycology",
-"Parasitology",
-"Immunology"
-
-],
-
-"Biomechanics": [
-
-"Planes and Axes",
-"Force and Torque",
-"Osteokinematics",
-"Arthrokinematics",
-"Open Chain Kinematics",
-"Closed Chain Kinematics",
-"Length-Tension Relationship",
-"Force-Velocity Relationship",
-"Gait",
-"Posture"
-
-],
-
-"Exercise Therapy": [
-
-"Range of Motion",
-"Stretching",
-"Strengthening",
-"Resistance Exercise",
-"Endurance Training",
-"Relaxation Exercises"
-
-],
-
-"Electrotherapy": [
-
-"TENS",
-"IFT",
-"Ultrasound",
-"SWD",
-"IRR",
-"Cryotherapy",
-"Electrical Stimulation"
-
-],
-
-"Orthopaedics": [
-
-"Fractures",
-"Arthritis",
-"Shoulder Conditions",
-"Knee Conditions",
-"Spinal Conditions",
-"Sports Injuries"
-
-],
-
-"Neurology": [
-
-"Stroke",
-"Spinal Cord Injury",
-"Parkinsonism",
-"Multiple Sclerosis",
-"Peripheral Nerve Injuries",
-"Neurological Assessment"
-
-],
-
-"General Medicine": [
-
-"Cardiology",
-"Respiratory Medicine",
-"Gastroenterology",
-"Neurology",
-"Nephrology",
-"Endocrinology",
-"Rheumatology",
-"Infectious Diseases"
-
-],
-
-"General Surgery": [
-
-"Preoperative Care",
-"Postoperative Care",
-"Trauma",
-"Abdominal Surgery",
-"Breast Surgery",
-"Thyroid Surgery",
-"Vascular Surgery"
-
-],
-
-"Pharmaceutics": [
-
-"Dosage Forms",
-"Tablets",
-"Capsules",
-"Solutions",
-"Suspensions",
-"Emulsions",
-"Sterile Preparations"
-
-],
-
-"Hematology": [
-
-"RBC",
-"WBC",
-"Platelets",
-"Haemoglobin",
-"Blood Smear",
-"Coagulation",
-"Leukaemia"
-
-],
-
-"Cardiology": [
-
-"Heart Anatomy",
-"Cardiac Physiology",
-"ECG",
-"Arrhythmias",
-"Heart Failure",
-"Ischaemic Heart Disease",
-"Cardiac Rehabilitation"
-
-],
-
-"Radiation Physics": [
-
-"X-rays",
-"Radiation",
-"Radiation Protection",
-"Radiation Dose",
-"Imaging Equipment"
-
-],
-
-"Clinical Optometry": [
-
-"Visual Acuity",
-"Refraction",
-"Eye Examination",
-"Glaucoma",
-"Cataract",
-"Retinal Diseases"
-
-],
-
-"Critical Care": [
-
-"ICU Monitoring",
-"Shock",
-"Mechanical Ventilation",
-"Airway Management",
-"Critical Care Emergencies"
-
-]
-
-};
-
-
-/* =====================================================
-   VARIABLES
-===================================================== */
-
-var currentCourse = "";
-var currentYear = "";
-var currentSubject = "";
-
-
-/* =====================================================
-   OPEN COURSE
-===================================================== */
-
-function openCourse(course) {
-
-    currentCourse = course;
-
-    hideAll();
-
-    document.getElementById("coursePage")
-        .classList.remove("hidden");
-
-    document.getElementById("courseTitle")
-        .innerHTML = "📚 " + course;
-
-    var list =
-        document.getElementById("yearList");
-
-    list.innerHTML = "";
-
-    var years =
-        database[course];
-
-    for (
-        var i = 0;
-        i < Object.keys(years).length;
-        i++
-    ) {
-
-        var year =
-            Object.keys(years)[i];
-
-        var box =
-            document.createElement("div");
-
-        box.className = "year";
-
-        box.innerHTML =
-            "🎓 " + year;
-
-        box.onclick =
-            (function(y) {
-
-                return function() {
-
-                    openYear(y);
-
-                };
-
-            })(year);
-
-        list.appendChild(box);
-
-    }
-
-    window.scrollTo(0,0);
-
-}
-
-
-/* =====================================================
-   OPEN YEAR
-===================================================== */
-
-function openYear(year) {
-
-    currentYear = year;
-
-    hideAll();
-
-    document.getElementById("subjectPage")
-        .classList.remove("hidden");
-
-    document.getElementById("yearTitle")
-        .innerHTML =
-        "📚 " +
-        currentCourse +
-        " - " +
-        year;
-
-    var list =
-        document.getElementById("subjectList");
-
-    list.innerHTML = "";
-
-    var subjects =
-        database[currentCourse][year];
-
-    for (
-        var i = 0;
-        i < subjects.length;
-        i++
-    ) {
-
-        var subject =
-            subjects[i];
-
-        var item =
-            document.createElement("div");
-
-        item.className = "item";
-
-        item.innerHTML =
-            "<h3>📖 " +
-            subject +
-            "</h3>" +
-            "<p>Tap to view topics</p>";
-
-        item.onclick =
-            (function(s) {
-
-                return function() {
-
-                    openSubject(s);
-
-                };
-
-            })(subject);
-
-        list.appendChild(item);
-
-    }
-
-    window.scrollTo(0,0);
-
-}
-
-
-/* =====================================================
-   OPEN SUBJECT
-===================================================== */
-
-function openSubject(subject) {
-
-    currentSubject = subject;
-
-    hideAll();
-
-    document.getElementById("topicPage")
-        .classList.remove("hidden");
-
-    document.getElementById("subjectTitle")
-        .innerHTML =
-        "📖 " + subject;
-
-    var list =
-        document.getElementById("topicList");
-
-    list.innerHTML = "";
-
-    var topics =
-        commonTopics[subject];
-
-    if (!topics) {
-
-        topics = [
-
-            "Introduction",
-            "Basic Concepts",
-            "Important Concepts",
-            "Clinical Applications",
-            "Important Questions",
-            "Revision Topics"
-
-        ];
-
-    }
-
-    for (
-        var i = 0;
-        i < topics.length;
-        i++
-    ) {
-
-        var topic =
-            topics[i];
-
-        var item =
-            document.createElement("div");
-
-        item.className = "item";
-
-        item.innerHTML =
-            "<h3>📘 " +
-            topic +
-            "</h3>" +
-            "<p>Tap to study</p>";
-
-        item.onclick =
-            (function(t) {
-
-                return function() {
-
-                    openTopic(t);
-
-                };
-
-            })(topic);
-
-        list.appendChild(item);
-
-    }
-
-    window.scrollTo(0,0);
-
-}
-
-
-/* =====================================================
-   OPEN TOPIC
-===================================================== */
-
-function openTopic(topic) {
-
-    hideAll();
-
-    document.getElementById("resourcePage")
-        .classList.remove("hidden");
-
-    document.getElementById("topicTitle")
-        .innerHTML =
-        "📘 " + topic;
-
-    window.scrollTo(0,0);
-
-}
-
-
-/* =====================================================
-   BACK BUTTONS
-===================================================== */
-
-function goHome() {
-
-    hideAll();
-
-    document.getElementById("home")
-        .classList.remove("hidden");
-
-    window.scrollTo(0,0);
-
-}
-
-
-function goCourse() {
-
-    openCourse(currentCourse);
-
-}
-
-
-function goSubject() {
-
-    openYear(currentYear);
-
-}
-
-
-function goTopics() {
-
-    openSubject(currentSubject);
-
-}
-
-
-/* =====================================================
-   HIDE ALL PAGES
-===================================================== */
-
-function hideAll() {
-
-    document.getElementById("home")
-        .classList.add("hidden");
-
-    document.getElementById("coursePage")
-        .classList.add("hidden");
-
-    document.getElementById("subjectPage")
-        .classList.add("hidden");
-
-    document.getElementById("topicPage")
-        .classList.add("hidden");
-
-    document.getElementById("resourcePage")
-        .classList.add("hidden");
-
-}
-
-
-/* =====================================================
-   SEARCH
-===================================================== */
-
-document.getElementById("search")
-.addEventListener("input", function() {
-
-    var search =
-        this.value.toLowerCase();
-
-    var cards =
-        document.querySelectorAll(
-            "#courseList .card"
-        );
-
-    for (
-        var i = 0;
-        i < cards.length;
-        i++
-    ) {
-
-        var name =
-            cards[i]
-            .getAttribute("data-name")
-            .toLowerCase();
-
-        if (
-            name.indexOf(search) !== -1
-        ) {
-
-            cards[i].style.display =
-                "block";
-
-        } else {
-
-            cards[i].style.display =
-                "none";
-
-        }
-
-    }
-
-});
-
-
-</script>
-
-</body>
-</html>
+"Adva
