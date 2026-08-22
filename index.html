@@ -4,499 +4,365 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MedLib - Medical Learning Platform</title>
+<title>MedLib</title>
 
 <style>
-
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#f5f7fa;
-    color:#17202a;
+font-family:Arial,sans-serif;
+background:#f5f7fa;
+color:#17202a;
 }
 
-/* HEADER */
-
 header{
-    height:65px;
-    background:white;
-    border-bottom:1px solid #e5e8eb;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 6%;
-    position:sticky;
-    top:0;
-    z-index:100;
+height:65px;
+background:#fff;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 6%;
+border-bottom:1px solid #ddd;
+position:sticky;
+top:0;
+z-index:10;
 }
 
 .logo{
-    color:#087f8c;
-    font-size:25px;
-    font-weight:bold;
+font-size:25px;
+font-weight:bold;
+color:#087f8c;
 }
 
-.nav{
-    display:flex;
-    gap:18px;
-    align-items:center;
+nav button{
+border:0;
+background:none;
+margin-left:15px;
+font-size:14px;
+cursor:pointer;
 }
 
-.nav button{
-    background:none;
-    border:none;
-    cursor:pointer;
-    font-size:15px;
+.login{
+background:#087f8c;
+color:white;
+padding:10px 16px;
+border-radius:8px;
 }
-
-.loginBtn{
-    background:#087f8c!important;
-    color:white;
-    padding:10px 18px;
-    border-radius:8px;
-}
-
-/* HERO */
 
 .hero{
-    background:linear-gradient(135deg,#087f8c,#075c66);
-    color:white;
-    padding:60px 6%;
-}
-
-.heroContent{
-    max-width:1100px;
-    margin:auto;
+background:linear-gradient(135deg,#087f8c,#064f59);
+color:white;
+padding:55px 6%;
 }
 
 .hero h1{
-    font-size:40px;
-    max-width:700px;
+font-size:36px;
+max-width:700px;
 }
 
 .hero p{
-    margin-top:14px;
-    font-size:18px;
-    opacity:.9;
+margin-top:12px;
+font-size:17px;
 }
 
-.searchBox{
-    margin-top:28px;
-    max-width:650px;
+.search{
+margin-top:25px;
+max-width:650px;
 }
 
-.searchBox input{
-    width:100%;
-    padding:17px 20px;
-    border:none;
-    border-radius:10px;
-    font-size:16px;
-    outline:none;
+.search input{
+width:100%;
+padding:16px;
+border:0;
+border-radius:9px;
+font-size:16px;
 }
-
-/* CONTAINER */
 
 .container{
-    max-width:1150px;
-    margin:auto;
-    padding:35px 18px;
+max-width:1150px;
+margin:auto;
+padding:35px 18px;
 }
 
-.sectionHeader{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:20px;
+.title{
+margin-bottom:20px;
 }
 
-.sectionHeader h2{
-    font-size:24px;
+.grid3{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
 }
 
-.sectionHeader button{
-    border:none;
-    background:none;
-    color:#087f8c;
-    cursor:pointer;
+.card{
+background:white;
+border:1px solid #e1e6e9;
+border-radius:13px;
+padding:18px;
+cursor:pointer;
+transition:.2s;
 }
 
-/* COURSES */
-
-.courseGrid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:16px;
+.card:hover{
+transform:translateY(-3px);
+box-shadow:0 5px 18px #00000012;
 }
 
-.courseCard{
-    background:white;
-    border:1px solid #e3e8eb;
-    border-radius:14px;
-    padding:18px;
-    cursor:pointer;
-    transition:.2s;
+.icon{
+font-size:30px;
+margin-bottom:9px;
 }
 
-.courseCard:hover{
-    transform:translateY(-3px);
-    box-shadow:0 6px 20px rgba(0,0,0,.08);
+.card h3{
+font-size:16px;
 }
 
-.courseIcon{
-    font-size:34px;
-    margin-bottom:10px;
+.card p{
+font-size:12px;
+color:#68747c;
+margin-top:6px;
+line-height:1.4;
 }
 
-.courseCard h3{
-    font-size:17px;
+.badge{
+display:inline-block;
+margin-top:10px;
+padding:5px 7px;
+border-radius:5px;
+font-size:10px;
+font-weight:bold;
+background:#e8f7f8;
+color:#087f8c;
 }
 
-.courseCard p{
-    color:#68747c;
-    font-size:13px;
-    margin-top:6px;
+.page{
+display:none;
 }
 
-.duration{
-    display:inline-block;
-    margin-top:12px;
-    padding:6px 8px;
-    background:#e9f7f8;
-    color:#087f8c;
-    border-radius:6px;
-    font-size:11px;
-    font-weight:bold;
+.back{
+background:#087f8c;
+color:white;
+border:0;
+padding:10px 16px;
+border-radius:7px;
+margin-bottom:22px;
+cursor:pointer;
 }
 
-/* SUBJECTS */
-
-.subjectGrid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-    margin-top:25px;
+.bookGrid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+margin-top:20px;
 }
 
-.subjectCard{
-    background:white;
-    border:1px solid #e3e8eb;
-    border-radius:13px;
-    padding:20px;
-    cursor:pointer;
-    transition:.2s;
+.book{
+background:white;
+border:1px solid #e1e6e9;
+border-radius:13px;
+padding:20px;
 }
 
-.subjectCard:hover{
-    transform:translateY(-3px);
-    box-shadow:0 5px 18px rgba(0,0,0,.07);
+.book h3{
+font-size:16px;
 }
 
-.subjectIcon{
-    font-size:30px;
-    margin-bottom:10px;
-}
-
-.subjectCard h3{
-    font-size:16px;
-}
-
-.subjectCard p{
-    color:#68747c;
-    font-size:12px;
-    margin-top:6px;
-}
-
-/* TEXTBOOKS */
-
-.textbookGrid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-    margin-top:20px;
-}
-
-.bookCard{
-    background:white;
-    border:1px solid #e3e8eb;
-    border-radius:13px;
-    padding:20px;
-}
-
-.bookIcon{
-    font-size:30px;
-    margin-bottom:10px;
-}
-
-.bookCard h3{
-    font-size:16px;
-}
-
-.bookCard p{
-    color:#68747c;
-    font-size:13px;
-    margin-top:7px;
-    line-height:1.5;
+.book p{
+font-size:13px;
+color:#68747c;
+margin-top:7px;
 }
 
 .bookButton{
-    display:inline-block;
-    margin-top:13px;
-    padding:9px 13px;
-    background:#087f8c;
-    color:white;
-    border-radius:7px;
-    text-decoration:none;
-    font-size:12px;
+display:inline-block;
+margin-top:13px;
+padding:9px 13px;
+background:#087f8c;
+color:white;
+text-decoration:none;
+border-radius:7px;
+font-size:12px;
 }
 
-/* RESOURCES */
+.free{
+background:#e8f7e9;
+color:#23833b;
+}
 
-.resourceGrid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
+.paid{
+background:#fff2df;
+color:#a35b00;
+}
+
+.resources{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+margin-top:20px;
 }
 
 .resource{
-    background:white;
-    padding:20px;
-    text-align:center;
-    border-radius:12px;
-    border:1px solid #e3e8eb;
+background:white;
+padding:20px;
+text-align:center;
+border-radius:12px;
+border:1px solid #e1e6e9;
 }
-
-.resourceIcon{
-    font-size:30px;
-    margin-bottom:8px;
-}
-
-/* PAGES */
-
-.page{
-    display:none;
-}
-
-.backBtn{
-    border:none;
-    background:#087f8c;
-    color:white;
-    padding:11px 18px;
-    border-radius:8px;
-    cursor:pointer;
-    margin-bottom:25px;
-}
-
-/* LOGIN */
 
 .loginPage{
-    display:none;
-    min-height:70vh;
-    padding:45px 20px;
+display:none;
+padding:50px 20px;
+min-height:70vh;
 }
 
 .loginBox{
-    max-width:430px;
-    margin:auto;
-    background:white;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 5px 25px rgba(0,0,0,.08);
-}
-
-.loginBox h2{
-    margin-bottom:10px;
-}
-
-.loginBox p{
-    color:#68747c;
-    margin-bottom:20px;
+max-width:420px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 5px 20px #00000012;
 }
 
 .loginBox input{
-    width:100%;
-    padding:14px;
-    margin-bottom:13px;
-    border:1px solid #ccd5db;
-    border-radius:8px;
+width:100%;
+padding:14px;
+margin-top:12px;
+border:1px solid #ccd4d8;
+border-radius:8px;
 }
 
 .loginBox button{
-    width:100%;
-    padding:14px;
-    background:#087f8c;
-    color:white;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
+width:100%;
+margin-top:15px;
+padding:14px;
+border:0;
+border-radius:8px;
+background:#087f8c;
+color:white;
+font-size:15px;
 }
-
-/* FOOTER */
 
 footer{
-    margin-top:45px;
-    padding:35px 20px;
-    text-align:center;
-    background:#17202a;
-    color:white;
+margin-top:40px;
+background:#17202a;
+color:white;
+padding:30px;
+text-align:center;
 }
-
-.footerSmall{
-    color:#c5ccd1;
-    margin-top:8px;
-    font-size:13px;
-}
-
-/* MOBILE */
 
 @media(max-width:700px){
 
-    header{
-        padding:0 14px;
-    }
-
-    .nav button:not(.loginBtn){
-        display:none;
-    }
-
-    .hero{
-        padding:45px 18px;
-    }
-
-    .hero h1{
-        font-size:29px;
-    }
-
-    .hero p{
-        font-size:15px;
-    }
-
-    /* 3 COURSES */
-
-    .courseGrid{
-        grid-template-columns:repeat(3,1fr);
-        gap:8px;
-    }
-
-    .courseCard{
-        padding:11px 6px;
-        border-radius:10px;
-    }
-
-    .courseIcon{
-        font-size:25px;
-    }
-
-    .courseCard h3{
-        font-size:11px;
-    }
-
-    .courseCard p{
-        font-size:8px;
-    }
-
-    .duration{
-        font-size:7px;
-        padding:4px;
-        margin-top:6px;
-    }
-
-    /* 3 SUBJECTS */
-
-    .subjectGrid{
-        grid-template-columns:repeat(3,1fr);
-        gap:8px;
-    }
-
-    .subjectCard{
-        padding:12px 7px;
-        border-radius:10px;
-    }
-
-    .subjectIcon{
-        font-size:23px;
-    }
-
-    .subjectCard h3{
-        font-size:10px;
-        line-height:1.2;
-    }
-
-    .subjectCard p{
-        font-size:8px;
-    }
-
-    .textbookGrid{
-        grid-template-columns:1fr;
-    }
-
-    .resourceGrid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
+header{
+padding:0 12px;
 }
 
+nav button:not(.login){
+display:none;
+}
+
+.hero{
+padding:45px 18px;
+}
+
+.hero h1{
+font-size:29px;
+}
+
+.grid3{
+grid-template-columns:repeat(3,1fr);
+gap:7px;
+}
+
+.card{
+padding:11px 6px;
+}
+
+.icon{
+font-size:22px;
+}
+
+.card h3{
+font-size:10px;
+}
+
+.card p{
+font-size:7px;
+}
+
+.badge{
+font-size:6px;
+padding:4px;
+}
+
+.bookGrid{
+grid-template-columns:1fr;
+}
+
+.resources{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
 </style>
 </head>
 
-
 <body>
-
-
-<!-- HEADER -->
 
 <header>
 
-<div class="logo">
-🩺 MedLib
-</div>
+<div class="logo">🩺 MedLib</div>
 
-<div class="nav">
-
-<button onclick="showHome()">
-Home
-</button>
-
-<button onclick="showCourses()">
-Courses
-</button>
-
-<button class="loginBtn" onclick="showLogin()">
-Sign In
-</button>
-
-</div>
+<nav>
+<button onclick="home()">Home</button>
+<button onclick="coursesPage()">Courses</button>
+<button class="login" onclick="loginPage()">Sign In</button>
+</nav>
 
 </header>
 
 
 <!-- HOME -->
 
-<div id="home">
+<section id="homePage">
 
-<section class="hero">
+<div class="hero">
 
-<div class="heroContent">
-
-<h1>
-Learn Medicine. Build Your Future. 📚
-</h1>
+<h1>Learn Medicine. Anywhere. 📚</h1>
 
 <p>
-Courses, subjects, textbooks, notes, MCQs and revision resources for healthcare students.
+Your learning platform for medical and healthcare students.
 </p>
 
-<div class="searchBox">
-
+<div class="search">
 <input
 id="search"
-type="text"
-placeholder="🔍 Search course or subject..."
-onkeyup="searchCourses()">
+placeholder="🔍 Search courses..."
+onkeyup="search()">
+</div>
+
+</div>
+
+<div class="container">
+
+<h2 class="title">🎓 Popular Courses</h2>
+
+<div id="homeCourses" class="grid3"></div>
+
+<br><br>
+
+<h2 class="title">📚 Study Resources</h2>
+
+<div class="resources">
+
+<div class="resource">📖<br><br>Textbooks</div>
+<div class="resource">📝<br><br>Notes</div>
+<div class="resource">❓<br><br>MCQs</div>
+<div class="resource">📋<br><br>PYQs</div>
 
 </div>
 
@@ -505,248 +371,137 @@ onkeyup="searchCourses()">
 </section>
 
 
-<div class="container">
+<!-- COURSES -->
 
-<div class="sectionHeader">
-
-<h2>
-🎓 Popular Courses
-</h2>
-
-<button onclick="showCourses()">
-View All →
-</button>
-
-</div>
-
-<div class="courseGrid" id="homeCourses"></div>
-
-
-<br><br>
-
-
-<div class="sectionHeader">
-
-<h2>
-📚 Study Resources
-</h2>
-
-</div>
-
-<div class="resourceGrid">
-
-<div class="resource">
-<div class="resourceIcon">📖</div>
-<h3>Textbooks</h3>
-</div>
-
-<div class="resource">
-<div class="resourceIcon">📝</div>
-<h3>Notes</h3>
-</div>
-
-<div class="resource">
-<div class="resourceIcon">❓</div>
-<h3>MCQs</h3>
-</div>
-
-<div class="resource">
-<div class="resourceIcon">📋</div>
-<h3>PYQs</h3>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- COURSES PAGE -->
-
-<div id="coursesPage" class="page">
+<section id="coursesPage" class="page">
 
 <div class="container">
 
-<button class="backBtn" onclick="showHome()">
-← Home
-</button>
+<button class="back" onclick="home()">← Home</button>
 
-<h1>
-🎓 All Courses
-</h1>
+<h1>🎓 All Courses</h1>
 
-<p style="margin-top:10px;color:#68747c;">
-Choose your healthcare course.
+<p style="margin:10px 0 25px;color:#68747c;">
+Choose your course.
 </p>
 
-<div class="courseGrid" id="allCourses"></div>
+<div id="allCourses" class="grid3"></div>
 
 </div>
 
-</div>
+</section>
 
 
-<!-- SUBJECT PAGE -->
+<!-- SUBJECTS -->
 
-<div id="subjectPage" class="page">
+<section id="subjectPage" class="page">
 
 <div class="container">
 
-<button class="backBtn" onclick="showCourses()">
-← Courses
-</button>
+<button class="back" onclick="coursesPage()">← Courses</button>
+
+<h1 id="courseTitle"></h1>
+
+<p style="margin:10px 0 25px;color:#68747c;">
+Select a subject.
+</p>
+
+<div id="subjectList" class="grid3"></div>
+
+</div>
+
+</section>
+
+
+<!-- SUBJECT DETAILS -->
+
+<section id="subjectDetails" class="page">
+
+<div class="container">
+
+<button class="back" onclick="backSubjects()">← Subjects</button>
 
 <h1 id="subjectTitle"></h1>
 
-<p style="margin-top:10px;color:#68747c;">
-Choose a subject.
-</p>
-
-<div class="subjectGrid" id="subjects"></div>
-
-</div>
-
-</div>
-
-
-<!-- TOPIC / TEXTBOOK PAGE -->
-
-<div id="topicPage" class="page">
-
-<div class="container">
-
-<button class="backBtn" onclick="goBackSubjects()">
-← Subjects
-</button>
-
-<h1 id="topicTitle"></h1>
-
-<p id="topicDescription"
+<p id="subjectDescription"
 style="margin-top:10px;color:#68747c;">
 </p>
 
-
 <br>
 
+<h2>📚 Textbooks</h2>
 
-<h2>
-📚 Recommended Textbooks
-</h2>
-
-<div class="textbookGrid" id="textbooks"></div>
-
+<div id="bookList" class="bookGrid"></div>
 
 <br><br>
 
+<h2>📝 Study Resources</h2>
 
-<h2>
-📝 More Study Resources
-</h2>
+<div class="resources">
 
-<div class="resourceGrid">
-
-<div class="resource">
-<div class="resourceIcon">📝</div>
-<h3>Notes</h3>
-</div>
-
-<div class="resource">
-<div class="resourceIcon">❓</div>
-<h3>MCQs</h3>
-</div>
-
-<div class="resource">
-<div class="resourceIcon">📋</div>
-<h3>PYQs</h3>
-</div>
-
-<div class="resource">
-<div class="resourceIcon">🧠</div>
-<h3>Flashcards</h3>
-</div>
+<div class="resource">📝<br><br>Notes</div>
+<div class="resource">❓<br><br>MCQs</div>
+<div class="resource">📋<br><br>PYQs</div>
+<div class="resource">🧠<br><br>Flashcards</div>
 
 </div>
 
 </div>
 
-</div>
+</section>
 
 
 <!-- LOGIN -->
 
-<div id="loginPage" class="loginPage">
+<section id="loginPage" class="loginPage">
 
 <div class="loginBox">
 
-<button class="backBtn" onclick="showHome()">
-← Back
-</button>
+<button class="back" onclick="home()">← Back</button>
 
-<h2>
-👤 Welcome to MedLib
-</h2>
+<h2>👤 Welcome to MedLib</h2>
 
-<p>
-Sign in for a better learning experience.
+<p style="margin-top:8px;color:#68747c;">
+Create an account for a better experience.
 </p>
 
-<input
-id="name"
-type="text"
-placeholder="Your name">
+<input id="username" placeholder="Your name">
 
-<input
-id="email"
-type="email"
-placeholder="Email address">
+<input id="email" placeholder="Email address">
 
-<input
-id="password"
-type="password"
-placeholder="Password">
+<input id="password" type="password" placeholder="Password">
 
-<button onclick="createAccount()">
+<button onclick="signup()">
 Create Account
 </button>
 
 </div>
 
-</div>
+</section>
 
 
 <footer>
 
-<div style="font-size:22px;font-weight:bold;">
-🩺 MedLib
-</div>
+<b>🩺 MedLib</b>
 
-<div class="footerSmall">
-A learning platform for medical and healthcare students.
-</div>
-
-<div class="footerSmall">
-© 2026 MedLib
-</div>
+<p style="margin-top:8px;color:#c5ccd1;">
+Medical learning platform
+</p>
 
 </footer>
 
 
 <script>
 
-
 /* =========================
-   COURSE DATABASE
+COURSES
 ========================= */
 
-const courses=[
+const data={
 
-{
-name:"MBBS",
+"MBBS":{
 icon:"🩺",
-duration:"4.5 Y + 1 Y",
-description:"Medicine & Surgery",
-
+duration:"4.5 Years + 1 Year Internship",
 subjects:[
 "Anatomy",
 "Physiology",
@@ -768,16 +523,11 @@ subjects:[
 "Radiology",
 "Anaesthesiology",
 "Emergency Medicine"
-]
+]},
 
-},
-
-{
-name:"BDS",
+"BDS":{
 icon:"🦷",
-duration:"4 Y + 1 Y",
-description:"Dental Surgery",
-
+duration:"4 Years + 1 Year Internship",
 subjects:[
 "General Anatomy",
 "Head & Neck Anatomy",
@@ -798,16 +548,11 @@ subjects:[
 "Pedodontics",
 "Public Health Dentistry",
 "Dental Materials"
-]
+]},
 
-},
-
-{
-name:"BPT",
+"BPT":{
 icon:"🏃",
-duration:"4 Y + Internship",
-description:"Physiotherapy",
-
+duration:"4 Years + Internship",
 subjects:[
 "Anatomy",
 "Physiology",
@@ -829,16 +574,11 @@ subjects:[
 "Community Physiotherapy",
 "Research Methodology",
 "Rehabilitation"
-]
+]},
 
-},
-
-{
-name:"B.Sc Nursing",
+"Nursing":{
 icon:"👩‍⚕️",
 duration:"4 Years",
-description:"Nursing",
-
 subjects:[
 "Anatomy",
 "Physiology",
@@ -857,16 +597,11 @@ subjects:[
 "Pathology",
 "Nursing Research",
 "Nursing Administration"
-]
+]},
 
-},
-
-{
-name:"B.Pharm",
+"Pharmacy":{
 icon:"💊",
 duration:"4 Years",
-description:"Pharmacy",
-
 subjects:[
 "Human Anatomy & Physiology",
 "Pharmaceutics",
@@ -883,16 +618,11 @@ subjects:[
 "Toxicology",
 "Pharmaceutical Analysis",
 "Pharmacy Practice"
-]
+]},
 
-},
-
-{
-name:"AHS",
+"AHS":{
 icon:"🔬",
-duration:"4 Years",
-description:"Allied Health Sciences",
-
+duration:"Usually 4 Years",
 subjects:[
 "Anatomy",
 "Physiology",
@@ -900,7 +630,6 @@ subjects:[
 "Pathology",
 "Microbiology",
 "Pharmacology",
-"Clinical Biochemistry",
 "Haematology",
 "Immunology",
 "Medical Laboratory Technology",
@@ -910,16 +639,11 @@ subjects:[
 "Cardiac Care",
 "Emergency Care",
 "Nutrition"
-]
+]},
 
-},
-
-{
-name:"GNM",
+"GNM":{
 icon:"🏥",
 duration:"3 Years",
-description:"General Nursing & Midwifery",
-
 subjects:[
 "Anatomy & Physiology",
 "Microbiology",
@@ -934,16 +658,11 @@ subjects:[
 "Nutrition",
 "First Aid",
 "Pharmacology"
-]
+]},
 
-},
-
-{
-name:"BAMS",
+"BAMS":{
 icon:"🌿",
 duration:"5.5 Years",
-description:"Ayurvedic Medicine",
-
 subjects:[
 "Sanskrit",
 "Padartha Vigyan",
@@ -960,16 +679,11 @@ subjects:[
 "Prasuti Tantra",
 "Stri Roga",
 "Kayachikitsa"
-]
+]},
 
-},
-
-{
-name:"BHMS",
+"BHMS":{
 icon:"🌱",
 duration:"5.5 Years",
-description:"Homeopathic Medicine",
-
 subjects:[
 "Anatomy",
 "Physiology",
@@ -984,16 +698,11 @@ subjects:[
 "Practice of Medicine",
 "Surgery",
 "Obstetrics & Gynaecology"
-]
+]},
 
-},
-
-{
-name:"BUMS",
-icon:"🧴",
+"BUMS":{
+icon:"🌿",
 duration:"5.5 Years",
-description:"Unani Medicine",
-
 subjects:[
 "Anatomy",
 "Physiology",
@@ -1006,16 +715,11 @@ subjects:[
 "Surgery",
 "Obstetrics",
 "Gynaecology"
-]
+]},
 
-},
-
-{
-name:"BSMS",
+"BSMS":{
 icon:"🍃",
 duration:"5.5 Years",
-description:"Siddha Medicine",
-
 subjects:[
 "Anatomy",
 "Physiology",
@@ -1026,16 +730,11 @@ subjects:[
 "Medicine",
 "Varma Medicine",
 "Siddha Treatment"
-]
+]},
 
-},
-
-{
-name:"Optometry",
+"Optometry":{
 icon:"👁️",
 duration:"4 Years",
-description:"Vision Sciences",
-
 subjects:[
 "Ocular Anatomy",
 "Ocular Physiology",
@@ -1048,213 +747,255 @@ subjects:[
 "Paediatric Optometry",
 "Low Vision",
 "Public Health Optometry"
-]
-
-}
-
-];
-
-
-/* =========================
-   TEXTBOOK DATABASE
-========================= */
-
-const books={
-
-"Anatomy":[
-["Gray's Anatomy for Students","Wolters Kluwer","Recommended anatomy reference"],
-["BD Chaurasia's Human Anatomy","CBS Publishers","Popular anatomy textbook"],
-["Clinically Oriented Anatomy","Wolters Kluwer","Clinical anatomy reference"]
-],
-
-"Physiology":[
-["Guyton and Hall Textbook of Medical Physiology","Elsevier","Major physiology reference"],
-["Ganong's Review of Medical Physiology","McGraw Hill","High-yield physiology review"],
-["Berne & Levy Physiology","Elsevier","Detailed physiology reference"]
-],
-
-"Biochemistry":[
-["Harper's Illustrated Biochemistry","McGraw Hill","Medical biochemistry reference"],
-["Lippincott Illustrated Reviews: Biochemistry","Wolters Kluwer","Visual biochemistry review"],
-["Textbook of Biochemistry for Medical Students","Jaypee","Medical student reference"]
-],
-
-"Pathology":[
-["Robbins & Cotran Pathologic Basis of Disease","Elsevier","Major pathology reference"],
-["Robbins Basic Pathology","Elsevier","Student-friendly pathology"],
-["Harsh Mohan Textbook of Pathology","Jaypee","Common medical pathology text"]
-],
-
-"Pharmacology":[
-["Goodman & Gilman's The Pharmacological Basis of Therapeutics","McGraw Hill","Advanced pharmacology reference"],
-["Katzung's Basic & Clinical Pharmacology","McGraw Hill","Medical pharmacology textbook"],
-["Essentials of Medical Pharmacology","Jaypee","Medical student pharmacology"]
-],
-
-"Microbiology":[
-["Jawetz Medical Microbiology","McGraw Hill","Medical microbiology reference"],
-["Murray Medical Microbiology","Elsevier","Clinical microbiology"],
-["Ananthanarayan and Paniker's Textbook of Microbiology","Universities Press","Indian medical curriculum reference"]
-],
-
-"General Medicine":[
-["Davidson's Principles and Practice of Medicine","Elsevier","Clinical medicine reference"],
-["Harrison's Principles of Internal Medicine","McGraw Hill","Major medicine reference"],
-["Kumar & Clark's Clinical Medicine","Elsevier","Clinical medicine textbook"]
-],
-
-"General Surgery":[
-["Bailey & Love's Short Practice of Surgery","CRC Press","Major surgery textbook"],
-["Schwartz's Principles of Surgery","McGraw Hill","Surgery reference"],
-["Sabiston Textbook of Surgery","Elsevier","Comprehensive surgery reference"]
-],
-
-"Paediatrics":[
-["Nelson Textbook of Pediatrics","Elsevier","Paediatric reference"],
-["Ghai Essential Pediatrics","CBS Publishers","Common Indian medical text"],
-["Illustrated Textbook of Paediatrics","Elsevier","Visual paediatric reference"]
-],
-
-"Obstetrics & Gynaecology":[
-["Williams Obstetrics","McGraw Hill","Obstetrics reference"],
-["Dutta's Textbook of Obstetrics","Jaypee","Common Indian textbook"],
-["DC Dutta's Textbook of Gynecology","Jaypee","Gynaecology reference"]
-],
-
-"Orthopaedics":[
-["Apley's System of Orthopaedics and Fractures","CRC Press","Orthopaedic reference"],
-["Turek's Orthopaedics","Wolters Kluwer","Orthopaedic reference"],
-["Essential Orthopaedics","Jaypee","Student reference"]
-],
-
-"ENT":[
-["Dhingra Diseases of Ear, Nose and Throat","Elsevier","ENT textbook"],
-["Scott-Brown's Otorhinolaryngology","CRC Press","Advanced ENT reference"]
-],
-
-"Ophthalmology":[
-["Khurana Comprehensive Ophthalmology","Jaypee","Ophthalmology textbook"],
-["Parsons' Diseases of the Eye","Elsevier","Ophthalmology reference"]
-],
-
-"Dermatology":[
-["Rook's Textbook of Dermatology","Wiley","Dermatology reference"],
-["Fitzpatrick's Dermatology","McGraw Hill","Advanced dermatology reference"]
-],
-
-"Psychiatry":[
-["Kaplan & Sadock's Synopsis of Psychiatry","Wolters Kluwer","Psychiatry reference"],
-["Oxford Textbook of Psychiatry","Oxford University Press","Psychiatry reference"]
-],
-
-"Biomechanics":[
-["Biomechanics of Musculoskeletal Injury","Human Kinetics","Biomechanics reference"],
-["Basic Biomechanics of the Musculoskeletal System","Wolters Kluwer","Musculoskeletal biomechanics"]
-],
-
-"Kinesiology":[
-["Kinesiology of the Musculoskeletal System","Elsevier","Movement science reference"],
-["Brunnstrom's Clinical Kinesiology","Jaypee","Clinical kinesiology"]
-],
-
-"Exercise Therapy":[
-["Therapeutic Exercise","F.A. Davis","Physiotherapy exercise reference"],
-["Therapeutic Exercise: Foundations and Techniques","F.A. Davis","Exercise therapy reference"]
-],
-
-"Electrotherapy":[
-["Clayton's Electrotherapy","Elsevier","Electrotherapy reference"],
-["Electrotherapy Explained","Elsevier","Physical agents reference"]
-],
-
-"Nutrition":[
-["Krause's Food & the Nutrition Care Process","Elsevier","Nutrition reference"],
-["Textbook of Nutrition for Nurses","Jaypee","Healthcare nutrition"]
-],
-
-"Fundamentals of Nursing":[
-["Kozier & Erb's Fundamentals of Nursing","Pearson","Nursing fundamentals"],
-["Taylor's Fundamentals of Nursing","Wolters Kluwer","Nursing fundamentals"]
-],
-
-"Medical Surgical Nursing":[
-["Brunner & Suddarth's Medical-Surgical Nursing","Wolters Kluwer","Medical-surgical nursing"],
-["Lewis's Medical-Surgical Nursing","Elsevier","Medical-surgical reference"]
-],
-
-"Community Health Nursing":[
-["Community Health Nursing","Elsevier","Community nursing reference"],
-["Park's Textbook of Preventive and Social Medicine","Banarsidas Bhanot","Public health reference"]
-],
-
-"Pharmaceutics":[
-["Aulton’s Pharmaceutics","Elsevier","Pharmaceutics reference"],
-["Remington: The Science and Practice of Pharmacy","Pharmaceutical Press","Pharmacy reference"]
-],
-
-"Pharmacognosy":[
-["Trease and Evans Pharmacognosy","Elsevier","Pharmacognosy reference"],
-["Textbook of Pharmacognosy","CBS Publishers","Pharmacognosy reference"]
-],
-
-"Human Anatomy & Physiology":[
-["Ross & Wilson Anatomy and Physiology","Elsevier","Healthcare anatomy and physiology"],
-["Tortora Principles of Anatomy and Physiology","Wiley","Anatomy and physiology reference"]
-],
-
-"Rachana Sharira":[
-["Rachana Sharira","Ayurvedic textbook reference","Ayurvedic anatomy"]
-],
-
-"Kriya Sharira":[
-["Kriya Sharira","Ayurvedic textbook reference","Ayurvedic physiology"]
-],
-
-"Dravyaguna":[
-["Dravyaguna Vijnana","Ayurvedic textbook reference","Ayurvedic pharmacology"]
-],
-
-"Materia Medica":[
-["Materia Medica","Homeopathic textbook reference","Homeopathic medicine reference"]
-],
-
-"Ocular Anatomy":[
-["Clinical Anatomy of the Eye","Wolters Kluwer","Ocular anatomy"],
-["Anatomy of the Eye and Orbit","Elsevier","Ocular anatomy reference"]
-],
-
-"Optics":[
-["Clinical Optics","Butterworth-Heinemann","Optometry optics"],
-["Geometrical and Visual Optics","CRC Press","Optics reference"]
-]
+]}
 
 };
 
 
 /* =========================
-   FUNCTIONS
+TEXTBOOKS
 ========================= */
 
-let currentCourse=null;
+const textbooks={
+
+"Anatomy":[
+["Gray's Anatomy for Students","Paid"],
+["BD Chaurasia's Human Anatomy","Paid"],
+["Clinically Oriented Anatomy","Paid"]
+],
+
+"Physiology":[
+["Guyton and Hall Textbook of Medical Physiology","Paid"],
+["Ganong's Review of Medical Physiology","Paid"],
+["Berne & Levy Physiology","Paid"]
+],
+
+"Biochemistry":[
+["Harper's Illustrated Biochemistry","Paid"],
+["Lippincott Illustrated Reviews: Biochemistry","Paid"],
+["Textbook of Biochemistry for Medical Students","Paid"]
+],
+
+"Pathology":[
+["Robbins & Cotran Pathologic Basis of Disease","Paid"],
+["Robbins Basic Pathology","Paid"],
+["Harsh Mohan Textbook of Pathology","Paid"]
+],
+
+"Pharmacology":[
+["Katzung's Basic & Clinical Pharmacology","Paid"],
+["Goodman & Gilman's Pharmacological Basis of Therapeutics","Paid"],
+["Essentials of Medical Pharmacology","Paid"]
+],
+
+"Microbiology":[
+["Jawetz Medical Microbiology","Paid"],
+["Murray Medical Microbiology","Paid"],
+["Ananthanarayan and Paniker's Textbook of Microbiology","Paid"]
+],
+
+"General Medicine":[
+["Davidson's Principles and Practice of Medicine","Paid"],
+["Harrison's Principles of Internal Medicine","Paid"],
+["Kumar & Clark's Clinical Medicine","Paid"]
+],
+
+"General Surgery":[
+["Bailey & Love's Short Practice of Surgery","Paid"],
+["Schwartz's Principles of Surgery","Paid"],
+["Sabiston Textbook of Surgery","Paid"]
+],
+
+"Paediatrics":[
+["Nelson Textbook of Pediatrics","Paid"],
+["Ghai Essential Pediatrics","Paid"]
+],
+
+"Obstetrics & Gynaecology":[
+["Williams Obstetrics","Paid"],
+["Dutta's Textbook of Obstetrics","Paid"],
+["Dutta's Textbook of Gynecology","Paid"]
+],
+
+"Orthopaedics":[
+["Apley's System of Orthopaedics","Paid"],
+["Turek's Orthopaedics","Paid"]
+],
+
+"ENT":[
+["Dhingra Diseases of Ear, Nose and Throat","Paid"],
+["Scott-Brown's Otorhinolaryngology","Paid"]
+],
+
+"Ophthalmology":[
+["Khurana Comprehensive Ophthalmology","Paid"],
+["Parsons' Diseases of the Eye","Paid"]
+],
+
+"Psychiatry":[
+["Kaplan & Sadock's Synopsis of Psychiatry","Paid"],
+["Oxford Textbook of Psychiatry","Paid"]
+],
+
+"Biomechanics":[
+["Basic Biomechanics of the Musculoskeletal System","Paid"],
+["Biomechanics of Musculoskeletal Injury","Paid"]
+],
+
+"Kinesiology":[
+["Kinesiology of the Musculoskeletal System","Paid"],
+["Brunnstrom's Clinical Kinesiology","Paid"]
+],
+
+"Exercise Therapy":[
+["Therapeutic Exercise","Paid"],
+["Therapeutic Exercise: Foundations and Techniques","Paid"]
+],
+
+"Electrotherapy":[
+["Electrotherapy Explained","Paid"],
+["Clayton's Electrotherapy","Paid"]
+],
+
+"Nutrition":[
+["Krause's Food & the Nutrition Care Process","Paid"],
+["Nutrition for Nurses","Paid"]
+],
+
+"Fundamentals of Nursing":[
+["Kozier & Erb's Fundamentals of Nursing","Paid"],
+["Taylor's Fundamentals of Nursing","Paid"]
+],
+
+"Medical Surgical Nursing":[
+["Brunner & Suddarth's Medical-Surgical Nursing","Paid"],
+["Lewis's Medical-Surgical Nursing","Paid"]
+],
+
+"Community Health Nursing":[
+["Community Health Nursing","Paid"],
+["Park's Textbook of Preventive and Social Medicine","Paid"]
+],
+
+"Pharmaceutics":[
+["Aulton's Pharmaceutics","Paid"],
+["Remington: The Science and Practice of Pharmacy","Paid"]
+],
+
+"Pharmacognosy":[
+["Trease and Evans Pharmacognosy","Paid"],
+["Textbook of Pharmacognosy","Paid"]
+],
+
+"Human Anatomy & Physiology":[
+["Ross & Wilson Anatomy and Physiology","Paid"],
+["Tortora Principles of Anatomy and Physiology","Paid"]
+],
+
+"Rachana Sharira":[
+["Rachana Sharira","Paid"]
+],
+
+"Kriya Sharira":[
+["Kriya Sharira","Paid"]
+],
+
+"Dravyaguna":[
+["Dravyaguna Vijnana","Paid"]
+],
+
+"Materia Medica":[
+["Materia Medica","Paid"]
+],
+
+"Ocular Anatomy":[
+["Clinical Anatomy of the Eye","Paid"],
+["Anatomy of the Eye and Orbit","Paid"]
+],
+
+"Optics":[
+["Clinical Optics","Paid"],
+["Geometrical and Visual Optics","Paid"]
+]
+
+};
 
 
-function courseCard(course){
+let currentCourse="";
+let currentSubject="";
+
+
+/* =========================
+NAVIGATION
+========================= */
+
+function hideAll(){
+
+document.getElementById("homePage").style.display="none";
+document.getElementById("coursesPage").style.display="none";
+document.getElementById("subjectPage").style.display="none";
+document.getElementById("subjectDetails").style.display="none";
+document.getElementById("loginPage").style.display="none";
+
+}
+
+
+function home(){
+
+hideAll();
+
+document.getElementById("homePage").style.display="block";
+
+window.scrollTo(0,0);
+
+}
+
+
+function coursesPage(){
+
+hideAll();
+
+document.getElementById("coursesPage").style.display="block";
+
+window.scrollTo(0,0);
+
+}
+
+
+function loginPage(){
+
+hideAll();
+
+document.getElementById("loginPage").style.display="block";
+
+window.scrollTo(0,0);
+
+}
+
+
+/* =========================
+COURSE CARDS
+========================= */
+
+function makeCourse(name){
+
+let c=data[name];
 
 return `
 
-<div class="courseCard"
-onclick="openCourse('${course.name}')">
+<div class="card"
+onclick="openCourse('${name}')">
 
-<div class="courseIcon">
-${course.icon}
+<div class="icon">
+${c.icon}
 </div>
 
-<h3>${course.name}</h3>
+<h3>${name}</h3>
 
-<p>${course.description}</p>
+<p>${c.duration}</p>
 
-<span class="duration">
-${course.duration}
+<span class="badge">
+${c.subjects.length} Subjects
 </span>
 
 </div>
@@ -1266,91 +1007,50 @@ ${course.duration}
 
 function loadCourses(){
 
+let names=Object.keys(data);
+
 document.getElementById("homeCourses").innerHTML=
-courses.slice(0,6).map(courseCard).join("");
+names.slice(0,6).map(makeCourse).join("");
 
 document.getElementById("allCourses").innerHTML=
-courses.map(courseCard).join("");
+names.map(makeCourse).join("");
 
 }
 
 
-function hideAll(){
-
-document.getElementById("home").style.display="none";
-document.getElementById("coursesPage").style.display="none";
-document.getElementById("subjectPage").style.display="none";
-document.getElementById("topicPage").style.display="none";
-document.getElementById("loginPage").style.display="none";
-
-}
-
-
-function showHome(){
-
-hideAll();
-
-document.getElementById("home").style.display="block";
-
-window.scrollTo(0,0);
-
-}
-
-
-function showCourses(){
-
-hideAll();
-
-document.getElementById("coursesPage").style.display="block";
-
-window.scrollTo(0,0);
-
-}
-
-
-function showLogin(){
-
-hideAll();
-
-document.getElementById("loginPage").style.display="block";
-
-window.scrollTo(0,0);
-
-}
-
+/* =========================
+OPEN COURSE
+========================= */
 
 function openCourse(name){
 
-currentCourse=
-courses.find(function(course){
-return course.name===name;
-});
-
-if(!currentCourse)return;
+currentCourse=name;
 
 hideAll();
 
 document.getElementById("subjectPage").style.display="block";
 
-document.getElementById("subjectTitle").innerText=
-currentCourse.icon+" "+currentCourse.name+" Subjects";
+let c=data[name];
 
+document.getElementById("courseTitle").innerText=
+c.icon+" "+name;
 
 let html="";
 
-
-currentCourse.subjects.forEach(function(subject){
+c.subjects.forEach(function(subject){
 
 html+=`
 
-<div class="subjectCard"
-onclick="openTopic('${subject}')">
+<div class="card"
+onclick="openSubject('${subject}')">
 
-<div class="subjectIcon">
+<div class="icon">
 📖
 </div>
 
-<h3>${subject}</h3>
+<h3>
+${subject}
+</h3>
 
 <p>
 Textbooks • Notes • MCQs
@@ -1362,34 +1062,38 @@ Textbooks • Notes • MCQs
 
 });
 
-
-document.getElementById("subjects").innerHTML=html;
+document.getElementById("subjectList").innerHTML=html;
 
 window.scrollTo(0,0);
 
 }
 
 
-function openTopic(subject){
+/* =========================
+OPEN SUBJECT
+========================= */
+
+function openSubject(subject){
+
+currentSubject=subject;
 
 hideAll();
 
-document.getElementById("topicPage").style.display="block";
+document.getElementById("subjectDetails").style.display="block";
 
-document.getElementById("topicTitle").innerText=
+document.getElementById("subjectTitle").innerText=
 "📖 "+subject;
 
-document.getElementById("topicDescription").innerText=
-"Recommended learning resources for "+subject+".";
+document.getElementById("subjectDescription").innerText=
+"Recommended textbooks and study resources for "+subject+".";
 
 
-let selectedBooks=books[subject];
+let list=textbooks[subject];
 
+if(!list){
 
-if(!selectedBooks){
-
-selectedBooks=[
-["Recommended textbook","Subject reference","A suitable reference textbook for this subject."]
+list=[
+["Recommended "+subject+" textbook","Paid"]
 ];
 
 }
@@ -1398,13 +1102,22 @@ selectedBooks=[
 let html="";
 
 
-selectedBooks.forEach(function(book){
+list.forEach(function(book){
+
+let type=book[1];
+
+let className=
+type==="Free" ? "free" : "paid";
+
+let buttonText=
+type==="Free" ? "Read Free" : "Buy Legally";
+
 
 html+=`
 
-<div class="bookCard">
+<div class="book">
 
-<div class="bookIcon">
+<div class="icon">
 📚
 </div>
 
@@ -1412,20 +1125,23 @@ html+=`
 ${book[0]}
 </h3>
 
-<p>
-<b>Publisher:</b> ${book[1]}
-</p>
+<span class="badge ${className}">
+${type}
+</span>
 
 <p>
-${book[2]}
+${type==="Free"
+?"Legally available free resource."
+:"Copyrighted textbook. Purchase from an authorized seller."
+}
 </p>
 
 <a
 class="bookButton"
-href="https://www.google.com/search?q=${encodeURIComponent(book[0])}"
+href="https://www.google.com/search?q=${encodeURIComponent(book[0]+" official textbook")}"
 target="_blank">
 
-Find legally
+${buttonText}
 
 </a>
 
@@ -1436,44 +1152,37 @@ Find legally
 });
 
 
-document.getElementById("textbooks").innerHTML=html;
+document.getElementById("bookList").innerHTML=html;
 
 window.scrollTo(0,0);
 
 }
 
 
-function goBackSubjects(){
+function backSubjects(){
 
-if(currentCourse){
-
-openCourse(currentCourse.name);
-
-}else{
-
-showCourses();
-
-}
+openCourse(currentCourse);
 
 }
 
 
-function searchCourses(){
+/* =========================
+SEARCH
+========================= */
 
-let query=
+function search(){
+
+let q=
 document.getElementById("search")
 .value
-.toLowerCase()
-.trim();
-
+.toLowerCase();
 
 let cards=
-document.querySelectorAll("#homeCourses .courseCard");
-
+document.querySelectorAll("#homeCourses .card");
 
 cards.forEach(function(card){
 
-if(card.innerText.toLowerCase().includes(query)){
+if(card.innerText.toLowerCase().includes(q)){
 
 card.style.display="block";
 
@@ -1488,10 +1197,14 @@ card.style.display="none";
 }
 
 
-function createAccount(){
+/* =========================
+SIGN UP DEMO
+========================= */
+
+function signup(){
 
 let name=
-document.getElementById("name").value;
+document.getElementById("username").value;
 
 let email=
 document.getElementById("email").value;
@@ -1499,8 +1212,7 @@ document.getElementById("email").value;
 let password=
 document.getElementById("password").value;
 
-
-if(name==="" || email==="" || password===""){
+if(!name || !email || !password){
 
 alert("Please fill all fields.");
 
@@ -1508,16 +1220,15 @@ return;
 
 }
 
-
 alert(
 "Welcome to MedLib, "+
-name+
-"! 🎉\n\n"+
-"Your account interface is ready."
+name+"! 🎉"
 );
 
 }
 
+
+/* START */
 
 loadCourses();
 
