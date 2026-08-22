@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MedLib - Medical Student Library</title>
+<title>MedLib - Learn Medicine</title>
 
 <style>
 
@@ -16,446 +17,778 @@
 
 body{
     font-family:Arial,Helvetica,sans-serif;
-    background:#f4f8fb;
+    background:#f6f8fb;
     color:#17202a;
 }
 
+/* HEADER */
+
 header{
-    background:#087f8c;
-    color:white;
-    padding:25px 15px;
-    text-align:center;
+    background:white;
+    height:65px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 6%;
+    border-bottom:1px solid #e5e9ed;
+    position:sticky;
+    top:0;
+    z-index:100;
 }
 
 .logo{
-    font-size:32px;
-    font-weight:bold;
-}
-
-.tagline{
-    margin-top:7px;
-    font-size:16px;
-}
-
-.hero{
-    background:white;
-    text-align:center;
-    padding:45px 18px;
-}
-
-.hero h1{
-    font-size:34px;
-    margin-bottom:15px;
-}
-
-.hero p{
-    color:#5f6b73;
-    font-size:17px;
-    margin-bottom:25px;
-}
-
-.search{
-    width:95%;
-    max-width:650px;
-    padding:16px 20px;
-    border:1px solid #ccd6dc;
-    border-radius:30px;
-    font-size:16px;
-    outline:none;
-}
-
-.container{
-    max-width:1150px;
-    margin:auto;
-    padding:30px 18px;
-}
-
-.section-title{
-    margin-bottom:20px;
     font-size:25px;
+    font-weight:bold;
+    color:#087f8c;
 }
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-    gap:16px;
-}
-
-.card{
-    background:white;
-    padding:25px 15px;
-    border-radius:18px;
-    text-align:center;
-    box-shadow:0 3px 15px rgba(0,0,0,0.07);
-    cursor:pointer;
-    transition:0.2s;
-}
-
-.card:hover{
-    transform:translateY(-4px);
-}
-
-.card:active{
-    transform:scale(0.97);
-}
-
-.icon{
-    font-size:40px;
-    margin-bottom:12px;
-}
-
-.card h3{
-    font-size:17px;
-}
-
-.course-card{
-    min-height:150px;
+.nav{
     display:flex;
-    flex-direction:column;
-    justify-content:center;
+    align-items:center;
+    gap:20px;
 }
 
-.course-card p{
-    margin-top:8px;
-    color:#66727a;
-    font-size:13px;
-}
-
-.topic-card{
-    text-align:left;
-}
-
-.topic-card h3{
-    margin-bottom:8px;
-}
-
-.topic-card p{
-    color:#66727a;
-    line-height:1.5;
-}
-
-.back{
-    display:inline-block;
-    margin-bottom:25px;
-    padding:12px 20px;
-    background:#087f8c;
-    color:white;
+.nav button{
     border:none;
-    border-radius:10px;
+    background:none;
     font-size:15px;
     cursor:pointer;
 }
 
-.back:hover{
-    background:#066b75;
+.loginBtn{
+    background:#087f8c!important;
+    color:white;
+    padding:10px 18px;
+    border-radius:8px;
 }
 
-.page-title{
+/* HERO */
+
+.hero{
+    background:linear-gradient(135deg,#087f8c,#075e68);
+    color:white;
+    padding:60px 6%;
+}
+
+.heroContent{
+    max-width:1100px;
+    margin:auto;
+}
+
+.hero h1{
+    font-size:40px;
+    max-width:650px;
+    line-height:1.2;
+}
+
+.hero p{
+    margin-top:15px;
+    font-size:18px;
+    max-width:600px;
+    opacity:.9;
+}
+
+.searchBox{
+    margin-top:28px;
+    max-width:650px;
+    position:relative;
+}
+
+.searchBox input{
+    width:100%;
+    padding:17px 22px;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    outline:none;
+}
+
+/* CONTENT */
+
+.container{
+    max-width:1150px;
+    margin:auto;
+    padding:35px 18px;
+}
+
+.sectionHeader{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.sectionHeader h2{
+    font-size:25px;
+}
+
+.sectionHeader button{
+    border:none;
+    background:none;
+    color:#087f8c;
+    cursor:pointer;
+}
+
+/* COURSES */
+
+.courseGrid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.courseCard{
+    background:white;
+    border-radius:14px;
+    padding:18px;
+    border:1px solid #e6ebef;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.courseCard:hover{
+    transform:translateY(-3px);
+    box-shadow:0 6px 20px rgba(0,0,0,.08);
+}
+
+.courseIcon{
+    font-size:34px;
     margin-bottom:10px;
 }
 
-.page-description{
-    color:#66727a;
-    margin-bottom:25px;
+.courseCard h3{
+    font-size:17px;
+    margin-bottom:7px;
 }
 
-.features{
-    margin-top:45px;
+.courseCard p{
+    color:#68747c;
+    font-size:13px;
+    line-height:1.4;
+}
+
+.duration{
+    display:inline-block;
+    margin-top:12px;
+    background:#e9f7f8;
+    color:#087f8c;
+    padding:6px 9px;
+    border-radius:6px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+/* CATEGORIES */
+
+.categoryGrid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.category{
+    background:white;
+    border:1px solid #e6ebef;
+    border-radius:12px;
+    padding:20px;
+    text-align:center;
+    cursor:pointer;
+}
+
+.categoryIcon{
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+/* FEATURES */
+
+.featureGrid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:15px;
 }
 
 .feature{
     background:white;
-    padding:20px;
-    border-radius:15px;
-    margin-bottom:14px;
-    box-shadow:0 2px 10px rgba(0,0,0,0.05);
+    border-radius:13px;
+    padding:22px;
+    border:1px solid #e6ebef;
 }
 
-.feature h3{
-    margin-bottom:7px;
+.featureIcon{
+    font-size:30px;
+    margin-bottom:10px;
 }
 
 .feature p{
-    color:#66727a;
+    color:#68747c;
+    font-size:14px;
+    margin-top:7px;
+    line-height:1.5;
 }
 
-.hidden{
-    display:none !important;
+/* PAGES */
+
+.page{
+    display:none;
 }
+
+.backBtn{
+    background:#087f8c;
+    color:white;
+    border:none;
+    padding:11px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    margin-bottom:25px;
+}
+
+/* SUBJECTS */
+
+.subjectGrid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.subjectCard{
+    background:white;
+    border:1px solid #e4e9ed;
+    border-radius:12px;
+    padding:20px;
+    cursor:pointer;
+}
+
+.subjectCard:hover{
+    box-shadow:0 5px 15px rgba(0,0,0,.07);
+}
+
+.subjectCard h3{
+    margin-bottom:7px;
+}
+
+.subjectCard p{
+    color:#68747c;
+    font-size:13px;
+}
+
+/* LOGIN */
+
+.loginPage{
+    display:none;
+    min-height:70vh;
+    padding:45px 20px;
+}
+
+.loginBox{
+    max-width:430px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 25px rgba(0,0,0,.08);
+}
+
+.loginBox h2{
+    margin-bottom:10px;
+}
+
+.loginBox p{
+    color:#68747c;
+    margin-bottom:25px;
+}
+
+.loginBox input{
+    width:100%;
+    padding:14px;
+    margin-bottom:14px;
+    border:1px solid #ccd5db;
+    border-radius:8px;
+    font-size:15px;
+}
+
+.loginBox button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:8px;
+    background:#087f8c;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.switchLogin{
+    text-align:center;
+    margin-top:18px;
+    color:#087f8c;
+    cursor:pointer;
+}
+
+/* FOOTER */
 
 footer{
     margin-top:45px;
-    padding:30px 15px;
-    text-align:center;
     background:#17202a;
     color:white;
+    padding:35px 20px;
+    text-align:center;
 }
 
-.small{
-    font-size:13px;
-    opacity:0.8;
-    margin-top:7px;
+.footerTitle{
+    font-size:22px;
+    font-weight:bold;
 }
 
-@media(max-width:600px){
+.footerText{
+    margin-top:8px;
+    color:#c8d0d5;
+    font-size:14px;
+}
 
-    .logo{
-        font-size:27px;
+/* MOBILE */
+
+@media(max-width:700px){
+
+    header{
+        padding:0 15px;
+    }
+
+    .nav button:not(.loginBtn){
+        display:none;
+    }
+
+    .hero{
+        padding:45px 18px;
     }
 
     .hero h1{
-        font-size:28px;
+        font-size:30px;
     }
 
-    .grid{
+    .hero p{
+        font-size:15px;
+    }
+
+    /* EXACTLY 3 COURSES PER ROW */
+
+    .courseGrid{
+        grid-template-columns:repeat(3,1fr);
+        gap:8px;
+    }
+
+    .courseCard{
+        padding:12px 7px;
+        border-radius:10px;
+    }
+
+    .courseIcon{
+        font-size:27px;
+    }
+
+    .courseCard h3{
+        font-size:12px;
+    }
+
+    .courseCard p{
+        font-size:9px;
+    }
+
+    .duration{
+        font-size:8px;
+        padding:4px;
+        margin-top:7px;
+    }
+
+    .categoryGrid{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .card{
-        padding:22px 10px;
+    .featureGrid{
+        grid-template-columns:1fr;
+    }
+
+    .subjectGrid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+/* SMALL PHONES */
+
+@media(max-width:370px){
+
+    .courseCard h3{
+        font-size:10px;
+    }
+
+    .courseCard p{
+        font-size:8px;
+    }
+
+    .duration{
+        font-size:7px;
     }
 
 }
 
 </style>
+
 </head>
 
 <body>
 
+
+<!-- HEADER -->
+
 <header>
 
-    <div class="logo">🩺 MedLib</div>
+<div class="logo">
+🩺 MedLib
+</div>
 
-    <div class="tagline">
-        The Medical Student Library
-    </div>
+<div class="nav">
+
+<button onclick="showHome()">
+Home
+</button>
+
+<button onclick="showCourses()">
+Courses
+</button>
+
+<button onclick="showLogin()" class="loginBtn">
+Sign In
+</button>
+
+</div>
 
 </header>
 
 
+<!-- HOME -->
+
+<div id="home">
+
 <section class="hero">
 
-    <h1>Study Medicine. Anywhere. 📚</h1>
+<div class="heroContent">
 
-    <p>
-        One place for students from medical and healthcare courses.
-    </p>
+<h1>
+Learn Medicine. Build Your Future. 📚
+</h1>
 
-    <input
-        id="search"
-        class="search"
-        type="text"
-        placeholder="🔎 Search courses, subjects or topics..."
-        onkeyup="searchEverything()"
-    >
+<p>
+Study medical and healthcare subjects from one simple platform.
+</p>
+
+<div class="searchBox">
+
+<input
+id="search"
+type="text"
+placeholder="🔍 Search MBBS, Anatomy, Pharmacology..."
+onkeyup="searchCourses()">
+
+</div>
+
+</div>
 
 </section>
 
 
 <div class="container">
 
-    <div id="app">
 
-        <h2 class="section-title">
-            🎓 Choose Your Course
-        </h2>
+<div class="sectionHeader">
 
-        <div class="grid" id="courses">
+<h2>
+🎓 Popular Courses
+</h2>
 
-            <div class="card course-card searchable"
-                 onclick="openCourse('MBBS')">
+<button onclick="showCourses()">
+View All →
+</button>
 
-                <div class="icon">🩺</div>
-                <h3>MBBS</h3>
-                <p>Medicine & Surgery</p>
-
-            </div>
+</div>
 
 
-            <div class="card course-card searchable"
-                 onclick="openCourse('BDS')">
+<div class="courseGrid" id="homeCourses">
 
-                <div class="icon">🦷</div>
-                <h3>BDS</h3>
-                <p>Dental Surgery</p>
-
-            </div>
+</div>
 
 
-            <div class="card course-card searchable"
-                 onclick="openCourse('BPT')">
-
-                <div class="icon">🦴</div>
-                <h3>BPT</h3>
-                <p>Physiotherapy</p>
-
-            </div>
+<br><br>
 
 
-            <div class="card course-card searchable"
-                 onclick="openCourse('Nursing')">
+<div class="sectionHeader">
 
-                <div class="icon">👩‍⚕️</div>
-                <h3>B.Sc Nursing</h3>
-                <p>Nursing Sciences</p>
+<h2>
+📚 Study Resources
+</h2>
 
-            </div>
-
-
-            <div class="card course-card searchable"
-                 onclick="openCourse('Pharmacy')">
-
-                <div class="icon">💊</div>
-                <h3>Pharmacy</h3>
-                <p>Pharmaceutical Sciences</p>
-
-            </div>
+</div>
 
 
-            <div class="card course-card searchable"
-                 onclick="openCourse('AHS')">
+<div class="categoryGrid">
 
-                <div class="icon">🔬</div>
-                <h3>Allied Health Sciences</h3>
-                <p>Healthcare & Diagnostics</p>
+<div class="category" onclick="resourceMessage('Books')">
+<div class="categoryIcon">📖</div>
+Books
+</div>
 
-            </div>
+<div class="category" onclick="resourceMessage('Notes')">
+<div class="categoryIcon">📝</div>
+Notes
+</div>
 
+<div class="category" onclick="resourceMessage('MCQs')">
+<div class="categoryIcon">❓</div>
+MCQs
+</div>
 
-            <div class="card course-card searchable"
-                 onclick="openCourse('GNM')">
+<div class="category" onclick="resourceMessage('PYQs')">
+<div class="categoryIcon">📋</div>
+PYQs
+</div>
 
-                <div class="icon">🏥</div>
-                <h3>GNM</h3>
-                <p>General Nursing</p>
-
-            </div>
-
-
-            <div class="card course-card searchable"
-                 onclick="openCourse('Ayurveda')">
-
-                <div class="icon">🌿</div>
-                <h3>Ayurveda</h3>
-                <p>Ayurvedic Medicine</p>
-
-            </div>
+</div>
 
 
-            <div class="card course-card searchable"
-                 onclick="openCourse('Homeopathy')">
-
-                <div class="icon">🌱</div>
-                <h3>Homeopathy</h3>
-                <p>Homeopathic Medicine</p>
-
-            </div>
+<br><br>
 
 
-            <div class="card course-card searchable"
-                 onclick="openCourse('MedicalLab')">
+<div class="sectionHeader">
 
-                <div class="icon">🧪</div>
-                <h3>Medical Laboratory</h3>
-                <p>Laboratory Sciences</p>
+<h2>
+🚀 Why MedLib?
+</h2>
 
-            </div>
-
-
-            <div class="card course-card searchable"
-                 onclick="openCourse('Radiology')">
-
-                <div class="icon">🩻</div>
-                <h3>Radiology</h3>
-                <p>Medical Imaging</p>
-
-            </div>
+</div>
 
 
-            <div class="card course-card searchable"
-                 onclick="openCourse('Optometry')">
+<div class="featureGrid">
 
-                <div class="icon">👁️</div>
-                <h3>Optometry</h3>
-                <p>Eye & Vision Sciences</p>
+<div class="feature">
 
-            </div>
+<div class="featureIcon">
+📚
+</div>
 
-        </div>
+<h3>
+Multiple Courses
+</h3>
+
+<p>
+MBBS, BDS, BPT, Nursing, Pharmacy, AHS and many more.
+</p>
+
+</div>
 
 
-        <div class="features">
+<div class="feature">
 
-            <h2 class="section-title">
-                📚 MedLib Resources
-            </h2>
+<div class="featureIcon">
+🧠
+</div>
 
-            <div class="feature">
-                <h3>📖 Textbooks</h3>
-                <p>
-                    Find legally accessible medical learning resources.
-                </p>
-            </div>
+<h3>
+Easy Revision
+</h3>
 
-            <div class="feature">
-                <h3>📝 Notes</h3>
-                <p>
-                    Organize and study important notes by subject.
-                </p>
-            </div>
+<p>
+Organize your learning by course, subject and topic.
+</p>
 
-            <div class="feature">
-                <h3>❓ MCQs & PYQs</h3>
-                <p>
-                    Practice questions for examinations.
-                </p>
-            </div>
+</div>
 
-            <div class="feature">
-                <h3>🧠 Flashcards</h3>
-                <p>
-                    Quick revision of important concepts.
-                </p>
-            </div>
 
-            <div class="feature">
-                <h3>🩻 Medical Diagrams</h3>
-                <p>
-                    Learn anatomy, physiology and clinical concepts visually.
-                </p>
-            </div>
+<div class="feature">
 
-        </div>
+<div class="featureIcon">
+📱
+</div>
 
-    </div>
+<h3>
+Study Anywhere
+</h3>
+
+<p>
+Designed to work smoothly on mobile phones.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- COURSES PAGE -->
+
+<div id="coursesPage" class="page">
+
+<div class="container">
+
+<button class="backBtn" onclick="showHome()">
+← Home
+</button>
+
+<h1>
+🎓 All Courses
+</h1>
+
+<p style="margin:10px 0 25px;color:#68747c;">
+Choose your healthcare course.
+</p>
+
+<div class="courseGrid" id="allCourses">
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SUBJECT PAGE -->
+
+<div id="subjectPage" class="page">
+
+<div class="container">
+
+<button class="backBtn" onclick="showCourses()">
+← Courses
+</button>
+
+<h1 id="subjectTitle">
+</h1>
+
+<p style="margin:10px 0;color:#68747c;">
+Choose a subject to continue.
+</p>
+
+<div class="subjectGrid" id="subjects">
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- TOPIC PAGE -->
+
+<div id="topicPage" class="page">
+
+<div class="container">
+
+<button class="backBtn" onclick="goBackSubjects()">
+← Subjects
+</button>
+
+<div class="feature">
+
+<h1 id="topicTitle">
+</h1>
+
+<p id="topicDescription" style="margin-top:15px;">
+</p>
+
+<br>
+
+<h3>
+📚 Study Material
+</h3>
+
+<p style="margin-top:10px;">
+Detailed notes, textbooks, diagrams, MCQs and previous-year questions will appear here.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- LOGIN PAGE -->
+
+<div id="loginPage" class="loginPage">
+
+<div class="loginBox">
+
+<button class="backBtn" onclick="showHome()">
+← Back
+</button>
+
+<h2>
+👤 Welcome to MedLib
+</h2>
+
+<p>
+Sign in for a better learning experience.
+</p>
+
+<input
+id="name"
+type="text"
+placeholder="Your name">
+
+<input
+id="email"
+type="email"
+placeholder="Email address">
+
+<input
+id="password"
+type="password"
+placeholder="Password">
+
+<button onclick="createAccount()">
+Create Account
+</button>
+
+<div class="switchLogin">
+Already have an account? Sign In
+</div>
+
+</div>
 
 </div>
 
 
 <footer>
 
-    <div>🩺 MedLib</div>
+<div class="footerTitle">
+🩺 MedLib
+</div>
 
-    <div class="small">
-        Built for medical and healthcare students
-    </div>
+<div class="footerText">
+A learning platform for medical and healthcare students.
+</div>
 
-    <div class="small">
-        © 2026 MedLib
-    </div>
+<div class="footerText">
+© 2026 MedLib
+</div>
 
 </footer>
-
 
 
 <script>
 
 
-const courses = {
+const courses = [
 
-
-MBBS: [
-
+{
+name:"MBBS",
+icon:"🩺",
+duration:"4.5 Y + 1 Y",
+description:"Medicine & Surgery",
+subjects:[
 "Anatomy",
 "Physiology",
 "Biochemistry",
@@ -466,59 +799,53 @@ MBBS: [
 "Community Medicine",
 "General Medicine",
 "General Surgery",
-"Orthopaedics",
 "Paediatrics",
-"Psychiatry",
-"Dermatology",
-"Radiology",
-"Anaesthesiology",
+"Obstetrics & Gynaecology",
+"Orthopaedics",
 "ENT",
 "Ophthalmology",
-"Obstetrics & Gynaecology",
-"Emergency Medicine",
-"Family Medicine",
-"Immunology",
-"Genetics",
-"Clinical Anatomy",
-"Clinical Physiology",
-"Clinical Biochemistry"
+"Dermatology",
+"Psychiatry",
+"Radiology",
+"Anaesthesiology",
+"Emergency Medicine"
+]
+},
 
-],
-
-
-BDS: [
-
+{
+name:"BDS",
+icon:"🦷",
+duration:"4 Y + 1 Y",
+description:"Dental Surgery",
+subjects:[
 "General Anatomy",
 "Head & Neck Anatomy",
 "Dental Anatomy",
-"Embryology",
-"Histology",
 "Physiology",
 "Biochemistry",
 "Pathology",
-"Oral Pathology",
 "Microbiology",
 "Pharmacology",
-"General Medicine",
-"General Surgery",
+"Oral Pathology",
 "Oral Medicine",
 "Oral Surgery",
 "Prosthodontics",
+"Periodontology",
 "Conservative Dentistry",
 "Endodontics",
-"Periodontology",
 "Orthodontics",
 "Pedodontics",
 "Public Health Dentistry",
-"Forensic Odontology",
-"Radiology",
 "Dental Materials"
+]
+},
 
-],
-
-
-BPT: [
-
+{
+name:"BPT",
+icon:"🏃",
+duration:"4 Y + Internship",
+description:"Physiotherapy",
+subjects:[
 "Anatomy",
 "Physiology",
 "Biochemistry",
@@ -526,7 +853,6 @@ BPT: [
 "Kinesiology",
 "Exercise Therapy",
 "Electrotherapy",
-"Physical Agents",
 "Pathology",
 "Microbiology",
 "Pharmacology",
@@ -536,25 +862,19 @@ BPT: [
 "Neurology",
 "Paediatrics",
 "Cardiopulmonary Physiotherapy",
-"Musculoskeletal Physiotherapy",
-"Neurological Physiotherapy",
 "Sports Physiotherapy",
 "Community Physiotherapy",
-"Geriatric Physiotherapy",
-"Women's Health Physiotherapy",
 "Research Methodology",
-"Statistics",
-"Rehabilitation",
-"Prosthetics & Orthotics",
-"Clinical Physiotherapy",
-"Psychology",
-"Sociology"
+"Rehabilitation"
+]
+},
 
-],
-
-
-Nursing: [
-
+{
+name:"Nursing",
+icon:"👩‍⚕️",
+duration:"4 Years",
+description:"B.Sc Nursing",
+subjects:[
 "Anatomy",
 "Physiology",
 "Biochemistry",
@@ -565,151 +885,122 @@ Nursing: [
 "Fundamentals of Nursing",
 "Medical Surgical Nursing",
 "Child Health Nursing",
-"Paediatric Nursing",
 "Mental Health Nursing",
-"Psychiatric Nursing",
 "Community Health Nursing",
 "Midwifery",
-"Obstetric Nursing",
 "Pharmacology",
 "Pathology",
-"Genetics",
-"Health Education",
-"Research Methodology",
-"Statistics",
-"Management of Nursing Services",
-"Environmental Hygiene",
-"First Aid",
-"Emergency Nursing"
+"Nursing Research",
+"Nursing Administration"
+]
+},
 
-],
-
-
-Pharmacy: [
-
-"Human Anatomy",
-"Human Physiology",
-"Biochemistry",
-"Pharmaceutical Chemistry",
-"Inorganic Chemistry",
-"Organic Chemistry",
-"Physical Pharmacy",
+{
+name:"Pharmacy",
+icon:"💊",
+duration:"4 Years",
+description:"B.Pharm",
+subjects:[
+"Human Anatomy & Physiology",
 "Pharmaceutics",
-"Pharmacognosy",
+"Pharmaceutical Chemistry",
 "Pharmacology",
+"Pharmacognosy",
+"Biochemistry",
 "Pathophysiology",
 "Microbiology",
-"Pharmaceutical Analysis",
-"Medicinal Chemistry",
-"Industrial Pharmacy",
-"Biopharmaceutics",
-"Pharmacokinetics",
 "Clinical Pharmacy",
 "Hospital Pharmacy",
-"Community Pharmacy",
-"Drug Regulatory Affairs",
-"Pharmacovigilance",
-"Pharmaceutical Biotechnology",
-"Herbal Drug Technology",
-"Drug Design",
+"Pharmacotherapeutics",
+"Medicinal Chemistry",
+"Toxicology",
+"Pharmaceutical Analysis",
 "Pharmacy Practice"
+]
+},
 
-],
-
-
-AHS: [
-
+{
+name:"AHS",
+icon:"🔬",
+duration:"4 Years",
+description:"Allied Health Sciences",
+subjects:[
 "Anatomy",
 "Physiology",
 "Biochemistry",
 "Pathology",
 "Microbiology",
 "Pharmacology",
-"Immunology",
-"Genetics",
-"Medical Terminology",
 "Clinical Biochemistry",
+"Haematology",
+"Immunology",
 "Medical Laboratory Technology",
 "Radiology",
 "Medical Imaging",
-"Cardiac Care Technology",
-"Respiratory Therapy",
 "Operation Theatre Technology",
-"Emergency Medical Technology",
-"Dialysis Technology",
-"Optometry",
-"Radiotherapy",
-"Health Information Management",
-"Nutrition",
-"Public Health",
-"Research Methodology",
-"Medical Ethics"
+"Cardiac Care",
+"Emergency Care",
+"Nutrition"
+]
+},
 
-],
-
-
-GNM: [
-
-"Anatomy",
-"Physiology",
+{
+name:"GNM",
+icon:"🏥",
+duration:"3 Years",
+description:"General Nursing",
+subjects:[
+"Anatomy & Physiology",
 "Microbiology",
 "Psychology",
 "Sociology",
 "Fundamentals of Nursing",
-"First Aid",
-"Community Health Nursing",
 "Medical Surgical Nursing",
+"Community Health Nursing",
 "Child Health Nursing",
-"Mental Health Nursing",
 "Midwifery",
-"Obstetric Nursing",
+"Mental Health Nursing",
 "Nutrition",
-"Pharmacology",
-"Environmental Hygiene",
-"Health Education",
-"Professional Trends",
-"Research",
-"Administration"
+"First Aid",
+"Pharmacology"
+]
+},
 
-],
-
-
-Ayurveda: [
-
+{
+name:"BAMS",
+icon:"🌿",
+duration:"5.5 Years",
+description:"Ayurvedic Medicine",
+subjects:[
 "Sanskrit",
 "Padartha Vigyan",
-"Rachana Sharir",
-"Kriya Sharir",
-"Dravyaguna Vigyan",
+"Rachana Sharira",
+"Kriya Sharira",
+"Dravyaguna",
 "Rasashastra",
-"Charaka Samhita",
-"Sushruta Samhita",
-"Ashtanga Hridaya",
 "Swasthavritta",
 "Agada Tantra",
-"Roga Nidana",
-"Vikriti Vigyan",
-"Kayachikitsa",
+"Charaka Samhita",
 "Shalya Tantra",
 "Shalakya Tantra",
+"Kaumarabhritya",
 "Prasuti Tantra",
 "Stri Roga",
-"Kaumarabhritya",
-"Panchakarma",
-"Kaumarabhritya",
-"Research Methodology"
+"Kayachikitsa"
+]
+},
 
-],
-
-
-Homeopathy: [
-
+{
+name:"BHMS",
+icon:"🌱",
+duration:"5.5 Years",
+description:"Homeopathic Medicine",
+subjects:[
 "Anatomy",
 "Physiology",
 "Biochemistry",
 "Pathology",
 "Microbiology",
-"Pharmacology",
 "Organon of Medicine",
 "Materia Medica",
 "Homeopathic Pharmacy",
@@ -717,668 +1008,323 @@ Homeopathy: [
 "Community Medicine",
 "Practice of Medicine",
 "Surgery",
+"Obstetrics & Gynaecology"
+]
+},
+
+{
+name:"BUMS",
+icon:"🧴",
+duration:"5.5 Years",
+description:"Unani Medicine",
+subjects:[
+"Anatomy",
+"Physiology",
+"Munafeul Aza",
+"Unani Pharmacology",
+"Unani Pharmacy",
+"Pathology",
+"Diagnosis",
+"Medicine",
+"Surgery",
 "Obstetrics",
-"Gynaecology",
-"Paediatrics",
-"Psychiatry",
-"Research Methodology"
+"Gynaecology"
+]
+},
 
-],
-
-
-MedicalLab: [
-
+{
+name:"BSMS",
+icon:"🍃",
+duration:"5.5 Years",
+description:"Siddha Medicine",
+subjects:[
 "Anatomy",
 "Physiology",
 "Biochemistry",
-"Clinical Biochemistry",
-"Pathology",
-"Haematology",
-"Clinical Pathology",
-"Microbiology",
-"Immunology",
-"Serology",
-"Histopathology",
-"Cytology",
-"Blood Banking",
-"Transfusion Medicine",
-"Molecular Biology",
-"Genetics",
-"Parasitology",
-"Virology",
-"Mycology",
-"Bacteriology",
-"Laboratory Management",
-"Medical Ethics"
+"Gunapadam",
+"Siddha Pharmacology",
+"Diagnosis",
+"Medicine",
+"Varma Medicine",
+"Siddha Treatment"
+]
+},
 
-],
-
-
-Radiology: [
-
-"Anatomy",
-"Physiology",
-"Radiographic Anatomy",
-"Radiographic Positioning",
-"Radiation Physics",
-"Radiation Protection",
-"Radiation Biology",
-"X-Ray Imaging",
-"CT",
-"MRI",
-"Ultrasound",
-"Fluoroscopy",
-"Mammography",
-"Interventional Radiology",
-"Nuclear Medicine",
-"Contrast Media",
-"Patient Care",
-"Radiation Safety"
-
-],
-
-
-Optometry: [
-
-"Anatomy",
-"Physiology",
-"General Optics",
-"Geometrical Optics",
+{
+name:"Optometry",
+icon:"👁️",
+duration:"4 Years",
+description:"Vision Sciences",
+subjects:[
 "Ocular Anatomy",
 "Ocular Physiology",
+"Optics",
 "Visual Optics",
 "Clinical Optometry",
-"Contact Lens",
+"Ocular Diseases",
+"Contact Lenses",
 "Binocular Vision",
-"Orthoptics",
 "Paediatric Optometry",
 "Low Vision",
-"Community Optometry",
-"Ocular Pathology",
-"Ocular Pharmacology",
-"Refraction",
-"Retinoscopy",
-"Optometric Instruments",
 "Public Health Optometry"
-
 ]
+}
 
-};
-
-
-
-function openCourse(course){
-
-    const list = courses[course];
-
-    let html = `
-
-        <button class="back" onclick="goHome()">
-            ← Back to Courses
-        </button>
-
-        <h1 class="page-title">
-            ${getCourseIcon(course)} ${course}
-        </h1>
-
-        <p class="page-description">
-            Select a subject to explore.
-        </p>
-
-        <div class="grid">
-
-    `;
+];
 
 
-    list.forEach(subject => {
-
-        html += `
-
-            <div class="card topic-card searchable"
-                 onclick="openSubject('${course}','${subject}')">
-
-                <div class="icon">
-                    ${getSubjectIcon(subject)}
-                </div>
-
-                <h3>${subject}</h3>
-
-                <p>
-                    View important topics
-                </p>
-
-            </div>
-
-        `;
-
-    });
+let currentCourse=null;
 
 
-    html += `</div>`;
+function createCourseCard(course){
 
+return `
 
-    document.getElementById("app").innerHTML = html;
+<div class="courseCard"
+onclick="openCourse('${course.name}')">
 
-    window.scrollTo(0,0);
+<div class="courseIcon">
+${course.icon}
+</div>
+
+<h3>
+${course.name}
+</h3>
+
+<p>
+${course.description}
+</p>
+
+<span class="duration">
+${course.duration}
+</span>
+
+</div>
+
+`;
 
 }
 
 
+function loadCourses(){
 
-function openSubject(course,subject){
+let html="";
 
-    const topics = getTopics(subject);
+courses.forEach(function(course){
 
-    let html = `
+html+=createCourseCard(course);
 
-        <button class="back"
-                onclick="openCourse('${course}')">
+});
 
-            ← Back to ${course}
+document.getElementById("homeCourses").innerHTML=
+courses.slice(0,6).map(createCourseCard).join("");
 
-        </button>
-
-        <h1 class="page-title">
-            ${getSubjectIcon(subject)} ${subject}
-        </h1>
-
-        <p class="page-description">
-            Important topics for ${subject}.
-        </p>
-
-        <div class="grid">
-
-    `;
-
-
-    topics.forEach(topic => {
-
-        html += `
-
-            <div class="card topic-card searchable">
-
-                <div class="icon">
-                    📖
-                </div>
-
-                <h3>${topic}</h3>
-
-                <p>
-                    Study this topic
-                </p>
-
-            </div>
-
-        `;
-
-    });
-
-
-    html += `
-
-        </div>
-
-    `;
-
-
-    document.getElementById("app").innerHTML = html;
-
-    window.scrollTo(0,0);
+document.getElementById("allCourses").innerHTML=html;
 
 }
 
 
+function hidePages(){
 
-function getTopics(subject){
+document.getElementById("home").style.display="none";
 
-    const topicDatabase = {
+document.getElementById("coursesPage").style.display="none";
 
-        "Anatomy":[
-            "General Anatomy",
-            "Bones",
-            "Joints",
-            "Muscles",
-            "Nerves",
-            "Blood Vessels",
-            "Upper Limb",
-            "Lower Limb",
-            "Thorax",
-            "Abdomen",
-            "Pelvis",
-            "Head & Neck",
-            "Neuroanatomy",
-            "Embryology",
-            "Histology"
-        ],
+document.getElementById("subjectPage").style.display="none";
 
-        "Physiology":[
-            "General Physiology",
-            "Cell Physiology",
-            "Blood",
-            "Nerve Physiology",
-            "Muscle Physiology",
-            "Cardiovascular System",
-            "Respiratory System",
-            "Gastrointestinal System",
-            "Renal Physiology",
-            "Endocrinology",
-            "Reproductive Physiology",
-            "CNS Physiology",
-            "Special Senses"
-        ],
+document.getElementById("topicPage").style.display="none";
 
-        "Biochemistry":[
-            "Carbohydrates",
-            "Proteins",
-            "Lipids",
-            "Enzymes",
-            "Vitamins",
-            "Minerals",
-            "Glycolysis",
-            "TCA Cycle",
-            "Electron Transport Chain",
-            "Urea Cycle",
-            "DNA",
-            "RNA",
-            "Protein Synthesis",
-            "Clinical Biochemistry"
-        ],
-
-        "Pathology":[
-            "Cell Injury",
-            "Inflammation",
-            "Healing",
-            "Haematology",
-            "Neoplasia",
-            "Infections",
-            "Genetic Disorders",
-            "Immunopathology",
-            "Organ Pathology",
-            "Systemic Pathology"
-        ],
-
-        "Pharmacology":[
-            "General Pharmacology",
-            "Pharmacokinetics",
-            "Pharmacodynamics",
-            "Autonomic Drugs",
-            "Cardiovascular Drugs",
-            "CNS Drugs",
-            "Antibiotics",
-            "Antivirals",
-            "Antifungals",
-            "Endocrine Drugs",
-            "Chemotherapy",
-            "NSAIDs",
-            "Emergency Drugs"
-        ],
-
-        "Microbiology":[
-            "General Microbiology",
-            "Bacteriology",
-            "Virology",
-            "Mycology",
-            "Parasitology",
-            "Immunology",
-            "Sterilization",
-            "Infection Control",
-            "Hospital Infections",
-            "Diagnostic Microbiology"
-        ],
-
-        "Biomechanics":[
-            "Basic Mechanics",
-            "Planes and Axes",
-            "Osteokinematics",
-            "Arthrokinematics",
-            "Joint Motion",
-            "Muscle Mechanics",
-            "Force",
-            "Torque",
-            "Stress and Strain",
-            "Gait",
-            "Posture",
-            "Upper Limb Biomechanics",
-            "Lower Limb Biomechanics"
-        ],
-
-        "Exercise Therapy":[
-            "Principles of Exercise",
-            "Range of Motion",
-            "Stretching",
-            "Strengthening",
-            "Resistance Exercise",
-            "Aerobic Exercise",
-            "Balance Training",
-            "Coordination",
-            "Relaxation",
-            "Postural Exercises",
-            "Breathing Exercises"
-        ],
-
-        "Electrotherapy":[
-            "Electrical Stimulation",
-            "TENS",
-            "IFT",
-            "Ultrasound",
-            "Short Wave Diathermy",
-            "Microwave Diathermy",
-            "Infrared",
-            "UV Therapy",
-            "Cryotherapy",
-            "Hydrotherapy",
-            "Laser Therapy"
-        ],
-
-        "Medical Surgical Nursing":[
-            "Preoperative Care",
-            "Postoperative Care",
-            "Pain Management",
-            "Wound Care",
-            "Cardiovascular Disorders",
-            "Respiratory Disorders",
-            "GI Disorders",
-            "Neurological Disorders",
-            "Renal Disorders",
-            "Endocrine Disorders",
-            "Emergency Care"
-        ],
-
-        "Fundamentals of Nursing":[
-            "Nursing Process",
-            "Vital Signs",
-            "Patient Assessment",
-            "Bed Making",
-            "Personal Hygiene",
-            "Medication Administration",
-            "Injections",
-            "Wound Care",
-            "Nutrition",
-            "First Aid",
-            "Infection Control"
-        ],
-
-        "Pharmaceutics":[
-            "Dosage Forms",
-            "Tablets",
-            "Capsules",
-            "Solutions",
-            "Suspensions",
-            "Emulsions",
-            "Ointments",
-            "Creams",
-            "Sterile Products",
-            "Drug Delivery Systems"
-        ],
-
-        "Pharmacognosy":[
-            "Crude Drugs",
-            "Carbohydrates",
-            "Alkaloids",
-            "Glycosides",
-            "Tannins",
-            "Volatile Oils",
-            "Resins",
-            "Natural Products",
-            "Herbal Medicines"
-        ],
-
-        "Kinesiology":[
-            "Basic Kinesiology",
-            "Joint Movement",
-            "Muscle Action",
-            "Shoulder",
-            "Elbow",
-            "Wrist",
-            "Hip",
-            "Knee",
-            "Ankle",
-            "Spine",
-            "Gait"
-        ],
-
-        "General Medicine":[
-            "Cardiology",
-            "Respiratory Medicine",
-            "Gastroenterology",
-            "Neurology",
-            "Nephrology",
-            "Endocrinology",
-            "Rheumatology",
-            "Infectious Diseases",
-            "Haematology",
-            "Emergency Medicine"
-        ],
-
-        "General Surgery":[
-            "Wounds",
-            "Shock",
-            "Trauma",
-            "Abdominal Surgery",
-            "Breast Surgery",
-            "Thyroid Surgery",
-            "Vascular Surgery",
-            "Neurosurgery",
-            "Orthopaedic Surgery",
-            "Emergency Surgery"
-        ],
-
-        "Orthopaedics":[
-            "Fractures",
-            "Dislocations",
-            "Arthritis",
-            "Osteoporosis",
-            "Spinal Disorders",
-            "Sports Injuries",
-            "Joint Replacement",
-            "Bone Tumours",
-            "Paediatric Orthopaedics"
-        ],
-
-        "Psychiatry":[
-            "Mental Health",
-            "Schizophrenia",
-            "Depression",
-            "Bipolar Disorder",
-            "Anxiety Disorders",
-            "Substance Abuse",
-            "Personality Disorders",
-            "Child Psychiatry",
-            "Psychiatric Emergencies"
-        ],
-
-        "Paediatrics":[
-            "Growth and Development",
-            "Neonatology",
-            "Nutrition",
-            "Infectious Diseases",
-            "Respiratory Diseases",
-            "Gastrointestinal Diseases",
-            "Childhood Emergencies",
-            "Vaccination"
-        ],
-
-        "Obstetrics & Gynaecology":[
-            "Pregnancy",
-            "Antenatal Care",
-            "Labour",
-            "Postnatal Care",
-            "High Risk Pregnancy",
-            "Contraception",
-            "Menstrual Disorders",
-            "Infertility",
-            "Gynaecological Disorders",
-            "Obstetric Emergencies"
-        ],
-
-        "Haematology":[
-            "RBC",
-            "WBC",
-            "Platelets",
-            "Anaemia",
-            "Leukaemia",
-            "Lymphoma",
-            "Coagulation",
-            "Blood Groups",
-            "Blood Transfusion"
-        ],
-
-        "Radiographic Positioning":[
-            "Chest X-Ray",
-            "Abdominal X-Ray",
-            "Skull X-Ray",
-            "Spine X-Ray",
-            "Upper Limb",
-            "Lower Limb",
-            "Pelvis",
-            "Contrast Studies"
-        ],
-
-        "Radiation Physics":[
-            "X-Rays",
-            "Radiation Units",
-            "Radiation Interaction",
-            "Image Formation",
-            "Radiation Dose",
-            "Radiation Protection"
-        ]
-
-    };
-
-
-    if(topicDatabase[subject]){
-        return topicDatabase[subject];
-    }
-
-
-    return [
-
-        "Introduction",
-        "Basic Concepts",
-        "Important Definitions",
-        "Classification",
-        "Structure and Function",
-        "Clinical Applications",
-        "Common Disorders",
-        "Diagnosis",
-        "Treatment",
-        "Important Examinations",
-        "Important Questions",
-        "MCQs",
-        "Previous Year Questions"
-
-    ];
+document.getElementById("loginPage").style.display="none";
 
 }
 
 
+function showHome(){
 
-function getCourseIcon(course){
+hidePages();
 
-    const icons={
+document.getElementById("home").style.display="block";
 
-        "MBBS":"🩺",
-        "BDS":"🦷",
-        "BPT":"🦴",
-        "Nursing":"👩‍⚕️",
-        "Pharmacy":"💊",
-        "AHS":"🔬",
-        "GNM":"🏥",
-        "Ayurveda":"🌿",
-        "Homeopathy":"🌱",
-        "MedicalLab":"🧪",
-        "Radiology":"🩻",
-        "Optometry":"👁️"
-
-    };
-
-    return icons[course] || "📚";
+window.scrollTo(0,0);
 
 }
 
 
+function showCourses(){
 
-function getSubjectIcon(subject){
+hidePages();
 
-    if(subject.includes("Anatomy")) return "🦴";
+document.getElementById("coursesPage").style.display="block";
 
-    if(subject.includes("Physiology")) return "❤️";
-
-    if(subject.includes("Biochemistry")) return "🧪";
-
-    if(subject.includes("Pathology")) return "🔬";
-
-    if(subject.includes("Pharmac")) return "💊";
-
-    if(subject.includes("Microbiology")) return "🦠";
-
-    if(subject.includes("Nursing")) return "👩‍⚕️";
-
-    if(subject.includes("Surgery")) return "🏥";
-
-    if(subject.includes("Medicine")) return "🩺";
-
-    if(subject.includes("Psychology")) return "🧠";
-
-    if(subject.includes("Psychiatry")) return "🧠";
-
-    if(subject.includes("Biomechanics")) return "⚙️";
-
-    if(subject.includes("Exercise")) return "🏃";
-
-    if(subject.includes("Electro")) return "⚡";
-
-    if(subject.includes("Radiology")) return "🩻";
-
-    if(subject.includes("Optometry")) return "👁️";
-
-    if(subject.includes("Nutrition")) return "🥗";
-
-    return "📖";
+window.scrollTo(0,0);
 
 }
 
 
+function showLogin(){
 
-function goHome(){
+hidePages();
 
-    location.reload();
+document.getElementById("loginPage").style.display="block";
+
+window.scrollTo(0,0);
+
+}
+
+
+function openCourse(name){
+
+currentCourse=
+courses.find(function(course){
+
+return course.name===name;
+
+});
+
+
+if(!currentCourse)return;
+
+
+hidePages();
+
+document.getElementById("subjectPage").style.display="block";
+
+document.getElementById("subjectTitle").innerText=
+currentCourse.icon+" "+currentCourse.name+" Subjects";
+
+
+let html="";
+
+
+currentCourse.subjects.forEach(function(subject){
+
+html+=`
+
+<div class="subjectCard"
+onclick="openTopic('${subject}')">
+
+<h3>
+📖 ${subject}
+</h3>
+
+<p>
+Notes • Topics • MCQs
+</p>
+
+</div>
+
+`;
+
+});
+
+
+document.getElementById("subjects").innerHTML=html;
+
+window.scrollTo(0,0);
 
 }
 
 
+function openTopic(subject){
 
-function searchEverything(){
+hidePages();
 
-    const query=document
-        .getElementById("search")
-        .value
-        .toLowerCase()
-        .trim();
+document.getElementById("topicPage").style.display="block";
 
+document.getElementById("topicTitle").innerText=
+"📖 "+subject;
 
-    const cards=document.querySelectorAll(".searchable");
+document.getElementById("topicDescription").innerText=
+"Study resources for "+subject+" will be available here.";
 
-
-    cards.forEach(card=>{
-
-        const text=card.innerText.toLowerCase();
-
-
-        if(text.includes(query)){
-
-            card.classList.remove("hidden");
-
-        }else{
-
-            card.classList.add("hidden");
-
-        }
-
-    });
+window.scrollTo(0,0);
 
 }
 
+
+function goBackSubjects(){
+
+if(currentCourse){
+
+openCourse(currentCourse.name);
+
+}else{
+
+showCourses();
+
+}
+
+}
+
+
+function searchCourses(){
+
+let query=
+document.getElementById("search")
+.value
+.toLowerCase()
+.trim();
+
+
+let cards=
+document.querySelectorAll("#homeCourses .courseCard");
+
+
+cards.forEach(function(card){
+
+let text=card.innerText.toLowerCase();
+
+if(text.includes(query)){
+
+card.style.display="block";
+
+}else{
+
+card.style.display="none";
+
+}
+
+});
+
+}
+
+
+function resourceMessage(resource){
+
+alert(
+resource+
+" section is coming next! 📚"
+);
+
+}
+
+
+function createAccount(){
+
+let name=
+document.getElementById("name").value;
+
+let email=
+document.getElementById("email").value;
+
+if(name==="" || email===""){
+
+alert("Please enter your name and email.");
+
+return;
+
+}
+
+alert(
+"Welcome to MedLib, "+
+name+
+"! 🎉\n\nAccount interface is ready. Real secure accounts will be connected in the next stage."
+);
+
+}
+
+
+loadCourses();
 
 </script>
 
