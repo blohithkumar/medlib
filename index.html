@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MedLib - Medical Student Library</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f9fc;
+    color: #17202a;
+}
+
+header {
+    background: #087f8c;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.tagline {
+    margin-top: 6px;
+    opacity: 0.9;
+}
+
+.hero {
+    padding: 45px 20px;
+    text-align: center;
+    background: white;
+}
+
+.hero h1 {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    color: #5f6b73;
+    margin-bottom: 25px;
+}
+
+.search {
+    width: 90%;
+    max-width: 600px;
+    padding: 15px;
+    border: 1px solid #ccd6dc;
+    border-radius: 30px;
+    font-size: 16px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+.section-title {
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.card {
+    background: white;
+    padding: 25px 15px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.icon {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    font-size: 16px;
+}
+
+.features {
+    margin-top: 40px;
+}
+
+.feature {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 12px;
+}
+
+footer {
+    margin-top: 40px;
+    padding: 25px;
+    text-align: center;
+    background: #17202a;
+    color: white;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🩺 MedLib</div>
+    <div class="tagline">The Medical Student Library</div>
+</header>
+
+<section class="hero">
+
+    <h1>Study Medicine. Anywhere. 📚</h1>
+
+    <p>
+        Free and legally accessible medical learning resources
+        for students.
+    </p>
+
+    <input
+        class="search"
+        type="text"
+        placeholder="🔍 Search Anatomy, Physiology, Pharmacology..."
+        onkeyup="searchSubjects(this.value)"
+    >
+
+</section>
+
+<div class="container">
+
+    <h2 class="section-title">📚 Subjects</h2>
+
+    <div class="grid" id="subjects">
+
+        <div class="card">
+            <div class="icon">🦴</div>
+            <h3>Anatomy</h3>
+        </div>
+
+        <div class="card">
+            <div class="icon">❤️</div>
+            <h3>Physiology</h3>
+        </div>
+
+        <div class="card">
+            <div class="icon">🧪</div>
+            <h3>Biochemistry</h3>
+        </div>
+
+        <div class="card">
+            <div class="icon">🔬</div>
+            <h3>Pathology</h3>
+        </div>
+
+        <div class="card">
+            <div class="icon">💊</div>
+            <h3>Pharmacology</h3>
+        </div>
+
+        <div class="card">
+            <div class="icon">🦠</div>
+            <h3>Microbiology</h3>
+        </div>
+
+        <div class="card">
+            <div class="icon">⚖️</div>
+            <h3>Forensic Medicine</h3>
+        </div>
+
+        <div class="card">
+            <div class="icon">🌍</div>
+            <h3>Community Medicine</h3>
+        </div>
+
+        <div class="card">
+            <div class="icon">🩺</div>
+            <h3>Medicine</h3>
+        </div>
+
+        <div class="card">
+            <div class="icon">🏥</div>
+            <h3>Surgery</h3>
+        </div>
+
+    </div>
+
+    <div class="features">
+
+        <h2 class="section-title">🚀 More Coming</h2>
+
+        <div class="feature">
+            📖 <b>Open-access textbooks</b>
+            <p>Legally accessible books and learning resources.</p>
+        </div>
+
+        <div class="feature">
+            📝 <b>Student Notes</b>
+            <p>Share and discover useful study notes.</p>
+        </div>
+
+        <div class="feature">
+            ❓ <b>MCQs & PYQs</b>
+            <p>Practice questions for medical examinations.</p>
+        </div>
+
+        <div class="feature">
+            🧠 <b>Flashcards</b>
+            <p>Quick revision for important topics.</p>
+        </div>
+
+        <div class="feature">
+            🩻 <b>Medical Diagrams</b>
+            <p>Study anatomy and clinical concepts visually.</p>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2026 MedLib · Built for medical students
+</footer>
+
+<script>
+
+function searchSubjects(query) {
+
+    query = query.toLowerCase();
+
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+
+        const text = card.innerText.toLowerCase();
+
+        if (text.includes(query)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
