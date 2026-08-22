@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -9,162 +10,163 @@
 
 <style>
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #f4f9fb;
-    color: #17202a;
+body{
+font-family:Arial,sans-serif;
+background:#f4f9fb;
+color:#17202a;
 }
 
-header {
-    background: #087f8c;
-    color: white;
-    text-align: center;
-    padding: 25px 15px;
+header{
+background:#087f8c;
+color:white;
+text-align:center;
+padding:25px 15px;
 }
 
-.logo {
-    font-size: 30px;
-    font-weight: bold;
+.logo{
+font-size:30px;
+font-weight:bold;
 }
 
-.tagline {
-    margin-top: 8px;
-    opacity: 0.9;
+.tagline{
+margin-top:7px;
+opacity:.9;
 }
 
-.hero {
-    background: white;
-    text-align: center;
-    padding: 40px 20px;
+.hero{
+background:white;
+text-align:center;
+padding:40px 20px;
 }
 
-.hero h1 {
-    font-size: 32px;
-    margin-bottom: 12px;
+.hero h1{
+font-size:32px;
+margin-bottom:12px;
 }
 
-.hero p {
-    color: #5f6b73;
-    margin-bottom: 20px;
+.hero p{
+color:#5f6b73;
+margin-bottom:20px;
 }
 
-.search {
-    width: 90%;
-    max-width: 600px;
-    padding: 16px 20px;
-    border: 1px solid #ccd6dc;
-    border-radius: 30px;
-    font-size: 16px;
-    outline: none;
+.search{
+width:90%;
+max-width:600px;
+padding:15px 18px;
+border:1px solid #ccd6dc;
+border-radius:30px;
+font-size:16px;
+outline:none;
 }
 
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 30px 20px;
+.container{
+max-width:1100px;
+margin:auto;
+padding:30px 20px;
 }
 
-.page-title {
-    margin-bottom: 20px;
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:16px;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 16px;
+.card{
+background:white;
+padding:24px 15px;
+border-radius:17px;
+text-align:center;
+box-shadow:0 3px 12px rgba(0,0,0,.07);
+cursor:pointer;
+margin-bottom:12px;
+transition:.2s;
 }
 
-.card {
-    background: white;
-    padding: 25px 15px;
-    border-radius: 17px;
-    text-align: center;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.07);
-    cursor: pointer;
-    transition: 0.2s;
-    margin-bottom: 12px;
+.card:hover{
+transform:translateY(-3px);
 }
 
-.card:hover {
-    transform: translateY(-3px);
+.card:active{
+transform:scale(.98);
 }
 
-.card:active {
-    transform: scale(0.98);
+.icon{
+font-size:40px;
+margin-bottom:10px;
 }
 
-.icon {
-    font-size: 40px;
-    margin-bottom: 10px;
+.card h3{
+font-size:17px;
 }
 
-.card h3 {
-    font-size: 17px;
+.card p{
+color:#5f6b73;
+margin-top:8px;
+font-size:14px;
 }
 
-.card p {
-    color: #5f6b73;
-    margin-top: 8px;
-    font-size: 14px;
+.section-title{
+margin:25px 0 15px;
 }
 
-.topic-card {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    margin: 14px 0;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-    cursor: pointer;
+.topic-card{
+background:white;
+padding:20px;
+border-radius:15px;
+margin:14px 0;
+box-shadow:0 3px 10px rgba(0,0,0,.06);
+cursor:pointer;
 }
 
-.topic-card:hover {
-    transform: translateY(-2px);
+.topic-card:hover{
+transform:translateY(-2px);
 }
 
-.topic-card p {
-    margin-top: 8px;
-    color: #5f6b73;
+.topic-card p{
+margin-top:8px;
+color:#5f6b73;
 }
 
-.back-button {
-    border: none;
-    background: #087f8c;
-    color: white;
-    padding: 14px 22px;
-    border-radius: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 20px;
+.back-button{
+border:none;
+background:#087f8c;
+color:white;
+padding:14px 22px;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+margin-top:20px;
 }
 
-.section {
-    margin-top: 35px;
+.content-box{
+background:white;
+padding:22px;
+border-radius:15px;
+margin:15px 0;
+box-shadow:0 3px 10px rgba(0,0,0,.06);
 }
 
-.feature {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    margin: 12px 0;
+.content-box h3{
+margin-bottom:10px;
 }
 
-footer {
-    margin-top: 40px;
-    padding: 25px;
-    background: #17202a;
-    color: white;
-    text-align: center;
+.content-box p{
+line-height:1.6;
+color:#46545c;
 }
 
-.small-text {
-    color: #5f6b73;
-    margin-bottom: 20px;
+footer{
+margin-top:40px;
+padding:25px;
+background:#17202a;
+color:white;
+text-align:center;
 }
 
 </style>
@@ -185,26 +187,24 @@ Medical Education Library
 </header>
 
 
-<!-- ================= HOME ================= -->
+<!-- HOME -->
 
 <div id="homePage">
 
 <section class="hero">
 
-<h1>
-Study Medicine. Anywhere. 📚
-</h1>
+<h1>Study Medicine. Anywhere. 📚</h1>
 
 <p>
-Resources for medical, dental, physiotherapy,
-nursing, pharmacy and allied-health students.
+Medical resources for MBBS, BDS, BPT, Nursing,
+Pharmacy and Allied Health students.
 </p>
 
 <input
 id="searchBox"
 class="search"
 type="text"
-placeholder="🔍 Search courses..."
+placeholder="🔍 Search course..."
 onkeyup="searchCourses()"
 >
 
@@ -213,74 +213,26 @@ onkeyup="searchCourses()"
 
 <div class="container">
 
-<h2 class="page-title">
-🎓 Choose Your Course
-</h2>
-
-<p class="small-text">
-Select your course to explore subjects and study topics.
-</p>
+<h2>🎓 Choose Your Course</h2>
 
 <div id="courseGrid" class="grid"></div>
 
-
-<div class="section">
-
-<h2>🚀 MedLib Features</h2>
-
-<div class="feature">
-📖 <b>Open-access resources</b>
-<p>
-Find legally accessible educational resources.
-</p>
-</div>
-
-<div class="feature">
-📝 <b>Student Notes</b>
-<p>
-Organized notes for quick revision.
-</p>
-</div>
-
-<div class="feature">
-❓ <b>MCQs & PYQs</b>
-<p>
-Practice questions for examinations.
-</p>
-</div>
-
-<div class="feature">
-🧠 <b>Flashcards</b>
-<p>
-Quick revision for important concepts.
-</p>
-</div>
-
-<div class="feature">
-🩻 <b>Medical Diagrams</b>
-<p>
-Visual learning resources.
-</p>
-</div>
-
-</div>
-
 </div>
 
 </div>
 
 
-<!-- ================= COURSE PAGE ================= -->
+<!-- COURSE PAGE -->
 
-<div id="coursePage" style="display:none;">
+<div id="coursePage" style="display:none">
 
 <div class="container">
 
 <h1 id="courseTitle"></h1>
 
-<p id="courseDescription" class="small-text"></p>
+<p id="courseDescription"></p>
 
-<div id="subjectGrid"></div>
+<div id="subjectList"></div>
 
 <button class="back-button" onclick="goHome()">
 ← Back to Courses
@@ -291,19 +243,19 @@ Visual learning resources.
 </div>
 
 
-<!-- ================= SUBJECT PAGE ================= -->
+<!-- SUBJECT PAGE -->
 
-<div id="subjectPage" style="display:none;">
+<div id="subjectPage" style="display:none">
 
 <div class="container">
 
 <h1 id="subjectTitle"></h1>
 
-<p id="subjectDescription" class="small-text"></p>
+<p id="subjectDescription"></p>
 
-<div id="topicGrid"></div>
+<div id="sectionList"></div>
 
-<button class="back-button" onclick="goCourses()">
+<button class="back-button" onclick="goCourse()">
 ← Back to Subjects
 </button>
 
@@ -312,21 +264,38 @@ Visual learning resources.
 </div>
 
 
-<!-- ================= TOPIC PAGE ================= -->
+<!-- SECTION PAGE -->
 
-<div id="topicPage" style="display:none;">
+<div id="sectionPage" style="display:none">
+
+<div class="container">
+
+<h1 id="sectionTitle"></h1>
+
+<p id="sectionDescription"></p>
+
+<div id="topicList"></div>
+
+<button class="back-button" onclick="goSubject()">
+← Back to Sections
+</button>
+
+</div>
+
+</div>
+
+
+<!-- TOPIC PAGE -->
+
+<div id="topicPage" style="display:none">
 
 <div class="container">
 
 <h1 id="topicTitle"></h1>
 
-<p class="small-text">
-Study material
-</p>
-
 <div id="topicContent"></div>
 
-<button class="back-button" onclick="goSubject()">
+<button class="back-button" onclick="goSection()">
 ← Back to Topics
 </button>
 
@@ -346,1302 +315,1312 @@ Study material
 
 
 /* =====================================================
-   COURSE DATABASE
+COURSE DATABASE
 ===================================================== */
 
+const courses={
 
-const courses = {
 
+/* =====================================================
+MBBS
+===================================================== */
 
-/* ================= MBBS ================= */
+"MBBS":{
+icon:"🩺",
+subjects:{
 
-"MBBS": {
-
-icon: "🩺",
-
-subjects: {
-
-"First Year": [
-
-"Anatomy",
-"Physiology",
-"Biochemistry"
-
+"Anatomy":{
+"General Anatomy":[
+"Anatomical Terminology",
+"Planes and Axes",
+"Tissues",
+"Bones",
+"Joints",
+"Muscles"
 ],
-
-"Second Year": [
-
-"Pathology",
-"Pharmacology",
-"Microbiology",
-"Forensic Medicine"
-
+"Upper Limb":[
+"Clavicle",
+"Scapula",
+"Humerus",
+"Radius and Ulna",
+"Hand",
+"Shoulder Joint",
+"Elbow Joint",
+"Brachial Plexus"
 ],
-
-"Clinical Subjects": [
-
-"General Medicine",
-"General Surgery",
-"Pediatrics",
-"Obstetrics & Gynecology",
-"Orthopedics",
-"Ophthalmology",
-"ENT",
-"Dermatology",
-"Psychiatry",
-"Radiology",
-"Anesthesiology",
-"Community Medicine"
-
+"Lower Limb":[
+"Hip Bone",
+"Femur",
+"Tibia and Fibula",
+"Foot",
+"Hip Joint",
+"Knee Joint",
+"Ankle Joint",
+"Sciatic Nerve"
+],
+"Thorax":[
+"Thoracic Wall",
+"Ribs",
+"Lungs",
+"Heart",
+"Mediastinum",
+"Diaphragm"
+],
+"Head and Neck":[
+"Skull",
+"Face",
+"Neck",
+"Cranial Nerves",
+"Brain"
 ]
-
-}
-
 },
 
-
-/* ================= BDS ================= */
-
-"BDS": {
-
-icon: "🦷",
-
-subjects: {
-
-"Basic Sciences": [
-
-"General Anatomy",
-"Physiology",
-"Biochemistry",
-"Dental Anatomy",
-"Oral Histology"
-
+"Physiology":{
+"General Physiology":[
+"Homeostasis",
+"Cell Physiology",
+"Cell Membrane",
+"Transport Across Membrane"
 ],
-
-"Preclinical": [
-
-"General Pathology",
-"Microbiology",
-"Pharmacology",
-"Dental Materials",
-"Preclinical Prosthodontics",
-"Preclinical Conservative Dentistry"
-
+"Blood":[
+"RBC",
+"WBC",
+"Haemoglobin",
+"Blood Groups",
+"Haemostasis",
+"Blood Coagulation"
 ],
-
-"Clinical": [
-
-"Oral Pathology",
-"Prosthodontics",
-"Conservative Dentistry",
-"Endodontics",
-"Periodontology",
-"Orthodontics",
-"Oral & Maxillofacial Surgery",
-"Pedodontics",
-"Public Health Dentistry"
-
-]
-
-}
-
-},
-
-
-/* ================= BPT ================= */
-
-"BPT": {
-
-icon: "💪",
-
-subjects: {
-
-"Basic Sciences": [
-
-"Anatomy",
-"Physiology",
-"Biochemistry",
-"Psychology",
-"Sociology"
-
-],
-
-"Physiotherapy Sciences": [
-
-"Biomechanics",
-"Exercise Therapy",
-"Electrotherapy",
-"Pathology",
-"Pharmacology"
-
-],
-
-"Clinical Physiotherapy": [
-
-"Orthopedics",
-"Neurology",
-"Cardiopulmonary Physiotherapy",
-"Musculoskeletal Physiotherapy",
-"Neurological Physiotherapy",
-"Pediatric Physiotherapy",
-"Geriatric Physiotherapy",
-"Sports Physiotherapy",
-"Community Physiotherapy"
-
-],
-
-"Research": [
-
-"Research Methodology",
-"Biostatistics",
-"Clinical Practice"
-
-]
-
-}
-
-},
-
-
-/* ================= BSC NURSING ================= */
-
-"B.Sc Nursing": {
-
-icon: "👩‍⚕️",
-
-subjects: {
-
-"Basic Sciences": [
-
-"Anatomy",
-"Physiology",
-"Biochemistry",
-"Nutrition",
-"Psychology",
-"Sociology"
-
-],
-
-"Nursing Sciences": [
-
-"Nursing Foundation",
-"Medical-Surgical Nursing",
-"Child Health Nursing",
-"Mental Health Nursing",
-"Community Health Nursing",
-"Obstetric & Gynecological Nursing",
-"Midwifery"
-
-],
-
-"Professional Subjects": [
-
-"Pharmacology",
-"Pathology",
-"Microbiology",
-"Research Methodology",
-"Nursing Education"
-
-]
-
-}
-
-},
-
-
-/* ================= B PHARM ================= */
-
-"B.Pharm": {
-
-icon: "💊",
-
-subjects: {
-
-"Basic Sciences": [
-
-"Human Anatomy & Physiology",
-"Biochemistry",
-"Pathophysiology"
-
-],
-
-"Pharmaceutical Sciences": [
-
-"Pharmaceutics",
-"Pharmaceutical Analysis",
-"Pharmaceutical Chemistry",
-"Pharmacognosy",
-"Pharmaceutical Microbiology"
-
-],
-
-"Clinical Sciences": [
-
-"Pharmacology",
-"Medicinal Chemistry",
-"Clinical Pharmacy",
-"Pharmacy Practice",
-"Pharmacokinetics"
-
-],
-
-"Advanced": [
-
-"Industrial Pharmacy",
-"Pharmaceutical Biotechnology",
-"Quality Assurance",
-"Biopharmaceutics"
-
-]
-
-}
-
-},
-
-
-/* ================= D PHARM ================= */
-
-"D.Pharm": {
-
-icon: "💊",
-
-subjects: {
-
-"Core": [
-
-"Pharmaceutics",
-"Pharmaceutical Chemistry",
-"Pharmacognosy",
-"Human Anatomy & Physiology",
-"Social Pharmacy"
-
-],
-
-"Clinical": [
-
-"Pharmacology",
-"Community Pharmacy",
-"Hospital Pharmacy",
-"Biochemistry & Clinical Pathology"
-
-]
-
-}
-
-},
-
-
-/* ================= GNM ================= */
-
-"GNM": {
-
-icon: "👩‍⚕️",
-
-subjects: {
-
-"Basic Sciences": [
-
-"Anatomy & Physiology",
-"Psychology",
-"Sociology",
-"Nutrition"
-
-],
-
-"Nursing": [
-
-"Nursing Foundation",
-"Medical-Surgical Nursing",
-"Child Health Nursing",
-"Mental Health Nursing",
-"Community Health Nursing",
-"Midwifery"
-
-],
-
-"Additional": [
-
-"First Aid",
-"Health Education"
-
-]
-
-}
-
-},
-
-
-/* ================= BAMS ================= */
-
-"BAMS": {
-
-icon: "🌿",
-
-subjects: {
-
-"Basic Subjects": [
-
-"Sanskrit & Samhita",
-"Padartha Vijnana",
-"Kriya Sharira",
-"Rachana Sharira"
-
-],
-
-"Preclinical": [
-
-"Dravyaguna",
-"Rasashastra",
-"Swasthavritta",
-"Agada Tantra",
-"Roga Nidana"
-
-],
-
-"Clinical": [
-
-"Kayachikitsa",
-"Shalya Tantra",
-"Shalakya Tantra",
-"Prasuti Tantra",
-"Kaumarabhritya",
-"Panchakarma"
-
-]
-
-}
-
-},
-
-
-/* ================= BHMS ================= */
-
-"BHMS": {
-
-icon: "🌿",
-
-subjects: {
-
-"Basic Sciences": [
-
-"Anatomy",
-"Physiology",
-"Biochemistry"
-
-],
-
-"Homeopathy": [
-
-"Organon of Medicine",
-"Homeopathic Pharmacy",
-"Materia Medica"
-
-],
-
-"Clinical": [
-
-"Pathology",
-"Forensic Medicine",
-"Community Medicine",
-"Surgery",
-"Medicine",
-"Obstetrics & Gynecology",
-"Pediatrics"
-
-]
-
-}
-
-},
-
-
-/* ================= BNYS ================= */
-
-"BNYS": {
-
-icon: "🌿",
-
-subjects: {
-
-"Basic Sciences": [
-
-"Anatomy",
-"Physiology",
-"Biochemistry",
-"Pathology",
-"Microbiology"
-
-],
-
-"Core": [
-
-"Yoga",
-"Naturopathy",
-"Nutrition",
-"Hydrotherapy",
-"Acupuncture"
-
-],
-
-"Clinical": [
-
-"Manipulative Therapies",
-"Community Medicine",
-"Clinical Practice"
-
-]
-
-}
-
-},
-
-
-/* ================= BUMS ================= */
-
-"BUMS": {
-
-icon: "🌿",
-
-subjects: {
-
-"Basic Sciences": [
-
-"Anatomy",
-"Physiology",
-"Biochemistry"
-
-],
-
-"Unani Sciences": [
-
-"Ilmul Advia",
-"Mahiyatul Amraz",
-"Tahaffuzi wa Samaji Tib",
-"Ilmul Saidla"
-
-],
-
-"Clinical": [
-
-"Moalajat",
-"Jarahat",
-"Amraz-e-Atfal",
-"Niswan wa Qabalat"
-
-]
-
-}
-
-},
-
-
-/* ================= ALLIED HEALTH ================= */
-
-"Allied Health Sciences": {
-
-icon: "🏥",
-
-subjects: {
-
-"Common Subjects": [
-
-"Anatomy",
-"Physiology",
-"Biochemistry",
-"Pathology",
-"Microbiology",
-"Pharmacology",
-"Medical Terminology"
-
-],
-
-"Professional": [
-
-"Research Methodology",
-"Clinical Practice",
-"Patient Care"
-
-]
-
-}
-
-},
-
-
-/* ================= MLT ================= */
-
-"Medical Laboratory Technology": {
-
-icon: "🔬",
-
-subjects: {
-
-"Basic Sciences": [
-
-"Anatomy",
-"Physiology",
-"Biochemistry"
-
-],
-
-"Laboratory Sciences": [
-
-"Clinical Biochemistry",
-"Hematology",
-"Microbiology",
-"Histopathology",
-"Immunology",
-"Blood Banking",
-"Clinical Pathology"
-
-]
-
-}
-
-},
-
-
-/* ================= RADIOLOGY ================= */
-
-"Radiology & Medical Imaging": {
-
-icon: "🩻",
-
-subjects: {
-
-"Basic": [
-
-"Anatomy",
-"Physiology",
-"Radiation Physics",
-"Radiation Protection"
-
-],
-
-"Imaging": [
-
-"Radiographic Positioning",
-"Radiographic Procedures",
-"CT",
-"MRI",
-"Ultrasound",
-"Patient Care"
-
-]
-
-}
-
-},
-
-
-/* ================= RESPIRATORY ================= */
-
-"Respiratory Therapy": {
-
-icon: "🫁",
-
-subjects: {
-
-"Basic": [
-
-"Anatomy",
-"Physiology",
-"Respiratory Physiology"
-
-],
-
-"Clinical": [
-
-"Pulmonary Medicine",
-"Respiratory Pharmacology",
-"Mechanical Ventilation",
-"Critical Care",
-"Pulmonary Function Testing",
-"Sleep Medicine"
-
-]
-
-}
-
-},
-
-
-/* ================= CARDIAC ================= */
-
-"Cardiac Care Technology": {
-
-icon: "❤️",
-
-subjects: {
-
-"Basic": [
-
-"Anatomy",
-"Physiology"
-
-],
-
-"Cardiac Sciences": [
-
-"Cardiology",
+"Cardiovascular":[
+"Cardiac Cycle",
 "ECG",
-"Echocardiography",
-"Cardiac Catheterization",
-"Critical Care",
-"Emergency Cardiac Care"
-
-]
-
-}
-
-},
-
-
-/* ================= OPTOMETRY ================= */
-
-"Optometry": {
-
-icon: "👁️",
-
-subjects: {
-
-"Basic": [
-
-"Ocular Anatomy",
-"Ocular Physiology",
-"Optics",
-"Visual Optics"
-
+"Cardiac Output",
+"Blood Pressure",
+"Heart Sounds"
 ],
-
-"Clinical": [
-
-"Ophthalmic Pathology",
-"Contact Lenses",
-"Binocular Vision",
-"Low Vision",
-"Clinical Optometry"
-
-]
-
-}
-
-},
-
-
-/* ================= ANESTHESIA ================= */
-
-"Anesthesia Technology": {
-
-icon: "😷",
-
-subjects: {
-
-"Basic": [
-
-"Anatomy",
-"Physiology",
-"Pharmacology"
-
+"Respiratory":[
+"Lung Volumes",
+"Ventilation",
+"Gas Exchange",
+"Oxygen Transport",
+"Regulation of Respiration"
 ],
-
-"Clinical": [
-
-"Anesthesia Equipment",
-"General Anesthesia",
-"Regional Anesthesia",
-"Airway Management",
-"Critical Care",
-"Emergency Medicine"
-
+"Nervous System":[
+"Neuron",
+"Synapse",
+"Reflex Arc",
+"Sensory System",
+"Motor System"
 ]
-
-}
-
 },
 
-
-/* ================= PHYSICIAN ASSISTANT ================= */
-
-"Physician Assistant": {
-
-icon: "🩺",
-
-subjects: {
-
-"Basic": [
-
-"Anatomy",
-"Physiology",
-"Pathology",
-"Pharmacology"
-
+"Biochemistry":{
+"Carbohydrates":[
+"Glycolysis",
+"TCA Cycle",
+"Gluconeogenesis",
+"Glycogen Metabolism"
 ],
-
-"Clinical": [
-
-"Medicine",
-"Surgery",
-"Pediatrics",
-"Obstetrics & Gynecology",
-"Emergency Medicine",
-"Clinical Skills"
-
+"Proteins":[
+"Amino Acids",
+"Protein Structure",
+"Protein Metabolism",
+"Urea Cycle"
+],
+"Lipids":[
+"Fatty Acids",
+"Beta Oxidation",
+"Cholesterol",
+"Ketogenesis"
+],
+"Vitamins":[
+"Vitamin A",
+"Vitamin B Complex",
+"Vitamin C",
+"Vitamin D",
+"Vitamin E",
+"Vitamin K"
 ]
-
-}
-
 },
 
+"Pathology":{
+"General Pathology":[
+"Cell Injury",
+"Inflammation",
+"Repair",
+"Neoplasia"
+],
+"Hematology":[
+"Anaemia",
+"Leukemia",
+"Lymphoma",
+"Bleeding Disorders"
+],
+"Systemic Pathology":[
+"Cardiovascular Pathology",
+"Respiratory Pathology",
+"Gastrointestinal Pathology",
+"Renal Pathology"
+]
+},
 
-/* ================= SPEECH ================= */
+"Pharmacology":{
+"General Pharmacology":[
+"Pharmacokinetics",
+"Pharmacodynamics",
+"Drug Receptors",
+"Adverse Drug Reactions"
+],
+"Autonomic Drugs":[
+"Cholinergic Drugs",
+"Anticholinergic Drugs",
+"Adrenergic Drugs",
+"Adrenergic Blockers"
+],
+"Antimicrobials":[
+"Antibiotics",
+"Antiviral Drugs",
+"Antifungal Drugs",
+"Antitubercular Drugs"
+],
+"CNS Drugs":[
+"Sedatives",
+"Antiepileptic Drugs",
+"Antidepressants",
+"Antipsychotics"
+]
+},
 
-"Speech & Hearing": {
+"Microbiology":{
+"Bacteriology":[
+"Gram Positive Bacteria",
+"Gram Negative Bacteria",
+"Bacterial Genetics",
+"Sterilization"
+],
+"Virology":[
+"DNA Viruses",
+"RNA Viruses",
+"HIV",
+"Hepatitis Viruses"
+],
+"Mycology":[
+"Fungi",
+"Superficial Mycoses",
+"Systemic Mycoses"
+],
+"Parasitology":[
+"Protozoa",
+"Helminths",
+"Malaria"
+]
+},
 
-icon: "🗣️",
+"Forensic Medicine":{
+"General Forensics":[
+"Identification",
+"Death",
+"Medico Legal Cases",
+"Medical Negligence"
+],
+"Injuries":[
+"Blunt Injuries",
+"Sharp Injuries",
+"Firearm Injuries",
+"Burns"
+],
+"Toxicology":[
+"Poisons",
+"Alcohol",
+"Drug Poisoning"
+]
+},
 
-subjects: {
+"Community Medicine":{
+"Epidemiology":[
+"Incidence",
+"Prevalence",
+"Screening",
+"Study Designs"
+],
+"Public Health":[
+"Health Indicators",
+"Primary Health Care",
+"Health Programs"
+],
+"Biostatistics":[
+"Mean",
+"Median",
+"Mode",
+"Standard Deviation"
+]
+},
 
-"Basic": [
+"Medicine":{
+"Cardiology":[
+"Hypertension",
+"Heart Failure",
+"Arrhythmias",
+"Ischemic Heart Disease"
+],
+"Respiratory Medicine":[
+"Asthma",
+"COPD",
+"Pneumonia",
+"Tuberculosis"
+],
+"Neurology":[
+"Stroke",
+"Epilepsy",
+"Parkinsonism",
+"Meningitis"
+],
+"Gastroenterology":[
+"Peptic Ulcer",
+"Hepatitis",
+"Cirrhosis"
+]
+},
 
-"Anatomy",
-"Physiology",
+"Surgery":{
+"General Surgery":[
+"Shock",
+"Wounds",
+"Burns",
+"Surgical Infections"
+],
+"Orthopaedics":[
+"Fractures",
+"Dislocations",
+"Arthritis"
+],
+"Neurosurgery":[
+"Head Injury",
+"Brain Tumors",
+"Spinal Injuries"
+]
+}
+
+}},
+
+
+/* =====================================================
+BDS
+===================================================== */
+
+"BDS":{
+icon:"🦷",
+subjects:{
+
+"General Anatomy":{
+"Basic Anatomy":[
+"Anatomical Terminology",
+"Bones",
+"Joints",
+"Muscles"
+],
+"Head and Neck":[
+"Skull",
+"Face",
+"Neck",
+"Cranial Nerves"
+]
+},
+
+"Physiology":{
+"General":[
+"Homeostasis",
+"Cell Physiology"
+],
+"Blood":[
+"RBC",
+"WBC",
+"Haemoglobin"
+],
+"Cardiovascular":[
+"Cardiac Cycle",
+"ECG",
+"Blood Pressure"
+]
+},
+
+"Biochemistry":{
+"Carbohydrates":[
+"Glycolysis",
+"TCA Cycle"
+],
+"Proteins":[
+"Amino Acids",
+"Protein Metabolism"
+],
+"Lipids":[
+"Fatty Acids",
+"Cholesterol"
+]
+},
+
+"Dental Anatomy":{
+"Teeth":[
+"Tooth Morphology",
+"Permanent Teeth",
+"Deciduous Teeth"
+],
+"Oral Cavity":[
+"Oral Structures",
+"Muscles of Mastication"
+]
+},
+
+"Oral Pathology":{
+"General":[
+"Oral Lesions",
+"Oral Infections",
+"Cysts",
+"Tumors"
+]
+},
+
+"Prosthodontics":{
+"Complete Dentures":[
+"Impressions",
+"Jaw Relations",
+"Denture Construction"
+],
+"Fixed Prosthodontics":[
+"Crowns",
+"Bridges"
+]
+},
+
+"Conservative Dentistry":{
+"Restorative Dentistry":[
+"Caries",
+"Restorations",
+"Amalgam",
+"Composite"
+],
+"Endodontics":[
+"Pulp",
+"Root Canal Treatment"
+]
+},
+
+"Periodontology":{
+"Periodontium":[
+"Gingiva",
+"Periodontal Ligament",
+"Alveolar Bone"
+],
+"Diseases":[
+"Gingivitis",
+"Periodontitis"
+]
+},
+
+"Orthodontics":{
+"Basic Concepts":[
+"Malocclusion",
+"Growth and Development"
+],
+"Treatment":[
+"Orthodontic Appliances",
+"Treatment Planning"
+]
+}
+
+}},
+
+
+/* =====================================================
+BPT
+===================================================== */
+
+"BPT":{
+icon:"💪",
+subjects:{
+
+"Anatomy":{
+"General Anatomy":[
+"Anatomical Terminology",
+"Bones",
+"Joints",
+"Muscles"
+],
+"Upper Limb":[
+"Shoulder",
+"Elbow",
+"Wrist",
+"Brachial Plexus"
+],
+"Lower Limb":[
+"Hip",
+"Knee",
+"Ankle",
+"Sciatic Nerve"
+]
+},
+
+"Physiology":{
+"General":[
+"Homeostasis",
+"Cell Physiology"
+],
+"Blood":[
+"RBC",
+"WBC",
+"Haemoglobin"
+],
+"Cardiovascular":[
+"Cardiac Cycle",
+"ECG",
+"Cardiac Output"
+],
+"Respiratory":[
+"Lung Volumes",
+"Gas Exchange"
+]
+},
+
+"Biomechanics":{
+"Basic Concepts":[
+"Planes and Axes",
+"Force",
+"Torque",
+"Centre of Gravity"
+],
+"Joint Mechanics":[
+"Osteokinematics",
+"Arthrokinematics",
+"Open Chain",
+"Closed Chain"
+],
+"Muscle Mechanics":[
+"Length Tension",
+"Force Velocity",
+"Muscle Work"
+],
+"Clinical Biomechanics":[
+"Gait",
+"Posture",
+"Balance"
+]
+},
+
+"Exercise Therapy":{
+"Basic Principles":[
+"Exercise",
+"Warm Up",
+"Cool Down",
+"Strengthening"
+],
+"Therapeutic Exercise":[
+"ROM Exercises",
+"Resisted Exercise",
+"Stretching",
+"Endurance Training"
+]
+},
+
+"Electrotherapy":{
+"Electrical Currents":[
+"DC",
+"AC",
+"TENS",
+"IFT"
+],
+"Therapeutic Agents":[
+"Ultrasound",
+"Short Wave Diathermy",
+"Infrared",
+"Cryotherapy"
+]
+},
+
+"Orthopedics":{
+"Upper Limb":[
+"Shoulder Conditions",
+"Elbow Conditions",
+"Hand Conditions"
+],
+"Lower Limb":[
+"Hip Conditions",
+"Knee Conditions",
+"Ankle Conditions"
+]
+},
+
+"Neurology":{
+"Neurological Conditions":[
+"Stroke",
+"Spinal Cord Injury",
+"Parkinsonism",
+"Multiple Sclerosis"
+],
+"Assessment":[
+"Neurological Examination",
+"Reflexes",
+"Muscle Tone"
+]
+},
+
+"Cardiopulmonary Physiotherapy":{
+"Cardiac":[
+"Cardiac Rehabilitation",
+"Heart Failure",
+"Post CABG Rehabilitation"
+],
+"Respiratory":[
+"COPD",
+"Asthma",
+"Chest Physiotherapy"
+]
+},
+
+"Research Methodology":{
+"Research Basics":[
+"Research Design",
+"Sampling",
+"Variables"
+],
+"Statistics":[
+"Mean",
+"Median",
+"Standard Deviation",
+"Correlation"
+]
+}
+
+}},
+
+
+/* =====================================================
+BSC NURSING
+===================================================== */
+
+"B.Sc Nursing":{
+icon:"👩‍⚕️",
+subjects:{
+
+"Anatomy":{
+"Basic":[
+"General Anatomy",
+"Upper Limb",
+"Lower Limb",
+"Thorax",
+"Head and Neck"
+]
+},
+
+"Physiology":{
+"General":[
+"Homeostasis",
+"Cell Physiology"
+],
+"Systems":[
+"Cardiovascular",
+"Respiratory",
+"Nervous System",
+"Renal System"
+]
+},
+
+"Nursing Foundation":{
+"Basic Nursing":[
+"Vital Signs",
+"Patient Care",
+"Bed Making",
+"First Aid"
+]
+},
+
+"Medical Surgical Nursing":{
+"Medical Conditions":[
+"Cardiac Diseases",
+"Respiratory Diseases",
+"Neurological Diseases"
+],
+"Surgical Nursing":[
+"Preoperative Care",
+"Postoperative Care",
+"Wound Care"
+]
+},
+
+"Child Health Nursing":{
+"Child Development":[
+"Growth",
+"Development",
+"Nutrition"
+],
+"Pediatric Conditions":[
+"Common Childhood Diseases",
+"Neonatal Care"
+]
+},
+
+"Mental Health Nursing":{
+"Psychiatric Conditions":[
+"Depression",
+"Anxiety",
+"Schizophrenia"
+],
+"Nursing Care":[
+"Mental Status Examination",
+"Therapeutic Communication"
+]
+},
+
+"Community Health Nursing":{
+"Community Health":[
+"Primary Health Care",
+"Health Education",
+"Community Assessment"
+]
+},
+
+"Obstetric & Gynecological Nursing":{
+"Pregnancy":[
+"Antenatal Care",
+"Normal Labour",
+"Postnatal Care"
+],
+"Complications":[
+"Pre-eclampsia",
+"Eclampsia",
+"Postpartum Hemorrhage"
+]
+}
+
+}},
+
+
+/* =====================================================
+B PHARM
+===================================================== */
+
+"B.Pharm":{
+icon:"💊",
+subjects:{
+
+"Human Anatomy & Physiology":{
+"Systems":[
+"Cardiovascular",
+"Respiratory",
+"Nervous System",
+"Digestive System",
+"Renal System"
+]
+},
+
+"Pharmaceutics":{
+"Basic":[
+"Dosage Forms",
+"Tablets",
+"Capsules",
+"Liquid Preparations"
+]
+},
+
+"Pharmacology":{
+"General":[
+"Pharmacokinetics",
+"Pharmacodynamics",
+"Drug Receptors"
+],
+"Systemic":[
+"CNS Drugs",
+"Cardiovascular Drugs",
+"Antibiotics",
+"Endocrine Drugs"
+]
+},
+
+"Pharmacognosy":{
+"Natural Drugs":[
+"Crude Drugs",
+"Alkaloids",
+"Glycosides",
+"Volatile Oils"
+]
+},
+
+"Medicinal Chemistry":{
+"Drug Classes":[
+"Antibiotics",
+"Antihistamines",
+"NSAIDs"
+]
+},
+
+"Clinical Pharmacy":{
+"Patient Care":[
+"Drug Interactions",
+"Adverse Drug Reactions",
+"Patient Counselling"
+]
+}
+
+}},
+
+
+/* =====================================================
+D PHARM
+===================================================== */
+
+"D.Pharm":{
+icon:"💊",
+subjects:{
+
+"Pharmaceutics":{
+"Basics":[
+"Dosage Forms",
+"Tablets",
+"Capsules",
+"Solutions"
+]
+},
+
+"Pharmacology":{
+"General":[
+"Drug Action",
+"Drug Receptors"
+],
+"Systemic":[
+"CNS Drugs",
+"Cardiovascular Drugs",
+"Antibiotics"
+]
+},
+
+"Pharmacognosy":{
+"Crude Drugs":[
+"Alkaloids",
+"Glycosides",
+"Volatile Oils"
+]
+},
+
+"Hospital Pharmacy":{
+"Hospital Practice":[
+"Drug Storage",
+"Dispensing",
+"Patient Counselling"
+]
+}
+
+}},
+
+
+/* =====================================================
+GNM
+===================================================== */
+
+"GNM":{
+icon:"👩‍⚕️",
+subjects:{
+
+"Nursing Foundation":{
+"Basic Nursing":[
+"Vital Signs",
+"Bed Making",
+"Patient Hygiene",
+"First Aid"
+]
+},
+
+"Anatomy & Physiology":{
+"Systems":[
+"Cardiovascular",
+"Respiratory",
+"Nervous System",
+"Digestive System"
+]
+},
+
+"Medical Surgical Nursing":{
+"Medical Conditions":[
+"Cardiac Diseases",
+"Respiratory Diseases",
+"Diabetes"
+]
+},
+
+"Child Health Nursing":{
+"Child Care":[
+"Growth",
+"Development",
+"Immunization"
+]
+},
+
+"Mental Health Nursing":{
+"Psychiatric Conditions":[
+"Depression",
+"Anxiety",
+"Schizophrenia"
+]
+},
+
+"Midwifery":{
+"Pregnancy":[
+"Antenatal Care",
+"Labour",
+"Postnatal Care"
+]
+},
+
+"Community Health Nursing":{
+"Community":[
+"Health Education",
+"Primary Health Care",
+"Home Visits"
+]
+}
+
+}},
+
+
+/* =====================================================
+BAMS
+===================================================== */
+
+"BAMS":{
+icon:"🌿",
+subjects:{
+
+"Rachana Sharira":{
+"Basic":[
+"Sharira Rachana",
+"Asthi",
+"Sandhi",
+"Mamsa"
+]
+},
+
+"Kriya Sharira":{
+"Basic Physiology":[
+"Dosha",
+"Dhatu",
+"Mala"
+]
+},
+
+"Dravyaguna":{
+"Medicinal Plants":[
+"Plant Identification",
+"Pharmacological Properties"
+]
+},
+
+"Roga Nidana":{
+"Diagnosis":[
+"Clinical Examination",
+"Disease Diagnosis"
+]
+},
+
+"Kayachikitsa":{
+"Medicine":[
+"Common Diseases",
+"Treatment Principles"
+]
+},
+
+"Shalya Tantra":{
+"Surgery":[
+"Surgical Principles",
+"Wounds"
+]
+},
+
+"Shalakya Tantra":{
+"ENT & Ophthalmology":[
+"Eye Diseases",
+"ENT Diseases"
+]
+}
+
+}},
+
+
+/* =====================================================
+BHMS
+===================================================== */
+
+"BHMS":{
+icon:"🌿",
+subjects:{
+
+"Anatomy":{
+"Basic":[
+"Bones",
+"Joints",
+"Muscles",
+"Nervous System"
+]
+},
+
+"Physiology":{
+"Systems":[
+"Cardiovascular",
+"Respiratory",
+"Nervous System"
+]
+},
+
+"Organon of Medicine":{
+"Principles":[
+"Basic Principles",
+"Homeopathic Philosophy"
+]
+},
+
+"Materia Medica":{
+"Medicines":[
+"Drug Profiles",
+"Therapeutic Uses"
+]
+},
+
+"Pathology":{
+"General":[
+"Cell Injury",
+"Inflammation",
+"Neoplasia"
+]
+},
+
+"Medicine":{
+"Clinical":[
+"Cardiology",
+"Respiratory Diseases",
 "Neurology"
-
-],
-
-"Professional": [
-
-"Audiology",
-"Speech Pathology",
-"Language Development",
-"Phonetics",
-"Clinical Audiology"
-
 ]
-
 }
 
+}},
+
+
+/* =====================================================
+BNYS
+===================================================== */
+
+"BNYS":{
+icon:"🌿",
+subjects:{
+
+"Anatomy":{
+"Basic":[
+"General Anatomy",
+"Musculoskeletal System",
+"Nervous System"
+]
 },
 
-
-/* ================= NUTRITION ================= */
-
-"Nutrition & Dietetics": {
-
-icon: "🥗",
-
-subjects: {
-
-"Basic": [
-
-"Human Nutrition",
-"Biochemistry",
-"Food Science"
-
-],
-
-"Clinical": [
-
-"Clinical Nutrition",
-"Therapeutic Diets",
-"Community Nutrition",
-"Public Health Nutrition",
-"Nutrition Assessment"
-
+"Physiology":{
+"Systems":[
+"Cardiovascular",
+"Respiratory",
+"Digestive"
 ]
-
-}
-
 },
 
-
-/* ================= ORTHOTICS ================= */
-
-"Orthotics & Prosthetics": {
-
-icon: "🦵",
-
-subjects: {
-
-"Basic": [
-
-"Anatomy",
-"Physiology",
-"Biomechanics"
-
-],
-
-"Professional": [
-
-"Orthotics",
-"Prosthetics",
-"Gait Analysis",
-"Materials & Fabrication",
-"Clinical Practice"
-
+"Yoga":{
+"Yoga Sciences":[
+"Asanas",
+"Pranayama",
+"Meditation"
 ]
+},
 
+"Naturopathy":{
+"Therapies":[
+"Hydrotherapy",
+"Nutrition",
+"Fasting"
+]
+},
+
+"Nutrition":{
+"Basic Nutrition":[
+"Macronutrients",
+"Micronutrients",
+"Therapeutic Diets"
+]
 }
 
-}
-
-};
+}},
 
 
 /* =====================================================
-   DISPLAY COURSES
+BUMS
 ===================================================== */
 
+"BUMS":{
+icon:"🌿",
+subjects:{
 
-function displayCourses() {
+"Anatomy":{
+"Basic":[
+"Bones",
+"Joints",
+"Muscles",
+"Nervous System"
+]
+},
 
-const grid =
-document.getElementById("courseGrid");
+"Physiology":{
+"Systems":[
+"Cardiovascular",
+"Respiratory",
+"Digestive"
+]
+},
 
-grid.innerHTML = "";
+"Ilmul Advia":{
+"Pharmacology":[
+"Medicinal Drugs",
+"Drug Properties"
+]
+},
 
+"Moalajat":{
+"Clinical Medicine":[
+"Common Diseases",
+"Clinical Examination"
+]
+},
 
-Object.keys(courses).forEach(function(course) {
-
-const data = courses[course];
-
-const card =
-document.createElement("div");
-
-card.className = "card";
-
-card.setAttribute("data-course", course);
-
-card.innerHTML = `
-
-<div class="icon">
-${data.icon}
-</div>
-
-<h3>
-${course}
-</h3>
-
-<p>
-Tap to explore
-</p>
-
-`;
-
-card.onclick = function() {
-
-openCourse(course);
-
-};
-
-grid.appendChild(card);
-
-});
-
+"Jarahat":{
+"Surgery":[
+"Surgical Principles",
+"Wounds"
+]
 }
+
+}},
 
 
 /* =====================================================
-   SEARCH COURSES
+ALLIED HEALTH SCIENCES
 ===================================================== */
 
+"Allied Health Sciences":{
+icon:"🏥",
+subjects:{
 
-function searchCourses() {
+"Anatomy":{
+"Basic":[
+"General Anatomy",
+"Musculoskeletal System",
+"Nervous System"
+]
+},
 
-const query =
-document.getElementById("searchBox")
-.value
-.toLowerCase();
+"Physiology":{
+"Systems":[
+"Cardiovascular",
+"Respiratory",
+"Nervous System"
+]
+},
 
+"Biochemistry":{
+"Metabolism":[
+"Carbohydrates",
+"Proteins",
+"Lipids"
+]
+},
 
-const cards =
-document.querySelectorAll("#courseGrid .card");
+"Pathology":{
+"General":[
+"Cell Injury",
+"Inflammation",
+"Neoplasia"
+]
+},
 
+"Microbiology":{
+"Basic":[
+"Bacteriology",
+"Virology",
+"Mycology"
+]
+},
 
-cards.forEach(function(card) {
-
-const course =
-card.getAttribute("data-course")
-.toLowerCase();
-
-
-if (course.includes(query)) {
-
-card.style.display = "block";
-
-} else {
-
-card.style.display = "none";
-
+"Clinical Practice":{
+"Patient Care":[
+"Clinical Skills",
+"Patient Safety",
+"Documentation"
+]
 }
 
-});
-
-}
+}},
 
 
 /* =====================================================
-   OPEN COURSE
+MEDICAL LAB TECHNOLOGY
 ===================================================== */
 
+"Medical Laboratory Technology":{
+icon:"🔬",
+subjects:{
 
-function openCourse(course) {
+"Hematology":{
+"Blood":[
+"RBC",
+"WBC",
+"Haemoglobin",
+"Blood Smear"
+]
+},
 
-const data = courses[course];
+"Clinical Biochemistry":{
+"Tests":[
+"Blood Glucose",
+"Liver Function Tests",
+"Kidney Function Tests"
+]
+},
 
-if (!data) return;
+"Microbiology":{
+"Laboratory":[
+"Gram Staining",
+"Culture",
+"Antibiotic Sensitivity"
+]
+},
 
+"Histopathology":{
+"Tissue":[
+"Biopsy",
+"Tissue Processing",
+"Staining"
+]
+},
 
-document.getElementById("homePage")
-.style.display = "none";
-
-document.getElementById("coursePage")
-.style.display = "block";
-
-document.getElementById("subjectPage")
-.style.display = "none";
-
-document.getElementById("topicPage")
-.style.display = "none";
-
-
-document.getElementById("courseTitle")
-.innerText =
-data.icon + " " + course;
-
-
-document.getElementById("courseDescription")
-.innerText =
-"Choose a subject area";
-
-
-const grid =
-document.getElementById("subjectGrid");
-
-grid.innerHTML = "";
-
-
-Object.keys(data.subjects).forEach(function(category) {
-
-
-const categoryTitle =
-document.createElement("h2");
-
-categoryTitle.style.marginTop = "25px";
-
-categoryTitle.innerText =
-category;
-
-grid.appendChild(categoryTitle);
-
-
-data.subjects[category].forEach(function(subject) {
-
-const card =
-document.createElement("div");
-
-card.className = "topic-card";
-
-card.innerHTML = `
-
-<h3>📚 ${subject}</h3>
-
-<p>
-Tap to explore this subject
-</p>
-
-`;
-
-card.onclick = function() {
-
-openSubject(course, subject);
-
-};
-
-grid.appendChild(card);
-
-});
-
-});
-
-window.scrollTo(0,0);
-
+"Blood Banking":{
+"Blood":[
+"Blood Groups",
+"Cross Matching",
+"Blood Storage"
+]
 }
+
+}},
 
 
 /* =====================================================
-   OPEN SUBJECT
+RADIOLOGY
 ===================================================== */
 
+"Radiology & Medical Imaging":{
+icon:"🩻",
+subjects:{
 
-function openSubject(course, subject) {
+"Radiographic Positioning":{
+"Basic":[
+"Chest X-ray",
+"Abdominal X-ray",
+"Upper Limb",
+"Lower Limb"
+]
+},
 
-document.getElementById("coursePage")
-.style.display = "none";
+"Radiation Physics":{
+"Physics":[
+"X-rays",
+"Radiation",
+"Radiation Protection"
+]
+},
 
-document.getElementById("subjectPage")
-.style.display = "block";
+"CT":{
+"CT Imaging":[
+"CT Principles",
+"CT Brain",
+"CT Chest",
+"CT Abdomen"
+]
+},
 
-document.getElementById("topicPage")
-.style.display = "none";
+"MRI":{
+"MRI Imaging":[
+"MRI Principles",
+"MRI Brain",
+"MRI Spine"
+]
+},
 
-
-document.getElementById("subjectTitle")
-.innerText =
-"📖 " + subject;
-
-
-document.getElementById("subjectDescription")
-.innerText =
-course + " · " + subject;
-
-
-const grid =
-document.getElementById("topicGrid");
-
-grid.innerHTML = "";
-
-
-/* GENERAL TOPICS */
-
-const topics = [
-
-"Introduction",
-
-"Important Concepts",
-
-"Definitions",
-
-"Classification",
-
-"Anatomy / Structure",
-
-"Physiology / Function",
-
-"Clinical Features",
-
-"Diagnosis",
-
-"Treatment / Management",
-
-"Important Exam Points",
-
-"MCQs",
-
-"Revision Notes"
-
-];
-
-
-topics.forEach(function(topic) {
-
-const card =
-document.createElement("div");
-
-card.className = "topic-card";
-
-card.innerHTML = `
-
-<h3>📘 ${topic}</h3>
-
-<p>
-Tap to study
-</p>
-
-`;
-
-card.onclick = function() {
-
-openTopic(course, subject, topic);
-
-};
-
-grid.appendChild(card);
-
-});
-
-window.scrollTo(0,0);
-
+"Ultrasound":{
+"Ultrasound":[
+"Basic Principles",
+"Abdominal Ultrasound",
+"Obstetric Ultrasound"
+]
 }
+
+}},
 
 
 /* =====================================================
-   OPEN TOPIC
+RESPIRATORY THERAPY
 ===================================================== */
 
+"Respiratory Therapy":{
+icon:"🫁",
+subjects:{
 
-function openTopic(course, subject, topic) {
+"Respiratory Physiology":{
+"Basic":[
+"Lung Volumes",
+"Gas Exchange",
+"Ventilation"
+]
+},
 
-document.getElementById("subjectPage")
-.style.display = "none";
+"Pulmonary Medicine":{
+"Diseases":[
+"Asthma",
+"COPD",
+"Pneumonia",
+"Tuberculosis"
+]
+},
 
-document.getElementById("topicPage")
-.style.display = "block";
+"Mechanical Ventilation":{
+"Ventilation":[
+"Ventilator Basics",
+"Ventilator Modes",
+"Patient Monitoring"
+]
+},
 
-
-document.getElementById("topicTitle")
-.innerText =
-"📚 " + topic;
-
-
-const content =
-document.getElementById("topicContent");
-
-
-content.innerHTML = `
-
-<div class="topic-card">
-
-<h3>🎓 ${subject}</h3>
-
-<p>
-Course: ${course}
-</p>
-
-</div>
-
-
-<div class="topic-card">
-
-<h3>📖 Study Notes</h3>
-
-<p>
-Study notes for <b>${topic}</b> will be
-available here.
-</p>
-
-<p style="margin-top:12px;">
-
-We can add structured explanations,
-important points, diagrams and tables
-to this section.
-
-</p>
-
-</div>
-
-
-<div class="topic-card">
-
-<h3>❓ MCQs</h3>
-
-<p>
-Practice questions for ${topic}
-will be added here.
-</p>
-
-</div>
-
-
-<div class="topic-card">
-
-<h3>📝 Exam Revision</h3>
-
-<p>
-Important examination points and
-quick revision notes will appear here.
-</p>
-
-</div>
-
-
-<div class="topic-card">
-
-<h3>📚 Open Educational Resources</h3>
-
-<p>
-We will add links to legally accessible
-educational resources here.
-</p>
-
-</div>
-
-`;
-
-window.scrollTo(0,0);
-
+"Critical Care":{
+"ICU":[
+"Airway Management",
+"Shock",
+"Critical Care Monitoring"
+]
 }
+
+}},
 
 
 /* =====================================================
-   BACK TO COURSES
+CARDIAC CARE
 ===================================================== */
 
+"Cardiac Care Technology":{
+icon:"❤️",
+subjects:{
 
-function goHome() {
+"Cardiology":{
+"Basic":[
+"Heart Anatomy",
+"Cardiac Physiology"
+]
+},
 
-document.getElementById("homePage")
-.style.display = "block";
-
-document.getElementById("coursePage")
-.style.display = "none";
-
-document.getElementById("subjectPage")
-.style.display = "none";
-
-document.getElementById("topicPage")
-.style.display = "none";
-
-
-document.getElementById("searchBox")
-.value = "";
-
-
-displayCourses();
-
-window.scrollTo(0,0);
-
-}
-
-
-/* =====================================================
-   BACK TO SUBJECTS
-===================================================== */
-
-
-function goCourses() {
-
-document.getElementById("coursePage")
-.style.display = "block";
-
-document.getElementById("subjectPage")
-.style.display = "none";
-
-document.getElementById("topicPage")
-.style.display = "none";
-
-window.scrollTo(0,0);
-
-}
-
-
-/* =====================================================
-   BACK TO TOPICS
-===================================================== */
-
-
-function goSubject() {
-
-document.getElementById("subjectPage")
-.style.display = "block";
-
-document.getElementById("topicPage")
-.style.display = "none";
-
-window.scrollTo(0,0);
-
-}
-
-
-/* =====================================================
-   START WEBSITE
-===================================================== */
-
-
-displayCourses();
-
-</script>
-
-</body>
-</html>
+    
