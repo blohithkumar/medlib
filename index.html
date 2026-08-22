@@ -290,53 +290,41 @@ footer{
 }
 
 @media(max-width:700px){
-
     header{
         padding:0 12px;
     }
-
     nav button:not(.login){
         display:none;
     }
-
     .hero{
         padding:45px 18px;
     }
-
     .hero h1{
         font-size:29px;
     }
-
     .grid3{
         grid-template-columns:repeat(3,1fr);
         gap:7px;
     }
-
     .card{
         padding:11px 6px;
     }
-
     .icon{
         font-size:22px;
     }
-
     .card h3{
         font-size:10px;
     }
-
     .card p{
         font-size:7px;
     }
-
     .badge{
         font-size:6px;
         padding:4px;
     }
-
     .bookGrid{
         grid-template-columns:1fr;
     }
-
     .resources{
         grid-template-columns:repeat(2,1fr);
     }
@@ -347,1326 +335,500 @@ footer{
 <body>
 
 <header>
-
-<div class="logo">🩺 MedLib</div>
-
-<nav>
-<button onclick="home()">Home</button>
-<button onclick="showCourses()">Courses</button>
-<button class="login" onclick="showLogin()">Sign In</button>
-</nav>
-
+  <div class="logo">🩺 MedLib</div>
+  <nav>
+    <button onclick="home()">Home</button>
+    <button onclick="showCourses()">Courses</button>
+    <button class="login" onclick="showLogin()">Sign In</button>
+  </nav>
 </header>
 
-
 <!-- HOME -->
-
 <section id="homePage">
+  <div class="hero">
+    <h1>Learn Medicine. Anywhere. 📚</h1>
+    <p>Medical textbooks, subjects, notes, MCQs and study resources.</p>
+    <div class="search">
+      <input id="searchBox" placeholder="🔍 Search MBBS, BDS, BPT, Nursing..." onkeyup="searchCourses()">
+    </div>
+  </div>
 
-<div class="hero">
-
-<h1>Learn Medicine. Anywhere. 📚</h1>
-
-<p>
-Medical textbooks, subjects, notes, MCQs and study resources.
-</p>
-
-<div class="search">
-
-<input
-id="searchBox"
-placeholder="🔍 Search MBBS, BDS, BPT, Nursing..."
-onkeyup="searchCourses()">
-
-</div>
-
-</div>
-
-<div class="container">
-
-<h2 style="margin-bottom:20px;">
-🎓 Popular Courses
-</h2>
-
-<div id="homeCourses" class="grid3"></div>
-
-<br><br>
-
-<h2>📚 Study Resources</h2>
-
-<div class="resources">
-
-<div class="resource">📖<br><br>Textbooks</div>
-<div class="resource">📝<br><br>Notes</div>
-<div class="resource">❓<br><br>MCQs</div>
-<div class="resource">📋<br><br>PYQs</div>
-
-</div>
-
-</div>
-
+  <div class="container">
+    <h2 style="margin-bottom:20px;">🎓 Popular Courses</h2>
+    <div id="homeCourses" class="grid3"></div>
+    <br><br>
+    <h2>📚 Study Resources</h2>
+    <div class="resources">
+      <div class="resource">📖<br><br>Textbooks</div>
+      <div class="resource">📝<br><br>Notes</div>
+      <div class="resource">❓<br><br>MCQs</div>
+      <div class="resource">📋<br><br>PYQs</div>
+    </div>
+  </div>
 </section>
-
 
 <!-- COURSES -->
-
 <section id="coursesPage" class="page">
-
-<div class="container">
-
-<button class="back" onclick="home()">← Home</button>
-
-<h1>🎓 All Medical Courses</h1>
-
-<p style="margin:10px 0 25px;color:#68747c;">
-Choose your course.
-</p>
-
-<div id="allCourses" class="grid3"></div>
-
-</div>
-
+  <div class="container">
+    <button class="back" onclick="home()">← Home</button>
+    <h1>🎓 All Medical Courses</h1>
+    <p style="margin:10px 0 25px;color:#68747c;">Choose your course.</p>
+    <div id="allCourses" class="grid3"></div>
+  </div>
 </section>
-
 
 <!-- SUBJECTS -->
-
 <section id="subjectPage" class="page">
-
-<div class="container">
-
-<button class="back" onclick="showCourses()">← Courses</button>
-
-<h1 id="courseTitle"></h1>
-
-<p style="margin:10px 0 25px;color:#68747c;">
-Choose a subject.
-</p>
-
-<div id="subjectList" class="grid3"></div>
-
-</div>
-
+  <div class="container">
+    <button class="back" onclick="showCourses()">← Courses</button>
+    <h1 id="courseTitle"></h1>
+    <p style="margin:10px 0 25px;color:#68747c;">Choose a subject.</p>
+    <div id="subjectList" class="grid3"></div>
+  </div>
 </section>
-
 
 <!-- TEXTBOOKS -->
-
 <section id="booksPage" class="page">
-
-<div class="container">
-
-<button class="back" onclick="backSubjects()">← Subjects</button>
-
-<h1 id="subjectTitle"></h1>
-
-<p style="margin-top:10px;color:#68747c;">
-Recommended textbooks for this subject.
-</p>
-
-<div id="bookList" class="bookGrid"></div>
-
-</div>
-
+  <div class="container">
+    <button class="back" onclick="backSubjects()">← Subjects</button>
+    <h1 id="subjectTitle"></h1>
+    <p style="margin-top:10px;color:#68747c;">Recommended textbooks for this subject.</p>
+    <div id="bookList" class="bookGrid"></div>
+  </div>
 </section>
-
 
 <!-- LOGIN -->
-
 <section id="loginPage" class="loginPage">
-
-<div class="loginBox">
-
-<button class="back" onclick="home()">← Back</button>
-
-<h2>👤 Welcome to MedLib</h2>
-
-<p style="margin-top:8px;color:#68747c;">
-Sign in for a better learning experience.
-</p>
-
-<input id="name" placeholder="Your name">
-
-<input id="email" placeholder="Email address">
-
-<input id="password" type="password" placeholder="Password">
-
-<button onclick="signup()">
-Create Account
-</button>
-
-</div>
-
+  <div class="loginBox">
+    <button class="back" onclick="home()">← Back</button>
+    <h2>👤 Welcome to MedLib</h2>
+    <p style="margin-top:8px;color:#68747c;">Sign in for a better learning experience.</p>
+    <input id="name" placeholder="Your name">
+    <input id="email" placeholder="Email address">
+    <input id="password" type="password" placeholder="Password">
+    <button onclick="signup()">Create Account</button>
+  </div>
 </section>
 
-
 <!-- PDF READER -->
-
 <div id="reader" class="reader">
-
-<div class="readerHeader">
-
-<button onclick="closeReader()">
-← Back
-</button>
-
-<div id="readerTitle" class="readerTitle">
-MedLib Book
+  <div class="readerHeader">
+    <button onclick="closeReader()">← Back</button>
+    <div id="readerTitle" class="readerTitle">MedLib Book</div>
+  </div>
+  <iframe id="pdfFrame" class="pdfFrame"></iframe>
 </div>
-
-</div>
-
-<iframe
-id="pdfFrame"
-class="pdfFrame">
-</iframe>
-
-</div>
-
 
 <footer>
-
-<b>🩺 MedLib</b>
-
-<p style="margin-top:8px;color:#c5ccd1;">
-Your medical student library
-</p>
-
+  <b>🩺 MedLib</b>
+  <p style="margin-top:8px;color:#c5ccd1;">Your medical student library</p>
 </footer>
 
-
 <script>
-
 /* =========================================
 COURSES AND SUBJECTS
 ========================================= */
-
 const courses = {
-
 "MBBS":{
 icon:"🩺",
 duration:"4.5 Years + 1 Year Internship",
 subjects:[
-"Anatomy",
-"Physiology",
-"Biochemistry",
-"Pathology",
-"Pharmacology",
-"Microbiology",
-"Forensic Medicine",
-"Community Medicine",
-"General Medicine",
-"General Surgery",
-"Paediatrics",
-"Obstetrics & Gynaecology",
-"Orthopaedics",
-"ENT",
-"Ophthalmology",
-"Dermatology",
-"Psychiatry",
-"Radiology",
-"Anaesthesiology",
-"Emergency Medicine"
+"Anatomy","Physiology","Biochemistry","Pathology","Pharmacology",
+"Microbiology","Forensic Medicine","Community Medicine","General Medicine",
+"General Surgery","Paediatrics","Obstetrics & Gynaecology","Orthopaedics",
+"ENT","Ophthalmology","Dermatology","Psychiatry","Radiology",
+"Anaesthesiology","Emergency Medicine"
 ]
 },
-
 "BDS":{
 icon:"🦷",
 duration:"4 Years + 1 Year Internship",
 subjects:[
-"General Anatomy",
-"Head & Neck Anatomy",
-"Dental Anatomy",
-"Physiology",
-"Biochemistry",
-"Pathology",
-"Microbiology",
-"Pharmacology",
-"Oral Pathology",
-"Oral Medicine",
-"Oral Surgery",
-"Prosthodontics",
-"Periodontology",
-"Conservative Dentistry",
-"Endodontics",
-"Orthodontics",
-"Pedodontics",
-"Public Health Dentistry",
-"Dental Materials"
+"General Anatomy","Head & Neck Anatomy","Dental Anatomy","Physiology",
+"Biochemistry","Pathology","Microbiology","Pharmacology","Oral Pathology",
+"Oral Medicine","Oral Surgery","Prosthodontics","Periodontology",
+"Conservative Dentistry","Endodontics","Orthodontics","Pedodontics",
+"Public Health Dentistry","Dental Materials"
 ]
 },
-
 "BPT":{
 icon:"🏃",
 duration:"4 Years + Internship",
 subjects:[
-"Anatomy",
-"Physiology",
-"Biochemistry",
-"Biomechanics",
-"Kinesiology",
-"Exercise Therapy",
-"Electrotherapy",
-"Pathology",
-"Microbiology",
-"Pharmacology",
-"General Medicine",
-"General Surgery",
-"Orthopaedics",
-"Neurology",
-"Paediatrics",
-"Cardiopulmonary Physiotherapy",
-"Sports Physiotherapy",
-"Community Physiotherapy",
-"Research Methodology",
+"Anatomy","Physiology","Biochemistry","Biomechanics","Kinesiology",
+"Exercise Therapy","Electrotherapy","Pathology","Microbiology",
+"Pharmacology","General Medicine","General Surgery","Orthopaedics",
+"Neurology","Paediatrics","Cardiopulmonary Physiotherapy",
+"Sports Physiotherapy","Community Physiotherapy","Research Methodology",
 "Rehabilitation"
 ]
 },
-
 "Nursing":{
 icon:"👩‍⚕️",
 duration:"4 Years",
 subjects:[
-"Anatomy",
-"Physiology",
-"Biochemistry",
-"Nutrition",
-"Microbiology",
-"Psychology",
-"Sociology",
-"Fundamentals of Nursing",
-"Medical Surgical Nursing",
-"Child Health Nursing",
-"Mental Health Nursing",
-"Community Health Nursing",
-"Midwifery",
-"Pharmacology",
-"Pathology",
-"Nursing Research",
-"Nursing Administration"
+"Anatomy","Physiology","Biochemistry","Nutrition","Microbiology",
+"Psychology","Sociology","Fundamentals of Nursing","Medical Surgical Nursing",
+"Child Health Nursing","Mental Health Nursing","Community Health Nursing",
+"Midwifery","Pharmacology","Pathology","Nursing Research","Nursing Administration"
 ]
 },
-
 "Pharmacy":{
 icon:"💊",
 duration:"4 Years",
 subjects:[
-"Human Anatomy & Physiology",
-"Pharmaceutics",
-"Pharmaceutical Chemistry",
-"Pharmacology",
-"Pharmacognosy",
-"Biochemistry",
-"Pathophysiology",
-"Microbiology",
-"Clinical Pharmacy",
-"Hospital Pharmacy",
-"Pharmacotherapeutics",
-"Medicinal Chemistry",
-"Toxicology",
-"Pharmaceutical Analysis",
-"Pharmacy Practice"
+"Human Anatomy & Physiology","Pharmaceutics","Pharmaceutical Chemistry",
+"Pharmacology","Pharmacognosy","Biochemistry","Pathophysiology",
+"Microbiology","Clinical Pharmacy","Hospital Pharmacy","Pharmacotherapeutics",
+"Medicinal Chemistry","Toxicology","Pharmaceutical Analysis","Pharmacy Practice"
 ]
 },
-
 "AHS":{
 icon:"🔬",
 duration:"Usually 4 Years",
 subjects:[
-"Anatomy",
-"Physiology",
-"Biochemistry",
-"Pathology",
-"Microbiology",
-"Pharmacology",
-"Haematology",
-"Immunology",
-"Medical Laboratory Technology",
-"Radiology",
-"Medical Imaging",
-"Operation Theatre Technology",
-"Cardiac Care",
-"Emergency Care",
-"Nutrition"
+"Anatomy","Physiology","Biochemistry","Pathology","Microbiology",
+"Pharmacology","Haematology","Immunology","Medical Laboratory Technology",
+"Radiology","Medical Imaging","Operation Theatre Technology","Cardiac Care",
+"Emergency Care","Nutrition"
 ]
 },
-
 "GNM":{
 icon:"🏥",
 duration:"3 Years",
 subjects:[
-"Anatomy & Physiology",
-"Microbiology",
-"Psychology",
-"Sociology",
-"Fundamentals of Nursing",
-"Medical Surgical Nursing",
-"Community Health Nursing",
-"Child Health Nursing",
-"Midwifery",
-"Mental Health Nursing",
-"Nutrition",
-"First Aid",
-"Pharmacology"
+"Anatomy & Physiology","Microbiology","Psychology","Sociology",
+"Fundamentals of Nursing","Medical Surgical Nursing","Community Health Nursing",
+"Child Health Nursing","Midwifery","Mental Health Nursing","Nutrition",
+"First Aid","Pharmacology"
 ]
 },
-
 "BAMS":{
 icon:"🌿",
 duration:"5.5 Years",
 subjects:[
-"Sanskrit",
-"Padartha Vigyan",
-"Rachana Sharira",
-"Kriya Sharira",
-"Dravyaguna",
-"Rasashastra",
-"Swasthavritta",
-"Agada Tantra",
-"Charaka Samhita",
-"Shalya Tantra",
-"Shalakya Tantra",
-"Kaumarabhritya",
-"Prasuti Tantra",
-"Stri Roga",
-"Kayachikitsa"
+"Sanskrit","Padartha Vigyan","Rachana Sharira","Kriya Sharira","Dravyaguna",
+"Rasashastra","Swasthavritta","Agada Tantra","Charaka Samhita","Shalya Tantra",
+"Shalakya Tantra","Kaumarabhritya","Prasuti Tantra","Stri Roga","Kayachikitsa"
 ]
 },
-
 "BHMS":{
 icon:"🌱",
 duration:"5.5 Years",
 subjects:[
-"Anatomy",
-"Physiology",
-"Biochemistry",
-"Pathology",
-"Microbiology",
-"Organon of Medicine",
-"Materia Medica",
-"Homeopathic Pharmacy",
-"Forensic Medicine",
-"Community Medicine",
-"Practice of Medicine",
-"Surgery",
-"Obstetrics & Gynaecology"
+"Anatomy","Physiology","Biochemistry","Pathology","Microbiology",
+"Organon of Medicine","Materia Medica","Homeopathic Pharmacy","Forensic Medicine",
+"Community Medicine","Practice of Medicine","Surgery","Obstetrics & Gynaecology"
 ]
 },
-
 "BUMS":{
 icon:"🌿",
 duration:"5.5 Years",
 subjects:[
-"Anatomy",
-"Physiology",
-"Munafeul Aza",
-"Unani Pharmacology",
-"Unani Pharmacy",
-"Pathology",
-"Diagnosis",
-"Medicine",
-"Surgery",
-"Obstetrics",
-"Gynaecology"
+"Anatomy","Physiology","Munafeul Aza","Unani Pharmacology","Unani Pharmacy",
+"Pathology","Diagnosis","Medicine","Surgery","Obstetrics","Gynaecology"
 ]
 },
-
 "BSMS":{
 icon:"🍃",
 duration:"5.5 Years",
 subjects:[
-"Anatomy",
-"Physiology",
-"Biochemistry",
-"Gunapadam",
-"Siddha Pharmacology",
-"Diagnosis",
-"Medicine",
-"Varma Medicine",
-"Siddha Treatment"
+"Anatomy","Physiology","Biochemistry","Gunapadam","Siddha Pharmacology",
+"Diagnosis","Medicine","Varma Medicine","Siddha Treatment"
 ]
 },
-
 "Optometry":{
 icon:"👁️",
 duration:"4 Years",
 subjects:[
-"Ocular Anatomy",
-"Ocular Physiology",
-"Optics",
-"Visual Optics",
-"Clinical Optometry",
-"Ocular Diseases",
-"Contact Lenses",
-"Binocular Vision",
-"Paediatric Optometry",
-"Low Vision",
-"Public Health Optometry"
+"Ocular Anatomy","Ocular Physiology","Optics","Visual Optics",
+"Clinical Optometry","Ocular Diseases","Contact Lenses","Binocular Vision",
+"Paediatric Optometry","Low Vision","Public Health Optometry"
 ]
 }
-
 };
-
 
 /* =========================================
 TEXTBOOK DATABASE
 ========================================= */
-
 const textbooks = {
-
-"Anatomy":[
-"BD Chaurasia's Human Anatomy",
-"Gray's Anatomy for Students",
-"Clinically Oriented Anatomy - Moore",
-"Last's Anatomy",
-"Thieme Atlas of Anatomy"
-],
-
-"Physiology":[
-"Guyton and Hall Textbook of Medical Physiology",
-"Ganong's Review of Medical Physiology",
-"Berne & Levy Physiology",
-"Textbook of Medical Physiology - A.K. Jain"
-],
-
-"Biochemistry":[
-"Harper's Illustrated Biochemistry",
-"Lippincott Illustrated Reviews: Biochemistry",
-"Textbook of Biochemistry for Medical Students - D.M. Vasudevan",
-"Medical Biochemistry - Satyanarayana"
-],
-
-"Pathology":[
-"Robbins & Cotran Pathologic Basis of Disease",
-"Robbins Basic Pathology",
-"Harsh Mohan Textbook of Pathology",
-"Ramadas Naik Pathology"
-],
-
-"Pharmacology":[
-"Katzung's Basic & Clinical Pharmacology",
-"Goodman & Gilman's Pharmacological Basis of Therapeutics",
-"Essentials of Medical Pharmacology - K.D. Tripathi",
-"Rang & Dale's Pharmacology"
-],
-
-"Microbiology":[
-"Jawetz Medical Microbiology",
-"Murray Medical Microbiology",
-"Ananthanarayan and Paniker's Textbook of Microbiology",
-"Textbook of Microbiology - R. Ananthanarayan"
-],
-
-"Forensic Medicine":[
-"Reddy's Essentials of Forensic Medicine",
-"Textbook of Forensic Medicine and Toxicology - Nagesh Kumar Rao",
-"Modi's Medical Jurisprudence and Toxicology"
-],
-
-"Community Medicine":[
-"Park's Textbook of Preventive and Social Medicine",
-"Textbook of Community Medicine - Suryakantha",
-"Community Medicine with Recent Advances"
-],
-
-"General Medicine":[
-"Davidson's Principles and Practice of Medicine",
-"Harrison's Principles of Internal Medicine",
-"Kumar & Clark's Clinical Medicine"
-],
-
-"General Surgery":[
-"Bailey & Love's Short Practice of Surgery",
-"Schwartz's Principles of Surgery",
-"Sabiston Textbook of Surgery"
-],
-
-"Paediatrics":[
-"Nelson Textbook of Pediatrics",
-"Ghai Essential Pediatrics",
-"OP Ghai Pediatrics"
-],
-
-"Obstetrics & Gynaecology":[
-"Williams Obstetrics",
-"Dutta's Textbook of Obstetrics",
-"Dutta's Textbook of Gynecology",
-"Shaw's Textbook of Gynaecology"
-],
-
-"Orthopaedics":[
-"Apley's System of Orthopaedics and Fractures",
-"Turek's Orthopaedics",
-"Maheshwari Essential Orthopaedics"
-],
-
-"ENT":[
-"Dhingra Diseases of Ear, Nose and Throat",
-"Scott-Brown's Otorhinolaryngology",
-"Logan Turner's Diseases of the Nose, Throat and Ear"
-],
-
-"Ophthalmology":[
-"Khurana Comprehensive Ophthalmology",
-"Parsons' Diseases of the Eye",
-"Clinical Ophthalmology - Kanski"
-],
-
-"Dermatology":[
-"Fitzpatrick's Dermatology",
-"Rook's Textbook of Dermatology",
-"Clinical Dermatology - Thomas P. Habif"
-],
-
-"Psychiatry":[
-"Kaplan & Sadock's Synopsis of Psychiatry",
-"Oxford Textbook of Psychiatry",
-"Shorter Oxford Textbook of Psychiatry"
-],
-
-"Radiology":[
-"Grainger & Allison's Diagnostic Radiology",
-"Fundamentals of Diagnostic Radiology - Brant & Helms",
-"Textbook of Radiology - Sumer Sethi"
-],
-
-"Anaesthesiology":[
-"Morgan & Mikhail's Clinical Anesthesiology",
-"Lee's Synopsis of Anaesthesia",
-"Clinical Anesthesiology - Morgan"
-],
-
-"Emergency Medicine":[
-"Tintinalli's Emergency Medicine",
-"Rosen's Emergency Medicine",
-"Oxford Handbook of Emergency Medicine"
-],
-
-"General Anatomy":[
-"BD Chaurasia's Human Anatomy",
-"Gray's Anatomy for Students"
-],
-
-"Head & Neck Anatomy":[
-"BD Chaurasia Head, Neck and Brain",
-"Gray's Anatomy for Students",
-"Clinically Oriented Anatomy - Moore"
-],
-
-"Dental Anatomy":[
-"Woelfel's Dental Anatomy",
-"Wheeler's Dental Anatomy",
-"Orban's Oral Histology"
-],
-
-"Oral Pathology":[
-"Shafer's Textbook of Oral Pathology",
-"Oral Pathology - Regezi",
-"Cawson's Essentials of Oral Pathology"
-],
-
-"Oral Medicine":[
-"Burket's Oral Medicine",
-"Tyldesley's Oral Medicine",
-"Principles of Oral Medicine"
-],
-
-"Oral Surgery":[
-"Peterson's Principles of Oral and Maxillofacial Surgery",
-"Contemporary Oral and Maxillofacial Surgery",
-"Textbook of Oral and Maxillofacial Surgery"
-],
-
-"Prosthodontics":[
-"Zarb's Prosthodontic Treatment",
-"McCracken's Removable Partial Prosthodontics",
-"Shillingburg's Fixed Prosthodontics"
-],
-
-"Periodontology":[
-"Carranza's Clinical Periodontology",
-"Clinical Periodontology - Newman",
-"Essentials of Periodontics"
-],
-
-"Conservative Dentistry":[
-"Sturdevant's Art and Science of Operative Dentistry",
-"Textbook of Operative Dentistry - Nisha Garg"
-],
-
-"Endodontics":[
-"Cohen's Pathways of the Pulp",
-"Grossman's Endodontic Practice"
-],
-
-"Orthodontics":[
-"Contemporary Orthodontics - Proffit",
-"Essentials of Orthodontics",
-"Orthodontics - Gurkeerat Singh"
-],
-
-"Pedodontics":[
-"McDonald and Avery's Dentistry for the Child and Adolescent",
-"Clinical Pedodontics"
-],
-
-"Public Health Dentistry":[
-"Textbook of Preventive and Community Dentistry",
-"Public Health Dentistry - Hiremath"
-],
-
-"Dental Materials":[
-"Phillips' Science of Dental Materials",
-"Craig's Restorative Dental Materials"
-],
-
-"Biomechanics":[
-"Basic Biomechanics of the Musculoskeletal System",
-"Biomechanics of Musculoskeletal Injury",
-"Joint Structure and Function"
-],
-
-"Kinesiology":[
-"Kinesiology of the Musculoskeletal System",
-"Brunnstrom's Clinical Kinesiology",
-"Clinical Kinesiology and Anatomy"
-],
-
-"Exercise Therapy":[
-"Therapeutic Exercise - Kisner & Colby",
-"Therapeutic Exercise - Carolyn Kisner",
-"Therapeutic Exercises - Hall & Brody"
-],
-
-"Electrotherapy":[
-"Electrotherapy Explained",
-"Clayton's Electrotherapy",
-"Electrotherapy: Evidence-Based Practice"
-],
-
-"Neurology":[
-"Neurological Rehabilitation - Umphred",
-"Neurologic Interventions for Physical Therapy"
-],
-
-"Cardiopulmonary Physiotherapy":[
-"Cardiopulmonary Physical Therapy",
-"Frownfelter's Cardiovascular and Pulmonary Physical Therapy"
-],
-
-"Sports Physiotherapy":[
-"Brukner & Khan's Clinical Sports Medicine",
-"Sports Injury Prevention and Rehabilitation"
-],
-
-"Community Physiotherapy":[
-"Community-Based Rehabilitation",
-"Community Physiotherapy"
-],
-
-"Research Methodology":[
-"Research Methodology - C.R. Kothari",
-"Research Methods in Health Sciences"
-],
-
-"Rehabilitation":[
-"Physical Rehabilitation - Susan O'Sullivan",
-"Braddom's Physical Medicine and Rehabilitation"
-],
-
-"Fundamentals of Nursing":[
-"Kozier & Erb's Fundamentals of Nursing",
-"Taylor's Fundamentals of Nursing",
-"Potter & Perry Fundamentals of Nursing"
-],
-
-"Medical Surgical Nursing":[
-"Brunner & Suddarth's Medical-Surgical Nursing",
-"Lewis's Medical-Surgical Nursing",
-"Medical-Surgical Nursing - Ignatavicius"
-],
-
-"Child Health Nursing":[
-"Parul Datta Pediatric Nursing",
-"Child Health Nursing - Parul Datta"
-],
-
-"Mental Health Nursing":[
-"Psychiatric Mental Health Nursing",
-"Essentials of Psychiatric Mental Health Nursing"
-],
-
-"Community Health Nursing":[
-"Community Health Nursing",
-"Park's Textbook of Preventive and Social Medicine"
-],
-
-"Midwifery":[
-"Midwifery & Gynaecological Nursing",
-"D.C. Dutta's Textbook of Obstetrics"
-],
-
-"Nursing Research":[
-"Nursing Research - Polit & Beck",
-"Research Methodology in Nursing"
-],
-
-"Nursing Administration":[
-"Nursing Administration",
-"Nursing Management"
-],
-
-"Human Anatomy & Physiology":[
-"Ross & Wilson Anatomy and Physiology",
-"Tortora Principles of Anatomy and Physiology",
-"Marieb Human Anatomy & Physiology"
-],
-
-"Pharmaceutics":[
-"Aulton's Pharmaceutics",
-"Remington: The Science and Practice of Pharmacy",
-"Physical Pharmacy"
-],
-
-"Pharmaceutical Chemistry":[
-"Wilson and Gisvold's Textbook of Organic Medicinal and Pharmaceutical Chemistry",
-"Pharmaceutical Chemistry"
-],
-
-"Pharmacognosy":[
-"Trease and Evans Pharmacognosy",
-"Textbook of Pharmacognosy"
-],
-
-"Pathophysiology":[
-"McCance Pathophysiology",
-"Understanding Pathophysiology"
-],
-
-"Clinical Pharmacy":[
-"Clinical Pharmacy and Therapeutics",
-"Applied Therapeutics"
-],
-
-"Hospital Pharmacy":[
-"Hospital Pharmacy",
-"Textbook of Hospital Pharmacy"
-],
-
-"Pharmacotherapeutics":[
-"Pharmacotherapy - Dipiro",
-"Clinical Pharmacology and Therapeutics"
-],
-
-"Medicinal Chemistry":[
-"Foye's Principles of Medicinal Chemistry",
-"Wilson and Gisvold Medicinal Chemistry"
-],
-
-"Pharmaceutical Analysis":[
-"Vogel's Textbook of Quantitative Chemical Analysis",
-"Pharmaceutical Analysis"
-],
-
-"Pharmacy Practice":[
-"Pharmacy Practice",
-"Clinical Pharmacy Practice"
-],
-
-"Rachana Sharira":[
-"Rachana Sharira",
-"Anatomy for Ayurveda"
-],
-
-"Kriya Sharira":[
-"Kriya Sharira",
-"Physiology for Ayurveda"
-],
-
-"Dravyaguna":[
-"Dravyaguna Vijnana",
-"Textbook of Dravyaguna"
-],
-
-"Rasashastra":[
-"Rasashastra and Bhaishajya Kalpana",
-"Textbook of Rasashastra"
-],
-
-"Kayachikitsa":[
-"Kayachikitsa",
-"Textbook of Kayachikitsa"
-],
-
-"Materia Medica":[
-"Materia Medica",
-"Boericke's New Manual of Homeopathic Materia Medica"
-],
-
-"Organon of Medicine":[
-"Organon of Medicine",
-"Organon of Medicine - Hahnemann"
-],
-
-"Homeopathic Pharmacy":[
-"Homeopathic Pharmacy",
-"A Textbook of Homoeopathic Pharmacy"
-],
-
-"Munafeul Aza":[
-"Munafeul Aza",
-"Unani Physiology"
-],
-
-"Unani Pharmacology":[
-"Ilmul Advia",
-"Unani Pharmacology"
-],
-
-"Gunapadam":[
-"Gunapadam",
-"Siddha Pharmacology"
-],
-
-"Ocular Anatomy":[
-"Clinical Anatomy of the Eye",
-"Anatomy of the Eye and Orbit"
-],
-
-"Ocular Physiology":[
-"Physiology of the Eye",
-"Clinical Ophthalmology"
-],
-
-"Optics":[
-"Clinical Optics",
-"Geometrical and Visual Optics"
-],
-
-"Visual Optics":[
-"Clinical Optics",
-"Visual Optics"
-],
-
-"Clinical Optometry":[
-"Clinical Optometric Practice",
-"Primary Care Optometry"
-],
-
-"Ocular Diseases":[
-"Kanski's Clinical Ophthalmology",
-"Parsons' Diseases of the Eye"
-],
-
-"Contact Lenses":[
-"Contact Lens Practice",
-"Contact Lenses - Bennett & Henry"
-],
-
-"Binocular Vision":[
-"Binocular Vision and Ocular Motility",
-"Clinical Management of Binocular Vision"
-],
-
-"Paediatric Optometry":[
-"Paediatric Optometry",
-"Paediatric Eye Care"
-],
-
-"Low Vision":[
-"Low Vision Principles and Management",
-"Low Vision Rehabilitation"
-]
-
+"Anatomy":["BD Chaurasia's Human Anatomy","Gray's Anatomy for Students","Clinically Oriented Anatomy - Moore","Last's Anatomy","Thieme Atlas of Anatomy"],
+"Physiology":["Guyton and Hall Textbook of Medical Physiology","Ganong's Review of Medical Physiology","Berne & Levy Physiology","Textbook of Medical Physiology - A.K. Jain"],
+"Biochemistry":["Harper's Illustrated Biochemistry","Lippincott Illustrated Reviews: Biochemistry","Textbook of Biochemistry for Medical Students - D.M. Vasudevan","Medical Biochemistry - Satyanarayana"],
+"Pathology":["Robbins & Cotran Pathologic Basis of Disease","Robbins Basic Pathology","Harsh Mohan Textbook of Pathology","Ramadas Naik Pathology"],
+"Pharmacology":["Katzung's Basic & Clinical Pharmacology","Goodman & Gilman's Pharmacological Basis of Therapeutics","Essentials of Medical Pharmacology - K.D. Tripathi","Rang & Dale's Pharmacology"],
+"Microbiology":["Jawetz Medical Microbiology","Murray Medical Microbiology","Ananthanarayan and Paniker's Textbook of Microbiology","Textbook of Microbiology - R. Ananthanarayan"],
+"Forensic Medicine":["Reddy's Essentials of Forensic Medicine","Textbook of Forensic Medicine and Toxicology - Nagesh Kumar Rao","Modi's Medical Jurisprudence and Toxicology"],
+"Community Medicine":["Park's Textbook of Preventive and Social Medicine","Textbook of Community Medicine - Suryakantha","Community Medicine with Recent Advances"],
+"General Medicine":["Davidson's Principles and Practice of Medicine","Harrison's Principles of Internal Medicine","Kumar & Clark's Clinical Medicine"],
+"General Surgery":["Bailey & Love's Short Practice of Surgery","Schwartz's Principles of Surgery","Sabiston Textbook of Surgery"],
+"Paediatrics":["Nelson Textbook of Pediatrics","Ghai Essential Pediatrics","OP Ghai Pediatrics"],
+"Obstetrics & Gynaecology":["Williams Obstetrics","Dutta's Textbook of Obstetrics","Dutta's Textbook of Gynecology","Shaw's Textbook of Gynaecology"],
+"Orthopaedics":["Apley's System of Orthopaedics and Fractures","Turek's Orthopaedics","Maheshwari Essential Orthopaedics"],
+"ENT":["Dhingra Diseases of Ear, Nose and Throat","Scott-Brown's Otorhinolaryngology","Logan Turner's Diseases of the Nose, Throat and Ear"],
+"Ophthalmology":["Khurana Comprehensive Ophthalmology","Parsons' Diseases of the Eye","Clinical Ophthalmology - Kanski"],
+"Dermatology":["Fitzpatrick's Dermatology","Rook's Textbook of Dermatology","Clinical Dermatology - Thomas P. Habif"],
+"Psychiatry":["Kaplan & Sadock's Synopsis of Psychiatry","Oxford Textbook of Psychiatry","Shorter Oxford Textbook of Psychiatry"],
+"Radiology":["Grainger & Allison's Diagnostic Radiology","Fundamentals of Diagnostic Radiology - Brant & Helms","Textbook of Radiology - Sumer Sethi"],
+"Anaesthesiology":["Morgan & Mikhail's Clinical Anesthesiology","Lee's Synopsis of Anaesthesia","Clinical Anesthesiology - Morgan"],
+"Emergency Medicine":["Tintinalli's Emergency Medicine","Rosen's Emergency Medicine","Oxford Handbook of Emergency Medicine"],
+"General Anatomy":["BD Chaurasia's Human Anatomy","Gray's Anatomy for Students"],
+"Head & Neck Anatomy":["BD Chaurasia Head, Neck and Brain","Gray's Anatomy for Students","Clinically Oriented Anatomy - Moore"],
+"Dental Anatomy":["Woelfel's Dental Anatomy","Wheeler's Dental Anatomy","Orban's Oral Histology"],
+"Oral Pathology":["Shafer's Textbook of Oral Pathology","Oral Pathology - Regezi","Cawson's Essentials of Oral Pathology"],
+"Oral Medicine":["Burket's Oral Medicine","Tyldesley's Oral Medicine","Principles of Oral Medicine"],
+"Oral Surgery":["Peterson's Principles of Oral and Maxillofacial Surgery","Contemporary Oral and Maxillofacial Surgery","Textbook of Oral and Maxillofacial Surgery"],
+"Prosthodontics":["Zarb's Prosthodontic Treatment","McCracken's Removable Partial Prosthodontics","Shillingburg's Fixed Prosthodontics"],
+"Periodontology":["Carranza's Clinical Periodontology","Clinical Periodontology - Newman","Essentials of Periodontics"],
+"Conservative Dentistry":["Sturdevant's Art and Science of Operative Dentistry","Textbook of Operative Dentistry - Nisha Garg"],
+"Endodontics":["Cohen's Pathways of the Pulp","Grossman's Endodontic Practice"],
+"Orthodontics":["Contemporary Orthodontics - Proffit","Essentials of Orthodontics","Orthodontics - Gurkeerat Singh"],
+"Pedodontics":["McDonald and Avery's Dentistry for the Child and Adolescent","Clinical Pedodontics"],
+"Public Health Dentistry":["Textbook of Preventive and Community Dentistry","Public Health Dentistry - Hiremath"],
+"Dental Materials":["Phillips' Science of Dental Materials","Craig's Restorative Dental Materials"],
+"Biomechanics":["Basic Biomechanics of the Musculoskeletal System","Biomechanics of Musculoskeletal Injury","Joint Structure and Function"],
+"Kinesiology":["Kinesiology of the Musculoskeletal System","Brunnstrom's Clinical Kinesiology","Clinical Kinesiology and Anatomy"],
+"Exercise Therapy":["Therapeutic Exercise - Kisner & Colby","Therapeutic Exercise - Carolyn Kisner","Therapeutic Exercises - Hall & Brody"],
+"Electrotherapy":["Electrotherapy Explained","Clayton's Electrotherapy","Electrotherapy: Evidence-Based Practice"],
+"Neurology":["Neurological Rehabilitation - Umphred","Neurologic Interventions for Physical Therapy"],
+"Cardiopulmonary Physiotherapy":["Cardiopulmonary Physical Therapy","Frownfelter's Cardiovascular and Pulmonary Physical Therapy"],
+"Sports Physiotherapy":["Brukner & Khan's Clinical Sports Medicine","Sports Injury Prevention and Rehabilitation"],
+"Community Physiotherapy":["Community-Based Rehabilitation","Community Physiotherapy"],
+"Research Methodology":["Research Methodology - C.R. Kothari","Research Methods in Health Sciences"],
+"Rehabilitation":["Physical Rehabilitation - Susan O'Sullivan","Braddom's Physical Medicine and Rehabilitation"],
+"Fundamentals of Nursing":["Kozier & Erb's Fundamentals of Nursing","Taylor's Fundamentals of Nursing","Potter & Perry Fundamentals of Nursing"],
+"Medical Surgical Nursing":["Brunner & Suddarth's Medical-Surgical Nursing","Lewis's Medical-Surgical Nursing","Medical-Surgical Nursing - Ignatavicius"],
+"Child Health Nursing":["Parul Datta Pediatric Nursing","Child Health Nursing - Parul Datta"],
+"Mental Health Nursing":["Psychiatric Mental Health Nursing","Essentials of Psychiatric Mental Health Nursing"],
+"Community Health Nursing":["Community Health Nursing","Park's Textbook of Preventive and Social Medicine"],
+"Midwifery":["Midwifery & Gynaecological Nursing","D.C. Dutta's Textbook of Obstetrics"],
+"Nursing Research":["Nursing Research - Polit & Beck","Research Methodology in Nursing"],
+"Nursing Administration":["Nursing Administration","Nursing Management"],
+"Human Anatomy & Physiology":["Ross & Wilson Anatomy and Physiology","Tortora Principles of Anatomy and Physiology","Marieb Human Anatomy & Physiology"],
+"Pharmaceutics":["Aulton's Pharmaceutics","Remington: The Science and Practice of Pharmacy","Physical Pharmacy"],
+"Pharmaceutical Chemistry":["Wilson and Gisvold's Textbook of Organic Medicinal and Pharmaceutical Chemistry","Pharmaceutical Chemistry"],
+"Pharmacognosy":["Trease and Evans Pharmacognosy","Textbook of Pharmacognosy"],
+"Pathophysiology":["McCance Pathophysiology","Understanding Pathophysiology"],
+"Clinical Pharmacy":["Clinical Pharmacy and Therapeutics","Applied Therapeutics"],
+"Hospital Pharmacy":["Hospital Pharmacy","Textbook of Hospital Pharmacy"],
+"Pharmacotherapeutics":["Pharmacotherapy - Dipiro","Clinical Pharmacology and Therapeutics"],
+"Medicinal Chemistry":["Foye's Principles of Medicinal Chemistry","Wilson and Gisvold Medicinal Chemistry"],
+"Pharmaceutical Analysis":["Vogel's Textbook of Quantitative Chemical Analysis","Pharmaceutical Analysis"],
+"Pharmacy Practice":["Pharmacy Practice","Clinical Pharmacy Practice"],
+"Rachana Sharira":["Rachana Sharira","Anatomy for Ayurveda"],
+"Kriya Sharira":["Kriya Sharira","Physiology for Ayurveda"],
+"Dravyaguna":["Dravyaguna Vijnana","Textbook of Dravyaguna"],
+"Rasashastra":["Rasashastra and Bhaishajya Kalpana","Textbook of Rasashastra"],
+"Kayachikitsa":["Kayachikitsa","Textbook of Kayachikitsa"],
+"Materia Medica":["Materia Medica","Boericke's New Manual of Homeopathic Materia Medica"],
+"Organon of Medicine":["Organon of Medicine","Organon of Medicine - Hahnemann"],
+"Homeopathic Pharmacy":["Homeopathic Pharmacy","A Textbook of Homoeopathic Pharmacy"],
+"Munafeul Aza":["Munafeul Aza","Unani Physiology"],
+"Unani Pharmacology":["Ilmul Advia","Unani Pharmacology"],
+"Gunapadam":["Gunapadam","Siddha Pharmacology"],
+"Ocular Anatomy":["Clinical Anatomy of the Eye","Anatomy of the Eye and Orbit"],
+"Ocular Physiology":["Physiology of the Eye","Clinical Ophthalmology"],
+"Optics":["Clinical Optics","Geometrical and Visual Optics"],
+"Visual Optics":["Clinical Optics","Visual Optics"],
+"Clinical Optometry":["Clinical Optometric Practice","Primary Care Optometry"],
+"Ocular Diseases":["Kanski's Clinical Ophthalmology","Parsons' Diseases of the Eye"],
+"Contact Lenses":["Contact Lens Practice","Contact Lenses - Bennett & Henry"],
+"Binocular Vision":["Binocular Vision and Ocular Motility","Clinical Management of Binocular Vision"],
+"Paediatric Optometry":["Paediatric Optometry","Paediatric Eye Care"],
+"Low Vision":["Low Vision Principles and Management","Low Vision Rehabilitation"]
 };
-
 
 /* =========================================
 VARIABLES
 ========================================= */
-
 let currentCourse="";
 let currentSubject="";
-
 
 /* =========================================
 PAGE CONTROL
 ========================================= */
-
 function hideAll(){
-
-document.getElementById("homePage").style.display="none";
-document.getElementById("coursesPage").style.display="none";
-document.getElementById("subjectPage").style.display="none";
-document.getElementById("booksPage").style.display="none";
-document.getElementById("loginPage").style.display="none";
-
+    document.getElementById("homePage").style.display="none";
+    document.getElementById("coursesPage").style.display="none";
+    document.getElementById("subjectPage").style.display="none";
+    document.getElementById("booksPage").style.display="none";
+    document.getElementById("loginPage").style.display="none";
 }
-
 
 function home(){
-
-hideAll();
-
-document.getElementById("homePage").style.display="block";
-
-window.scrollTo(0,0);
-
+    hideAll();
+    document.getElementById("homePage").style.display="block";
+    window.scrollTo(0,0);
 }
-
 
 function showCourses(){
-
-hideAll();
-
-document.getElementById("coursesPage").style.display="block";
-
-window.scrollTo(0,0);
-
+    hideAll();
+    document.getElementById("coursesPage").style.display="block";
+    window.scrollTo(0,0);
 }
-
 
 function showLogin(){
-
-hideAll();
-
-document.getElementById("loginPage").style.display="block";
-
-window.scrollTo(0,0);
-
+    hideAll();
+    document.getElementById("loginPage").style.display="block";
+    window.scrollTo(0,0);
 }
-
 
 /* =========================================
 COURSE CARDS
 ========================================= */
-
 function courseCard(name){
-
-let course=courses[name];
-
-return `
-
-<div class="card"
-onclick="openCourse('${name}')">
-
-<div class="icon">
-${course.icon}
-</div>
-
-<h3>
-${name}
-</h3>
-
-<p>
-${course.duration}
-</p>
-
-<span class="badge free">
-${course.subjects.length} Subjects
-</span>
-
-</div>
-
-`;
-
+    let course=courses[name];
+    return `
+    <div class="card" onclick="openCourse('${name}')">
+        <div class="icon">${course.icon}</div>
+        <h3>${name}</h3>
+        <p>${course.duration}</p>
+        <span class="badge free">${course.subjects.length} Subjects</span>
+    </div>
+    `;
 }
-
 
 function loadCourses(){
-
-let names=Object.keys(courses);
-
-document.getElementById("homeCourses").innerHTML=
-names.slice(0,6).map(courseCard).join("");
-
-document.getElementById("allCourses").innerHTML=
-names.map(courseCard).join("");
-
+    let names=Object.keys(courses);
+    document.getElementById("homeCourses").innerHTML = names.slice(0,6).map(courseCard).join("");
+    document.getElementById("allCourses").innerHTML = names.map(courseCard).join("");
 }
-
 
 /* =========================================
 OPEN COURSE
 ========================================= */
-
 function openCourse(name){
+    currentCourse=name;
+    hideAll();
+    document.getElementById("subjectPage").style.display="block";
+    document.getElementById("courseTitle").innerText= courses[name].icon+" "+name;
 
-currentCourse=name;
+    let html="";
+    courses[name].subjects.forEach(function(subject){
+        html+=`
+        <div class="card" onclick="openSubject('${subject}')">
+            <div class="icon">📖</div>
+            <h3>${subject}</h3>
+            <p>Textbooks • Notes • MCQs</p>
+        </div>
+        `;
+    });
 
-hideAll();
-
-document.getElementById("subjectPage").style.display="block";
-
-document.getElementById("courseTitle").innerText=
-courses[name].icon+" "+name;
-
-
-let html="";
-
-
-courses[name].subjects.forEach(function(subject){
-
-html+=`
-
-<div class="card"
-onclick="openSubject('${subject}')">
-
-<div class="icon">
-📖
-</div>
-
-<h3>
-${subject}
-</h3>
-
-<p>
-Textbooks • Notes • MCQs
-</p>
-
-</div>
-
-`;
-
-});
-
-
-document.getElementById("subjectList").innerHTML=html;
-
-window.scrollTo(0,0);
-
+    document.getElementById("subjectList").innerHTML=html;
+    window.scrollTo(0,0);
 }
-
 
 /* =========================================
 OPEN SUBJECT
 ========================================= */
-
 function openSubject(subject){
+    currentSubject=subject;
+    hideAll();
+    document.getElementById("booksPage").style.display="block";
+    document.getElementById("subjectTitle").innerText="📚 "+subject;
 
-currentSubject=subject;
+    let list=textbooks[subject];
+    if(!list){
+        list=[
+            "Recommended textbook for "+subject,
+            "Standard reference textbook for "+subject,
+            "Clinical textbook for "+subject
+        ];
+    }
 
-hideAll();
+    let html="";
+    list.forEach(function(book,index){
+        let isFree=index===0 && subject==="Anatomy";
+        let badge=isFree
+            ?'<span class="badge free">FREE / OPEN ACCESS</span>'
+            :'<span class="badge paid">PAID / COPYRIGHTED</span>';
+        
+        let button=isFree
+            ?`<button class="bookButton" onclick="openBook('books/anatomy.pdf','${book}')">📖 Read Inside MedLib</button>`
+            :`<button class="bookButton" onclick="purchaseInfo('${book}')">🛒 Purchase / License</button>`;
 
-document.getElementById("booksPage").style.display="block";
+        html+=`
+        <div class="book">
+            <div class="icon">📘</div>
+            <h3>${book}</h3>
+            ${badge}
+            <p>${isFree
+                ?"This book/resource can be opened directly inside MedLib when the authorized PDF is uploaded."
+                :"This is a copyrighted textbook. MedLib will provide access only after obtaining the appropriate rights or license."
+            }</p>
+            ${button}
+        </div>
+        `;
+    });
 
-document.getElementById("subjectTitle").innerText=
-"📚 "+subject;
-
-
-let list=textbooks[subject];
-
-
-if(!list){
-
-list=[
-"Recommended textbook for "+subject,
-"Standard reference textbook for "+subject,
-"Clinical textbook for "+subject
-];
-
+    document.getElementById("bookList").innerHTML=html;
+    window.scrollTo(0,0);
 }
-
-
-let html="";
-
-
-list.forEach(function(book,index){
-
-let isFree=index===0 && subject==="Anatomy";
-
-let badge=isFree
-?'<span class="badge free">FREE / OPEN ACCESS</span>'
-:'<span class="badge paid">PAID / COPYRIGHTED</span>';
-
-
-let button=isFree
-
-?`
-
-<button
-class="bookButton"
-onclick="openBook('books/anatomy.pdf','${book}')">
-
-📖 Read Inside MedLib
-
-</button>
-
-`
-
-:
-
-`
-
-<button
-class="bookButton"
-onclick="purchaseInfo('${book}')">
-
-🛒 Purchase / License
-
-</button>
-
-`;
-
-
-html+=`
-
-<div class="book">
-
-<div class="icon">
-📘
-</div>
-
-<h3>
-${book}
-</h3>
-
-${badge}
-
-<p>
-${isFree
-?"This book/resource can be opened directly inside MedLib when the authorized PDF is uploaded."
-:"This is a copyrighted textbook. MedLib will provide access only after obtaining the appropriate rights or license."
-}
-</p>
-
-${button}
-
-</div>
-
-`;
-
-});
-
-
-document.getElementById("bookList").innerHTML=html;
-
-window.scrollTo(0,0);
-
-}
-
 
 /* =========================================
 PDF READER
 ========================================= */
-
 function openBook(url,title){
-
-document.getElementById("reader").style.display="block";
-
-document.getElementById("readerTitle").innerText=title;
-
-document.getElementById("pdfFrame").src=url;
-
+    document.getElementById("reader").style.display="block";
+    document.getElementById("readerTitle").innerText=title;
+    document.getElementById("pdfFrame").src=url;
 }
-
 
 function closeReader(){
-
-document.getElementById("reader").style.display="none";
-
-document.getElementById("pdfFrame").src="";
-
+    document.getElementById("reader").style.display="none";
+    document.getElementById("pdfFrame").src="";
 }
-
 
 /* =========================================
 PURCHASE
 ========================================= */
-
 function purchaseInfo(book){
-
-alert(
-"📚 "+book+
-"\n\nThis textbook is copyrighted.\n\n"+
-"MedLib will add legal purchasing and licensed reading after the required publisher agreement is available."
-);
-
+    alert("📚 "+book+"\n\nThis textbook is copyrighted.\n\nMedLib will add legal purchasing and licensed reading after the required publisher agreement is available.");
 }
-
 
 /* =========================================
 BACK
 ========================================= */
-
 function backSubjects(){
-
-openCourse(currentCourse);
-
+    openCourse(currentCourse);
 }
-
 
 /* =========================================
 SEARCH
 ========================================= */
-
 function searchCourses(){
+    let query=document.getElementById("searchBox").value.toLowerCase();
+    let cards=document.querySelectorAll("#homeCourses .card");
 
-let query=
-document.getElementById("searchBox")
-.value
-.toLowerCase();
-
-let cards=
-document.querySelectorAll("#homeCourses .card");
-
-cards.forEach(function(card){
-
-if(card.innerText.toLowerCase().includes(query)){
-
-card.style.display="block";
-
-}else{
-
-card.style.display="none";
-
+    cards.forEach(function(card){
+        if(card.innerText.toLowerCase().includes(query)){
+            card.style.display="block";
+        }else{
+            card.style.display="none";
+        }
+    });
 }
-
-});
-
-}
-
 
 /* =========================================
 SIGN UP
 ========================================= */
-
 function signup(){
+    let name=document.getElementById("name").value;
+    let email=document.getElementById("email").value;
+    let password=document.getElementById("password").value;
 
-let name=
-document.getElementById("name").value;
+    if(!name || !email || !password){
+        alert("Please fill all fields.");
+        return;
+    }
 
-let email=
-document.getElementById("email").value;
-
-let password=
-document.getElementById("password").value;
-
-
-if(!name || !email || !password){
-
-alert("Please fill all fields.");
-
-return;
-
+    alert("Welcome to MedLib, "+name+"! 🎉");
 }
-
-
-alert(
-"Welcome to MedLib, "+
-name+"! 🎉"
-);
-
-}
-
 
 /* =========================================
 START WEBSITE
 ========================================= */
-
 loadCourses();
-
 </script>
-
 </body>
 </html>
