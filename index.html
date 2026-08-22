@@ -261,10 +261,58 @@ function searchSubjects(query) {
 
     });
 
-}
 function openSubject(subject) {
     if (subject === "anatomy") {
-        alert("Anatomy section coming next!");
+        document.body.innerHTML = `
+            <header>
+                <h1>🦴 MedLib Anatomy</h1>
+                <p>Medical Student Anatomy Library</p>
+            </header>
+
+            <main style="padding:20px;">
+                <h2>📚 Anatomy Topics</h2>
+
+                <div class="card">
+                    <div>📖</div>
+                    <h3>General Anatomy</h3>
+                    <p>Anatomical terminology, tissues, bones and joints</p>
+                </div>
+
+                <div class="card">
+                    <div>💪</div>
+                    <h3>Upper Limb</h3>
+                    <p>Bones, muscles, nerves, vessels and joints</p>
+                </div>
+
+                <div class="card">
+                    <div>🦵</div>
+                    <h3>Lower Limb</h3>
+                    <p>Hip, knee, ankle, foot, muscles and nerves</p>
+                </div>
+
+                <div class="card">
+                    <div>🫁</div>
+                    <h3>Thorax</h3>
+                    <p>Thoracic wall, lungs, heart and mediastinum</p>
+                </div>
+
+                <div class="card">
+                    <div>🧠</div>
+                    <h3>Head & Neck</h3>
+                    <p>Brain, cranial nerves, face and neck anatomy</p>
+                </div>
+
+                <div class="card">
+                    <div>🩻</div>
+                    <h3>Neuroanatomy</h3>
+                    <p>Spinal cord, brain and nervous system</p>
+                </div>
+
+                <button onclick="location.reload()">
+                    ← Back to Subjects
+                </button>
+            </main>
+        `;
     }
 }
 </script>
