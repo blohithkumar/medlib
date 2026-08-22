@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MedLib - Learn Medicine</title>
+<title>MedLib - Medical Learning Platform</title>
 
 <style>
 
@@ -17,42 +16,42 @@
 
 body{
     font-family:Arial,Helvetica,sans-serif;
-    background:#f6f8fb;
+    background:#f5f7fa;
     color:#17202a;
 }
 
 /* HEADER */
 
 header{
-    background:white;
     height:65px;
+    background:white;
+    border-bottom:1px solid #e5e8eb;
     display:flex;
     align-items:center;
     justify-content:space-between;
     padding:0 6%;
-    border-bottom:1px solid #e5e9ed;
     position:sticky;
     top:0;
     z-index:100;
 }
 
 .logo{
+    color:#087f8c;
     font-size:25px;
     font-weight:bold;
-    color:#087f8c;
 }
 
 .nav{
     display:flex;
+    gap:18px;
     align-items:center;
-    gap:20px;
 }
 
 .nav button{
-    border:none;
     background:none;
-    font-size:15px;
+    border:none;
     cursor:pointer;
+    font-size:15px;
 }
 
 .loginBtn{
@@ -65,7 +64,7 @@ header{
 /* HERO */
 
 .hero{
-    background:linear-gradient(135deg,#087f8c,#075e68);
+    background:linear-gradient(135deg,#087f8c,#075c66);
     color:white;
     padding:60px 6%;
 }
@@ -77,33 +76,30 @@ header{
 
 .hero h1{
     font-size:40px;
-    max-width:650px;
-    line-height:1.2;
+    max-width:700px;
 }
 
 .hero p{
-    margin-top:15px;
+    margin-top:14px;
     font-size:18px;
-    max-width:600px;
     opacity:.9;
 }
 
 .searchBox{
     margin-top:28px;
     max-width:650px;
-    position:relative;
 }
 
 .searchBox input{
     width:100%;
-    padding:17px 22px;
+    padding:17px 20px;
     border:none;
     border-radius:10px;
     font-size:16px;
     outline:none;
 }
 
-/* CONTENT */
+/* CONTAINER */
 
 .container{
     max-width:1150px;
@@ -119,7 +115,7 @@ header{
 }
 
 .sectionHeader h2{
-    font-size:25px;
+    font-size:24px;
 }
 
 .sectionHeader button{
@@ -139,9 +135,9 @@ header{
 
 .courseCard{
     background:white;
+    border:1px solid #e3e8eb;
     border-radius:14px;
     padding:18px;
-    border:1px solid #e6ebef;
     cursor:pointer;
     transition:.2s;
 }
@@ -158,74 +154,125 @@ header{
 
 .courseCard h3{
     font-size:17px;
-    margin-bottom:7px;
 }
 
 .courseCard p{
     color:#68747c;
     font-size:13px;
-    line-height:1.4;
+    margin-top:6px;
 }
 
 .duration{
     display:inline-block;
     margin-top:12px;
+    padding:6px 8px;
     background:#e9f7f8;
     color:#087f8c;
-    padding:6px 9px;
     border-radius:6px;
-    font-size:12px;
+    font-size:11px;
     font-weight:bold;
 }
 
-/* CATEGORIES */
+/* SUBJECTS */
 
-.categoryGrid{
+.subjectGrid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:25px;
+}
+
+.subjectCard{
+    background:white;
+    border:1px solid #e3e8eb;
+    border-radius:13px;
+    padding:20px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.subjectCard:hover{
+    transform:translateY(-3px);
+    box-shadow:0 5px 18px rgba(0,0,0,.07);
+}
+
+.subjectIcon{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.subjectCard h3{
+    font-size:16px;
+}
+
+.subjectCard p{
+    color:#68747c;
+    font-size:12px;
+    margin-top:6px;
+}
+
+/* TEXTBOOKS */
+
+.textbookGrid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-top:20px;
+}
+
+.bookCard{
+    background:white;
+    border:1px solid #e3e8eb;
+    border-radius:13px;
+    padding:20px;
+}
+
+.bookIcon{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.bookCard h3{
+    font-size:16px;
+}
+
+.bookCard p{
+    color:#68747c;
+    font-size:13px;
+    margin-top:7px;
+    line-height:1.5;
+}
+
+.bookButton{
+    display:inline-block;
+    margin-top:13px;
+    padding:9px 13px;
+    background:#087f8c;
+    color:white;
+    border-radius:7px;
+    text-decoration:none;
+    font-size:12px;
+}
+
+/* RESOURCES */
+
+.resourceGrid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:15px;
 }
 
-.category{
+.resource{
     background:white;
-    border:1px solid #e6ebef;
-    border-radius:12px;
     padding:20px;
     text-align:center;
-    cursor:pointer;
+    border-radius:12px;
+    border:1px solid #e3e8eb;
 }
 
-.categoryIcon{
-    font-size:32px;
-    margin-bottom:8px;
-}
-
-/* FEATURES */
-
-.featureGrid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-    margin-top:15px;
-}
-
-.feature{
-    background:white;
-    border-radius:13px;
-    padding:22px;
-    border:1px solid #e6ebef;
-}
-
-.featureIcon{
+.resourceIcon{
     font-size:30px;
-    margin-bottom:10px;
-}
-
-.feature p{
-    color:#68747c;
-    font-size:14px;
-    margin-top:7px;
-    line-height:1.5;
+    margin-bottom:8px;
 }
 
 /* PAGES */
@@ -235,42 +282,13 @@ header{
 }
 
 .backBtn{
+    border:none;
     background:#087f8c;
     color:white;
-    border:none;
     padding:11px 18px;
     border-radius:8px;
     cursor:pointer;
     margin-bottom:25px;
-}
-
-/* SUBJECTS */
-
-.subjectGrid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-}
-
-.subjectCard{
-    background:white;
-    border:1px solid #e4e9ed;
-    border-radius:12px;
-    padding:20px;
-    cursor:pointer;
-}
-
-.subjectCard:hover{
-    box-shadow:0 5px 15px rgba(0,0,0,.07);
-}
-
-.subjectCard h3{
-    margin-bottom:7px;
-}
-
-.subjectCard p{
-    color:#68747c;
-    font-size:13px;
 }
 
 /* LOGIN */
@@ -296,33 +314,24 @@ header{
 
 .loginBox p{
     color:#68747c;
-    margin-bottom:25px;
+    margin-bottom:20px;
 }
 
 .loginBox input{
     width:100%;
     padding:14px;
-    margin-bottom:14px;
+    margin-bottom:13px;
     border:1px solid #ccd5db;
     border-radius:8px;
-    font-size:15px;
 }
 
 .loginBox button{
     width:100%;
     padding:14px;
-    border:none;
-    border-radius:8px;
     background:#087f8c;
     color:white;
-    font-size:16px;
-    cursor:pointer;
-}
-
-.switchLogin{
-    text-align:center;
-    margin-top:18px;
-    color:#087f8c;
+    border:none;
+    border-radius:8px;
     cursor:pointer;
 }
 
@@ -330,21 +339,16 @@ header{
 
 footer{
     margin-top:45px;
-    background:#17202a;
-    color:white;
     padding:35px 20px;
     text-align:center;
+    background:#17202a;
+    color:white;
 }
 
-.footerTitle{
-    font-size:22px;
-    font-weight:bold;
-}
-
-.footerText{
+.footerSmall{
+    color:#c5ccd1;
     margin-top:8px;
-    color:#c8d0d5;
-    font-size:14px;
+    font-size:13px;
 }
 
 /* MOBILE */
@@ -352,7 +356,7 @@ footer{
 @media(max-width:700px){
 
     header{
-        padding:0 15px;
+        padding:0 14px;
     }
 
     .nav button:not(.loginBtn){
@@ -364,14 +368,14 @@ footer{
     }
 
     .hero h1{
-        font-size:30px;
+        font-size:29px;
     }
 
     .hero p{
         font-size:15px;
     }
 
-    /* EXACTLY 3 COURSES PER ROW */
+    /* 3 COURSES */
 
     .courseGrid{
         grid-template-columns:repeat(3,1fr);
@@ -379,48 +383,16 @@ footer{
     }
 
     .courseCard{
-        padding:12px 7px;
+        padding:11px 6px;
         border-radius:10px;
     }
 
     .courseIcon{
-        font-size:27px;
+        font-size:25px;
     }
 
     .courseCard h3{
-        font-size:12px;
-    }
-
-    .courseCard p{
-        font-size:9px;
-    }
-
-    .duration{
-        font-size:8px;
-        padding:4px;
-        margin-top:7px;
-    }
-
-    .categoryGrid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .featureGrid{
-        grid-template-columns:1fr;
-    }
-
-    .subjectGrid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-}
-
-/* SMALL PHONES */
-
-@media(max-width:370px){
-
-    .courseCard h3{
-        font-size:10px;
+        font-size:11px;
     }
 
     .courseCard p{
@@ -429,13 +401,48 @@ footer{
 
     .duration{
         font-size:7px;
+        padding:4px;
+        margin-top:6px;
+    }
+
+    /* 3 SUBJECTS */
+
+    .subjectGrid{
+        grid-template-columns:repeat(3,1fr);
+        gap:8px;
+    }
+
+    .subjectCard{
+        padding:12px 7px;
+        border-radius:10px;
+    }
+
+    .subjectIcon{
+        font-size:23px;
+    }
+
+    .subjectCard h3{
+        font-size:10px;
+        line-height:1.2;
+    }
+
+    .subjectCard p{
+        font-size:8px;
+    }
+
+    .textbookGrid{
+        grid-template-columns:1fr;
+    }
+
+    .resourceGrid{
+        grid-template-columns:repeat(2,1fr);
     }
 
 }
 
 </style>
-
 </head>
+
 
 <body>
 
@@ -458,7 +465,7 @@ Home
 Courses
 </button>
 
-<button onclick="showLogin()" class="loginBtn">
+<button class="loginBtn" onclick="showLogin()">
 Sign In
 </button>
 
@@ -480,7 +487,7 @@ Learn Medicine. Build Your Future. 📚
 </h1>
 
 <p>
-Study medical and healthcare subjects from one simple platform.
+Courses, subjects, textbooks, notes, MCQs and revision resources for healthcare students.
 </p>
 
 <div class="searchBox">
@@ -488,7 +495,7 @@ Study medical and healthcare subjects from one simple platform.
 <input
 id="search"
 type="text"
-placeholder="🔍 Search MBBS, Anatomy, Pharmacology..."
+placeholder="🔍 Search course or subject..."
 onkeyup="searchCourses()">
 
 </div>
@@ -499,7 +506,6 @@ onkeyup="searchCourses()">
 
 
 <div class="container">
-
 
 <div class="sectionHeader">
 
@@ -513,10 +519,7 @@ View All →
 
 </div>
 
-
-<div class="courseGrid" id="homeCourses">
-
-</div>
+<div class="courseGrid" id="homeCourses"></div>
 
 
 <br><br>
@@ -530,94 +533,26 @@ View All →
 
 </div>
 
+<div class="resourceGrid">
 
-<div class="categoryGrid">
-
-<div class="category" onclick="resourceMessage('Books')">
-<div class="categoryIcon">📖</div>
-Books
+<div class="resource">
+<div class="resourceIcon">📖</div>
+<h3>Textbooks</h3>
 </div>
 
-<div class="category" onclick="resourceMessage('Notes')">
-<div class="categoryIcon">📝</div>
-Notes
+<div class="resource">
+<div class="resourceIcon">📝</div>
+<h3>Notes</h3>
 </div>
 
-<div class="category" onclick="resourceMessage('MCQs')">
-<div class="categoryIcon">❓</div>
-MCQs
+<div class="resource">
+<div class="resourceIcon">❓</div>
+<h3>MCQs</h3>
 </div>
 
-<div class="category" onclick="resourceMessage('PYQs')">
-<div class="categoryIcon">📋</div>
-PYQs
-</div>
-
-</div>
-
-
-<br><br>
-
-
-<div class="sectionHeader">
-
-<h2>
-🚀 Why MedLib?
-</h2>
-
-</div>
-
-
-<div class="featureGrid">
-
-<div class="feature">
-
-<div class="featureIcon">
-📚
-</div>
-
-<h3>
-Multiple Courses
-</h3>
-
-<p>
-MBBS, BDS, BPT, Nursing, Pharmacy, AHS and many more.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="featureIcon">
-🧠
-</div>
-
-<h3>
-Easy Revision
-</h3>
-
-<p>
-Organize your learning by course, subject and topic.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="featureIcon">
-📱
-</div>
-
-<h3>
-Study Anywhere
-</h3>
-
-<p>
-Designed to work smoothly on mobile phones.
-</p>
-
+<div class="resource">
+<div class="resourceIcon">📋</div>
+<h3>PYQs</h3>
 </div>
 
 </div>
@@ -641,13 +576,11 @@ Designed to work smoothly on mobile phones.
 🎓 All Courses
 </h1>
 
-<p style="margin:10px 0 25px;color:#68747c;">
+<p style="margin-top:10px;color:#68747c;">
 Choose your healthcare course.
 </p>
 
-<div class="courseGrid" id="allCourses">
-
-</div>
+<div class="courseGrid" id="allCourses"></div>
 
 </div>
 
@@ -664,23 +597,20 @@ Choose your healthcare course.
 ← Courses
 </button>
 
-<h1 id="subjectTitle">
-</h1>
+<h1 id="subjectTitle"></h1>
 
-<p style="margin:10px 0;color:#68747c;">
-Choose a subject to continue.
+<p style="margin-top:10px;color:#68747c;">
+Choose a subject.
 </p>
 
-<div class="subjectGrid" id="subjects">
+<div class="subjectGrid" id="subjects"></div>
 
 </div>
 
 </div>
 
-</div>
 
-
-<!-- TOPIC PAGE -->
+<!-- TOPIC / TEXTBOOK PAGE -->
 
 <div id="topicPage" class="page">
 
@@ -690,32 +620,60 @@ Choose a subject to continue.
 ← Subjects
 </button>
 
-<div class="feature">
+<h1 id="topicTitle"></h1>
 
-<h1 id="topicTitle">
-</h1>
-
-<p id="topicDescription" style="margin-top:15px;">
+<p id="topicDescription"
+style="margin-top:10px;color:#68747c;">
 </p>
+
 
 <br>
 
-<h3>
-📚 Study Material
-</h3>
 
-<p style="margin-top:10px;">
-Detailed notes, textbooks, diagrams, MCQs and previous-year questions will appear here.
-</p>
+<h2>
+📚 Recommended Textbooks
+</h2>
 
+<div class="textbookGrid" id="textbooks"></div>
+
+
+<br><br>
+
+
+<h2>
+📝 More Study Resources
+</h2>
+
+<div class="resourceGrid">
+
+<div class="resource">
+<div class="resourceIcon">📝</div>
+<h3>Notes</h3>
+</div>
+
+<div class="resource">
+<div class="resourceIcon">❓</div>
+<h3>MCQs</h3>
+</div>
+
+<div class="resource">
+<div class="resourceIcon">📋</div>
+<h3>PYQs</h3>
+</div>
+
+<div class="resource">
+<div class="resourceIcon">🧠</div>
+<h3>Flashcards</h3>
 </div>
 
 </div>
 
 </div>
 
+</div>
 
-<!-- LOGIN PAGE -->
+
+<!-- LOGIN -->
 
 <div id="loginPage" class="loginPage">
 
@@ -752,10 +710,6 @@ placeholder="Password">
 Create Account
 </button>
 
-<div class="switchLogin">
-Already have an account? Sign In
-</div>
-
 </div>
 
 </div>
@@ -763,15 +717,15 @@ Already have an account? Sign In
 
 <footer>
 
-<div class="footerTitle">
+<div style="font-size:22px;font-weight:bold;">
 🩺 MedLib
 </div>
 
-<div class="footerText">
+<div class="footerSmall">
 A learning platform for medical and healthcare students.
 </div>
 
-<div class="footerText">
+<div class="footerSmall">
 © 2026 MedLib
 </div>
 
@@ -781,13 +735,18 @@ A learning platform for medical and healthcare students.
 <script>
 
 
-const courses = [
+/* =========================
+   COURSE DATABASE
+========================= */
+
+const courses=[
 
 {
 name:"MBBS",
 icon:"🩺",
 duration:"4.5 Y + 1 Y",
 description:"Medicine & Surgery",
+
 subjects:[
 "Anatomy",
 "Physiology",
@@ -810,6 +769,7 @@ subjects:[
 "Anaesthesiology",
 "Emergency Medicine"
 ]
+
 },
 
 {
@@ -817,6 +777,7 @@ name:"BDS",
 icon:"🦷",
 duration:"4 Y + 1 Y",
 description:"Dental Surgery",
+
 subjects:[
 "General Anatomy",
 "Head & Neck Anatomy",
@@ -838,6 +799,7 @@ subjects:[
 "Public Health Dentistry",
 "Dental Materials"
 ]
+
 },
 
 {
@@ -845,6 +807,7 @@ name:"BPT",
 icon:"🏃",
 duration:"4 Y + Internship",
 description:"Physiotherapy",
+
 subjects:[
 "Anatomy",
 "Physiology",
@@ -867,13 +830,15 @@ subjects:[
 "Research Methodology",
 "Rehabilitation"
 ]
+
 },
 
 {
-name:"Nursing",
+name:"B.Sc Nursing",
 icon:"👩‍⚕️",
 duration:"4 Years",
-description:"B.Sc Nursing",
+description:"Nursing",
+
 subjects:[
 "Anatomy",
 "Physiology",
@@ -893,13 +858,15 @@ subjects:[
 "Nursing Research",
 "Nursing Administration"
 ]
+
 },
 
 {
-name:"Pharmacy",
+name:"B.Pharm",
 icon:"💊",
 duration:"4 Years",
-description:"B.Pharm",
+description:"Pharmacy",
+
 subjects:[
 "Human Anatomy & Physiology",
 "Pharmaceutics",
@@ -917,6 +884,7 @@ subjects:[
 "Pharmaceutical Analysis",
 "Pharmacy Practice"
 ]
+
 },
 
 {
@@ -924,6 +892,7 @@ name:"AHS",
 icon:"🔬",
 duration:"4 Years",
 description:"Allied Health Sciences",
+
 subjects:[
 "Anatomy",
 "Physiology",
@@ -942,13 +911,15 @@ subjects:[
 "Emergency Care",
 "Nutrition"
 ]
+
 },
 
 {
 name:"GNM",
 icon:"🏥",
 duration:"3 Years",
-description:"General Nursing",
+description:"General Nursing & Midwifery",
+
 subjects:[
 "Anatomy & Physiology",
 "Microbiology",
@@ -964,6 +935,7 @@ subjects:[
 "First Aid",
 "Pharmacology"
 ]
+
 },
 
 {
@@ -971,6 +943,7 @@ name:"BAMS",
 icon:"🌿",
 duration:"5.5 Years",
 description:"Ayurvedic Medicine",
+
 subjects:[
 "Sanskrit",
 "Padartha Vigyan",
@@ -988,6 +961,7 @@ subjects:[
 "Stri Roga",
 "Kayachikitsa"
 ]
+
 },
 
 {
@@ -995,6 +969,7 @@ name:"BHMS",
 icon:"🌱",
 duration:"5.5 Years",
 description:"Homeopathic Medicine",
+
 subjects:[
 "Anatomy",
 "Physiology",
@@ -1010,6 +985,7 @@ subjects:[
 "Surgery",
 "Obstetrics & Gynaecology"
 ]
+
 },
 
 {
@@ -1017,6 +993,7 @@ name:"BUMS",
 icon:"🧴",
 duration:"5.5 Years",
 description:"Unani Medicine",
+
 subjects:[
 "Anatomy",
 "Physiology",
@@ -1030,6 +1007,7 @@ subjects:[
 "Obstetrics",
 "Gynaecology"
 ]
+
 },
 
 {
@@ -1037,6 +1015,7 @@ name:"BSMS",
 icon:"🍃",
 duration:"5.5 Years",
 description:"Siddha Medicine",
+
 subjects:[
 "Anatomy",
 "Physiology",
@@ -1048,6 +1027,7 @@ subjects:[
 "Varma Medicine",
 "Siddha Treatment"
 ]
+
 },
 
 {
@@ -1055,6 +1035,7 @@ name:"Optometry",
 icon:"👁️",
 duration:"4 Years",
 description:"Vision Sciences",
+
 subjects:[
 "Ocular Anatomy",
 "Ocular Physiology",
@@ -1068,15 +1049,196 @@ subjects:[
 "Low Vision",
 "Public Health Optometry"
 ]
+
 }
 
 ];
 
 
+/* =========================
+   TEXTBOOK DATABASE
+========================= */
+
+const books={
+
+"Anatomy":[
+["Gray's Anatomy for Students","Wolters Kluwer","Recommended anatomy reference"],
+["BD Chaurasia's Human Anatomy","CBS Publishers","Popular anatomy textbook"],
+["Clinically Oriented Anatomy","Wolters Kluwer","Clinical anatomy reference"]
+],
+
+"Physiology":[
+["Guyton and Hall Textbook of Medical Physiology","Elsevier","Major physiology reference"],
+["Ganong's Review of Medical Physiology","McGraw Hill","High-yield physiology review"],
+["Berne & Levy Physiology","Elsevier","Detailed physiology reference"]
+],
+
+"Biochemistry":[
+["Harper's Illustrated Biochemistry","McGraw Hill","Medical biochemistry reference"],
+["Lippincott Illustrated Reviews: Biochemistry","Wolters Kluwer","Visual biochemistry review"],
+["Textbook of Biochemistry for Medical Students","Jaypee","Medical student reference"]
+],
+
+"Pathology":[
+["Robbins & Cotran Pathologic Basis of Disease","Elsevier","Major pathology reference"],
+["Robbins Basic Pathology","Elsevier","Student-friendly pathology"],
+["Harsh Mohan Textbook of Pathology","Jaypee","Common medical pathology text"]
+],
+
+"Pharmacology":[
+["Goodman & Gilman's The Pharmacological Basis of Therapeutics","McGraw Hill","Advanced pharmacology reference"],
+["Katzung's Basic & Clinical Pharmacology","McGraw Hill","Medical pharmacology textbook"],
+["Essentials of Medical Pharmacology","Jaypee","Medical student pharmacology"]
+],
+
+"Microbiology":[
+["Jawetz Medical Microbiology","McGraw Hill","Medical microbiology reference"],
+["Murray Medical Microbiology","Elsevier","Clinical microbiology"],
+["Ananthanarayan and Paniker's Textbook of Microbiology","Universities Press","Indian medical curriculum reference"]
+],
+
+"General Medicine":[
+["Davidson's Principles and Practice of Medicine","Elsevier","Clinical medicine reference"],
+["Harrison's Principles of Internal Medicine","McGraw Hill","Major medicine reference"],
+["Kumar & Clark's Clinical Medicine","Elsevier","Clinical medicine textbook"]
+],
+
+"General Surgery":[
+["Bailey & Love's Short Practice of Surgery","CRC Press","Major surgery textbook"],
+["Schwartz's Principles of Surgery","McGraw Hill","Surgery reference"],
+["Sabiston Textbook of Surgery","Elsevier","Comprehensive surgery reference"]
+],
+
+"Paediatrics":[
+["Nelson Textbook of Pediatrics","Elsevier","Paediatric reference"],
+["Ghai Essential Pediatrics","CBS Publishers","Common Indian medical text"],
+["Illustrated Textbook of Paediatrics","Elsevier","Visual paediatric reference"]
+],
+
+"Obstetrics & Gynaecology":[
+["Williams Obstetrics","McGraw Hill","Obstetrics reference"],
+["Dutta's Textbook of Obstetrics","Jaypee","Common Indian textbook"],
+["DC Dutta's Textbook of Gynecology","Jaypee","Gynaecology reference"]
+],
+
+"Orthopaedics":[
+["Apley's System of Orthopaedics and Fractures","CRC Press","Orthopaedic reference"],
+["Turek's Orthopaedics","Wolters Kluwer","Orthopaedic reference"],
+["Essential Orthopaedics","Jaypee","Student reference"]
+],
+
+"ENT":[
+["Dhingra Diseases of Ear, Nose and Throat","Elsevier","ENT textbook"],
+["Scott-Brown's Otorhinolaryngology","CRC Press","Advanced ENT reference"]
+],
+
+"Ophthalmology":[
+["Khurana Comprehensive Ophthalmology","Jaypee","Ophthalmology textbook"],
+["Parsons' Diseases of the Eye","Elsevier","Ophthalmology reference"]
+],
+
+"Dermatology":[
+["Rook's Textbook of Dermatology","Wiley","Dermatology reference"],
+["Fitzpatrick's Dermatology","McGraw Hill","Advanced dermatology reference"]
+],
+
+"Psychiatry":[
+["Kaplan & Sadock's Synopsis of Psychiatry","Wolters Kluwer","Psychiatry reference"],
+["Oxford Textbook of Psychiatry","Oxford University Press","Psychiatry reference"]
+],
+
+"Biomechanics":[
+["Biomechanics of Musculoskeletal Injury","Human Kinetics","Biomechanics reference"],
+["Basic Biomechanics of the Musculoskeletal System","Wolters Kluwer","Musculoskeletal biomechanics"]
+],
+
+"Kinesiology":[
+["Kinesiology of the Musculoskeletal System","Elsevier","Movement science reference"],
+["Brunnstrom's Clinical Kinesiology","Jaypee","Clinical kinesiology"]
+],
+
+"Exercise Therapy":[
+["Therapeutic Exercise","F.A. Davis","Physiotherapy exercise reference"],
+["Therapeutic Exercise: Foundations and Techniques","F.A. Davis","Exercise therapy reference"]
+],
+
+"Electrotherapy":[
+["Clayton's Electrotherapy","Elsevier","Electrotherapy reference"],
+["Electrotherapy Explained","Elsevier","Physical agents reference"]
+],
+
+"Nutrition":[
+["Krause's Food & the Nutrition Care Process","Elsevier","Nutrition reference"],
+["Textbook of Nutrition for Nurses","Jaypee","Healthcare nutrition"]
+],
+
+"Fundamentals of Nursing":[
+["Kozier & Erb's Fundamentals of Nursing","Pearson","Nursing fundamentals"],
+["Taylor's Fundamentals of Nursing","Wolters Kluwer","Nursing fundamentals"]
+],
+
+"Medical Surgical Nursing":[
+["Brunner & Suddarth's Medical-Surgical Nursing","Wolters Kluwer","Medical-surgical nursing"],
+["Lewis's Medical-Surgical Nursing","Elsevier","Medical-surgical reference"]
+],
+
+"Community Health Nursing":[
+["Community Health Nursing","Elsevier","Community nursing reference"],
+["Park's Textbook of Preventive and Social Medicine","Banarsidas Bhanot","Public health reference"]
+],
+
+"Pharmaceutics":[
+["Aulton’s Pharmaceutics","Elsevier","Pharmaceutics reference"],
+["Remington: The Science and Practice of Pharmacy","Pharmaceutical Press","Pharmacy reference"]
+],
+
+"Pharmacognosy":[
+["Trease and Evans Pharmacognosy","Elsevier","Pharmacognosy reference"],
+["Textbook of Pharmacognosy","CBS Publishers","Pharmacognosy reference"]
+],
+
+"Human Anatomy & Physiology":[
+["Ross & Wilson Anatomy and Physiology","Elsevier","Healthcare anatomy and physiology"],
+["Tortora Principles of Anatomy and Physiology","Wiley","Anatomy and physiology reference"]
+],
+
+"Rachana Sharira":[
+["Rachana Sharira","Ayurvedic textbook reference","Ayurvedic anatomy"]
+],
+
+"Kriya Sharira":[
+["Kriya Sharira","Ayurvedic textbook reference","Ayurvedic physiology"]
+],
+
+"Dravyaguna":[
+["Dravyaguna Vijnana","Ayurvedic textbook reference","Ayurvedic pharmacology"]
+],
+
+"Materia Medica":[
+["Materia Medica","Homeopathic textbook reference","Homeopathic medicine reference"]
+],
+
+"Ocular Anatomy":[
+["Clinical Anatomy of the Eye","Wolters Kluwer","Ocular anatomy"],
+["Anatomy of the Eye and Orbit","Elsevier","Ocular anatomy reference"]
+],
+
+"Optics":[
+["Clinical Optics","Butterworth-Heinemann","Optometry optics"],
+["Geometrical and Visual Optics","CRC Press","Optics reference"]
+]
+
+};
+
+
+/* =========================
+   FUNCTIONS
+========================= */
+
 let currentCourse=null;
 
 
-function createCourseCard(course){
+function courseCard(course){
 
 return `
 
@@ -1087,13 +1249,9 @@ onclick="openCourse('${course.name}')">
 ${course.icon}
 </div>
 
-<h3>
-${course.name}
-</h3>
+<h3>${course.name}</h3>
 
-<p>
-${course.description}
-</p>
+<p>${course.description}</p>
 
 <span class="duration">
 ${course.duration}
@@ -1108,32 +1266,21 @@ ${course.duration}
 
 function loadCourses(){
 
-let html="";
-
-courses.forEach(function(course){
-
-html+=createCourseCard(course);
-
-});
-
 document.getElementById("homeCourses").innerHTML=
-courses.slice(0,6).map(createCourseCard).join("");
+courses.slice(0,6).map(courseCard).join("");
 
-document.getElementById("allCourses").innerHTML=html;
+document.getElementById("allCourses").innerHTML=
+courses.map(courseCard).join("");
 
 }
 
 
-function hidePages(){
+function hideAll(){
 
 document.getElementById("home").style.display="none";
-
 document.getElementById("coursesPage").style.display="none";
-
 document.getElementById("subjectPage").style.display="none";
-
 document.getElementById("topicPage").style.display="none";
-
 document.getElementById("loginPage").style.display="none";
 
 }
@@ -1141,7 +1288,7 @@ document.getElementById("loginPage").style.display="none";
 
 function showHome(){
 
-hidePages();
+hideAll();
 
 document.getElementById("home").style.display="block";
 
@@ -1152,7 +1299,7 @@ window.scrollTo(0,0);
 
 function showCourses(){
 
-hidePages();
+hideAll();
 
 document.getElementById("coursesPage").style.display="block";
 
@@ -1163,7 +1310,7 @@ window.scrollTo(0,0);
 
 function showLogin(){
 
-hidePages();
+hideAll();
 
 document.getElementById("loginPage").style.display="block";
 
@@ -1176,16 +1323,12 @@ function openCourse(name){
 
 currentCourse=
 courses.find(function(course){
-
 return course.name===name;
-
 });
-
 
 if(!currentCourse)return;
 
-
-hidePages();
+hideAll();
 
 document.getElementById("subjectPage").style.display="block";
 
@@ -1203,12 +1346,14 @@ html+=`
 <div class="subjectCard"
 onclick="openTopic('${subject}')">
 
-<h3>
-📖 ${subject}
-</h3>
+<div class="subjectIcon">
+📖
+</div>
+
+<h3>${subject}</h3>
 
 <p>
-Notes • Topics • MCQs
+Textbooks • Notes • MCQs
 </p>
 
 </div>
@@ -1227,7 +1372,7 @@ window.scrollTo(0,0);
 
 function openTopic(subject){
 
-hidePages();
+hideAll();
 
 document.getElementById("topicPage").style.display="block";
 
@@ -1235,7 +1380,63 @@ document.getElementById("topicTitle").innerText=
 "📖 "+subject;
 
 document.getElementById("topicDescription").innerText=
-"Study resources for "+subject+" will be available here.";
+"Recommended learning resources for "+subject+".";
+
+
+let selectedBooks=books[subject];
+
+
+if(!selectedBooks){
+
+selectedBooks=[
+["Recommended textbook","Subject reference","A suitable reference textbook for this subject."]
+];
+
+}
+
+
+let html="";
+
+
+selectedBooks.forEach(function(book){
+
+html+=`
+
+<div class="bookCard">
+
+<div class="bookIcon">
+📚
+</div>
+
+<h3>
+${book[0]}
+</h3>
+
+<p>
+<b>Publisher:</b> ${book[1]}
+</p>
+
+<p>
+${book[2]}
+</p>
+
+<a
+class="bookButton"
+href="https://www.google.com/search?q=${encodeURIComponent(book[0])}"
+target="_blank">
+
+Find legally
+
+</a>
+
+</div>
+
+`;
+
+});
+
+
+document.getElementById("textbooks").innerHTML=html;
 
 window.scrollTo(0,0);
 
@@ -1272,9 +1473,7 @@ document.querySelectorAll("#homeCourses .courseCard");
 
 cards.forEach(function(card){
 
-let text=card.innerText.toLowerCase();
-
-if(text.includes(query)){
+if(card.innerText.toLowerCase().includes(query)){
 
 card.style.display="block";
 
@@ -1289,16 +1488,6 @@ card.style.display="none";
 }
 
 
-function resourceMessage(resource){
-
-alert(
-resource+
-" section is coming next! 📚"
-);
-
-}
-
-
 function createAccount(){
 
 let name=
@@ -1307,18 +1496,24 @@ document.getElementById("name").value;
 let email=
 document.getElementById("email").value;
 
-if(name==="" || email===""){
+let password=
+document.getElementById("password").value;
 
-alert("Please enter your name and email.");
+
+if(name==="" || email==="" || password===""){
+
+alert("Please fill all fields.");
 
 return;
 
 }
 
+
 alert(
 "Welcome to MedLib, "+
 name+
-"! 🎉\n\nAccount interface is ready. Real secure accounts will be connected in the next stage."
+"! 🎉\n\n"+
+"Your account interface is ready."
 );
 
 }
