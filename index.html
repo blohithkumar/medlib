@@ -3,716 +3,708 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0f766e">
-<meta name="description" content="MedLib - Medical Learning Library">
 <title>MedLib — Medical Learning Library</title>
 
 <style>
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-:root{
-  --primary:#0f766e;
-  --primary-dark:#115e59;
-  --secondary:#2563eb;
-  --bg:#f4f7fb;
-  --card:#ffffff;
-  --text:#172033;
-  --muted:#64748b;
-  --border:#e2e8f0;
-  --success:#16a34a;
-  --warning:#d97706;
-  --danger:#dc2626;
-  --shadow:0 8px 25px rgba(15,23,42,.07);
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 body{
-  font-family:Inter,Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.5;
-}
-
-button,
-input{
-  font:inherit;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f5f8fb;
+    color:#17202a;
 }
 
 button{
-  cursor:pointer;
+    font-family:inherit;
 }
 
 header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:white;
-  border-bottom:1px solid var(--border);
+    background:linear-gradient(135deg,#087f8c,#075985);
+    color:white;
+    padding:16px 5%;
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:0 3px 15px rgba(0,0,0,.15);
 }
 
-.navbar{
-  max-width:1250px;
-  margin:auto;
-  padding:14px 18px;
-  display:flex;
-  align-items:center;
-  gap:14px;
+.header-inner{
+    max-width:1250px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    gap:18px;
 }
 
 .logo{
-  font-size:24px;
-  font-weight:900;
-  color:var(--primary);
-  cursor:pointer;
-  white-space:nowrap;
+    font-size:29px;
+    font-weight:800;
+    cursor:pointer;
+    white-space:nowrap;
 }
 
 .logo span{
-  color:var(--secondary);
+    color:#a7f3d0;
 }
 
 .search-box{
-  flex:1;
-  position:relative;
+    flex:1;
 }
 
 .search-box input{
-  width:100%;
-  padding:11px 15px 11px 42px;
-  border:1px solid var(--border);
-  border-radius:13px;
-  outline:none;
-  background:#f8fafc;
+    width:100%;
+    padding:12px 18px;
+    border:none;
+    border-radius:25px;
+    outline:none;
+    font-size:15px;
 }
 
-.search-box input:focus{
-  border-color:var(--primary);
-  background:white;
+.header-buttons{
+    display:flex;
+    gap:8px;
 }
 
-.search-icon{
-  position:absolute;
-  left:15px;
-  top:10px;
-  color:var(--muted);
+.header-btn{
+    border:none;
+    background:rgba(255,255,255,.15);
+    color:white;
+    padding:10px 13px;
+    border-radius:9px;
+    cursor:pointer;
+    font-weight:bold;
 }
 
-.nav-btn{
-  border:1px solid var(--border);
-  background:white;
-  padding:9px 13px;
-  border-radius:10px;
-  color:var(--text);
-}
-
-.nav-btn:hover{
-  background:#f1f5f9;
-}
-
-main{
-  max-width:1250px;
-  margin:auto;
-  padding:25px 18px 60px;
-}
-
-.page{
-  display:none;
-}
-
-.page.active{
-  display:block;
+.header-btn:hover{
+    background:rgba(255,255,255,.25);
 }
 
 .hero{
-  background:linear-gradient(135deg,#0f766e,#2563eb);
-  color:white;
-  padding:42px 30px;
-  border-radius:25px;
-  margin-bottom:28px;
-  box-shadow:var(--shadow);
+    max-width:1200px;
+    margin:30px auto;
+    padding:55px 25px;
+    border-radius:20px;
+    background:linear-gradient(135deg,#dff7f8,#e0f2fe);
+    text-align:center;
 }
 
 .hero h1{
-  font-size:42px;
-  margin-bottom:10px;
+    font-size:40px;
+    margin-bottom:12px;
 }
 
 .hero p{
-  max-width:700px;
-  opacity:.94;
-  font-size:17px;
+    color:#475569;
+    font-size:17px;
+    line-height:1.6;
 }
 
-.hero-actions{
-  margin-top:22px;
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-.hero-btn{
-  background:white;
-  color:var(--primary-dark);
-  border:0;
-  padding:11px 18px;
-  border-radius:11px;
-  font-weight:700;
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px 50px;
 }
 
 .section-title{
-  margin:28px 0 15px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
+    margin:35px 0 18px;
+    font-size:25px;
 }
 
-.section-title h2{
-  font-size:23px;
-}
-
-.section-title p{
-  color:var(--muted);
-  font-size:14px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
-}
-
-.course-card,
-.subject-card,
-.chapter-card,
-.topic-card,
-.stat-card,
-.bookmark-card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:17px;
-  padding:18px;
-  box-shadow:0 4px 14px rgba(15,23,42,.035);
+.course-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
 }
 
 .course-card{
-  min-height:145px;
-  cursor:pointer;
-  transition:.2s;
+    background:white;
+    border-radius:16px;
+    padding:22px;
+    cursor:pointer;
+    border:1px solid #e2e8f0;
+    transition:.2s;
+    box-shadow:0 3px 10px rgba(0,0,0,.04);
 }
 
-.course-card:hover,
-.subject-card:hover,
-.chapter-card:hover,
-.topic-card:hover{
-  transform:translateY(-3px);
-  box-shadow:var(--shadow);
-  border-color:#b7d8d5;
+.course-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 8px 25px rgba(0,0,0,.10);
 }
 
-.course-icon{
-  width:45px;
-  height:45px;
-  display:grid;
-  place-items:center;
-  background:#ecfeff;
-  border-radius:13px;
-  font-size:22px;
-  margin-bottom:12px;
+.course-card .icon{
+    font-size:35px;
+    margin-bottom:12px;
 }
 
-.course-card h3,
-.subject-card h3,
-.chapter-card h3,
-.topic-card h3{
-  font-size:16px;
-  margin-bottom:6px;
+.course-card h3{
+    margin-bottom:8px;
 }
 
-.card-description{
-  color:var(--muted);
-  font-size:13px;
-}
-
-.badge{
-  display:inline-block;
-  padding:4px 8px;
-  border-radius:20px;
-  background:#eff6ff;
-  color:#1d4ed8;
-  font-size:11px;
-  font-weight:700;
-  margin-top:9px;
+.course-card p{
+    color:#64748b;
+    font-size:14px;
+    line-height:1.5;
 }
 
 .back-btn{
-  border:0;
-  background:transparent;
-  color:var(--primary);
-  font-weight:700;
-  margin-bottom:17px;
-  padding:5px 0;
+    border:none;
+    background:#e0f2fe;
+    color:#075985;
+    padding:10px 17px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.back-btn:hover{
+    background:#bae6fd;
+}
+
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
 }
 
 .course-header{
-  background:white;
-  border:1px solid var(--border);
-  border-radius:19px;
-  padding:23px;
-  margin-bottom:20px;
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    margin-bottom:20px;
+    border:1px solid #e2e8f0;
 }
 
 .course-header h1{
-  margin-bottom:5px;
+    color:#075985;
+    margin-bottom:8px;
 }
 
 .course-header p{
-  color:var(--muted);
+    color:#64748b;
 }
 
 .year-section{
-  margin-bottom:28px;
+    margin-bottom:25px;
 }
 
-.year-header{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-bottom:13px;
-}
-
-.year-number{
-  width:37px;
-  height:37px;
-  display:grid;
-  place-items:center;
-  border-radius:10px;
-  background:var(--primary);
-  color:white;
-  font-weight:800;
+.year-title{
+    background:#075985;
+    color:white;
+    padding:15px 18px;
+    border-radius:12px 12px 0 0;
+    font-size:20px;
+    font-weight:bold;
 }
 
 .subject-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:13px;
+    background:white;
+    padding:18px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:12px;
+    border-radius:0 0 12px 12px;
 }
 
-.subject-card{
-  cursor:pointer;
-  transition:.2s;
+.subject{
+    border:1px solid #e2e8f0;
+    padding:17px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.2s;
 }
 
-.subject-icon{
-  font-size:25px;
-  margin-bottom:7px;
+.subject:hover{
+    border-color:#0891b2;
+    background:#f0fdff;
 }
 
-.chapter-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
+.subject h4{
+    margin-bottom:7px;
 }
 
-.chapter-card{
-  cursor:pointer;
-  transition:.2s;
+.subject small{
+    color:#64748b;
 }
 
-.chapter-number{
-  color:var(--primary);
-  font-size:12px;
-  font-weight:800;
-  margin-bottom:7px;
+.subject-header{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    margin-bottom:20px;
+    border:1px solid #e2e8f0;
+}
+
+.subject-header h1{
+    color:#075985;
+}
+
+.subject-header p{
+    margin-top:7px;
+    color:#64748b;
 }
 
 .topic-list{
-  display:grid;
-  gap:12px;
+    display:grid;
+    gap:12px;
 }
 
 .topic-card{
-  display:flex;
-  align-items:center;
-  gap:15px;
+    background:white;
+    border:1px solid #e2e8f0;
+    border-radius:14px;
+    padding:18px;
 }
 
-.topic-main{
-  flex:1;
+.topic-card:hover{
+    border-color:#0891b2;
+}
+
+.topic-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+
+.topic-title{
+    color:#075985;
+    font-size:17px;
+    font-weight:bold;
 }
 
 .topic-status{
-  width:35px;
-  height:35px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:#f1f5f9;
-  color:var(--muted);
-  flex-shrink:0;
+    font-size:12px;
+    padding:5px 9px;
+    border-radius:20px;
+    background:#f1f5f9;
+    color:#64748b;
 }
 
 .topic-status.completed{
-  background:#dcfce7;
-  color:var(--success);
+    background:#dcfce7;
+    color:#166534;
+}
+
+.topic-description{
+    margin-top:7px;
+    color:#64748b;
+    font-size:14px;
 }
 
 .topic-actions{
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:14px;
 }
 
-.small-btn{
-  border:1px solid var(--border);
-  background:white;
-  border-radius:9px;
-  padding:7px 9px;
-  font-size:12px;
+.action-btn{
+    border:none;
+    padding:9px 12px;
+    border-radius:9px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:13px;
 }
 
-.small-btn:hover{
-  background:#f8fafc;
+.study-btn{
+    background:#075985;
+    color:white;
 }
 
-.small-btn.primary{
-  background:var(--primary);
-  border-color:var(--primary);
-  color:white;
+.book-btn{
+    background:#e0f2fe;
+    color:#075985;
 }
 
-.small-btn.blue{
-  background:#2563eb;
-  border-color:#2563eb;
-  color:white;
+.complete-btn{
+    background:#dcfce7;
+    color:#166534;
 }
 
-.small-btn.green{
-  background:#16a34a;
-  border-color:#16a34a;
-  color:white;
+.bookmark-btn{
+    background:#fef3c7;
+    color:#92400e;
 }
 
-.small-btn.bookmarked{
-  color:#d97706;
-  border-color:#fbbf24;
-  background:#fffbeb;
-}
-
-.progress-box{
-  margin-top:15px;
-  background:#f8fafc;
-  border-radius:12px;
-  padding:13px;
+.progress-wrap{
+    margin-top:12px;
+    background:#e2e8f0;
+    height:7px;
+    border-radius:20px;
+    overflow:hidden;
 }
 
 .progress-bar{
-  height:9px;
-  background:#e2e8f0;
-  border-radius:20px;
-  overflow:hidden;
-  margin-top:8px;
+    height:100%;
+    background:#0891b2;
+    width:0%;
+    transition:.3s;
 }
 
-.progress-fill{
-  height:100%;
-  background:linear-gradient(90deg,var(--primary),var(--secondary));
-  border-radius:20px;
-  transition:.3s;
+/* Study Page */
+
+.study-header{
+    background:white;
+    border:1px solid #e2e8f0;
+    border-radius:18px;
+    padding:25px;
+    margin-bottom:18px;
 }
 
-.stat-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
+.study-header h1{
+    color:#075985;
+    margin-bottom:7px;
+}
+
+.study-header p{
+    color:#64748b;
+}
+
+.study-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-top:18px;
+}
+
+.study-layout{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:18px;
+}
+
+.study-card{
+    background:white;
+    border:1px solid #e2e8f0;
+    border-radius:16px;
+    padding:24px;
+}
+
+.study-card h2{
+    color:#075985;
+    margin-bottom:15px;
+}
+
+.study-card h3{
+    margin:18px 0 8px;
+    color:#334155;
+}
+
+.study-card p{
+    line-height:1.7;
+    color:#475569;
+    margin-bottom:10px;
+}
+
+.study-card ul{
+    padding-left:22px;
+    color:#475569;
+    line-height:1.8;
+}
+
+.key-point{
+    background:#ecfeff;
+    border-left:4px solid #0891b2;
+    padding:14px;
+    border-radius:8px;
+    margin:15px 0;
+    color:#164e63;
+}
+
+.warning{
+    background:#fff7ed;
+    border-left:4px solid #f97316;
+    padding:14px;
+    border-radius:8px;
+    margin:15px 0;
+    color:#7c2d12;
+}
+
+/* MCQ */
+
+.mcq{
+    border:1px solid #e2e8f0;
+    padding:16px;
+    border-radius:12px;
+    margin-bottom:14px;
+}
+
+.mcq-question{
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.option{
+    display:block;
+    width:100%;
+    text-align:left;
+    border:1px solid #cbd5e1;
+    background:white;
+    padding:10px;
+    margin:7px 0;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.option:hover{
+    background:#f8fafc;
+}
+
+.option.correct{
+    background:#dcfce7;
+    border-color:#22c55e;
+}
+
+.option.wrong{
+    background:#fee2e2;
+    border-color:#ef4444;
+}
+
+.explanation{
+    margin-top:10px;
+    padding:10px;
+    background:#f8fafc;
+    border-radius:8px;
+    color:#475569;
+    display:none;
+}
+
+/* Reader */
+
+.reader-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(15,23,42,.88);
+    z-index:500;
+    padding:15px;
+}
+
+.reader-overlay.open{
+    display:flex;
+    flex-direction:column;
+}
+
+.reader-header{
+    background:#0f172a;
+    color:white;
+    padding:12px 15px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    border-radius:12px 12px 0 0;
+}
+
+.reader-title{
+    font-weight:bold;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+.reader-controls{
+    display:flex;
+    gap:7px;
+    flex-shrink:0;
+}
+
+.reader-control{
+    border:none;
+    background:#334155;
+    color:white;
+    padding:8px 11px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.reader-frame{
+    flex:1;
+    background:white;
+    border-radius:0 0 12px 12px;
+    overflow:hidden;
+}
+
+.reader-frame iframe{
+    width:100%;
+    height:100%;
+    border:none;
+}
+
+.reader-message{
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:30px;
+    text-align:center;
+    background:white;
+}
+
+.reader-message-inner{
+    max-width:600px;
+}
+
+.reader-message h2{
+    color:#075985;
+    margin-bottom:12px;
+}
+
+.reader-message p{
+    color:#64748b;
+    line-height:1.6;
+    margin-bottom:12px;
+}
+
+.code-path{
+    background:#f1f5f9;
+    padding:12px;
+    border-radius:8px;
+    font-family:monospace;
+    color:#0f172a;
+    margin:12px 0;
+}
+
+/* Dashboard */
+
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.stat-card{
+    background:white;
+    border:1px solid #e2e8f0;
+    border-radius:15px;
+    padding:22px;
 }
 
 .stat-card h3{
-  font-size:30px;
-  color:var(--primary);
+    color:#64748b;
+    font-size:14px;
+    margin-bottom:8px;
 }
 
-.stat-card p{
-  color:var(--muted);
-  font-size:13px;
+.stat-number{
+    font-size:30px;
+    font-weight:bold;
+    color:#075985;
 }
 
 .bookmark-list{
-  display:grid;
-  gap:12px;
+    display:grid;
+    gap:10px;
 }
 
-.bookmark-card{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
+.bookmark-item{
+    background:white;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    align-items:center;
 }
 
-.bookmark-card small{
-  color:var(--muted);
+.bookmark-item strong{
+    color:#075985;
 }
 
-.empty{
-  text-align:center;
-  background:white;
-  border:1px dashed var(--border);
-  border-radius:17px;
-  padding:45px 20px;
-  color:var(--muted);
-}
-
-.search-results{
-  display:grid;
-  gap:12px;
-}
-
-.search-result{
-  background:white;
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:15px;
-  cursor:pointer;
-}
-
-.search-result:hover{
-  border-color:var(--primary);
-}
-
-.search-result small{
-  color:var(--muted);
-}
-
-.modal-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(15,23,42,.65);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:500;
-  padding:15px;
-}
-
-.modal-overlay.show{
-  display:flex;
-}
-
-.modal{
-  width:min(850px,100%);
-  max-height:92vh;
-  overflow:auto;
-  background:white;
-  border-radius:20px;
-  padding:25px;
-  position:relative;
-}
-
-.modal.large{
-  width:min(1100px,100%);
-  height:92vh;
-}
-
-.modal-close{
-  position:absolute;
-  top:12px;
-  right:15px;
-  width:35px;
-  height:35px;
-  border:0;
-  border-radius:50%;
-  background:#f1f5f9;
-  font-size:18px;
-}
-
-.modal h2{
-  padding-right:40px;
-  margin-bottom:7px;
-}
-
-.modal-subtitle{
-  color:var(--muted);
-  margin-bottom:20px;
-}
-
-.note-section{
-  margin:18px 0;
-}
-
-.note-section h3{
-  color:var(--primary);
-  margin-bottom:7px;
-}
-
-.note-section ul{
-  padding-left:20px;
-}
-
-.note-section li{
-  margin-bottom:5px;
-}
-
-.quiz-question{
-  font-size:19px;
-  font-weight:700;
-  margin:20px 0;
-}
-
-.quiz-option{
-  width:100%;
-  text-align:left;
-  border:1px solid var(--border);
-  background:white;
-  padding:13px;
-  border-radius:11px;
-  margin-bottom:9px;
-}
-
-.quiz-option:hover{
-  background:#f8fafc;
-}
-
-.quiz-option.correct{
-  background:#dcfce7;
-  border-color:#22c55e;
-}
-
-.quiz-option.wrong{
-  background:#fee2e2;
-  border-color:#ef4444;
-}
-
-.quiz-feedback{
-  padding:13px;
-  border-radius:10px;
-  margin:15px 0;
-  background:#f8fafc;
-}
-
-.quiz-footer{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-top:20px;
-}
-
-.reader{
-  height:calc(92vh - 100px);
-  width:100%;
-  border:1px solid var(--border);
-  border-radius:12px;
-}
-
-.reader-empty{
-  height:100%;
-  display:grid;
-  place-items:center;
-  text-align:center;
-  padding:40px;
-  background:#f8fafc;
-  border-radius:15px;
-}
-
-.reader-empty h3{
-  margin-bottom:10px;
-}
-
-.info-box{
-  background:#eff6ff;
-  color:#1e40af;
-  padding:13px;
-  border-radius:11px;
-  margin:15px 0;
-  font-size:13px;
+.no-results{
+    text-align:center;
+    padding:30px;
+    color:#64748b;
+    background:white;
+    border-radius:12px;
 }
 
 footer{
-  text-align:center;
-  color:var(--muted);
-  font-size:12px;
-  padding:30px 15px;
+    background:#0f172a;
+    color:#cbd5e1;
+    text-align:center;
+    padding:30px;
+    margin-top:50px;
 }
 
-@media(max-width:1000px){
-  .grid,
-  .subject-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
-
-  .chapter-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .stat-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
+footer p{
+    margin-top:8px;
+    font-size:13px;
 }
 
-@media(max-width:700px){
-  .navbar{
-    flex-wrap:wrap;
-  }
+/* Mobile */
 
-  .logo{
-    width:auto;
-  }
+@media(max-width:800px){
 
-  .search-box{
-    order:3;
-    flex-basis:100%;
-  }
+    .header-inner{
+        flex-wrap:wrap;
+    }
 
-  .nav-btn{
-    font-size:12px;
-    padding:8px;
-  }
+    .logo{
+        width:auto;
+    }
 
-  .hero{
-    padding:30px 20px;
-  }
+    .search-box{
+        order:3;
+        flex-basis:100%;
+    }
 
-  .hero h1{
-    font-size:31px;
-  }
+    .header-buttons{
+        margin-left:auto;
+    }
 
-  .grid,
-  .subject-grid,
-  .chapter-grid{
-    grid-template-columns:1fr;
-  }
+    .header-btn{
+        padding:8px 10px;
+        font-size:12px;
+    }
 
-  .topic-card{
-    align-items:flex-start;
-  }
+    .hero{
+        margin:20px;
+        padding:40px 18px;
+    }
 
-  .topic-card{
-    flex-wrap:wrap;
-  }
+    .hero h1{
+        font-size:30px;
+    }
 
-  .topic-main{
-    min-width:calc(100% - 55px);
-  }
+    .container{
+        padding:0 15px 40px;
+    }
 
-  .topic-actions{
-    width:100%;
-    margin-left:50px;
-  }
+    .topic-top{
+        align-items:flex-start;
+        flex-direction:column;
+    }
 
-  .topic-actions .small-btn{
-    flex:1;
-  }
+    .study-card{
+        padding:18px;
+    }
 
-  .stat-grid{
-    grid-template-columns:1fr 1fr;
-  }
+    .reader-overlay{
+        padding:0;
+    }
 
-  .bookmark-card{
-    align-items:flex-start;
-    flex-direction:column;
-  }
+    .reader-header{
+        border-radius:0;
+    }
+
+    .reader-frame{
+        border-radius:0;
+    }
+
+    .reader-control{
+        padding:7px 9px;
+    }
 }
 </style>
 </head>
@@ -720,864 +712,984 @@ footer{
 <body>
 
 <header>
-  <nav class="navbar">
-    <div class="logo" onclick="goHome()">Med<span>Lib</span></div>
+<div class="header-inner">
 
-    <div class="search-box">
-      <span class="search-icon">🔎</span>
-      <input
-        id="searchInput"
-        type="search"
-        placeholder="Search courses, subjects, chapters or topics..."
-        oninput="handleSearch(this.value)"
-      >
+    <div class="logo" onclick="showPage('homePage')">
+        Med<span>Lib</span>
     </div>
 
-    <button class="nav-btn" onclick="goHome()">🏠 Home</button>
-    <button class="nav-btn" onclick="showBookmarks()">🔖</button>
-    <button class="nav-btn" onclick="showDashboard()">📊</button>
-  </nav>
+    <div class="search-box">
+        <input
+            id="searchInput"
+            type="text"
+            placeholder="Search courses, subjects or topics..."
+            oninput="globalSearch()"
+        >
+    </div>
+
+    <div class="header-buttons">
+        <button class="header-btn" onclick="showPage('homePage')">
+            Home
+        </button>
+
+        <button class="header-btn" onclick="showPage('dashboardPage');renderDashboard()">
+            📊
+        </button>
+
+        <button class="header-btn" onclick="showPage('bookmarksPage');renderBookmarks()">
+            🔖
+        </button>
+    </div>
+
+</div>
 </header>
+
 
 <main>
 
 <!-- HOME -->
+
 <section id="homePage" class="page active">
 
-  <div class="hero">
-    <h1>Learn Medicine. Smarter.</h1>
-    <p>
-      MedLib organizes medical education into courses, years, subjects,
-      chapters and topics — with notes, textbooks, MCQs, bookmarks and
-      progress tracking.
-    </p>
+    <div class="hero">
+        <h1>MedLib Medical Learning Library</h1>
 
-    <div class="hero-actions">
-      <button class="hero-btn" onclick="showDashboard()">📊 My Progress</button>
-      <button class="hero-btn" onclick="showBookmarks()">🔖 My Bookmarks</button>
-    </div>
-  </div>
-
-  <div id="searchSection" style="display:none;">
-    <div class="section-title">
-      <h2>Search Results</h2>
-    </div>
-    <div id="searchResults" class="search-results"></div>
-  </div>
-
-  <div id="homeContent">
-
-    <div class="section-title">
-      <div>
-        <h2>Medical Courses</h2>
-        <p>Choose your course to begin learning.</p>
-      </div>
+        <p>
+            Learn medicine, healthcare and human-body sciences
+            through structured courses, topics, notes, textbooks and MCQs.
+        </p>
     </div>
 
-    <div id="courseGrid" class="grid"></div>
+    <div class="container">
 
-  </div>
+        <h2 class="section-title">
+            Explore Medical Courses
+        </h2>
+
+        <div id="courseGrid" class="course-grid"></div>
+
+    </div>
 
 </section>
 
 
 <!-- COURSE -->
+
 <section id="coursePage" class="page">
 
-  <button class="back-btn" onclick="goHome()">← Back to Courses</button>
+    <div class="container">
 
-  <div id="courseHeader" class="course-header"></div>
+        <button class="back-btn" onclick="showPage('homePage')">
+            ← Back to Courses
+        </button>
 
-  <div id="yearContainer"></div>
+        <div id="courseHeader" class="course-header"></div>
+
+        <div id="yearsContainer"></div>
+
+    </div>
 
 </section>
 
 
 <!-- SUBJECT -->
+
 <section id="subjectPage" class="page">
 
-  <button class="back-btn" onclick="backToCourse()">← Back</button>
+    <div class="container">
 
-  <div id="subjectHeader" class="course-header"></div>
+        <button class="back-btn" onclick="goBackToCourse()">
+            ← Back to Course
+        </button>
 
-  <div class="section-title">
-    <div>
-      <h2>Chapters</h2>
-      <p>Select a chapter to see its topics.</p>
+        <div id="subjectContent"></div>
+
     </div>
-  </div>
-
-  <div id="chapterGrid" class="chapter-grid"></div>
 
 </section>
 
 
-<!-- CHAPTER -->
-<section id="chapterPage" class="page">
+<!-- STUDY -->
 
-  <button class="back-btn" onclick="backToSubject()">← Back</button>
+<section id="studyPage" class="page">
 
-  <div id="chapterHeader" class="course-header"></div>
+    <div class="container">
 
-  <div id="chapterProgress"></div>
+        <button class="back-btn" onclick="goBackToSubject()">
+            ← Back to Topics
+        </button>
 
-  <div class="section-title">
-    <div>
-      <h2>Topics</h2>
-      <p>Study a topic using notes, textbook resources and MCQs.</p>
+        <div id="studyContent"></div>
+
     </div>
-  </div>
-
-  <div id="topicList" class="topic-list"></div>
 
 </section>
 
 
 <!-- BOOKMARKS -->
+
 <section id="bookmarksPage" class="page">
 
-  <button class="back-btn" onclick="goHome()">← Home</button>
+    <div class="container">
 
-  <div class="course-header">
-    <h1>🔖 My Bookmarks</h1>
-    <p>Your saved topics appear here.</p>
-  </div>
+        <button class="back-btn" onclick="showPage('homePage')">
+            ← Home
+        </button>
 
-  <div id="bookmarkList" class="bookmark-list"></div>
+        <div class="study-header">
+            <h1>🔖 My Bookmarks</h1>
+            <p>Your saved study topics.</p>
+        </div>
+
+        <div id="bookmarkList" class="bookmark-list"></div>
+
+    </div>
 
 </section>
 
 
 <!-- DASHBOARD -->
+
 <section id="dashboardPage" class="page">
 
-  <button class="back-btn" onclick="goHome()">← Home</button>
+    <div class="container">
 
-  <div class="course-header">
-    <h1>📊 My Dashboard</h1>
-    <p>Track your MedLib learning progress.</p>
-  </div>
+        <button class="back-btn" onclick="showPage('homePage')">
+            ← Home
+        </button>
 
-  <div id="statsGrid" class="stat-grid"></div>
+        <div class="study-header">
+            <h1>📊 Study Dashboard</h1>
+            <p>Track your MedLib learning progress.</p>
+        </div>
 
-  <div class="section-title">
-    <div>
-      <h2>Overall Progress</h2>
-      <p>Topics marked as completed.</p>
+        <div id="dashboardContent"></div>
+
     </div>
-  </div>
 
-  <div class="progress-box">
-    <strong id="overallProgressText">0%</strong>
-    <div class="progress-bar">
-      <div id="overallProgress" class="progress-fill" style="width:0%"></div>
+</section>
+
+
+<!-- SEARCH -->
+
+<section id="searchPage" class="page">
+
+    <div class="container">
+
+        <button class="back-btn" onclick="showPage('homePage')">
+            ← Home
+        </button>
+
+        <div class="study-header">
+            <h1>🔎 Search Results</h1>
+            <p id="searchResultText"></p>
+        </div>
+
+        <div id="searchResults"></div>
+
     </div>
-  </div>
-
-  <div class="section-title">
-    <div>
-      <h2>Recently Studied</h2>
-    </div>
-  </div>
-
-  <div id="recentTopics"></div>
 
 </section>
 
 </main>
 
 
-<!-- RESOURCE MODAL -->
-<div id="resourceModal" class="modal-overlay" onclick="closeModal(event)">
-  <div id="resourceModalBox" class="modal" onclick="event.stopPropagation()">
-    <button class="modal-close" onclick="closeResourceModal()">×</button>
-    <div id="resourceContent"></div>
-  </div>
+<!-- PDF READER -->
+
+<div id="readerOverlay" class="reader-overlay">
+
+    <div class="reader-header">
+
+        <div id="readerTitle" class="reader-title">
+            Textbook
+        </div>
+
+        <div class="reader-controls">
+
+            <button class="reader-control" onclick="openReaderNewTab()">
+                ↗
+            </button>
+
+            <button class="reader-control" onclick="closeReader()">
+                ✕
+            </button>
+
+        </div>
+
+    </div>
+
+    <div id="readerFrame" class="reader-frame"></div>
+
 </div>
 
 
 <footer>
-  MedLib • Medical Learning Library<br>
-  Educational content should be used alongside your prescribed curriculum and qualified teachers.
+
+    <h2>MedLib</h2>
+
+    <p>Learn. Understand. Remember.</p>
+
+    <p>
+        Educational platform — curricula may vary by university.
+    </p>
+
+    <p>
+        Only upload textbooks and PDFs that you are legally permitted to host.
+    </p>
+
 </footer>
 
 
 <script>
 
 /* =========================================================
-   MEDLIB V2
-   ========================================================= */
-
-
-/* -----------------------------
-   COURSE DATABASE
------------------------------ */
+   MEDLIB COURSE DATABASE
+========================================================= */
 
 const courses = [
 
-  {
+{
     id:"mbbs",
     name:"MBBS",
     icon:"🩺",
     description:"Bachelor of Medicine and Bachelor of Surgery",
     years:{
-      "Year 1":[
-        "Anatomy",
-        "Physiology",
-        "Biochemistry"
-      ],
-      "Year 2":[
-        "Pathology",
-        "Pharmacology",
-        "Microbiology"
-      ],
-      "Year 3":[
-        "Forensic Medicine & Toxicology",
-        "Community Medicine"
-      ],
-      "Year 4":[
-        "General Medicine",
-        "General Surgery",
-        "Pediatrics",
-        "Obstetrics & Gynaecology",
-        "Orthopaedics",
-        "Ophthalmology",
-        "ENT"
-      ]
+        "1st Year":[
+            "Anatomy",
+            "Physiology",
+            "Biochemistry"
+        ],
+        "2nd Year":[
+            "Pathology",
+            "Pharmacology",
+            "Microbiology",
+            "Forensic Medicine & Toxicology"
+        ],
+        "3rd Year Part I":[
+            "Community Medicine",
+            "Ophthalmology",
+            "Otorhinolaryngology (ENT)"
+        ],
+        "Final Year":[
+            "General Medicine",
+            "General Surgery",
+            "Pediatrics",
+            "Obstetrics & Gynaecology",
+            "Orthopaedics",
+            "Dermatology",
+            "Psychiatry",
+            "Anaesthesiology",
+            "Radiodiagnosis",
+            "Emergency Medicine"
+        ]
     }
-  },
+},
 
-  {
+{
     id:"bds",
     name:"BDS",
     icon:"🦷",
     description:"Bachelor of Dental Surgery",
     years:{
-      "Year 1":[
-        "General Anatomy",
-        "Physiology",
-        "Biochemistry",
-        "Dental Anatomy"
-      ],
-      "Year 2":[
-        "Pathology",
-        "Microbiology",
-        "Pharmacology",
-        "Oral Histology"
-      ],
-      "Year 3":[
-        "General Medicine",
-        "General Surgery",
-        "Oral Pathology"
-      ],
-      "Year 4":[
-        "Periodontology",
-        "Orthodontics",
-        "Prosthodontics",
-        "Conservative Dentistry",
-        "Oral Surgery"
-      ]
+        "1st Year":[
+            "General Anatomy",
+            "Physiology",
+            "Biochemistry",
+            "Dental Anatomy",
+            "Oral Histology"
+        ],
+        "2nd Year":[
+            "General Pathology",
+            "Microbiology",
+            "Pharmacology",
+            "Dental Materials",
+            "Preclinical Prosthodontics",
+            "Preclinical Conservative Dentistry"
+        ],
+        "3rd Year":[
+            "General Medicine",
+            "General Surgery",
+            "Oral Pathology",
+            "Oral Medicine & Radiology",
+            "Periodontology",
+            "Conservative Dentistry & Endodontics"
+        ],
+        "4th Year":[
+            "Prosthodontics",
+            "Orthodontics",
+            "Pediatric Dentistry",
+            "Oral & Maxillofacial Surgery",
+            "Public Health Dentistry"
+        ],
+        "Internship":[
+            "Clinical Dentistry",
+            "Oral Surgery",
+            "Prosthodontics",
+            "Conservative Dentistry",
+            "Periodontology",
+            "Orthodontics",
+            "Pediatric Dentistry",
+            "Public Health Dentistry"
+        ]
     }
-  },
+},
 
-  {
+{
     id:"bpt",
     name:"BPT",
     icon:"🏃",
     description:"Bachelor of Physiotherapy",
     years:{
-      "Year 1":[
-        "Anatomy",
-        "Physiology",
-        "Biochemistry",
-        "Psychology"
-      ],
-      "Year 2":[
-        "Pathology",
-        "Pharmacology",
-        "Biomechanics",
-        "Exercise Therapy"
-      ],
-      "Year 3":[
-        "Electrotherapy",
-        "Orthopaedics",
-        "General Medicine",
-        "Neurology"
-      ],
-      "Year 4":[
-        "Sports Physiotherapy",
-        "Cardiopulmonary Physiotherapy",
-        "Neurological Physiotherapy",
-        "Community Physiotherapy"
-      ]
+        "1st Year":[
+            "Anatomy",
+            "Physiology",
+            "Biochemistry",
+            "Biomechanics",
+            "Psychology",
+            "Sociology"
+        ],
+        "2nd Year":[
+            "Exercise Therapy",
+            "Electrotherapy",
+            "Pathology",
+            "Microbiology",
+            "Pharmacology",
+            "General Medicine",
+            "General Surgery"
+        ],
+        "3rd Year":[
+            "Orthopaedics",
+            "Neurology",
+            "Cardiorespiratory Physiotherapy",
+            "Musculoskeletal Physiotherapy",
+            "Pediatric Physiotherapy"
+        ],
+        "4th Year":[
+            "Sports Physiotherapy",
+            "Geriatric Physiotherapy",
+            "Community Physiotherapy",
+            "Rehabilitation",
+            "Research Methodology",
+            "Clinical Practice"
+        ]
     }
-  },
+},
 
-  {
+{
     id:"nursing",
     name:"B.Sc Nursing",
     icon:"👩‍⚕️",
     description:"Bachelor of Science in Nursing",
     years:{
-      "Year 1":[
-        "Anatomy",
-        "Physiology",
-        "Nutrition",
-        "Psychology",
-        "Nursing Foundation"
-      ],
-      "Year 2":[
-        "Pharmacology",
-        "Pathology",
-        "Microbiology",
-        "Medical Surgical Nursing"
-      ],
-      "Year 3":[
-        "Child Health Nursing",
-        "Mental Health Nursing",
-        "Community Health Nursing"
-      ],
-      "Year 4":[
-        "Midwifery",
-        "Community Health",
-        "Nursing Research"
-      ]
+        "1st Year":[
+            "Anatomy",
+            "Physiology",
+            "Biochemistry",
+            "Nutrition",
+            "Psychology",
+            "Sociology",
+            "Nursing Foundation"
+        ],
+        "2nd Year":[
+            "Pharmacology",
+            "Pathology",
+            "Genetics",
+            "Microbiology",
+            "Medical-Surgical Nursing I",
+            "Community Health Nursing I"
+        ],
+        "3rd Year":[
+            "Medical-Surgical Nursing II",
+            "Child Health Nursing",
+            "Mental Health Nursing",
+            "Obstetric & Gynaecological Nursing"
+        ],
+        "4th Year":[
+            "Community Health Nursing II",
+            "Nursing Education",
+            "Nursing Research",
+            "Nursing Management",
+            "Professional Practice"
+        ]
     }
-  },
+},
 
-  {
+{
     id:"bpharm",
     name:"B.Pharm",
     icon:"💊",
     description:"Bachelor of Pharmacy",
     years:{
-      "Year 1":[
-        "Human Anatomy & Physiology",
-        "Pharmaceutics",
-        "Pharmaceutical Chemistry",
-        "Biochemistry"
-      ],
-      "Year 2":[
-        "Pathophysiology",
-        "Pharmacology",
-        "Pharmacognosy",
-        "Microbiology"
-      ],
-      "Year 3":[
-        "Medicinal Chemistry",
-        "Industrial Pharmacy",
-        "Pharmacology",
-        "Pharmaceutical Analysis"
-      ],
-      "Year 4":[
-        "Clinical Pharmacy",
-        "Biopharmaceutics",
-        "Pharmacovigilance",
-        "Pharmaceutical Biotechnology"
-      ]
+        "1st Year":[
+            "Human Anatomy & Physiology",
+            "Pharmaceutical Analysis",
+            "Pharmaceutics",
+            "Pharmaceutical Inorganic Chemistry",
+            "Pharmaceutical Organic Chemistry"
+        ],
+        "2nd Year":[
+            "Pathophysiology",
+            "Biochemistry",
+            "Pharmacology",
+            "Pharmaceutical Microbiology",
+            "Pharmacognosy",
+            "Physical Pharmaceutics"
+        ],
+        "3rd Year":[
+            "Medicinal Chemistry",
+            "Pharmacology",
+            "Industrial Pharmacy",
+            "Pharmaceutical Biotechnology",
+            "Biopharmaceutics & Pharmacokinetics",
+            "Pharmacognosy"
+        ],
+        "4th Year":[
+            "Clinical Pharmacy",
+            "Hospital Pharmacy",
+            "Pharmacovigilance",
+            "Drug Regulatory Affairs",
+            "Community Pharmacy",
+            "Research Project"
+        ]
     }
-  },
+},
 
-  {
+{
     id:"bams",
     name:"BAMS",
     icon:"🌿",
     description:"Bachelor of Ayurvedic Medicine and Surgery",
     years:{
-      "Year 1":[
-        "Anatomy",
-        "Physiology",
-        "Sanskrit",
-        "Ayurvedic Fundamentals"
-      ],
-      "Year 2":[
-        "Dravyaguna",
-        "Rasashastra",
-        "Pathology",
-        "Pharmacology"
-      ],
-      "Year 3":[
-        "Kayachikitsa",
-        "Shalya Tantra",
-        "Shalakya Tantra"
-      ],
-      "Year 4":[
-        "Pediatrics",
-        "Obstetrics & Gynaecology",
-        "Panchakarma",
-        "Community Medicine"
-      ]
+        "1st Year":[
+            "Sanskrit & Samhita",
+            "Padartha Vigyana",
+            "Rachana Sharira",
+            "Kriya Sharira"
+        ],
+        "2nd Year":[
+            "Dravyaguna Vigyana",
+            "Rasashastra & Bhaishajya Kalpana",
+            "Agada Tantra",
+            "Swasthavritta"
+        ],
+        "3rd Year":[
+            "Roganidana",
+            "Vikriti Vigyana",
+            "Charaka Samhita",
+            "Prasuti Tantra",
+            "Kaumarabhritya"
+        ],
+        "4th Year":[
+            "Kayachikitsa",
+            "Shalya Tantra",
+            "Shalakya Tantra",
+            "Panchakarma",
+            "Research Methodology"
+        ]
     }
-  },
+},
 
-  {
+{
     id:"bhms",
     name:"BHMS",
     icon:"🌱",
     description:"Bachelor of Homoeopathic Medicine and Surgery",
     years:{
-      "Year 1":[
-        "Anatomy",
-        "Physiology",
-        "Biochemistry",
-        "Homoeopathic Pharmacy"
-      ],
-      "Year 2":[
-        "Pathology",
-        "Microbiology",
-        "Forensic Medicine",
-        "Materia Medica"
-      ],
-      "Year 3":[
-        "Surgery",
-        "Obstetrics",
-        "Community Medicine"
-      ],
-      "Year 4":[
-        "Medicine",
-        "Pediatrics",
-        "Psychiatry",
-        "Materia Medica"
-      ]
+        "1st Year":[
+            "Anatomy",
+            "Physiology",
+            "Biochemistry",
+            "Homoeopathic Pharmacy",
+            "Organon of Medicine"
+        ],
+        "2nd Year":[
+            "Pathology",
+            "Microbiology",
+            "Forensic Medicine",
+            "Materia Medica",
+            "Organon of Medicine"
+        ],
+        "3rd Year":[
+            "Community Medicine",
+            "Practice of Medicine",
+            "Surgery",
+            "Obstetrics & Gynaecology",
+            "Materia Medica"
+        ],
+        "4th Year":[
+            "Pediatrics",
+            "Psychiatry",
+            "Repertory",
+            "Practice of Medicine",
+            "Surgery"
+        ]
     }
-  },
+},
 
-  {
+{
     id:"bums",
     name:"BUMS",
     icon:"🌿",
     description:"Bachelor of Unani Medicine and Surgery",
     years:{
-      "Year 1":[
-        "Anatomy",
-        "Physiology",
-        "Biochemistry",
-        "Arabic & Persian"
-      ],
-      "Year 2":[
-        "Pathology",
-        "Pharmacology",
-        "Microbiology",
-        "Ilmul Advia"
-      ],
-      "Year 3":[
-        "Medicine",
-        "Surgery",
-        "Community Medicine"
-      ],
-      "Year 4":[
-        "Pediatrics",
-        "Obstetrics",
-        "Gynaecology",
-        "Clinical Subjects"
-      ]
+        "1st Year":[
+            "Anatomy",
+            "Physiology",
+            "Biochemistry",
+            "Munafeul Aza",
+            "Tashreehul Badan"
+        ],
+        "2nd Year":[
+            "Ilmul Advia",
+            "Tahaffuzi wa Samaji Tib",
+            "Mahiyatul Amraz",
+            "Ilmul Saidla"
+        ],
+        "3rd Year":[
+            "Ilmul Qabalat",
+            "Niswan wa Qabalat",
+            "Ilmul Atfal",
+            "Moalajat"
+        ],
+        "4th Year":[
+            "Jarahat",
+            "Ophthalmology & ENT",
+            "Psychiatry",
+            "Community Medicine"
+        ]
     }
-  },
+},
 
-  {
+{
     id:"bsms",
     name:"BSMS",
     icon:"🌿",
     description:"Bachelor of Siddha Medicine and Surgery",
     years:{
-      "Year 1":[
-        "Anatomy",
-        "Physiology",
-        "Biochemistry",
-        "Siddha Fundamentals"
-      ],
-      "Year 2":[
-        "Pathology",
-        "Pharmacology",
-        "Microbiology",
-        "Pharmacognosy"
-      ],
-      "Year 3":[
-        "Medicine",
-        "Surgery",
-        "Community Medicine"
-      ],
-      "Year 4":[
-        "Pediatrics",
-        "Obstetrics",
-        "Gynaecology",
-        "Clinical Subjects"
-      ]
+        "1st Year":[
+            "Tamil & Medical Terminology",
+            "Anatomy",
+            "Physiology",
+            "Biochemistry"
+        ],
+        "2nd Year":[
+            "Pharmacology",
+            "Pathology",
+            "Microbiology",
+            "Gunapadam",
+            "Noi Nadal"
+        ],
+        "3rd Year":[
+            "Maruthuvam",
+            "Kuzhanthai Maruthuvam",
+            "Magalir Maruthuvam",
+            "Pothu Maruthuvam"
+        ],
+        "4th Year":[
+            "Sirappu Maruthuvam",
+            "Varmam",
+            "Surgery",
+            "Research Methodology"
+        ]
     }
-  },
+},
 
-  {
+{
     id:"bot",
     name:"BOT",
-    icon:"🧠",
+    icon:"🧑‍🦽",
     description:"Bachelor of Occupational Therapy",
     years:{
-      "Year 1":[
-        "Anatomy",
-        "Physiology",
-        "Psychology",
-        "Occupational Therapy Foundations"
-      ],
-      "Year 2":[
-        "Biomechanics",
-        "Pathology",
-        "Pharmacology",
-        "Therapeutic Activities"
-      ],
-      "Year 3":[
-        "Neurology",
-        "Orthopaedics",
-        "Pediatrics",
-        "Mental Health"
-      ],
-      "Year 4":[
-        "Rehabilitation",
-        "Community OT",
-        "Clinical Practice",
-        "Research"
-      ]
+        "1st Year":[
+            "Anatomy",
+            "Physiology",
+            "Psychology",
+            "Sociology"
+        ],
+        "2nd Year":[
+            "Biomechanics",
+            "Kinesiology",
+            "Occupational Therapy Foundations",
+            "Therapeutic Activities"
+        ],
+        "3rd Year":[
+            "Neurology",
+            "Orthopaedics",
+            "Pediatrics",
+            "Psychiatry",
+            "Rehabilitation"
+        ],
+        "4th Year":[
+            "Geriatrics",
+            "Community Rehabilitation",
+            "Hand Therapy",
+            "Assistive Technology",
+            "Research Methodology"
+        ]
     }
-  },
+},
 
-  {
+{
     id:"optometry",
     name:"Optometry",
     icon:"👁️",
     description:"Bachelor of Optometry",
     years:{
-      "Year 1":[
-        "Anatomy",
-        "Physiology",
-        "Biochemistry",
-        "Geometrical Optics"
-      ],
-      "Year 2":[
-        "Ocular Anatomy",
-        "Ocular Physiology",
-        "Optical Dispensing",
-        "Pathology"
-      ],
-      "Year 3":[
-        "Clinical Optometry",
-        "Contact Lenses",
-        "Binocular Vision",
-        "Pharmacology"
-      ],
-      "Year 4":[
-        "Low Vision",
-        "Public Health Optometry",
-        "Advanced Clinical Optometry",
-        "Internship"
-      ]
+        "1st Year":[
+            "Anatomy",
+            "Physiology",
+            "Biochemistry",
+            "Geometrical Optics",
+            "Physical Optics"
+        ],
+        "2nd Year":[
+            "Ocular Anatomy",
+            "Ocular Physiology",
+            "Ocular Pathology",
+            "Pharmacology",
+            "Clinical Optometry"
+        ],
+        "3rd Year":[
+            "Refraction",
+            "Binocular Vision",
+            "Contact Lenses",
+            "Pediatric Optometry",
+            "Dispensing Optics"
+        ],
+        "4th Year":[
+            "Low Vision",
+            "Community Optometry",
+            "Ophthalmic Instruments",
+            "Clinical Practice",
+            "Research"
+        ]
     }
-  },
+},
 
-  {
+{
     id:"radiology",
     name:"Medical Imaging / Radiology",
     icon:"🩻",
-    description:"Medical Imaging and Radiological Technology",
+    description:"Medical Imaging Technology",
     years:{
-      "Year 1":[
-        "Anatomy",
-        "Physiology",
-        "Radiation Physics",
-        "Patient Care"
-      ],
-      "Year 2":[
-        "Radiographic Techniques",
-        "Radiation Protection",
-        "Pathology",
-        "Contrast Media"
-      ],
-      "Year 3":[
-        "CT",
-        "MRI",
-        "Ultrasound",
-        "Interventional Imaging"
-      ]
+        "1st Year":[
+            "Anatomy",
+            "Physiology",
+            "Pathology",
+            "Radiation Physics"
+        ],
+        "2nd Year":[
+            "Radiographic Techniques",
+            "Radiographic Positioning",
+            "Radiation Protection",
+            "X-ray Imaging"
+        ],
+        "3rd Year":[
+            "CT",
+            "MRI",
+            "Ultrasound",
+            "Mammography",
+            "Contrast Media"
+        ],
+        "4th Year":[
+            "Interventional Radiology",
+            "Nuclear Medicine",
+            "Image Processing",
+            "Patient Care",
+            "Clinical Training"
+        ]
     }
-  },
+},
 
-  {
+{
     id:"mlt",
     name:"Medical Laboratory Technology",
     icon:"🔬",
     description:"Medical Laboratory Science",
     years:{
-      "Year 1":[
-        "Anatomy",
-        "Physiology",
-        "Biochemistry",
-        "Basic Laboratory Techniques"
-      ],
-      "Year 2":[
-        "Hematology",
-        "Clinical Biochemistry",
-        "Microbiology",
-        "Pathology"
-      ],
-      "Year 3":[
-        "Immunology",
-        "Histopathology",
-        "Clinical Pathology",
-        "Blood Banking"
-      ]
+        "1st Year":[
+            "Anatomy",
+            "Physiology",
+            "Biochemistry",
+            "Pathology"
+        ],
+        "2nd Year":[
+            "Microbiology",
+            "Hematology",
+            "Clinical Biochemistry",
+            "Immunology",
+            "Serology"
+        ],
+        "3rd Year":[
+            "Histopathology",
+            "Cytology",
+            "Blood Banking",
+            "Parasitology",
+            "Molecular Diagnostics"
+        ],
+        "4th Year":[
+            "Medical Genetics",
+            "Laboratory Management",
+            "Advanced Diagnostics",
+            "Clinical Training",
+            "Research"
+        ]
     }
-  },
+},
 
-  {
+{
     id:"anesthesia",
     name:"Anesthesia Technology",
     icon:"💉",
-    description:"Anesthesia and Critical Care Technology",
+    description:"Anaesthesia and Critical Care Technology",
     years:{
-      "Year 1":[
-        "Anatomy",
-        "Physiology",
-        "Biochemistry"
-      ],
-      "Year 2":[
-        "Pharmacology",
-        "Anesthesia Equipment",
-        "Patient Monitoring",
-        "Pathology"
-      ],
-      "Year 3":[
-        "General Anesthesia",
-        "Regional Anesthesia",
-        "Critical Care",
-        "Emergency Medicine"
-      ]
+        "1st Year":[
+            "Anatomy",
+            "Physiology",
+            "Biochemistry",
+            "Pathology"
+        ],
+        "2nd Year":[
+            "Pharmacology",
+            "Microbiology",
+            "Anaesthesia Equipment",
+            "General Anaesthesia"
+        ],
+        "3rd Year":[
+            "Regional Anaesthesia",
+            "Airway Management",
+            "Critical Care",
+            "Emergency Medicine",
+            "Patient Monitoring"
+        ],
+        "4th Year":[
+            "Pain Management",
+            "Advanced Critical Care",
+            "Operation Theatre Practice",
+            "Clinical Training"
+        ]
     }
-  },
+},
 
-  {
+{
     id:"ott",
     name:"Operation Theatre Technology",
     icon:"🏥",
     description:"Operation Theatre and Surgical Technology",
     years:{
-      "Year 1":[
-        "Anatomy",
-        "Physiology",
-        "Microbiology",
-        "Basic Nursing"
-      ],
-      "Year 2":[
-        "Surgical Procedures",
-        "Sterilization",
-        "Pharmacology",
-        "Pathology"
-      ],
-      "Year 3":[
-        "Advanced Surgical Technology",
-        "Trauma Care",
-        "Critical Care",
-        "Hospital Management"
-      ]
+        "1st Year":[
+            "Anatomy",
+            "Physiology",
+            "Pathology",
+            "Microbiology"
+        ],
+        "2nd Year":[
+            "Pharmacology",
+            "Surgical Procedures",
+            "Anaesthesia",
+            "Sterilization",
+            "Infection Control"
+        ],
+        "3rd Year":[
+            "Surgical Instruments",
+            "OT Management",
+            "Emergency Care",
+            "Patient Safety",
+            "Clinical Training"
+        ]
     }
-  },
+},
 
-  {
+{
     id:"cardiac",
     name:"Cardiac Care Technology",
     icon:"❤️",
     description:"Cardiovascular and Cardiac Care Technology",
     years:{
-      "Year 1":[
-        "Anatomy",
-        "Physiology",
-        "Biochemistry"
-      ],
-      "Year 2":[
-        "Cardiac Anatomy",
-        "ECG",
-        "Cardiac Pharmacology",
-        "Pathology"
-      ],
-      "Year 3":[
-        "Cardiac Care",
-        "Cardiac Procedures",
-        "Critical Care",
-        "Emergency Cardiology"
-      ]
+        "1st Year":[
+            "Anatomy",
+            "Physiology",
+            "Biochemistry",
+            "Pathology"
+        ],
+        "2nd Year":[
+            "Pharmacology",
+            "ECG",
+            "Cardiovascular Diseases",
+            "Cardiac Emergencies"
+        ],
+        "3rd Year":[
+            "Echocardiography",
+            "Cardiac Catheterization",
+            "ICU & Critical Care",
+            "CPR",
+            "Cardiac Rehabilitation"
+        ]
     }
-  },
+},
 
-  {
+{
     id:"respiratory",
     name:"Respiratory Therapy",
     icon:"🫁",
-    description:"Respiratory and Pulmonary Care",
+    description:"Respiratory and Critical Care Technology",
     years:{
-      "Year 1":[
-        "Anatomy",
-        "Physiology",
-        "Biochemistry"
-      ],
-      "Year 2":[
-        "Respiratory Anatomy",
-        "Pulmonary Function",
-        "Pathology",
-        "Pharmacology"
-      ],
-      "Year 3":[
-        "Mechanical Ventilation",
-        "Critical Care",
-        "Pulmonary Rehabilitation",
-        "Emergency Care"
-      ]
+        "1st Year":[
+            "Anatomy",
+            "Physiology",
+            "Biochemistry",
+            "Pathology"
+        ],
+        "2nd Year":[
+            "Pharmacology",
+            "Respiratory Diseases",
+            "Pulmonary Function Testing",
+            "Oxygen Therapy"
+        ],
+        "3rd Year":[
+            "Mechanical Ventilation",
+            "Critical Care",
+            "Airway Management",
+            "Sleep Medicine",
+            "Pulmonary Rehabilitation"
+        ]
     }
-  },
+},
 
-  {
+{
     id:"audiology",
     name:"Audiology & Speech-Language Pathology",
     icon:"👂",
     description:"Audiology and Speech-Language Sciences",
     years:{
-      "Year 1":[
-        "Anatomy",
-        "Physiology",
-        "Psychology",
-        "Linguistics"
-      ],
-      "Year 2":[
-        "Audiology",
-        "Speech Science",
-        "Pathology",
-        "Pharmacology"
-      ],
-      "Year 3":[
-        "Clinical Audiology",
-        "Speech Disorders",
-        "Hearing Rehabilitation",
-        "Pediatrics"
-      ]
+        "1st Year":[
+            "Anatomy",
+            "Physiology",
+            "Psychology",
+            "Linguistics",
+            "Acoustics"
+        ],
+        "2nd Year":[
+            "Audiology",
+            "Hearing Assessment",
+            "Hearing Aids",
+            "Speech Disorders",
+            "Language Disorders"
+        ],
+        "3rd Year":[
+            "Voice Disorders",
+            "Swallowing Disorders",
+            "Pediatric Audiology",
+            "Cochlear Implants",
+            "Rehabilitation"
+        ]
     }
-  },
+},
 
-  {
+{
     id:"nutrition",
     name:"Nutrition & Dietetics",
     icon:"🥗",
-    description:"Human Nutrition and Dietetics",
+    description:"Clinical Nutrition and Dietetics",
     years:{
-      "Year 1":[
-        "Human Anatomy",
-        "Physiology",
-        "Biochemistry",
-        "Food Science"
-      ],
-      "Year 2":[
-        "Clinical Nutrition",
-        "Microbiology",
-        "Pathology",
-        "Food Chemistry"
-      ],
-      "Year 3":[
-        "Therapeutic Nutrition",
-        "Community Nutrition",
-        "Public Health",
-        "Nutrition Research"
-      ]
+        "1st Year":[
+            "Human Anatomy",
+            "Physiology",
+            "Biochemistry",
+            "Food Science"
+        ],
+        "2nd Year":[
+            "Nutrition",
+            "Clinical Nutrition",
+            "Therapeutic Diets",
+            "Community Nutrition"
+        ],
+        "3rd Year":[
+            "Pediatric Nutrition",
+            "Geriatric Nutrition",
+            "Sports Nutrition",
+            "Food Safety",
+            "Diet Counselling"
+        ]
     }
-  },
-
-  {
-    id:"gnm",
-    name:"GNM Nursing",
-    icon:"👩‍⚕️",
-    description:"General Nursing and Midwifery",
-    years:{
-      "Year 1":[
-        "Anatomy & Physiology",
-        "Microbiology",
-        "Psychology",
-        "Nursing Foundation"
-      ],
-      "Year 2":[
-        "Medical Surgical Nursing",
-        "Pharmacology",
-        "Mental Health Nursing",
-        "Child Health Nursing"
-      ],
-      "Year 3":[
-        "Midwifery",
-        "Community Health Nursing",
-        "Nursing Education",
-        "Nursing Administration"
-      ]
-    }
-  }
+}
 
 ];
 
 
-/* -----------------------------
-   CHAPTER DATABASE
------------------------------ */
+/* =========================================================
+   TOPICS
+========================================================= */
 
-const chapterData = {
+const topicTemplates = {
 
-  "Anatomy":[
+"Anatomy":[
     "General Anatomy",
     "Upper Limb",
     "Lower Limb",
     "Thorax",
     "Abdomen",
-    "Pelvis & Perineum",
+    "Pelvis",
     "Head & Neck",
-    "Neuroanatomy"
-  ],
+    "Neuroanatomy",
+    "Histology",
+    "Embryology",
+    "Clinical Anatomy"
+],
 
-  "General Anatomy":[
-    "Introduction to Anatomy",
+"General Anatomy":[
+    "Anatomical Position",
+    "Planes & Axes",
     "Bones",
     "Joints",
     "Muscles",
+    "Fascia",
     "Blood Vessels",
-    "Lymphatic System",
-    "Nervous System"
-  ],
+    "Nerves"
+],
 
-  "Physiology":[
-    "Cell Physiology",
+"Physiology":[
+    "General Physiology",
     "Blood",
-    "Nerve & Muscle Physiology",
+    "Nerve & Muscle",
     "Cardiovascular System",
     "Respiratory System",
     "Gastrointestinal System",
-    "Renal Physiology",
-    "Endocrinology",
-    "Reproductive Physiology"
-  ],
+    "Renal System",
+    "Endocrine System",
+    "Reproductive System",
+    "Central Nervous System",
+    "Special Senses"
+],
 
-  "Biochemistry":[
-    "Biomolecules",
-    "Carbohydrates",
-    "Proteins",
-    "Lipids",
+"Biochemistry":[
+    "Carbohydrate Metabolism",
+    "Protein Metabolism",
+    "Lipid Metabolism",
     "Enzymes",
     "Vitamins",
     "Minerals",
     "Molecular Biology",
-    "Clinical Biochemistry"
-  ],
+    "Genetics",
+    "Clinical Biochemistry",
+    "Nutrition"
+],
 
-  "Pathology":[
+"Pathology":[
     "Cell Injury",
     "Inflammation",
     "Hemodynamic Disorders",
     "Neoplasia",
-    "Immunopathology",
     "Genetic Disorders",
-    "Infectious Diseases",
-    "Hematology"
-  ],
+    "Immune Disorders",
+    "Hematology",
+    "Cardiovascular Pathology",
+    "Respiratory Pathology",
+    "Renal Pathology",
+    "Gastrointestinal Pathology"
+],
 
-  "Pharmacology":[
+"Pharmacology":[
     "General Pharmacology",
     "Autonomic Nervous System",
     "Cardiovascular Drugs",
@@ -1585,20 +1697,25 @@ const chapterData = {
     "Antimicrobials",
     "Endocrine Drugs",
     "Respiratory Drugs",
-    "Gastrointestinal Drugs"
-  ],
+    "Gastrointestinal Drugs",
+    "Chemotherapy",
+    "Drugs for Blood Disorders"
+],
 
-  "Microbiology":[
+"Microbiology":[
     "General Microbiology",
     "Bacteriology",
     "Virology",
     "Mycology",
     "Parasitology",
     "Immunology",
+    "Sterilization",
+    "Hospital Infection Control",
     "Clinical Microbiology"
-  ],
+],
 
-  "General Medicine":[
+"General Medicine":[
+    "Clinical Examination",
     "Cardiology",
     "Respiratory Medicine",
     "Gastroenterology",
@@ -1606,246 +1723,115 @@ const chapterData = {
     "Nephrology",
     "Endocrinology",
     "Rheumatology",
-    "Infectious Diseases"
-  ],
+    "Infectious Diseases",
+    "Hematology",
+    "Emergency Medicine"
+],
 
-  "General Surgery":[
+"General Surgery":[
     "Principles of Surgery",
     "Wounds",
     "Shock",
     "Trauma",
-    "Abdominal Surgery",
-    "Breast Surgery",
-    "Thyroid Surgery",
-    "Vascular Surgery"
-  ],
+    "Abdomen",
+    "Breast",
+    "Thyroid",
+    "Hernia",
+    "Vascular Surgery",
+    "Urology",
+    "Neurosurgery"
+],
 
-  "Pediatrics":[
+"Pediatrics":[
     "Growth & Development",
     "Neonatology",
     "Nutrition",
-    "Infectious Diseases",
+    "Pediatric Infections",
     "Respiratory Disorders",
     "Gastrointestinal Disorders",
+    "Neurology",
     "Pediatric Emergencies"
-  ],
+],
 
-  "Obstetrics & Gynaecology":[
-    "Normal Pregnancy",
+"Obstetrics & Gynaecology":[
+    "Pregnancy",
     "Antenatal Care",
-    "Labour",
-    "Postpartum Period",
-    "High Risk Pregnancy",
+    "Normal Labour",
+    "Abnormal Labour",
+    "High-Risk Pregnancy",
+    "Postnatal Care",
     "Gynaecological Disorders",
-    "Contraception"
-  ],
+    "Infertility",
+    "Contraception",
+    "Gynaecological Oncology"
+],
 
-  "Orthopaedics":[
+"Orthopaedics":[
     "Fractures",
     "Dislocations",
-    "Bone Tumours",
     "Arthritis",
-    "Spinal Disorders",
+    "Spine Disorders",
     "Sports Injuries",
+    "Bone Tumours",
+    "Joint Replacement",
     "Paediatric Orthopaedics"
-  ],
+],
 
-  "Psychiatry":[
+"Psychiatry":[
     "Introduction to Psychiatry",
     "Mood Disorders",
     "Anxiety Disorders",
     "Psychotic Disorders",
     "Substance Use Disorders",
+    "Personality Disorders",
     "Child Psychiatry",
-    "Psychopharmacology"
-  ],
+    "Emergency Psychiatry"
+],
 
-  "Ophthalmology":[
-    "Basic Eye Anatomy",
-    "Refractive Errors",
+"Ophthalmology":[
+    "Eye Anatomy",
+    "Optics",
     "Cataract",
     "Glaucoma",
     "Retina",
     "Cornea",
-    "Neuro-Ophthalmology"
-  ],
+    "Uvea",
+    "Neuro-Ophthalmology",
+    "Ocular Trauma"
+],
 
-  "ENT":[
-    "Ear Anatomy",
-    "Hearing",
-    "Otitis",
-    "Nose & Sinuses",
+"Otorhinolaryngology (ENT)":[
+    "Ear",
+    "Nose",
+    "Paranasal Sinuses",
     "Throat",
     "Larynx",
+    "Hearing Disorders",
+    "Vertigo",
+    "ENT Infections",
     "Head & Neck Tumours"
-  ],
+],
 
-  "Community Medicine":[
-    "Epidemiology",
-    "Biostatistics",
-    "Screening",
-    "Health Education",
-    "National Health Programs",
-    "Environmental Health"
-  ],
-
-  "Forensic Medicine & Toxicology":[
-    "Identification",
-    "Injuries",
-    "Death & Dying",
-    "Medico-Legal Documentation",
-    "Poisons",
-    "Forensic Psychiatry"
-  ],
-
-  "Dental Anatomy":[
-    "Introduction to Teeth",
-    "Tooth Morphology",
-    "Permanent Dentition",
-    "Deciduous Dentition",
-    "Occlusion"
-  ],
-
-  "Oral Histology":[
-    "Enamel",
-    "Dentin",
-    "Pulp",
-    "Cementum",
-    "Periodontal Tissues",
-    "Salivary Glands"
-  ],
-
-  "Periodontology":[
-    "Periodontium",
-    "Gingivitis",
-    "Periodontitis",
-    "Periodontal Examination",
-    "Periodontal Therapy"
-  ],
-
-  "Pharmaceutics":[
-    "Dosage Forms",
-    "Tablets",
-    "Capsules",
-    "Liquid Preparations",
-    "Sterile Products",
-    "Drug Delivery Systems"
-  ],
-
-  "Pharmacognosy":[
-    "Crude Drugs",
-    "Carbohydrates",
-    "Alkaloids",
-    "Glycosides",
-    "Volatile Oils",
-    "Tannins"
-  ],
-
-  "Biomechanics":[
-    "Basic Biomechanics",
-    "Force",
-    "Torque",
-    "Levers",
-    "Gait",
-    "Posture"
-  ],
-
-  "Exercise Therapy":[
-    "Basic Exercise Principles",
-    "Range of Motion",
-    "Strengthening",
-    "Stretching",
-    "Balance",
-    "Coordination"
-  ],
-
-  "Electrotherapy":[
-    "Electrical Principles",
-    "TENS",
-    "NMES",
-    "Ultrasound Therapy",
-    "Shortwave Diathermy",
-    "Cryotherapy"
-  ],
-
-  "Human Anatomy & Physiology":[
-    "General Anatomy",
-    "Musculoskeletal System",
-    "Cardiovascular System",
-    "Respiratory System",
-    "Nervous System",
-    "Digestive System"
-  ],
-
-  "Radiation Physics":[
-    "X-Rays",
-    "Radiation Units",
-    "Radiation Protection",
-    "Image Formation"
-  ],
-
-  "Radiographic Techniques":[
-    "Chest Radiography",
-    "Abdominal Radiography",
-    "Skeletal Radiography",
-    "Contrast Studies"
-  ],
-
-  "Hematology":[
-    "RBCs",
-    "WBCs",
-    "Platelets",
-    "Hemoglobin",
-    "Coagulation"
-  ],
-
-  "Clinical Biochemistry":[
-    "Liver Function Tests",
-    "Renal Function Tests",
-    "Glucose",
-    "Lipid Profile",
-    "Cardiac Markers"
-  ],
-
-  "Cardiac Anatomy":[
+"Cardiology":[
     "Heart Anatomy",
-    "Coronary Circulation",
-    "Cardiac Conduction System",
-    "Great Vessels"
-  ],
+    "Cardiac Cycle",
+    "Cardiac Output",
+    "Blood Pressure",
+    "ECG",
+    "Heart Sounds",
+    "Coronary Circulation"
+],
 
-  "ECG":[
-    "ECG Basics",
-    "Normal ECG",
-    "Arrhythmias",
-    "Heart Blocks",
-    "Ischemia"
-  ],
-
-  "Respiratory Anatomy":[
-    "Upper Respiratory Tract",
-    "Lower Respiratory Tract",
-    "Lungs",
-    "Pleura"
-  ],
-
-  "Pulmonary Function":[
+"Respiratory System":[
     "Lung Volumes",
-    "Spirometry",
+    "Pulmonary Ventilation",
     "Gas Exchange",
-    "Blood Gases"
-  ]
+    "Oxygen Transport",
+    "Carbon Dioxide Transport",
+    "Ventilation-Perfusion"
+],
 
-};
-
-
-/* -----------------------------
-   TOPIC DATABASE
------------------------------ */
-
-const topicData = {
-
-  "Upper Limb":[
+"Upper Limb":[
     "Clavicle",
     "Scapula",
     "Humerus",
@@ -1857,9 +1843,9 @@ const topicData = {
     "Cubital Fossa",
     "Forearm",
     "Hand"
-  ],
+],
 
-  "Lower Limb":[
+"Lower Limb":[
     "Hip Bone",
     "Femur",
     "Tibia",
@@ -1869,9 +1855,9 @@ const topicData = {
     "Popliteal Fossa",
     "Leg",
     "Foot"
-  ],
+],
 
-  "Thorax":[
+"Thorax":[
     "Thoracic Cage",
     "Intercostal Muscles",
     "Mediastinum",
@@ -1879,9 +1865,9 @@ const topicData = {
     "Pericardium",
     "Lungs",
     "Pleura"
-  ],
+],
 
-  "Abdomen":[
+"Abdomen":[
     "Anterior Abdominal Wall",
     "Peritoneum",
     "Stomach",
@@ -1892,367 +1878,379 @@ const topicData = {
     "Pancreas",
     "Spleen",
     "Kidney"
-  ],
-
-  "Pelvis & Perineum":[
-    "Pelvic Bones",
-    "Pelvic Floor",
-    "Urinary Bladder",
-    "Rectum",
-    "Male Reproductive Organs",
-    "Female Reproductive Organs"
-  ],
-
-  "Head & Neck":[
-    "Skull",
-    "Face",
-    "Scalp",
-    "Parotid Region",
-    "Pharynx",
-    "Larynx",
-    "Thyroid Gland",
-    "Cranial Nerves"
-  ],
-
-  "Neuroanatomy":[
-    "Brain",
-    "Spinal Cord",
-    "Meninges",
-    "Ventricular System",
-    "Cerebral Cortex",
-    "Brainstem",
-    "Cerebellum",
-    "Ascending Tracts",
-    "Descending Tracts"
-  ],
-
-  "Cardiovascular System":[
-    "Cardiac Cycle",
-    "Cardiac Output",
-    "Blood Pressure",
-    "ECG",
-    "Heart Sounds",
-    "Coronary Circulation"
-  ],
-
-  "Respiratory System":[
-    "Lung Volumes",
-    "Pulmonary Ventilation",
-    "Gas Exchange",
-    "Oxygen Transport",
-    "Carbon Dioxide Transport",
-    "Ventilation-Perfusion"
-  ],
-
-  "Blood":[
-    "RBCs",
-    "WBCs",
-    "Platelets",
-    "Hemoglobin",
-    "Blood Groups",
-    "Hemostasis"
-  ],
-
-  "Carbohydrates":[
-    "Glycolysis",
-    "TCA Cycle",
-    "Gluconeogenesis",
-    "Glycogenesis",
-    "Glycogenolysis",
-    "Pentose Phosphate Pathway"
-  ],
-
-  "Proteins":[
-    "Amino Acids",
-    "Protein Structure",
-    "Protein Digestion",
-    "Protein Synthesis",
-    "Plasma Proteins"
-  ],
-
-  "Lipids":[
-    "Fatty Acids",
-    "Beta Oxidation",
-    "Fatty Acid Synthesis",
-    "Cholesterol",
-    "Lipoproteins",
-    "Ketone Bodies"
-  ],
-
-  "Cell Injury":[
-    "Causes of Cell Injury",
-    "Reversible Cell Injury",
-    "Irreversible Cell Injury",
-    "Necrosis",
-    "Apoptosis",
-    "Cellular Adaptations"
-  ],
-
-  "Inflammation":[
-    "Acute Inflammation",
-    "Vascular Changes",
-    "Chemical Mediators",
-    "Leukocyte Recruitment",
-    "Chronic Inflammation",
-    "Systemic Effects"
-  ],
-
-  "General Pharmacology":[
-    "Pharmacokinetics",
-    "Pharmacodynamics",
-    "Drug Receptors",
-    "Adverse Drug Reactions",
-    "Drug Interactions",
-    "Drug Development"
-  ],
-
-  "Bacteriology":[
-    "Gram Positive Bacteria",
-    "Gram Negative Bacteria",
-    "Staphylococcus",
-    "Streptococcus",
-    "Mycobacteria",
-    "Enterobacteriaceae"
-  ],
-
-  "General Microbiology":[
-    "Microbial Classification",
-    "Bacterial Structure",
-    "Sterilization",
-    "Culture Media",
-    "Bacterial Genetics",
-    "Antimicrobial Resistance"
-  ],
-
-  "Heart":[
-    "External Features",
-    "Chambers",
-    "Valves",
-    "Coronary Arteries",
-    "Conduction System"
-  ],
-
-  "Lungs":[
-    "Right Lung",
-    "Left Lung",
-    "Bronchial Tree",
-    "Blood Supply",
-    "Lymphatic Drainage"
-  ],
-
-  "ECG Basics":[
-    "ECG Leads",
-    "P Waves",
-    "QRS Complex",
-    "T Wave",
-    "PR Interval",
-    "QT Interval"
-  ]
+]
 
 };
 
 
-/* -----------------------------
+/* =========================================================
+   TEXTBOOK FILES
+========================================================= */
+
+/*
+    IMPORTANT:
+
+    Put your legally hosted/open-access PDFs
+    inside a "books" folder in your GitHub repository.
+
+    Example:
+
+    books/
+        anatomy.pdf
+        physiology.pdf
+        biochemistry.pdf
+        pathology.pdf
+        pharmacology.pdf
+
+    Then add the subject below.
+
+    The path is relative to index.html.
+*/
+
+const textbookFiles = {
+
+    "Anatomy":"books/anatomy.pdf",
+
+    "General Anatomy":"books/anatomy.pdf",
+
+    "Physiology":"books/physiology.pdf",
+
+    "Biochemistry":"books/biochemistry.pdf",
+
+    "Pathology":"books/pathology.pdf",
+
+    "Pharmacology":"books/pharmacology.pdf",
+
+    "Microbiology":"books/microbiology.pdf",
+
+    "General Medicine":"books/general-medicine.pdf",
+
+    "General Surgery":"books/general-surgery.pdf",
+
+    "Pediatrics":"books/pediatrics.pdf",
+
+    "Obstetrics & Gynaecology":"books/obgyn.pdf",
+
+    "Orthopaedics":"books/orthopaedics.pdf",
+
+    "Psychiatry":"books/psychiatry.pdf",
+
+    "Ophthalmology":"books/ophthalmology.pdf",
+
+    "Otorhinolaryngology (ENT)":"books/ent.pdf"
+
+};
+
+
+/* =========================================================
    NOTES
------------------------------ */
+========================================================= */
 
-const noteData = {
+const notes = {
 
-  "Clavicle":{
-    overview:"The clavicle is an S-shaped long bone connecting the upper limb to the axial skeleton.",
-    points:[
-      "It articulates medially with the manubrium of the sternum.",
-      "Laterally it articulates with the acromion of the scapula.",
-      "It acts as a strut maintaining the upper limb away from the thorax.",
-      "It is subcutaneous throughout most of its length.",
-      "The middle third is a common site of fracture."
-    ],
-    clinical:[
-      "Clavicular fractures commonly occur after a fall onto the shoulder.",
-      "The medial fragment is generally pulled upward by muscles attached to it.",
-      "The bone protects important vessels and nerves passing between the neck and upper limb."
+"Clavicle":{
+
+    title:"Clavicle",
+
+    sections:[
+
+        {
+            heading:"Overview",
+            text:"The clavicle is an S-shaped long bone connecting the upper limb to the axial skeleton."
+        },
+
+        {
+            heading:"Important Features",
+            bullets:[
+                "Medial two-thirds are convex anteriorly.",
+                "Lateral one-third is concave anteriorly.",
+                "It has medial and lateral ends.",
+                "The medial end articulates with the manubrium.",
+                "The lateral end articulates with the acromion."
+            ]
+        },
+
+        {
+            heading:"Clinical Importance",
+            text:"The clavicle is one of the commonly fractured bones. Fractures frequently occur near the junction of the medial two-thirds and lateral one-third."
+        }
+
     ]
-  },
 
-  "Brachial Plexus":{
-    overview:"The brachial plexus is a network of spinal nerves supplying the upper limb.",
-    points:[
-      "It is formed mainly by the anterior rami of C5–T1 spinal nerves.",
-      "Its organization is classically described as roots, trunks, divisions, cords and branches.",
-      "The major terminal branches include musculocutaneous, axillary, radial, median and ulnar nerves."
-    ],
-    clinical:[
-      "Injuries can produce characteristic motor and sensory deficits.",
-      "Upper trunk injuries classically involve C5–C6 components.",
-      "Lower trunk injuries mainly involve C8–T1 components."
-    ]
-  },
+},
 
-  "Cardiac Cycle":{
-    overview:"The cardiac cycle describes the sequence of electrical and mechanical events occurring during one heartbeat.",
-    points:[
-      "It includes atrial systole, ventricular systole and diastolic phases.",
-      "Ventricular systole begins with ventricular contraction.",
-      "During ventricular ejection, ventricular pressure exceeds arterial pressure.",
-      "During diastole, the ventricles relax and fill with blood."
-    ],
-    clinical:[
-      "Heart sounds are associated with closure of cardiac valves.",
-      "Changes in cardiac cycle timing can occur with changes in heart rate."
-    ]
-  },
+"Brachial Plexus":{
 
-  "Glycolysis":{
-    overview:"Glycolysis is the pathway through which glucose is converted to pyruvate in the cytoplasm.",
-    points:[
-      "It occurs in the cytosol.",
-      "Glucose is converted through a sequence of enzymatic reactions.",
-      "The pathway produces ATP and NADH.",
-      "Under aerobic conditions pyruvate can enter mitochondrial metabolism.",
-      "Under anaerobic conditions pyruvate can be converted to lactate."
-    ],
-    clinical:[
-      "Glycolysis is particularly important in tissues with limited mitochondrial oxidative capacity.",
-      "Red blood cells depend heavily on glycolysis for ATP production."
-    ]
-  },
+    title:"Brachial Plexus",
 
-  "Cell Injury":{
-    overview:"Cell injury occurs when cellular stress exceeds the ability of the cell to adapt.",
-    points:[
-      "Important causes include hypoxia, physical injury, chemicals, infections and immune reactions.",
-      "Reversible injury may produce cellular swelling and fatty change.",
-      "Severe or persistent injury can result in irreversible damage.",
-      "Major forms of cell death include necrosis and apoptosis."
-    ],
-    clinical:[
-      "Understanding reversible and irreversible injury is fundamental to pathology.",
-      "Ischemia can cause cellular injury by reducing oxygen and nutrient delivery."
-    ]
-  },
+    sections:[
 
-  "General Pharmacology":{
-    overview:"General pharmacology describes how drugs interact with the body and how the body handles drugs.",
-    points:[
-      "Pharmacokinetics describes absorption, distribution, metabolism and excretion.",
-      "Pharmacodynamics describes drug effects and mechanisms of action.",
-      "Drug receptors influence many pharmacological responses.",
-      "Dose-response relationships are important for understanding drug effects."
-    ],
-    clinical:[
-      "Drug interactions can alter therapeutic effects or toxicity.",
-      "Patient factors such as age, organ function and concurrent medications can affect drug response."
+        {
+            heading:"Overview",
+            text:"The brachial plexus is a network of spinal nerves supplying the upper limb."
+        },
+
+        {
+            heading:"Roots",
+            bullets:[
+                "C5",
+                "C6",
+                "C7",
+                "C8",
+                "T1"
+            ]
+        },
+
+        {
+            heading:"Major Terminal Branches",
+            bullets:[
+                "Musculocutaneous nerve",
+                "Axillary nerve",
+                "Radial nerve",
+                "Median nerve",
+                "Ulnar nerve"
+            ]
+        }
+
     ]
-  }
+
+},
+
+"Cardiac Cycle":{
+
+    title:"Cardiac Cycle",
+
+    sections:[
+
+        {
+            heading:"Definition",
+            text:"The cardiac cycle consists of the electrical and mechanical events occurring during one heartbeat."
+        },
+
+        {
+            heading:"Major Phases",
+            bullets:[
+                "Atrial systole",
+                "Ventricular systole",
+                "Ventricular diastole"
+            ]
+        },
+
+        {
+            heading:"Key Concept",
+            text:"The cardiac cycle coordinates chamber contraction and relaxation with opening and closing of the cardiac valves."
+        }
+
+    ]
+
+},
+
+"Glycolysis":{
+
+    title:"Glycolysis",
+
+    sections:[
+
+        {
+            heading:"Definition",
+            text:"Glycolysis is the metabolic pathway through which glucose is converted into pyruvate."
+        },
+
+        {
+            heading:"Location",
+            text:"Glycolysis occurs in the cytoplasm."
+        },
+
+        {
+            heading:"Important Products",
+            bullets:[
+                "Pyruvate",
+                "ATP",
+                "NADH"
+            ]
+        }
+
+    ]
+
+},
+
+"Cell Injury":{
+
+    title:"Cell Injury",
+
+    sections:[
+
+        {
+            heading:"Overview",
+            text:"Cell injury occurs when cells are exposed to stress that exceeds their ability to adapt."
+        },
+
+        {
+            heading:"Common Causes",
+            bullets:[
+                "Hypoxia",
+                "Physical agents",
+                "Chemical agents",
+                "Infections",
+                "Immune reactions",
+                "Nutritional imbalance"
+            ]
+        },
+
+        {
+            heading:"Major Types",
+            bullets:[
+                "Reversible cell injury",
+                "Irreversible cell injury"
+            ]
+        }
+
+    ]
+
+},
+
+"General Pharmacology":{
+
+    title:"General Pharmacology",
+
+    sections:[
+
+        {
+            heading:"Overview",
+            text:"General pharmacology describes the principles governing drug action, movement and effects in the body."
+        },
+
+        {
+            heading:"Important Areas",
+            bullets:[
+                "Pharmacokinetics",
+                "Pharmacodynamics",
+                "Drug receptors",
+                "Adverse drug reactions",
+                "Drug interactions"
+            ]
+        }
+
+    ]
+
+}
 
 };
 
 
-/* -----------------------------
-   MCQ BANK
------------------------------ */
+/* =========================================================
+   MCQs
+========================================================= */
 
-const mcqBank = {
+const mcqs = {
 
-  "Clavicle":[
+"Clavicle":[
+
     {
-      q:"The clavicle articulates medially with which bone?",
-      options:["Scapula","Sternum","Humerus","First rib"],
-      answer:1,
-      explanation:"The medial end of the clavicle articulates with the manubrium of the sternum."
+        q:"Which bone connects the upper limb to the axial skeleton?",
+        options:[
+            "Clavicle",
+            "Radius",
+            "Ulna",
+            "Scapula"
+        ],
+        answer:0,
+        explanation:"The clavicle forms a bony connection between the upper limb and axial skeleton."
     },
-    {
-      q:"Which part of the clavicle is most commonly fractured?",
-      options:["Medial third","Middle third","Lateral end","Sternal end"],
-      answer:1,
-      explanation:"The middle third is the commonest site of clavicular fracture."
-    }
-  ],
 
-  "Brachial Plexus":[
     {
-      q:"The brachial plexus is mainly formed by which spinal nerve roots?",
-      options:["C1–C4","C5–T1","T2–T6","L1–L4"],
-      answer:1,
-      explanation:"The brachial plexus is formed mainly by anterior rami of C5–T1."
-    },
-    {
-      q:"Which is a terminal branch of the brachial plexus?",
-      options:["Median nerve","Phrenic nerve","Vagus nerve","Facial nerve"],
-      answer:0,
-      explanation:"The median nerve is one of the major terminal branches."
+        q:"The lateral end of the clavicle articulates with the:",
+        options:[
+            "Humerus",
+            "Acromion",
+            "Sternum",
+            "Radius"
+        ],
+        answer:1,
+        explanation:"The lateral or acromial end articulates with the acromion."
     }
-  ],
 
-  "Cardiac Cycle":[
-    {
-      q:"Which phase is associated with ventricular filling?",
-      options:["Ventricular diastole","Ventricular ejection","Isovolumetric contraction","Ventricular systole"],
-      answer:0,
-      explanation:"Most ventricular filling occurs during diastole."
-    },
-    {
-      q:"The first heart sound is mainly associated with closure of the:",
-      options:["Semilunar valves","Atrioventricular valves","Coronary arteries","Venae cavae"],
-      answer:1,
-      explanation:"S1 is mainly associated with closure of the mitral and tricuspid valves."
-    }
-  ],
+],
 
-  "Glycolysis":[
-    {
-      q:"Where does glycolysis occur?",
-      options:["Nucleus","Cytosol","Lysosome","Golgi apparatus"],
-      answer:1,
-      explanation:"Glycolysis occurs in the cytosol."
-    },
-    {
-      q:"The major end product of glycolysis under aerobic conditions is:",
-      options:["Pyruvate","Urea","Acetyl-CoA directly","Glycogen"],
-      answer:0,
-      explanation:"Glycolysis converts glucose to pyruvate."
-    }
-  ],
+"Brachial Plexus":[
 
-  "Cell Injury":[
     {
-      q:"Which is a form of programmed cell death?",
-      options:["Necrosis","Apoptosis","Gangrene","Infarction"],
-      answer:1,
-      explanation:"Apoptosis is regulated/programmed cell death."
-    },
-    {
-      q:"Cellular swelling is commonly associated with:",
-      options:["Reversible injury","Only apoptosis","Normal adaptation","Neoplasia only"],
-      answer:0,
-      explanation:"Cellular swelling is a classic feature of reversible cell injury."
+        q:"The roots of the brachial plexus are:",
+        options:[
+            "C1-C4",
+            "C5-T1",
+            "T1-T5",
+            "L1-L5"
+        ],
+        answer:1,
+        explanation:"The brachial plexus is formed by the anterior rami of C5-T1."
     }
-  ],
 
-  "General Pharmacology":[
+],
+
+"Cardiac Cycle":[
+
     {
-      q:"ADME refers to:",
-      options:[
-        "Absorption, Distribution, Metabolism, Excretion",
-        "Action, Dose, Mechanism, Effect",
-        "Absorption, Digestion, Metabolism, Energy",
-        "Administration, Dose, Monitoring, Effect"
-      ],
-      answer:0,
-      explanation:"ADME stands for absorption, distribution, metabolism and excretion."
-    },
-    {
-      q:"Pharmacodynamics primarily describes:",
-      options:[
-        "What the body does to the drug",
-        "What the drug does to the body",
-        "Drug manufacturing",
-        "Drug storage"
-      ],
-      answer:1,
-      explanation:"Pharmacodynamics describes the effects and mechanisms of drugs."
+        q:"Which phase involves contraction of the atria?",
+        options:[
+            "Atrial systole",
+            "Ventricular diastole",
+            "Isovolumetric relaxation",
+            "Passive filling only"
+        ],
+        answer:0,
+        explanation:"Atrial systole is the contraction of the atria."
     }
-  ]
+
+],
+
+"Glycolysis":[
+
+    {
+        q:"Where does glycolysis occur?",
+        options:[
+            "Nucleus",
+            "Mitochondria",
+            "Cytoplasm",
+            "Golgi apparatus"
+        ],
+        answer:2,
+        explanation:"Glycolysis occurs in the cytoplasm."
+    }
+
+],
+
+"Cell Injury":[
+
+    {
+        q:"Which is a common cause of cell injury?",
+        options:[
+            "Hypoxia",
+            "Normal hydration",
+            "Normal temperature",
+            "Normal oxygen supply"
+        ],
+        answer:0,
+        explanation:"Hypoxia is an important cause of cellular injury."
+    }
+
+],
+
+"General Pharmacology":[
+
+    {
+        q:"Pharmacokinetics primarily describes:",
+        options:[
+            "What the drug does to the body",
+            "What the body does to the drug",
+            "Only drug toxicity",
+            "Only receptor binding"
+        ],
+        answer:1,
+        explanation:"Pharmacokinetics describes absorption, distribution, metabolism and excretion of drugs."
+    }
+
+]
 
 };
 
@@ -2262,638 +2260,477 @@ const mcqBank = {
 ========================================================= */
 
 let currentCourse = null;
-let currentYear = null;
 let currentSubject = null;
-let currentChapter = null;
 let currentTopic = null;
+let currentYear = null;
+let currentReaderFile = null;
 
-let quizState = {
-  questions:[],
-  index:0,
-  score:0,
-  answered:false
-};
+const completedKey = "medlib_completed_v3";
+const bookmarksKey = "medlib_bookmarks_v3";
 
+let completed = JSON.parse(
+    localStorage.getItem(completedKey) || "{}"
+);
 
-/* =========================================================
-   LOCAL STORAGE
-========================================================= */
-
-function completedKey(topic){
-  return "medlib_completed_" + topic;
-}
-
-function bookmarkKey(){
-  return "medlib_bookmarks";
-}
-
-function recentKey(){
-  return "medlib_recent";
-}
-
-function isCompleted(topic){
-  return localStorage.getItem(completedKey(topic)) === "true";
-}
-
-function toggleComplete(topic){
-  if(isCompleted(topic)){
-    localStorage.removeItem(completedKey(topic));
-  }else{
-    localStorage.setItem(completedKey(topic),"true");
-  }
-
-  renderChapter(currentCourse,currentYear,currentSubject,currentChapter);
-  updateDashboard();
-}
-
-function getBookmarks(){
-  try{
-    return JSON.parse(localStorage.getItem(bookmarkKey()) || "[]");
-  }catch{
-    return [];
-  }
-}
-
-function isBookmarked(topic){
-  return getBookmarks().some(x => x.topic === topic);
-}
-
-function toggleBookmark(topic){
-
-  let bookmarks = getBookmarks();
-
-  const existing = bookmarks.findIndex(x => x.topic === topic);
-
-  if(existing >= 0){
-    bookmarks.splice(existing,1);
-  }else{
-    bookmarks.push({
-      course:currentCourse,
-      year:currentYear,
-      subject:currentSubject,
-      chapter:currentChapter,
-      topic:topic
-    });
-  }
-
-  localStorage.setItem(bookmarkKey(),JSON.stringify(bookmarks));
-
-  renderChapter(currentCourse,currentYear,currentSubject,currentChapter);
-}
-
-function addRecent(topic){
-
-  let recent;
-
-  try{
-    recent = JSON.parse(localStorage.getItem(recentKey()) || "[]");
-  }catch{
-    recent = [];
-  }
-
-  recent = recent.filter(x => x.topic !== topic);
-
-  recent.unshift({
-    course:currentCourse,
-    year:currentYear,
-    subject:currentSubject,
-    chapter:currentChapter,
-    topic:topic
-  });
-
-  recent = recent.slice(0,10);
-
-  localStorage.setItem(recentKey(),JSON.stringify(recent));
-}
+let bookmarks = JSON.parse(
+    localStorage.getItem(bookmarksKey) || "[]"
+);
 
 
 /* =========================================================
-   HELPERS
+   PAGE NAVIGATION
 ========================================================= */
 
-function escapeHTML(value){
-  return String(value)
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
-}
+function showPage(pageId){
 
-function getChapters(subject){
-
-  if(chapterData[subject]){
-    return chapterData[subject];
-  }
-
-  return [
-    "Introduction",
-    "Basic Concepts",
-    "Core Principles",
-    "Clinical Applications",
-    "Common Conditions",
-    "Diagnosis",
-    "Treatment Principles",
-    "Revision"
-  ];
-}
-
-function getTopics(chapter){
-
-  if(topicData[chapter]){
-    return topicData[chapter];
-  }
-
-  return [
-    "Introduction",
-    "Basic Concepts",
-    "Anatomy & Structure",
-    "Physiology & Function",
-    "Clinical Features",
-    "Diagnosis",
-    "Management Principles",
-    "Key Revision Points"
-  ];
-}
-
-function getAllTopicRecords(){
-
-  const records = [];
-
-  courses.forEach(course => {
-
-    Object.entries(course.years).forEach(([year,subjects]) => {
-
-      subjects.forEach(subject => {
-
-        getChapters(subject).forEach(chapter => {
-
-          getTopics(chapter).forEach(topic => {
-
-            records.push({
-              course:course.name,
-              year,
-              subject,
-              chapter,
-              topic
-            });
-
-          });
-
-        });
-
-      });
-
+    document.querySelectorAll(".page").forEach(page=>{
+        page.classList.remove("active");
     });
 
-  });
+    const page = document.getElementById(pageId);
 
-  return records;
+    if(page){
+        page.classList.add("active");
+    }
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
 
 
 /* =========================================================
-   PAGE MANAGEMENT
+   DISPLAY COURSES
 ========================================================= */
 
-function hidePages(){
+function displayCourses(list=courses){
 
-  document.querySelectorAll(".page").forEach(page=>{
-    page.classList.remove("active");
-  });
+    const grid = document.getElementById("courseGrid");
 
-}
+    if(!list.length){
 
-function showPage(id){
+        grid.innerHTML=`
+            <div class="no-results">
+                No courses found.
+            </div>
+        `;
 
-  hidePages();
+        return;
+    }
 
-  document.getElementById(id).classList.add("active");
+    grid.innerHTML=list.map(course=>`
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+        <div class="course-card"
+             onclick="openCourse('${course.id}')">
 
-}
+            <div class="icon">${course.icon}</div>
 
-function goHome(){
+            <h3>${course.name}</h3>
 
-  showPage("homePage");
+            <p>${course.description}</p>
 
-  document.getElementById("searchInput").value="";
-
-  document.getElementById("searchSection").style.display="none";
-  document.getElementById("homeContent").style.display="block";
-
-  renderCourses();
-}
-
-function backToCourse(){
-  renderCourse(currentCourse);
-}
-
-function backToSubject(){
-  renderSubject(currentCourse,currentYear,currentSubject);
-}
-
-
-/* =========================================================
-   HOME
-========================================================= */
-
-function renderCourses(){
-
-  const container=document.getElementById("courseGrid");
-
-  container.innerHTML= courses.map(course=>`
-
-    <div class="course-card" onclick="renderCourse('${course.id}')">
-
-      <div class="course-icon">${course.icon}</div>
-
-      <h3>${escapeHTML(course.name)}</h3>
-
-      <div class="card-description">
-        ${escapeHTML(course.description)}
-      </div>
-
-      <span class="badge">
-        ${Object.keys(course.years).length} Years
-      </span>
-
-    </div>
-
-  `).join("");
-
-}
-
-
-/* =========================================================
-   COURSE PAGE
-========================================================= */
-
-function renderCourse(courseId){
-
-  const course=courses.find(c=>c.id===courseId);
-
-  if(!course)return;
-
-  currentCourse=courseId;
-
-  showPage("coursePage");
-
-  document.getElementById("courseHeader").innerHTML=`
-
-    <h1>${course.icon} ${escapeHTML(course.name)}</h1>
-
-    <p>${escapeHTML(course.description)}</p>
-
-  `;
-
-  const container=document.getElementById("yearContainer");
-
-  container.innerHTML="";
-
-  Object.entries(course.years).forEach(([year,subjects])=>{
-
-    const section=document.createElement("div");
-
-    section.className="year-section";
-
-    section.innerHTML=`
-
-      <div class="year-header">
-
-        <div class="year-number">
-          ${year.replace("Year ","")}
         </div>
 
-        <h2>${escapeHTML(year)}</h2>
+    `).join("");
+}
 
-      </div>
 
-      <div class="subject-grid">
+/* =========================================================
+   OPEN COURSE
+========================================================= */
 
-        ${subjects.map(subject=>`
+function openCourse(courseId){
 
-          <div
-            class="subject-card"
-            onclick="renderSubject('${courseId}','${escapeHTML(year)}','${escapeHTML(subject)}')"
-          >
+    currentCourse=courses.find(
+        course=>course.id===courseId
+    );
 
-            <div class="subject-icon">📚</div>
+    if(!currentCourse) return;
 
-            <h3>${escapeHTML(subject)}</h3>
+    document.getElementById("courseHeader").innerHTML=`
 
-            <div class="card-description">
-              ${getChapters(subject).length} chapters
-            </div>
+        <h1>
+            ${currentCourse.icon}
+            ${currentCourse.name}
+        </h1>
 
-          </div>
-
-        `).join("")}
-
-      </div>
+        <p>
+            ${currentCourse.description}
+        </p>
 
     `;
 
-    container.appendChild(section);
+    renderYears();
 
-  });
-
+    showPage("coursePage");
 }
 
 
 /* =========================================================
-   SUBJECT PAGE
+   RENDER YEARS
 ========================================================= */
 
-function renderSubject(courseId,year,subject){
+function renderYears(){
 
-  currentCourse=courseId;
-  currentYear=year;
-  currentSubject=subject;
+    const container=document.getElementById(
+        "yearsContainer"
+    );
 
-  showPage("subjectPage");
+    container.innerHTML="";
 
-  document.getElementById("subjectHeader").innerHTML=`
+    Object.entries(currentCourse.years)
+    .forEach(([year,subjects])=>{
 
-    <h1>📚 ${escapeHTML(subject)}</h1>
+        const section=document.createElement("div");
 
-    <p>
-      ${escapeHTML(courseName(courseId))} • ${escapeHTML(year)}
-    </p>
+        section.className="year-section";
 
-  `;
+        section.innerHTML=`
 
-  const chapters=getChapters(subject);
-
-  document.getElementById("chapterGrid").innerHTML=
-
-    chapters.map((chapter,index)=>`
-
-      <div
-        class="chapter-card"
-        onclick="renderChapter('${courseId}','${escapeHTML(year)}','${escapeHTML(subject)}','${escapeHTML(chapter)}')"
-      >
-
-        <div class="chapter-number">
-          CHAPTER ${index+1}
-        </div>
-
-        <h3>${escapeHTML(chapter)}</h3>
-
-        <div class="card-description">
-          ${getTopics(chapter).length} topics
-        </div>
-
-      </div>
-
-    `).join("");
-
-}
-
-function courseName(id){
-
-  const c=courses.find(x=>x.id===id);
-
-  return c ? c.name : id;
-}
-
-
-/* =========================================================
-   CHAPTER PAGE
-========================================================= */
-
-function renderChapter(courseId,year,subject,chapter){
-
-  currentCourse=courseId;
-  currentYear=year;
-  currentSubject=subject;
-  currentChapter=chapter;
-
-  showPage("chapterPage");
-
-  document.getElementById("chapterHeader").innerHTML=`
-
-    <h1>📖 ${escapeHTML(chapter)}</h1>
-
-    <p>
-      ${escapeHTML(courseName(courseId))}
-      • ${escapeHTML(year)}
-      • ${escapeHTML(subject)}
-    </p>
-
-  `;
-
-  const topics=getTopics(chapter);
-
-  const completed=topics.filter(isCompleted).length;
-
-  const percentage=topics.length
-    ? Math.round((completed/topics.length)*100)
-    : 0;
-
-  document.getElementById("chapterProgress").innerHTML=`
-
-    <div class="progress-box">
-
-      <strong>
-        Chapter Progress: ${completed}/${topics.length}
-      </strong>
-
-      <div class="progress-bar">
-        <div
-          class="progress-fill"
-          style="width:${percentage}%"
-        ></div>
-      </div>
-
-    </div>
-
-  `;
-
-  document.getElementById("topicList").innerHTML=
-
-    topics.map(topic=>{
-
-      const complete=isCompleted(topic);
-      const bookmark=isBookmarked(topic);
-
-      return `
-
-        <div class="topic-card">
-
-          <div class="topic-status ${complete?"completed":""}">
-            ${complete?"✓":"○"}
-          </div>
-
-          <div class="topic-main">
-
-            <h3>${escapeHTML(topic)}</h3>
-
-            <div class="card-description">
-              Study notes • Textbook • MCQs
+            <div class="year-title">
+                ${year}
             </div>
 
-          </div>
+            <div class="subject-grid">
 
-          <div class="topic-actions">
+                ${subjects.map(subject=>`
 
-            <button
-              class="small-btn primary"
-              onclick="openNotes('${escapeHTML(topic)}')"
-            >
-              📝 Notes
-            </button>
+                    <div class="subject"
+                         onclick="openSubject('${escapeAttr(subject)}','${escapeAttr(year)}')">
 
-            <button
-              class="small-btn blue"
-              onclick="openTextbook('${escapeHTML(topic)}')"
-            >
-              📖 Book
-            </button>
+                        <h4>${subject}</h4>
 
-            <button
-              class="small-btn"
-              onclick="startQuiz('${escapeHTML(topic)}')"
-            >
-              🧠 MCQ
-            </button>
+                        <small>
+                            View topics →
+                        </small>
 
-            <button
-              class="small-btn ${bookmark?"bookmarked":""}"
-              onclick="toggleBookmark('${escapeHTML(topic)}')"
-            >
-              ${bookmark?"★":"☆"}
-            </button>
+                    </div>
 
-            <button
-              class="small-btn ${complete?"green":""}"
-              onclick="toggleComplete('${escapeHTML(topic)}')"
-            >
-              ${complete?"✓ Done":"Mark Complete"}
-            </button>
+                `).join("")}
 
-          </div>
+            </div>
+        `;
 
-        </div>
+        container.appendChild(section);
 
-      `;
-
-    }).join("");
-
+    });
 }
 
 
 /* =========================================================
-   NOTES
+   OPEN SUBJECT
 ========================================================= */
 
-function generateFallbackNotes(topic){
+function openSubject(subjectName,year){
 
-  return {
+    currentSubject=subjectName;
+    currentYear=year;
 
-    overview:
-      `${topic} is an important topic within ${currentSubject}. Use this section as a quick revision framework and study the detailed material from your prescribed textbook.`,
+    const topics=
+        topicTemplates[subjectName] ||
+        generateTopics(subjectName);
 
-    points:[
-      `Understand the basic definition and terminology related to ${topic}.`,
-      `Review the relevant anatomy, physiology or underlying principles.`,
-      `Learn the important clinical features and applications.`,
-      `Know the commonly used investigations or assessment methods.`,
-      `Review important management or treatment principles where applicable.`
-    ],
+    document.getElementById("subjectContent").innerHTML=`
 
-    clinical:[
-      `Connect ${topic} with relevant clinical cases.`,
-      `Revise important examination points and commonly tested concepts.`
-    ]
+        <div class="subject-header">
 
-  };
+            <h1>${subjectName}</h1>
 
+            <p>
+                ${currentCourse.name} • ${year}
+            </p>
+
+        </div>
+
+        <div class="topic-list">
+
+            ${topics.map((topic,index)=>{
+
+                const id=topicId(
+                    currentCourse.id,
+                    subjectName,
+                    topic
+                );
+
+                const isDone=completed[id];
+
+                const isBookmarked=
+                    bookmarks.some(
+                        b=>b.id===id
+                    );
+
+                return `
+
+                    <div class="topic-card">
+
+                        <div class="topic-top">
+
+                            <div class="topic-title">
+                                ${index+1}. ${topic}
+                            </div>
+
+                            <div class="topic-status ${isDone?"completed":""}">
+                                ${isDone?"✓ Completed":"Not started"}
+                            </div>
+
+                        </div>
+
+                        <div class="topic-description">
+                            Study notes • Textbook • MCQs • Revision
+                        </div>
+
+                        <div class="topic-actions">
+
+                            <button
+                                class="action-btn study-btn"
+                                onclick="openStudy('${escapeAttr(topic)}')">
+                                📖 Study
+                            </button>
+
+                            <button
+                                class="action-btn book-btn"
+                                onclick="openTextbook('${escapeAttr(topic)}')">
+                                📚 Textbook
+                            </button>
+
+                            <button
+                                class="action-btn complete-btn"
+                                onclick="toggleComplete('${escapeAttr(topic)}')">
+                                ${isDone?"↩ Uncomplete":"✓ Complete"}
+                            </button>
+
+                            <button
+                                class="action-btn bookmark-btn"
+                                onclick="toggleBookmark('${escapeAttr(topic)}')">
+                                ${isBookmarked?"🔖 Saved":"🔖 Bookmark"}
+                            </button>
+
+                        </div>
+
+                        <div class="progress-wrap">
+                            <div
+                                class="progress-bar"
+                                style="width:${isDone?100:0}%">
+                            </div>
+                        </div>
+
+                    </div>
+
+                `;
+
+            }).join("")}
+
+        </div>
+    `;
+
+    showPage("subjectPage");
 }
 
-function openNotes(topic){
 
-  currentTopic=topic;
+/* =========================================================
+   STUDY PAGE
+========================================================= */
 
-  addRecent(topic);
+function openStudy(topic){
 
-  const notes=noteData[topic] || generateFallbackNotes(topic);
+    currentTopic=topic;
 
-  document.getElementById("resourceContent").innerHTML=`
+    const note=
+        notes[topic] ||
+        generateNotes(topic);
 
-    <h2>📝 ${escapeHTML(topic)}</h2>
+    const questions=
+        mcqs[topic] ||
+        generateMCQ(topic);
 
-    <div class="modal-subtitle">
-      Quick study notes
-    </div>
+    const id=topicId(
+        currentCourse.id,
+        currentSubject,
+        topic
+    );
 
-    <div class="info-box">
-      These are revision notes. Use your prescribed textbooks and
-      institutional curriculum for detailed study.
-    </div>
+    const isDone=completed[id];
 
-    <div class="note-section">
+    const isBookmarked=
+        bookmarks.some(b=>b.id===id);
 
-      <h3>Overview</h3>
+    document.getElementById("studyContent").innerHTML=`
 
-      <p>${escapeHTML(notes.overview)}</p>
+        <div class="study-header">
 
-    </div>
+            <h1>
+                📖 ${topic}
+            </h1>
 
-    <div class="note-section">
+            <p>
+                ${currentCourse.name}
+                • ${currentYear}
+                • ${currentSubject}
+            </p>
 
-      <h3>Key Points</h3>
+            <div class="study-actions">
 
-      <ul>
+                <button
+                    class="action-btn book-btn"
+                    onclick="openTextbook('${escapeAttr(topic)}')">
+                    📚 Read Textbook
+                </button>
 
-        ${notes.points.map(point=>
-          `<li>${escapeHTML(point)}</li>`
-        ).join("")}
+                <button
+                    class="action-btn ${isDone?"complete-btn":"study-btn"}"
+                    onclick="toggleComplete('${escapeAttr(topic)}');openStudy('${escapeAttr(topic)}')">
+                    ${isDone?"✓ Completed":"✓ Mark Complete"}
+                </button>
 
-      </ul>
+                <button
+                    class="action-btn bookmark-btn"
+                    onclick="toggleBookmark('${escapeAttr(topic)}');openStudy('${escapeAttr(topic)}')">
+                    ${isBookmarked?"🔖 Bookmarked":"🔖 Bookmark"}
+                </button>
 
-    </div>
+            </div>
 
-    <div class="note-section">
+        </div>
 
-      <h3>Clinical / Exam Relevance</h3>
 
-      <ul>
+        <div class="study-layout">
 
-        ${notes.clinical.map(point=>
-          `<li>${escapeHTML(point)}</li>`
-        ).join("")}
+            <div class="study-card">
 
-      </ul>
+                <h2>📝 Study Notes</h2>
 
-    </div>
+                ${note.sections.map(section=>`
 
-    <div class="hero-actions">
+                    <h3>
+                        ${section.heading}
+                    </h3>
 
-      <button
-        class="small-btn green"
-        onclick="toggleComplete('${escapeHTML(topic)}');closeResourceModal();"
-      >
-        ✓ Mark Topic Complete
-      </button>
+                    ${
+                        section.text
+                        ?
+                        `<p>${section.text}</p>`
+                        :
+                        ""
+                    }
 
-      <button
-        class="small-btn"
-        onclick="startQuiz('${escapeHTML(topic)}')"
-      >
-        🧠 Test Yourself
-      </button>
+                    ${
+                        section.bullets
+                        ?
+                        `
+                        <ul>
+                            ${section.bullets.map(item=>`
+                                <li>${item}</li>
+                            `).join("")}
+                        </ul>
+                        `
+                        :
+                        ""
+                    }
 
-    </div>
+                `).join("")}
 
-  `;
+                <div class="key-point">
+                    <strong>Study tip:</strong>
+                    Use the textbook after reading the summary,
+                    then test yourself with the MCQs below.
+                </div>
 
-  openResourceModal();
+                <div class="warning">
+                    Educational content only. Always verify
+                    clinical information against current,
+                    authoritative medical sources.
+                </div>
 
+            </div>
+
+
+            <div class="study-card">
+
+                <h2>🧠 Quick MCQs</h2>
+
+                <div id="mcqContainer">
+
+                    ${questions.map((q,index)=>`
+
+                        <div class="mcq">
+
+                            <div class="mcq-question">
+                                ${index+1}. ${q.q}
+                            </div>
+
+                            ${q.options.map((option,optIndex)=>`
+
+                                <button
+                                    class="option"
+                                    onclick="answerMCQ(this,${index},${optIndex})">
+
+                                    ${option}
+
+                                </button>
+
+                            `).join("")}
+
+                            <div
+                                class="explanation"
+                                id="explanation-${index}">
+
+                                ${q.explanation}
+
+                            </div>
+
+                        </div>
+
+                    `).join("")}
+
+                </div>
+
+            </div>
+
+        </div>
+    `;
+
+    showPage("studyPage");
+}
+
+
+/* =========================================================
+   MCQ ANSWER
+========================================================= */
+
+function answerMCQ(button,questionIndex,selectedIndex){
+
+    const questions=
+        mcqs[currentTopic] ||
+        generateMCQ(currentTopic);
+
+    const question=questions[questionIndex];
+
+    const parent=button.parentElement;
+
+    parent.querySelectorAll(".option")
+    .forEach((option,index)=>{
+
+        option.disabled=true;
+
+        if(index===question.answer){
+            option.classList.add("correct");
+        }
+
+    });
+
+    if(selectedIndex!==question.answer){
+        button.classList.add("wrong");
+    }
+
+    const explanation=
+        document.getElementById(
+            "explanation-"+questionIndex
+        );
+
+    if(explanation){
+        explanation.style.display="block";
+    }
 }
 
 
@@ -2901,353 +2738,161 @@ function openNotes(topic){
    TEXTBOOK READER
 ========================================================= */
 
-/*
-  IMPORTANT:
-
-  Only place books in the /books folder that you have the legal
-  right to distribute.
-
-  Example:
-
-  /books/anatomy.pdf
-  /books/physiology.pdf
-
-  Then add the path to textbookFiles below.
-
-  This lets MedLib open the PDF INSIDE the website instead of
-  sending the student to another website.
-*/
-
-const textbookFiles = {
-
-  /*
-    Example:
-
-    "Anatomy":"books/anatomy.pdf",
-    "Physiology":"books/physiology.pdf"
-
-  */
-
-};
-
-function findTextbook(topic){
-
-  if(textbookFiles[topic]){
-    return textbookFiles[topic];
-  }
-
-  if(textbookFiles[currentSubject]){
-    return textbookFiles[currentSubject];
-  }
-
-  return null;
-}
-
 function openTextbook(topic){
 
-  currentTopic=topic;
+    const file=
+        textbookFiles[currentSubject];
 
-  addRecent(topic);
+    currentReaderFile=file || null;
 
-  const path=findTextbook(topic);
+    document.getElementById("readerTitle").textContent=
+        topic+" — Textbook";
 
-  document.getElementById("resourceModalBox").classList.add("large");
+    const frame=
+        document.getElementById("readerFrame");
 
-  if(path){
+    if(!file){
 
-    document.getElementById("resourceContent").innerHTML=`
+        frame.innerHTML=`
 
-      <h2>📖 ${escapeHTML(topic)}</h2>
+            <div class="reader-message">
 
-      <div class="modal-subtitle">
-        Textbook Reader
-      </div>
+                <div class="reader-message-inner">
 
-      <iframe
-        class="reader"
-        src="${escapeHTML(path)}"
-        title="MedLib Textbook Reader"
-      ></iframe>
+                    <h2>📚 Textbook Not Added Yet</h2>
 
-    `;
+                    <p>
+                        MedLib is ready to display the textbook
+                        directly inside this reader.
+                    </p>
 
-  }else{
+                    <div class="code-path">
+                        Add your legally hosted PDF here:<br>
+                        books/${slugify(currentSubject)}.pdf
+                    </div>
 
-    document.getElementById("resourceContent").innerHTML=`
+                    <p>
+                        Then add its path to the
+                        <strong>textbookFiles</strong>
+                        section in this HTML file.
+                    </p>
 
-      <h2>📖 ${escapeHTML(topic)}</h2>
+                    <p>
+                        You can use open-access, public-domain,
+                        or properly licensed textbooks.
+                    </p>
 
-      <div class="modal-subtitle">
-        MedLib Textbook Reader
-      </div>
+                </div>
 
-      <div class="reader-empty">
+            </div>
 
-        <div>
+        `;
 
-          <div style="font-size:55px;margin-bottom:15px;">
-            📚
-          </div>
+    }else{
 
-          <h3>
-            Textbook not added yet
-          </h3>
+        frame.innerHTML=`
 
-          <p style="color:#64748b;margin:10px 0 18px;">
-            The reader is ready. Add an authorized PDF to the
-            <strong>/books</strong> folder and connect it in
-            <strong>textbookFiles</strong>.
-          </p>
+            <iframe
+                src="${file}"
+                title="MedLib Textbook Reader">
+            </iframe>
 
-          <div class="info-box">
-            Only use public-domain, open-access or properly licensed
-            textbooks and documents.
-          </div>
+        `;
 
-        </div>
+    }
 
-      </div>
+    document.getElementById(
+        "readerOverlay"
+    ).classList.add("open");
 
-    `;
+    document.body.style.overflow="hidden";
+}
 
-  }
 
-  openResourceModal();
+/* =========================================================
+   READER CLOSE
+========================================================= */
+
+function closeReader(){
+
+    document.getElementById(
+        "readerOverlay"
+    ).classList.remove("open");
+
+    document.getElementById(
+        "readerFrame"
+    ).innerHTML="";
+
+    document.body.style.overflow="";
 
 }
 
 
 /* =========================================================
-   MCQ SYSTEM
+   OPEN PDF IN NEW TAB
 ========================================================= */
 
-function startQuiz(topic){
+function openReaderNewTab(){
 
-  currentTopic=topic;
+    if(!currentReaderFile){
 
-  addRecent(topic);
+        alert(
+            "No textbook PDF has been added for this subject yet."
+        );
 
-  const questions=mcqBank[topic];
-
-  document.getElementById("resourceModalBox").classList.remove("large");
-
-  if(!questions || !questions.length){
-
-    document.getElementById("resourceContent").innerHTML=`
-
-      <h2>🧠 ${escapeHTML(topic)}</h2>
-
-      <div class="modal-subtitle">
-        MCQ Practice
-      </div>
-
-      <div class="empty">
-
-        <div style="font-size:45px;margin-bottom:12px;">
-          🧠
-        </div>
-
-        <h3>Question bank coming soon</h3>
-
-        <p>
-          The MCQ engine is active, but questions have not yet
-          been added for this topic.
-        </p>
-
-      </div>
-
-    `;
-
-    openResourceModal();
-
-    return;
-  }
-
-  quizState={
-    questions:[...questions].sort(()=>Math.random()-.5),
-    index:0,
-    score:0,
-    answered:false
-  };
-
-  renderQuizQuestion();
-
-  openResourceModal();
-
-}
-
-function renderQuizQuestion(){
-
-  const q=quizState.questions[quizState.index];
-
-  const total=quizState.questions.length;
-
-  document.getElementById("resourceContent").innerHTML=`
-
-    <h2>🧠 ${escapeHTML(currentTopic)}</h2>
-
-    <div class="modal-subtitle">
-      Question ${quizState.index+1} of ${total}
-    </div>
-
-    <div class="quiz-question">
-      ${escapeHTML(q.q)}
-    </div>
-
-    <div id="quizOptions">
-
-      ${q.options.map((option,index)=>`
-
-        <button
-          class="quiz-option"
-          onclick="answerQuiz(${index})"
-        >
-          ${String.fromCharCode(65+index)}.
-          ${escapeHTML(option)}
-        </button>
-
-      `).join("")}
-
-    </div>
-
-    <div id="quizFeedback"></div>
-
-    <div class="quiz-footer">
-
-      <span>
-        Score: ${quizState.score}/${quizState.index}
-      </span>
-
-      <button
-        id="quizNext"
-        class="small-btn primary"
-        style="display:none"
-        onclick="nextQuizQuestion()"
-      >
-        ${quizState.index===total-1?"Finish":"Next →"}
-      </button>
-
-    </div>
-
-  `;
-
-}
-
-function answerQuiz(selected){
-
-  if(quizState.answered)return;
-
-  quizState.answered=true;
-
-  const q=quizState.questions[quizState.index];
-
-  const options=document.querySelectorAll(".quiz-option");
-
-  options.forEach((button,index)=>{
-
-    button.disabled=true;
-
-    if(index===q.answer){
-      button.classList.add("correct");
+        return;
     }
 
-    if(index===selected && selected!==q.answer){
-      button.classList.add("wrong");
+    window.open(
+        currentReaderFile,
+        "_blank"
+    );
+}
+
+
+/* =========================================================
+   COMPLETION
+========================================================= */
+
+function toggleComplete(topic){
+
+    const id=topicId(
+        currentCourse.id,
+        currentSubject,
+        topic
+    );
+
+    if(completed[id]){
+
+        delete completed[id];
+
+    }else{
+
+        completed[id]={
+            course:currentCourse.name,
+            subject:currentSubject,
+            topic:topic,
+            date:new Date().toISOString()
+        };
+
     }
 
-  });
+    localStorage.setItem(
+        completedKey,
+        JSON.stringify(completed)
+    );
 
-  if(selected===q.answer){
-    quizState.score++;
-  }
+    if(
+        document.getElementById("subjectPage")
+        .classList.contains("active")
+    ){
 
-  document.getElementById("quizFeedback").innerHTML=`
+        openSubject(
+            currentSubject,
+            currentYear
+        );
 
-    <div class="quiz-feedback">
-
-      <strong>
-        ${selected===q.answer?"✅ Correct!":"❌ Incorrect"}
-      </strong>
-
-      <p style="margin-top:6px;">
-        ${escapeHTML(q.explanation)}
-      </p>
-
-    </div>
-
-  `;
-
-  document.getElementById("quizNext").style.display="block";
-
-}
-
-function nextQuizQuestion(){
-
-  if(quizState.index >= quizState.questions.length-1){
-
-    showQuizResult();
-
-    return;
-  }
-
-  quizState.index++;
-  quizState.answered=false;
-
-  renderQuizQuestion();
-
-}
-
-function showQuizResult(){
-
-  const total=quizState.questions.length;
-
-  const percentage=Math.round(
-    (quizState.score/total)*100
-  );
-
-  document.getElementById("resourceContent").innerHTML=`
-
-    <div style="text-align:center;padding:25px 5px;">
-
-      <div style="font-size:65px;">
-        ${percentage>=70?"🏆":"📚"}
-      </div>
-
-      <h2>Quiz Complete</h2>
-
-      <p style="color:#64748b;margin:8px 0 20px;">
-        ${escapeHTML(currentTopic)}
-      </p>
-
-      <div style="font-size:38px;font-weight:900;color:#0f766e;">
-        ${quizState.score}/${total}
-      </div>
-
-      <p style="margin-top:5px;">
-        ${percentage}% correct
-      </p>
-
-      <div style="margin-top:25px;">
-
-        <button
-          class="small-btn primary"
-          onclick="startQuiz('${escapeHTML(currentTopic)}')"
-        >
-          🔄 Try Again
-        </button>
-
-        <button
-          class="small-btn green"
-          onclick="toggleComplete('${escapeHTML(currentTopic)}');closeResourceModal();"
-        >
-          ✓ Mark Complete
-        </button>
-
-      </div>
-
-    </div>
-
-  `;
+    }
 
 }
 
@@ -3256,111 +2901,140 @@ function showQuizResult(){
    BOOKMARKS
 ========================================================= */
 
-function showBookmarks(){
+function toggleBookmark(topic){
 
-  showPage("bookmarksPage");
+    const id=topicId(
+        currentCourse.id,
+        currentSubject,
+        topic
+    );
 
-  const bookmarks=getBookmarks();
+    const existing=
+        bookmarks.findIndex(
+            b=>b.id===id
+        );
 
-  const container=document.getElementById("bookmarkList");
+    if(existing>=0){
 
-  if(!bookmarks.length){
+        bookmarks.splice(existing,1);
 
-    container.innerHTML=`
+    }else{
 
-      <div class="empty">
+        bookmarks.push({
 
-        <div style="font-size:45px;">
-          🔖
-        </div>
+            id:id,
+            courseId:currentCourse.id,
+            course:currentCourse.name,
+            subject:currentSubject,
+            year:currentYear,
+            topic:topic
 
-        <h3>No bookmarks yet</h3>
+        });
 
-        <p>
-          Bookmark topics while studying and they will appear here.
-        </p>
+    }
 
-      </div>
-
-    `;
-
-    return;
-  }
-
-  container.innerHTML=bookmarks.map(item=>`
-
-    <div class="bookmark-card">
-
-      <div>
-
-        <h3>${escapeHTML(item.topic)}</h3>
-
-        <small>
-          ${escapeHTML(item.course)}
-          • ${escapeHTML(item.year)}
-          • ${escapeHTML(item.subject)}
-          • ${escapeHTML(item.chapter)}
-        </small>
-
-      </div>
-
-      <div style="display:flex;gap:7px;">
-
-        <button
-          class="small-btn primary"
-          onclick="openBookmarkedTopic(
-            '${escapeHTML(item.course)}',
-            '${escapeHTML(item.year)}',
-            '${escapeHTML(item.subject)}',
-            '${escapeHTML(item.chapter)}'
-          )"
-        >
-          Study
-        </button>
-
-        <button
-          class="small-btn"
-          onclick="removeBookmark('${escapeHTML(item.topic)}')"
-        >
-          Remove
-        </button>
-
-      </div>
-
-    </div>
-
-  `).join("");
+    localStorage.setItem(
+        bookmarksKey,
+        JSON.stringify(bookmarks)
+    );
 
 }
 
-function removeBookmark(topic){
 
-  let bookmarks=getBookmarks();
+/* =========================================================
+   BOOKMARK PAGE
+========================================================= */
 
-  bookmarks=bookmarks.filter(x=>x.topic!==topic);
+function renderBookmarks(){
 
-  localStorage.setItem(
-    bookmarkKey(),
-    JSON.stringify(bookmarks)
-  );
+    const container=
+        document.getElementById(
+            "bookmarkList"
+        );
 
-  showBookmarks();
+    if(!bookmarks.length){
 
+        container.innerHTML=`
+
+            <div class="no-results">
+
+                <h3>No bookmarks yet</h3>
+
+                <p style="margin-top:8px;">
+                    Bookmark topics while studying
+                    and they will appear here.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+    container.innerHTML=
+        bookmarks.map(bookmark=>`
+
+            <div class="bookmark-item">
+
+                <div>
+
+                    <strong>
+                        ${bookmark.topic}
+                    </strong>
+
+                    <div style="
+                        margin-top:5px;
+                        color:#64748b;
+                        font-size:13px;
+                    ">
+
+                        ${bookmark.course}
+                        •
+                        ${bookmark.subject}
+
+                    </div>
+
+                </div>
+
+                <button
+                    class="action-btn study-btn"
+                    onclick="openBookmarkStudy(
+                        '${escapeAttr(bookmark.courseId)}',
+                        '${escapeAttr(bookmark.subject)}',
+                        '${escapeAttr(bookmark.year)}',
+                        '${escapeAttr(bookmark.topic)}'
+                    )">
+
+                    Study →
+
+                </button>
+
+            </div>
+
+        `).join("");
 }
 
-function openBookmarkedTopic(course,year,subject,chapter){
 
-  const courseObj=courses.find(c=>c.name===course);
+/* =========================================================
+   OPEN BOOKMARK STUDY
+========================================================= */
 
-  if(!courseObj)return;
-
-  renderChapter(
-    courseObj.id,
-    year,
+function openBookmarkStudy(
+    courseId,
     subject,
-    chapter
-  );
+    year,
+    topic
+){
 
+    currentCourse=
+        courses.find(c=>c.id===courseId);
+
+    currentSubject=subject;
+    currentYear=year;
+    currentTopic=topic;
+
+    openStudy(topic);
 }
 
 
@@ -3368,322 +3042,604 @@ function openBookmarkedTopic(course,year,subject,chapter){
    DASHBOARD
 ========================================================= */
 
-function showDashboard(){
+function renderDashboard(){
 
-  showPage("dashboardPage");
+    const totalTopics=countAllTopics();
 
-  updateDashboard();
+    const completedCount=
+        Object.keys(completed).length;
 
-}
+    const bookmarkCount=
+        bookmarks.length;
 
-function updateDashboard(){
+    const percentage=
+        totalTopics
+        ?
+        Math.round(
+            completedCount/
+            totalTopics*
+            100
+        )
+        :
+        0;
 
-  const allTopics=getAllTopicRecords();
+    document.getElementById(
+        "dashboardContent"
+    ).innerHTML=`
 
-  const completed=allTopics.filter(x=>isCompleted(x.topic)).length;
+        <div class="dashboard-grid">
 
-  const bookmarks=getBookmarks();
+            <div class="stat-card">
 
-  const percentage=allTopics.length
-    ? Math.round((completed/allTopics.length)*100)
-    : 0;
+                <h3>Total Topics</h3>
 
-  document.getElementById("statsGrid").innerHTML=`
+                <div class="stat-number">
+                    ${totalTopics}
+                </div>
 
-    <div class="stat-card">
-      <h3>${allTopics.length}</h3>
-      <p>Total Topics</p>
-    </div>
+            </div>
 
-    <div class="stat-card">
-      <h3>${completed}</h3>
-      <p>Completed Topics</p>
-    </div>
+            <div class="stat-card">
 
-    <div class="stat-card">
-      <h3>${bookmarks.length}</h3>
-      <p>Bookmarks</p>
-    </div>
+                <h3>Completed</h3>
 
-    <div class="stat-card">
-      <h3>${percentage}%</h3>
-      <p>Overall Progress</p>
-    </div>
+                <div class="stat-number">
+                    ${completedCount}
+                </div>
 
-  `;
+            </div>
 
-  document.getElementById("overallProgressText").textContent=
-    percentage+"%";
+            <div class="stat-card">
 
-  document.getElementById("overallProgress").style.width=
-    percentage+"%";
+                <h3>Bookmarks</h3>
 
-  renderRecentTopics();
+                <div class="stat-number">
+                    ${bookmarkCount}
+                </div>
 
-}
+            </div>
 
-function renderRecentTopics(){
+            <div class="stat-card">
 
-  let recent;
+                <h3>Overall Progress</h3>
 
-  try{
-    recent=JSON.parse(
-      localStorage.getItem(recentKey()) || "[]"
-    );
-  }catch{
-    recent=[];
-  }
+                <div class="stat-number">
+                    ${percentage}%
+                </div>
 
-  const container=document.getElementById("recentTopics");
-
-  if(!recent.length){
-
-    container.innerHTML=`
-
-      <div class="empty">
-        You haven't studied any topics yet.
-      </div>
-
-    `;
-
-    return;
-  }
-
-  container.innerHTML=`
-
-    <div class="bookmark-list">
-
-      ${recent.map(item=>`
-
-        <div class="bookmark-card">
-
-          <div>
-
-            <h3>${escapeHTML(item.topic)}</h3>
-
-            <small>
-              ${escapeHTML(item.subject)}
-              • ${escapeHTML(item.chapter)}
-            </small>
-
-          </div>
-
-          <button
-            class="small-btn primary"
-            onclick="
-              openBookmarkedTopic(
-                '${escapeHTML(item.course)}',
-                '${escapeHTML(item.year)}',
-                '${escapeHTML(item.subject)}',
-                '${escapeHTML(item.chapter)}'
-              )
-            "
-          >
-            Continue
-          </button>
+            </div>
 
         </div>
 
-      `).join("")}
 
-    </div>
+        <div class="study-card">
 
-  `;
+            <h2>Overall Progress</h2>
 
+            <div class="progress-wrap"
+                 style="height:14px;margin-top:15px;">
+
+                <div
+                    class="progress-bar"
+                    style="width:${percentage}%">
+                </div>
+
+            </div>
+
+            <p style="
+                margin-top:12px;
+                color:#64748b;
+            ">
+
+                ${completedCount}
+                of
+                ${totalTopics}
+                topics completed.
+
+            </p>
+
+        </div>
+
+
+        <div class="study-card"
+             style="margin-top:18px;">
+
+            <h2>Recently Completed</h2>
+
+            ${renderRecentCompleted()}
+
+        </div>
+    `;
 }
 
 
 /* =========================================================
-   SEARCH
+   RECENT COMPLETED
 ========================================================= */
 
-function handleSearch(query){
+function renderRecentCompleted(){
 
-  query=query.trim().toLowerCase();
+    const items=
+        Object.values(completed)
+        .sort(
+            (a,b)=>
+                new Date(b.date)-
+                new Date(a.date)
+        )
+        .slice(0,10);
 
-  if(!query){
+    if(!items.length){
 
-    document.getElementById("searchSection").style.display="none";
-    document.getElementById("homeContent").style.display="block";
-
-    return;
-  }
-
-  showPage("homePage");
-
-  document.getElementById("searchSection").style.display="block";
-  document.getElementById("homeContent").style.display="none";
-
-  const results=[];
-
-  courses.forEach(course=>{
-
-    if(course.name.toLowerCase().includes(query)){
-
-      results.push({
-        type:"Course",
-        title:course.name,
-        path:course.description,
-        action:`renderCourse('${course.id}')`
-      });
+        return `
+            <p style="color:#64748b;">
+                Complete some topics to see them here.
+            </p>
+        `;
 
     }
 
-    Object.entries(course.years).forEach(([year,subjects])=>{
+    return items.map(item=>`
 
-      subjects.forEach(subject=>{
+        <div style="
+            padding:12px 0;
+            border-bottom:1px solid #e2e8f0;
+        ">
 
-        if(subject.toLowerCase().includes(query)){
+            <strong style="color:#075985;">
+                ✓ ${item.topic}
+            </strong>
 
-          results.push({
-            type:"Subject",
-            title:subject,
-            path:`${course.name} • ${year}`,
-            action:
-              `renderSubject('${course.id}','${year}','${subject}')`
-          });
+            <div style="
+                color:#64748b;
+                font-size:13px;
+                margin-top:4px;
+            ">
 
-        }
+                ${item.course}
+                •
+                ${item.subject}
 
-        getChapters(subject).forEach(chapter=>{
+            </div>
 
-          if(chapter.toLowerCase().includes(query)){
+        </div>
 
-            results.push({
-              type:"Chapter",
-              title:chapter,
-              path:`${course.name} • ${year} • ${subject}`,
-              action:
-                `renderChapter('${course.id}','${year}','${subject}','${chapter}')`
+    `).join("");
+}
+
+
+/* =========================================================
+   GLOBAL SEARCH
+========================================================= */
+
+function globalSearch(){
+
+    const query=
+        document.getElementById(
+            "searchInput"
+        ).value
+        .toLowerCase()
+        .trim();
+
+    if(!query){
+
+        showPage("homePage");
+        displayCourses();
+
+        return;
+    }
+
+    const results=[];
+
+    courses.forEach(course=>{
+
+        Object.entries(course.years)
+        .forEach(([year,subjects])=>{
+
+            subjects.forEach(subject=>{
+
+                const topics=
+                    topicTemplates[subject] ||
+                    generateTopics(subject);
+
+                topics.forEach(topic=>{
+
+                    const text=(
+                        course.name+
+                        " "+
+                        subject+
+                        " "+
+                        topic+
+                        " "+
+                        year
+                    ).toLowerCase();
+
+                    if(text.includes(query)){
+
+                        results.push({
+                            course,
+                            year,
+                            subject,
+                            topic
+                        });
+
+                    }
+
+                });
+
             });
-
-          }
-
-          getTopics(chapter).forEach(topic=>{
-
-            if(topic.toLowerCase().includes(query)){
-
-              results.push({
-                type:"Topic",
-                title:topic,
-                path:
-                  `${course.name} • ${year} • ${subject} • ${chapter}`,
-                action:
-                  `renderChapter('${course.id}','${year}','${subject}','${chapter}')`
-              });
-
-            }
-
-          });
 
         });
 
-      });
-
     });
 
-  });
+    document.getElementById(
+        "searchResultText"
+    ).textContent=
+        results.length+
+        " result"+
+        (results.length===1?"":"s")+
+        " found for \""+
+        query+
+        "\".";
 
-  const unique=[];
+    const resultContainer=
+        document.getElementById(
+            "searchResults"
+        );
 
-  const seen=new Set();
+    if(!results.length){
 
-  results.forEach(item=>{
+        resultContainer.innerHTML=`
 
-    const key=item.type+"_"+item.title+"_"+item.path;
+            <div class="no-results">
 
-    if(!seen.has(key)){
+                No matching courses,
+                subjects or topics found.
 
-      seen.add(key);
-      unique.push(item);
+            </div>
+
+        `;
+
+    }else{
+
+        resultContainer.innerHTML=`
+
+            <div class="topic-list">
+
+                ${results.slice(0,100).map(item=>`
+
+                    <div class="topic-card">
+
+                        <div class="topic-title">
+                            ${item.topic}
+                        </div>
+
+                        <div class="topic-description">
+
+                            ${item.course.name}
+                            •
+                            ${item.year}
+                            •
+                            ${item.subject}
+
+                        </div>
+
+                        <div class="topic-actions">
+
+                            <button
+                                class="action-btn study-btn"
+                                onclick="openSearchStudy(
+                                    '${escapeAttr(item.course.id)}',
+                                    '${escapeAttr(item.year)}',
+                                    '${escapeAttr(item.subject)}',
+                                    '${escapeAttr(item.topic)}'
+                                )">
+
+                                📖 Study
+
+                            </button>
+
+                            <button
+                                class="action-btn book-btn"
+                                onclick="openSearchTextbook(
+                                    '${escapeAttr(item.course.id)}',
+                                    '${escapeAttr(item.year)}',
+                                    '${escapeAttr(item.subject)}',
+                                    '${escapeAttr(item.topic)}'
+                                )">
+
+                                📚 Textbook
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                `).join("")}
+
+            </div>
+        `;
 
     }
 
-  });
+    showPage("searchPage");
+}
 
-  const limited=unique.slice(0,50);
 
-  if(!limited.length){
+/* =========================================================
+   SEARCH STUDY
+========================================================= */
 
-    document.getElementById("searchResults").innerHTML=`
+function openSearchStudy(
+    courseId,
+    year,
+    subject,
+    topic
+){
 
-      <div class="empty">
-        No results found for
-        <strong>${escapeHTML(query)}</strong>.
-      </div>
+    currentCourse=
+        courses.find(c=>c.id===courseId);
 
-    `;
+    currentYear=year;
+    currentSubject=subject;
 
-    return;
-  }
+    openStudy(topic);
+}
 
-  document.getElementById("searchResults").innerHTML=
 
-    limited.map(item=>`
+/* =========================================================
+   SEARCH TEXTBOOK
+========================================================= */
 
-      <div
-        class="search-result"
-        onclick="${item.action}"
-      >
+function openSearchTextbook(
+    courseId,
+    year,
+    subject,
+    topic
+){
 
-        <span class="badge">
-          ${escapeHTML(item.type)}
-        </span>
+    currentCourse=
+        courses.find(c=>c.id===courseId);
 
-        <h3 style="margin-top:8px;">
-          ${escapeHTML(item.title)}
-        </h3>
+    currentYear=year;
+    currentSubject=subject;
 
-        <small>
-          ${escapeHTML(item.path)}
-        </small>
+    openTextbook(topic);
+}
 
-      </div>
 
-    `).join("");
+/* =========================================================
+   COUNT TOPICS
+========================================================= */
+
+function countAllTopics(){
+
+    let total=0;
+
+    courses.forEach(course=>{
+
+        Object.values(course.years)
+        .forEach(subjects=>{
+
+            subjects.forEach(subject=>{
+
+                total+=(
+                    topicTemplates[subject] ||
+                    generateTopics(subject)
+                ).length;
+
+            });
+
+        });
+
+    });
+
+    return total;
+}
+
+
+/* =========================================================
+   GENERATED NOTES
+========================================================= */
+
+function generateNotes(topic){
+
+    return {
+
+        title:topic,
+
+        sections:[
+
+            {
+                heading:"Overview",
+                text:
+                    topic+
+                    " is an important topic within "+
+                    currentSubject+
+                    ". Start by understanding its basic structure, function and clinical relevance."
+            },
+
+            {
+                heading:"Key Areas to Study",
+
+                bullets:[
+                    "Definition and basic concepts",
+                    "Anatomy or structure",
+                    "Normal function",
+                    "Important relationships",
+                    "Clinical significance",
+                    "Common disorders",
+                    "Diagnosis and investigations",
+                    "Important revision points"
+                ]
+            },
+
+            {
+                heading:"Revision",
+
+                text:
+                    "After reviewing the notes, read the relevant textbook section and test your understanding with MCQs."
+            }
+
+        ]
+
+    };
 
 }
 
 
 /* =========================================================
-   MODALS
+   GENERATED MCQs
 ========================================================= */
 
-function openResourceModal(){
+function generateMCQ(topic){
 
-  document
-    .getElementById("resourceModal")
-    .classList.add("show");
+    return [
 
-}
+        {
+            q:
+                "Which approach is most useful when studying "+topic+"?",
 
-function closeResourceModal(){
+            options:[
+                "Understand the concepts first",
+                "Memorize everything without understanding",
+                "Skip the textbook",
+                "Avoid revision"
+            ],
 
-  document
-    .getElementById("resourceModal")
-    .classList.remove("show");
+            answer:0,
 
-  document
-    .getElementById("resourceModalBox")
-    .classList.remove("large");
+            explanation:
+                "Conceptual understanding followed by textbook reading and revision is a useful study strategy."
+        },
 
-}
+        {
+            q:
+                "Which resource should be used to verify detailed medical information?",
 
-function closeModal(event){
+            options:[
+                "Random social media posts",
+                "Current authoritative medical references",
+                "Unverified comments",
+                "Anonymous messages"
+            ],
 
-  if(event.target.id==="resourceModal"){
-    closeResourceModal();
-  }
+            answer:1,
+
+            explanation:
+                "Current authoritative medical references should be used for detailed medical information."
+        }
+
+    ];
 
 }
 
 
 /* =========================================================
-   INITIALIZE
+   FALLBACK TOPICS
 ========================================================= */
 
-renderCourses();
-updateDashboard();
+function generateTopics(subject){
+
+    return [
+
+        "Introduction to "+subject,
+        "Basic Concepts",
+        "Structure & Classification",
+        "Normal Function",
+        "Clinical Applications",
+        "Common Disorders",
+        "Diagnosis",
+        "Management",
+        "Important Clinical Cases",
+        "MCQs & Revision"
+
+    ];
+
+}
+
+
+/* =========================================================
+   ID HELPERS
+========================================================= */
+
+function topicId(courseId,subject,topic){
+
+    return [
+        courseId,
+        subject,
+        topic
+    ].join("::");
+
+}
+
+
+function slugify(text){
+
+    return text
+        .toLowerCase()
+        .replace(/&/g,"and")
+        .replace(/[^a-z0-9]+/g,"-")
+        .replace(/^-|-$/g,"");
+
+}
+
+
+function escapeAttr(text){
+
+    return String(text)
+        .replace(/\\/g,"\\\\")
+        .replace(/'/g,"\\'")
+        .replace(/"/g,"&quot;");
+
+}
+
+
+/* =========================================================
+   BACK NAVIGATION
+========================================================= */
+
+function goBackToCourse(){
+
+    showPage("coursePage");
+
+}
+
+
+function goBackToSubject(){
+
+    openSubject(
+        currentSubject,
+        currentYear
+    );
+
+}
+
+
+/* =========================================================
+   ESC KEY CLOSES READER
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key==="Escape"){
+
+            closeReader();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   START MEDLIB
+========================================================= */
+
+displayCourses();
 
 </script>
 
