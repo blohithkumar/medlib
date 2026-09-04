@@ -3,330 +3,249 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MedLib - Medical Student Library</title>
+<title>MedLib — Medical Learning Library</title>
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-body{
-    font-family:Arial,sans-serif;
-    background:#f5f7fa;
-    color:#17202a;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f8fb;
+    color: #17202a;
 }
 
-header{
-    height:65px;
-    background:white;
-    border-bottom:1px solid #ddd;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 6%;
-    position:sticky;
-    top:0;
-    z-index:100;
+header {
+    background: linear-gradient(135deg, #087f8c, #075985);
+    color: white;
+    padding: 18px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 3px 15px rgba(0,0,0,.15);
 }
 
-.logo{
-    font-size:25px;
-    font-weight:bold;
-    color:#087f8c;
+.header-inner {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-nav button{
-    border:0;
-    background:none;
-    margin-left:12px;
-    font-size:14px;
-    cursor:pointer;
+.logo {
+    font-size: 28px;
+    font-weight: 800;
 }
 
-.login{
-    background:#087f8c;
-    color:white;
-    padding:10px 16px;
-    border-radius:8px;
+.logo span {
+    color: #a7f3d0;
 }
 
-.hero{
-    background:linear-gradient(135deg,#087f8c,#064f59);
-    color:white;
-    padding:55px 6%;
+.search-box {
+    width: 45%;
 }
 
-.hero h1{
-    font-size:36px;
-    max-width:750px;
+.search-box input {
+    width: 100%;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    font-size: 15px;
 }
 
-.hero p{
-    margin-top:12px;
-    font-size:17px;
+.hero {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 45px 25px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #dff7f8, #e0f2fe);
+    text-align: center;
 }
 
-.search{
-    margin-top:25px;
-    max-width:650px;
+.hero h1 {
+    font-size: 38px;
+    margin-bottom: 12px;
 }
 
-.search input{
-    width:100%;
-    padding:16px;
-    border:0;
-    border-radius:9px;
-    font-size:16px;
+.hero p {
+    color: #475569;
+    font-size: 17px;
 }
 
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:35px 18px;
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px 50px;
 }
 
-.grid3{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
+.section-title {
+    margin: 35px 0 18px;
+    font-size: 25px;
 }
 
-.card{
-    background:white;
-    border:1px solid #e1e6e9;
-    border-radius:13px;
-    padding:18px;
-    cursor:pointer;
-    transition:.2s;
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
 }
 
-.card:hover{
-    transform:translateY(-3px);
-    box-shadow:0 5px 18px #00000012;
+.course-card {
+    background: white;
+    border-radius: 16px;
+    padding: 22px;
+    cursor: pointer;
+    border: 1px solid #e2e8f0;
+    transition: .2s;
+    box-shadow: 0 3px 10px rgba(0,0,0,.04);
 }
 
-.icon{
-    font-size:30px;
-    margin-bottom:9px;
+.course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,.10);
 }
 
-.card h3{
-    font-size:16px;
+.course-card .icon {
+    font-size: 35px;
+    margin-bottom: 12px;
 }
 
-.card p{
-    font-size:12px;
-    color:#68747c;
-    margin-top:6px;
-    line-height:1.4;
+.course-card h3 {
+    margin-bottom: 8px;
 }
 
-.badge{
-    display:inline-block;
-    margin-top:10px;
-    padding:5px 8px;
-    border-radius:5px;
-    font-size:10px;
-    font-weight:bold;
+.course-card p {
+    color: #64748b;
+    font-size: 14px;
 }
 
-.free{
-    background:#e5f7e8;
-    color:#23833b;
+#coursePage {
+    display: none;
 }
 
-.paid{
-    background:#fff0dc;
-    color:#a35b00;
+.back-btn {
+    border: none;
+    background: #e0f2fe;
+    color: #075985;
+    padding: 10px 17px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
-.page{
-    display:none;
+.course-header {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    margin-bottom: 20px;
+    border: 1px solid #e2e8f0;
 }
 
-.back{
-    background:#087f8c;
-    color:white;
-    border:0;
-    padding:10px 16px;
-    border-radius:7px;
-    margin-bottom:22px;
-    cursor:pointer;
+.course-header h1 {
+    color: #075985;
+    margin-bottom: 8px;
 }
 
-.bookGrid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-    margin-top:20px;
+.year-section {
+    margin-bottom: 25px;
 }
 
-.book{
-    background:white;
-    border:1px solid #e1e6e9;
-    border-radius:13px;
-    padding:20px;
+.year-title {
+    background: #075985;
+    color: white;
+    padding: 15px 18px;
+    border-radius: 12px 12px 0 0;
+    font-size: 20px;
 }
 
-.book h3{
-    font-size:16px;
-    line-height:1.4;
+.subject-grid {
+    background: white;
+    padding: 18px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+    border-radius: 0 0 12px 12px;
 }
 
-.book p{
-    font-size:13px;
-    color:#68747c;
-    margin-top:8px;
-    line-height:1.5;
+.subject {
+    border: 1px solid #e2e8f0;
+    padding: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .2s;
 }
 
-.bookButton{
-    display:inline-block;
-    margin-top:14px;
-    padding:10px 15px;
-    background:#087f8c;
-    color:white;
-    border:0;
-    border-radius:7px;
-    cursor:pointer;
-    font-size:13px;
+.subject:hover {
+    border-color: #0891b2;
+    background: #f0fdff;
 }
 
-.reader{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:#202124;
-    z-index:1000;
+.subject h4 {
+    margin-bottom: 7px;
 }
 
-.readerHeader{
-    height:60px;
-    background:#087f8c;
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 15px;
+.subject small {
+    color: #64748b;
 }
 
-.readerHeader button{
-    border:0;
-    background:white;
-    color:#087f8c;
-    padding:8px 13px;
-    border-radius:6px;
-    cursor:pointer;
+#subjectPage {
+    display: none;
 }
 
-.readerTitle{
-    font-size:15px;
-    font-weight:bold;
+.topic-container {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
 }
 
-.pdfFrame{
-    width:100%;
-    height:calc(100vh - 60px);
-    border:0;
-    background:white;
+.topic-list {
+    margin-top: 20px;
+    display: grid;
+    gap: 10px;
 }
 
-.loginPage{
-    display:none;
-    padding:50px 20px;
-    min-height:70vh;
+.topic {
+    padding: 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
 }
 
-.loginBox{
-    max-width:420px;
-    margin:auto;
-    background:white;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 5px 20px #00000012;
+.topic strong {
+    color: #075985;
 }
 
-.loginBox input{
-    width:100%;
-    padding:14px;
-    margin-top:12px;
-    border:1px solid #ccd4d8;
-    border-radius:8px;
+footer {
+    background: #0f172a;
+    color: #cbd5e1;
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
 }
 
-.loginBox button{
-    width:100%;
-    margin-top:15px;
-    padding:14px;
-    border:0;
-    border-radius:8px;
-    background:#087f8c;
-    color:white;
+.no-results {
+    text-align: center;
+    padding: 30px;
+    color: #64748b;
 }
 
-.resources{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:12px;
-    margin-top:20px;
-}
-
-.resource{
-    background:white;
-    padding:20px;
-    text-align:center;
-    border-radius:12px;
-    border:1px solid #e1e6e9;
-}
-
-footer{
-    margin-top:40px;
-    background:#17202a;
-    color:white;
-    padding:30px;
-    text-align:center;
-}
-
-@media(max-width:700px){
-    header{
-        padding:0 12px;
+@media(max-width:700px) {
+    .header-inner {
+        flex-direction: column;
+        align-items: stretch;
     }
-    nav button:not(.login){
-        display:none;
+
+    .search-box {
+        width: 100%;
     }
-    .hero{
-        padding:45px 18px;
-    }
-    .hero h1{
-        font-size:29px;
-    }
-    .grid3{
-        grid-template-columns:repeat(3,1fr);
-        gap:7px;
-    }
-    .card{
-        padding:11px 6px;
-    }
-    .icon{
-        font-size:22px;
-    }
-    .card h3{
-        font-size:10px;
-    }
-    .card p{
-        font-size:7px;
-    }
-    .badge{
-        font-size:6px;
-        padding:4px;
-    }
-    .bookGrid{
-        grid-template-columns:1fr;
-    }
-    .resources{
-        grid-template-columns:repeat(2,1fr);
+
+    .hero h1 {
+        font-size: 30px;
     }
 }
 </style>
@@ -335,500 +254,1304 @@ footer{
 <body>
 
 <header>
-  <div class="logo">🩺 MedLib</div>
-  <nav>
-    <button onclick="home()">Home</button>
-    <button onclick="showCourses()">Courses</button>
-    <button class="login" onclick="showLogin()">Sign In</button>
-  </nav>
+    <div class="header-inner">
+        <div class="logo">Med<span>Lib</span></div>
+
+        <div class="search-box">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search courses, subjects..."
+                oninput="searchCourses()"
+            >
+        </div>
+    </div>
 </header>
 
-<!-- HOME -->
+<main>
+
 <section id="homePage">
-  <div class="hero">
-    <h1>Learn Medicine. Anywhere. 📚</h1>
-    <p>Medical textbooks, subjects, notes, MCQs and study resources.</p>
-    <div class="search">
-      <input id="searchBox" placeholder="🔍 Search MBBS, BDS, BPT, Nursing..." onkeyup="searchCourses()">
+
+    <div class="hero">
+        <h1>MedLib Medical Learning Library</h1>
+        <p>
+            Your organized learning platform for medicine,
+            healthcare and human-body sciences.
+        </p>
     </div>
-  </div>
 
-  <div class="container">
-    <h2 style="margin-bottom:20px;">🎓 Popular Courses</h2>
-    <div id="homeCourses" class="grid3"></div>
-    <br><br>
-    <h2>📚 Study Resources</h2>
-    <div class="resources">
-      <div class="resource">📖<br><br>Textbooks</div>
-      <div class="resource">📝<br><br>Notes</div>
-      <div class="resource">❓<br><br>MCQs</div>
-      <div class="resource">📋<br><br>PYQs</div>
+    <div class="container">
+
+        <h2 class="section-title">Explore Medical Courses</h2>
+
+        <div id="courseGrid" class="course-grid"></div>
+
     </div>
-  </div>
+
 </section>
 
-<!-- COURSES -->
-<section id="coursesPage" class="page">
-  <div class="container">
-    <button class="back" onclick="home()">← Home</button>
-    <h1>🎓 All Medical Courses</h1>
-    <p style="margin:10px 0 25px;color:#68747c;">Choose your course.</p>
-    <div id="allCourses" class="grid3"></div>
-  </div>
+
+<section id="coursePage">
+
+    <div class="container">
+
+        <button class="back-btn" onclick="showHome()">
+            ← Back to Courses
+        </button>
+
+        <div id="courseHeader" class="course-header"></div>
+
+        <div id="yearsContainer"></div>
+
+    </div>
+
 </section>
 
-<!-- SUBJECTS -->
-<section id="subjectPage" class="page">
-  <div class="container">
-    <button class="back" onclick="showCourses()">← Courses</button>
-    <h1 id="courseTitle"></h1>
-    <p style="margin:10px 0 25px;color:#68747c;">Choose a subject.</p>
-    <div id="subjectList" class="grid3"></div>
-  </div>
+
+<section id="subjectPage">
+
+    <div class="container">
+
+        <button class="back-btn" onclick="goBackToCourse()">
+            ← Back to Course
+        </button>
+
+        <div id="subjectContent"></div>
+
+    </div>
+
 </section>
 
-<!-- TEXTBOOKS -->
-<section id="booksPage" class="page">
-  <div class="container">
-    <button class="back" onclick="backSubjects()">← Subjects</button>
-    <h1 id="subjectTitle"></h1>
-    <p style="margin-top:10px;color:#68747c;">Recommended textbooks for this subject.</p>
-    <div id="bookList" class="bookGrid"></div>
-  </div>
-</section>
+</main>
 
-<!-- LOGIN -->
-<section id="loginPage" class="loginPage">
-  <div class="loginBox">
-    <button class="back" onclick="home()">← Back</button>
-    <h2>👤 Welcome to MedLib</h2>
-    <p style="margin-top:8px;color:#68747c;">Sign in for a better learning experience.</p>
-    <input id="name" placeholder="Your name">
-    <input id="email" placeholder="Email address">
-    <input id="password" type="password" placeholder="Password">
-    <button onclick="signup()">Create Account</button>
-  </div>
-</section>
-
-<!-- PDF READER -->
-<div id="reader" class="reader">
-  <div class="readerHeader">
-    <button onclick="closeReader()">← Back</button>
-    <div id="readerTitle" class="readerTitle">MedLib Book</div>
-  </div>
-  <iframe id="pdfFrame" class="pdfFrame"></iframe>
-</div>
 
 <footer>
-  <b>🩺 MedLib</b>
-  <p style="margin-top:8px;color:#c5ccd1;">Your medical student library</p>
+    <h2>MedLib</h2>
+    <p>Learn. Understand. Remember.</p>
+    <p style="margin-top:10px;font-size:13px;">
+        Educational platform — curriculum structures may vary by university.
+    </p>
 </footer>
 
+
 <script>
-/* =========================================
-COURSES AND SUBJECTS
-========================================= */
-const courses = {
-"MBBS":{
-icon:"🩺",
-duration:"4.5 Years + 1 Year Internship",
-subjects:[
-"Anatomy","Physiology","Biochemistry","Pathology","Pharmacology",
-"Microbiology","Forensic Medicine","Community Medicine","General Medicine",
-"General Surgery","Paediatrics","Obstetrics & Gynaecology","Orthopaedics",
-"ENT","Ophthalmology","Dermatology","Psychiatry","Radiology",
-"Anaesthesiology","Emergency Medicine"
-]
-},
-"BDS":{
-icon:"🦷",
-duration:"4 Years + 1 Year Internship",
-subjects:[
-"General Anatomy","Head & Neck Anatomy","Dental Anatomy","Physiology",
-"Biochemistry","Pathology","Microbiology","Pharmacology","Oral Pathology",
-"Oral Medicine","Oral Surgery","Prosthodontics","Periodontology",
-"Conservative Dentistry","Endodontics","Orthodontics","Pedodontics",
-"Public Health Dentistry","Dental Materials"
-]
-},
-"BPT":{
-icon:"🏃",
-duration:"4 Years + Internship",
-subjects:[
-"Anatomy","Physiology","Biochemistry","Biomechanics","Kinesiology",
-"Exercise Therapy","Electrotherapy","Pathology","Microbiology",
-"Pharmacology","General Medicine","General Surgery","Orthopaedics",
-"Neurology","Paediatrics","Cardiopulmonary Physiotherapy",
-"Sports Physiotherapy","Community Physiotherapy","Research Methodology",
-"Rehabilitation"
-]
-},
-"Nursing":{
-icon:"👩‍⚕️",
-duration:"4 Years",
-subjects:[
-"Anatomy","Physiology","Biochemistry","Nutrition","Microbiology",
-"Psychology","Sociology","Fundamentals of Nursing","Medical Surgical Nursing",
-"Child Health Nursing","Mental Health Nursing","Community Health Nursing",
-"Midwifery","Pharmacology","Pathology","Nursing Research","Nursing Administration"
-]
-},
-"Pharmacy":{
-icon:"💊",
-duration:"4 Years",
-subjects:[
-"Human Anatomy & Physiology","Pharmaceutics","Pharmaceutical Chemistry",
-"Pharmacology","Pharmacognosy","Biochemistry","Pathophysiology",
-"Microbiology","Clinical Pharmacy","Hospital Pharmacy","Pharmacotherapeutics",
-"Medicinal Chemistry","Toxicology","Pharmaceutical Analysis","Pharmacy Practice"
-]
-},
-"AHS":{
-icon:"🔬",
-duration:"Usually 4 Years",
-subjects:[
-"Anatomy","Physiology","Biochemistry","Pathology","Microbiology",
-"Pharmacology","Haematology","Immunology","Medical Laboratory Technology",
-"Radiology","Medical Imaging","Operation Theatre Technology","Cardiac Care",
-"Emergency Care","Nutrition"
-]
-},
-"GNM":{
-icon:"🏥",
-duration:"3 Years",
-subjects:[
-"Anatomy & Physiology","Microbiology","Psychology","Sociology",
-"Fundamentals of Nursing","Medical Surgical Nursing","Community Health Nursing",
-"Child Health Nursing","Midwifery","Mental Health Nursing","Nutrition",
-"First Aid","Pharmacology"
-]
-},
-"BAMS":{
-icon:"🌿",
-duration:"5.5 Years",
-subjects:[
-"Sanskrit","Padartha Vigyan","Rachana Sharira","Kriya Sharira","Dravyaguna",
-"Rasashastra","Swasthavritta","Agada Tantra","Charaka Samhita","Shalya Tantra",
-"Shalakya Tantra","Kaumarabhritya","Prasuti Tantra","Stri Roga","Kayachikitsa"
-]
-},
-"BHMS":{
-icon:"🌱",
-duration:"5.5 Years",
-subjects:[
-"Anatomy","Physiology","Biochemistry","Pathology","Microbiology",
-"Organon of Medicine","Materia Medica","Homeopathic Pharmacy","Forensic Medicine",
-"Community Medicine","Practice of Medicine","Surgery","Obstetrics & Gynaecology"
-]
-},
-"BUMS":{
-icon:"🌿",
-duration:"5.5 Years",
-subjects:[
-"Anatomy","Physiology","Munafeul Aza","Unani Pharmacology","Unani Pharmacy",
-"Pathology","Diagnosis","Medicine","Surgery","Obstetrics","Gynaecology"
-]
-},
-"BSMS":{
-icon:"🍃",
-duration:"5.5 Years",
-subjects:[
-"Anatomy","Physiology","Biochemistry","Gunapadam","Siddha Pharmacology",
-"Diagnosis","Medicine","Varma Medicine","Siddha Treatment"
-]
-},
-"Optometry":{
-icon:"👁️",
-duration:"4 Years",
-subjects:[
-"Ocular Anatomy","Ocular Physiology","Optics","Visual Optics",
-"Clinical Optometry","Ocular Diseases","Contact Lenses","Binocular Vision",
-"Paediatric Optometry","Low Vision","Public Health Optometry"
-]
-}
-};
 
-/* =========================================
-TEXTBOOK DATABASE
-========================================= */
-const textbooks = {
-"Anatomy":["BD Chaurasia's Human Anatomy","Gray's Anatomy for Students","Clinically Oriented Anatomy - Moore","Last's Anatomy","Thieme Atlas of Anatomy"],
-"Physiology":["Guyton and Hall Textbook of Medical Physiology","Ganong's Review of Medical Physiology","Berne & Levy Physiology","Textbook of Medical Physiology - A.K. Jain"],
-"Biochemistry":["Harper's Illustrated Biochemistry","Lippincott Illustrated Reviews: Biochemistry","Textbook of Biochemistry for Medical Students - D.M. Vasudevan","Medical Biochemistry - Satyanarayana"],
-"Pathology":["Robbins & Cotran Pathologic Basis of Disease","Robbins Basic Pathology","Harsh Mohan Textbook of Pathology","Ramadas Naik Pathology"],
-"Pharmacology":["Katzung's Basic & Clinical Pharmacology","Goodman & Gilman's Pharmacological Basis of Therapeutics","Essentials of Medical Pharmacology - K.D. Tripathi","Rang & Dale's Pharmacology"],
-"Microbiology":["Jawetz Medical Microbiology","Murray Medical Microbiology","Ananthanarayan and Paniker's Textbook of Microbiology","Textbook of Microbiology - R. Ananthanarayan"],
-"Forensic Medicine":["Reddy's Essentials of Forensic Medicine","Textbook of Forensic Medicine and Toxicology - Nagesh Kumar Rao","Modi's Medical Jurisprudence and Toxicology"],
-"Community Medicine":["Park's Textbook of Preventive and Social Medicine","Textbook of Community Medicine - Suryakantha","Community Medicine with Recent Advances"],
-"General Medicine":["Davidson's Principles and Practice of Medicine","Harrison's Principles of Internal Medicine","Kumar & Clark's Clinical Medicine"],
-"General Surgery":["Bailey & Love's Short Practice of Surgery","Schwartz's Principles of Surgery","Sabiston Textbook of Surgery"],
-"Paediatrics":["Nelson Textbook of Pediatrics","Ghai Essential Pediatrics","OP Ghai Pediatrics"],
-"Obstetrics & Gynaecology":["Williams Obstetrics","Dutta's Textbook of Obstetrics","Dutta's Textbook of Gynecology","Shaw's Textbook of Gynaecology"],
-"Orthopaedics":["Apley's System of Orthopaedics and Fractures","Turek's Orthopaedics","Maheshwari Essential Orthopaedics"],
-"ENT":["Dhingra Diseases of Ear, Nose and Throat","Scott-Brown's Otorhinolaryngology","Logan Turner's Diseases of the Nose, Throat and Ear"],
-"Ophthalmology":["Khurana Comprehensive Ophthalmology","Parsons' Diseases of the Eye","Clinical Ophthalmology - Kanski"],
-"Dermatology":["Fitzpatrick's Dermatology","Rook's Textbook of Dermatology","Clinical Dermatology - Thomas P. Habif"],
-"Psychiatry":["Kaplan & Sadock's Synopsis of Psychiatry","Oxford Textbook of Psychiatry","Shorter Oxford Textbook of Psychiatry"],
-"Radiology":["Grainger & Allison's Diagnostic Radiology","Fundamentals of Diagnostic Radiology - Brant & Helms","Textbook of Radiology - Sumer Sethi"],
-"Anaesthesiology":["Morgan & Mikhail's Clinical Anesthesiology","Lee's Synopsis of Anaesthesia","Clinical Anesthesiology - Morgan"],
-"Emergency Medicine":["Tintinalli's Emergency Medicine","Rosen's Emergency Medicine","Oxford Handbook of Emergency Medicine"],
-"General Anatomy":["BD Chaurasia's Human Anatomy","Gray's Anatomy for Students"],
-"Head & Neck Anatomy":["BD Chaurasia Head, Neck and Brain","Gray's Anatomy for Students","Clinically Oriented Anatomy - Moore"],
-"Dental Anatomy":["Woelfel's Dental Anatomy","Wheeler's Dental Anatomy","Orban's Oral Histology"],
-"Oral Pathology":["Shafer's Textbook of Oral Pathology","Oral Pathology - Regezi","Cawson's Essentials of Oral Pathology"],
-"Oral Medicine":["Burket's Oral Medicine","Tyldesley's Oral Medicine","Principles of Oral Medicine"],
-"Oral Surgery":["Peterson's Principles of Oral and Maxillofacial Surgery","Contemporary Oral and Maxillofacial Surgery","Textbook of Oral and Maxillofacial Surgery"],
-"Prosthodontics":["Zarb's Prosthodontic Treatment","McCracken's Removable Partial Prosthodontics","Shillingburg's Fixed Prosthodontics"],
-"Periodontology":["Carranza's Clinical Periodontology","Clinical Periodontology - Newman","Essentials of Periodontics"],
-"Conservative Dentistry":["Sturdevant's Art and Science of Operative Dentistry","Textbook of Operative Dentistry - Nisha Garg"],
-"Endodontics":["Cohen's Pathways of the Pulp","Grossman's Endodontic Practice"],
-"Orthodontics":["Contemporary Orthodontics - Proffit","Essentials of Orthodontics","Orthodontics - Gurkeerat Singh"],
-"Pedodontics":["McDonald and Avery's Dentistry for the Child and Adolescent","Clinical Pedodontics"],
-"Public Health Dentistry":["Textbook of Preventive and Community Dentistry","Public Health Dentistry - Hiremath"],
-"Dental Materials":["Phillips' Science of Dental Materials","Craig's Restorative Dental Materials"],
-"Biomechanics":["Basic Biomechanics of the Musculoskeletal System","Biomechanics of Musculoskeletal Injury","Joint Structure and Function"],
-"Kinesiology":["Kinesiology of the Musculoskeletal System","Brunnstrom's Clinical Kinesiology","Clinical Kinesiology and Anatomy"],
-"Exercise Therapy":["Therapeutic Exercise - Kisner & Colby","Therapeutic Exercise - Carolyn Kisner","Therapeutic Exercises - Hall & Brody"],
-"Electrotherapy":["Electrotherapy Explained","Clayton's Electrotherapy","Electrotherapy: Evidence-Based Practice"],
-"Neurology":["Neurological Rehabilitation - Umphred","Neurologic Interventions for Physical Therapy"],
-"Cardiopulmonary Physiotherapy":["Cardiopulmonary Physical Therapy","Frownfelter's Cardiovascular and Pulmonary Physical Therapy"],
-"Sports Physiotherapy":["Brukner & Khan's Clinical Sports Medicine","Sports Injury Prevention and Rehabilitation"],
-"Community Physiotherapy":["Community-Based Rehabilitation","Community Physiotherapy"],
-"Research Methodology":["Research Methodology - C.R. Kothari","Research Methods in Health Sciences"],
-"Rehabilitation":["Physical Rehabilitation - Susan O'Sullivan","Braddom's Physical Medicine and Rehabilitation"],
-"Fundamentals of Nursing":["Kozier & Erb's Fundamentals of Nursing","Taylor's Fundamentals of Nursing","Potter & Perry Fundamentals of Nursing"],
-"Medical Surgical Nursing":["Brunner & Suddarth's Medical-Surgical Nursing","Lewis's Medical-Surgical Nursing","Medical-Surgical Nursing - Ignatavicius"],
-"Child Health Nursing":["Parul Datta Pediatric Nursing","Child Health Nursing - Parul Datta"],
-"Mental Health Nursing":["Psychiatric Mental Health Nursing","Essentials of Psychiatric Mental Health Nursing"],
-"Community Health Nursing":["Community Health Nursing","Park's Textbook of Preventive and Social Medicine"],
-"Midwifery":["Midwifery & Gynaecological Nursing","D.C. Dutta's Textbook of Obstetrics"],
-"Nursing Research":["Nursing Research - Polit & Beck","Research Methodology in Nursing"],
-"Nursing Administration":["Nursing Administration","Nursing Management"],
-"Human Anatomy & Physiology":["Ross & Wilson Anatomy and Physiology","Tortora Principles of Anatomy and Physiology","Marieb Human Anatomy & Physiology"],
-"Pharmaceutics":["Aulton's Pharmaceutics","Remington: The Science and Practice of Pharmacy","Physical Pharmacy"],
-"Pharmaceutical Chemistry":["Wilson and Gisvold's Textbook of Organic Medicinal and Pharmaceutical Chemistry","Pharmaceutical Chemistry"],
-"Pharmacognosy":["Trease and Evans Pharmacognosy","Textbook of Pharmacognosy"],
-"Pathophysiology":["McCance Pathophysiology","Understanding Pathophysiology"],
-"Clinical Pharmacy":["Clinical Pharmacy and Therapeutics","Applied Therapeutics"],
-"Hospital Pharmacy":["Hospital Pharmacy","Textbook of Hospital Pharmacy"],
-"Pharmacotherapeutics":["Pharmacotherapy - Dipiro","Clinical Pharmacology and Therapeutics"],
-"Medicinal Chemistry":["Foye's Principles of Medicinal Chemistry","Wilson and Gisvold Medicinal Chemistry"],
-"Pharmaceutical Analysis":["Vogel's Textbook of Quantitative Chemical Analysis","Pharmaceutical Analysis"],
-"Pharmacy Practice":["Pharmacy Practice","Clinical Pharmacy Practice"],
-"Rachana Sharira":["Rachana Sharira","Anatomy for Ayurveda"],
-"Kriya Sharira":["Kriya Sharira","Physiology for Ayurveda"],
-"Dravyaguna":["Dravyaguna Vijnana","Textbook of Dravyaguna"],
-"Rasashastra":["Rasashastra and Bhaishajya Kalpana","Textbook of Rasashastra"],
-"Kayachikitsa":["Kayachikitsa","Textbook of Kayachikitsa"],
-"Materia Medica":["Materia Medica","Boericke's New Manual of Homeopathic Materia Medica"],
-"Organon of Medicine":["Organon of Medicine","Organon of Medicine - Hahnemann"],
-"Homeopathic Pharmacy":["Homeopathic Pharmacy","A Textbook of Homoeopathic Pharmacy"],
-"Munafeul Aza":["Munafeul Aza","Unani Physiology"],
-"Unani Pharmacology":["Ilmul Advia","Unani Pharmacology"],
-"Gunapadam":["Gunapadam","Siddha Pharmacology"],
-"Ocular Anatomy":["Clinical Anatomy of the Eye","Anatomy of the Eye and Orbit"],
-"Ocular Physiology":["Physiology of the Eye","Clinical Ophthalmology"],
-"Optics":["Clinical Optics","Geometrical and Visual Optics"],
-"Visual Optics":["Clinical Optics","Visual Optics"],
-"Clinical Optometry":["Clinical Optometric Practice","Primary Care Optometry"],
-"Ocular Diseases":["Kanski's Clinical Ophthalmology","Parsons' Diseases of the Eye"],
-"Contact Lenses":["Contact Lens Practice","Contact Lenses - Bennett & Henry"],
-"Binocular Vision":["Binocular Vision and Ocular Motility","Clinical Management of Binocular Vision"],
-"Paediatric Optometry":["Paediatric Optometry","Paediatric Eye Care"],
-"Low Vision":["Low Vision Principles and Management","Low Vision Rehabilitation"]
-};
+/* =========================================================
+   MEDLIB CURRICULUM DATABASE
+========================================================= */
 
-/* =========================================
-VARIABLES
-========================================= */
-let currentCourse="";
-let currentSubject="";
+const courses = [
 
-/* =========================================
-PAGE CONTROL
-========================================= */
-function hideAll(){
-    document.getElementById("homePage").style.display="none";
-    document.getElementById("coursesPage").style.display="none";
-    document.getElementById("subjectPage").style.display="none";
-    document.getElementById("booksPage").style.display="none";
-    document.getElementById("loginPage").style.display="none";
-}
+{
+    id: "mbbs",
+    name: "MBBS",
+    icon: "🩺",
+    description: "Bachelor of Medicine and Bachelor of Surgery",
+    years: {
 
-function home(){
-    hideAll();
-    document.getElementById("homePage").style.display="block";
-    window.scrollTo(0,0);
-}
+        "1st Year": [
+            "Anatomy",
+            "Physiology",
+            "Biochemistry"
+        ],
 
-function showCourses(){
-    hideAll();
-    document.getElementById("coursesPage").style.display="block";
-    window.scrollTo(0,0);
-}
+        "2nd Year": [
+            "Pathology",
+            "Pharmacology",
+            "Microbiology",
+            "Forensic Medicine & Toxicology"
+        ],
 
-function showLogin(){
-    hideAll();
-    document.getElementById("loginPage").style.display="block";
-    window.scrollTo(0,0);
-}
+        "3rd Year Part I": [
+            "Community Medicine",
+            "Ophthalmology",
+            "Otorhinolaryngology (ENT)"
+        ],
 
-/* =========================================
-COURSE CARDS
-========================================= */
-function courseCard(name){
-    let course=courses[name];
-    return `
-    <div class="card" onclick="openCourse('${name}')">
-        <div class="icon">${course.icon}</div>
-        <h3>${name}</h3>
-        <p>${course.duration}</p>
-        <span class="badge free">${course.subjects.length} Subjects</span>
-    </div>
-    `;
-}
-
-function loadCourses(){
-    let names=Object.keys(courses);
-    document.getElementById("homeCourses").innerHTML = names.slice(0,6).map(courseCard).join("");
-    document.getElementById("allCourses").innerHTML = names.map(courseCard).join("");
-}
-
-/* =========================================
-OPEN COURSE
-========================================= */
-function openCourse(name){
-    currentCourse=name;
-    hideAll();
-    document.getElementById("subjectPage").style.display="block";
-    document.getElementById("courseTitle").innerText= courses[name].icon+" "+name;
-
-    let html="";
-    courses[name].subjects.forEach(function(subject){
-        html+=`
-        <div class="card" onclick="openSubject('${subject}')">
-            <div class="icon">📖</div>
-            <h3>${subject}</h3>
-            <p>Textbooks • Notes • MCQs</p>
-        </div>
-        `;
-    });
-
-    document.getElementById("subjectList").innerHTML=html;
-    window.scrollTo(0,0);
-}
-
-/* =========================================
-OPEN SUBJECT
-========================================= */
-function openSubject(subject){
-    currentSubject=subject;
-    hideAll();
-    document.getElementById("booksPage").style.display="block";
-    document.getElementById("subjectTitle").innerText="📚 "+subject;
-
-    let list=textbooks[subject];
-    if(!list){
-        list=[
-            "Recommended textbook for "+subject,
-            "Standard reference textbook for "+subject,
-            "Clinical textbook for "+subject
-        ];
+        "Final Year": [
+            "General Medicine",
+            "General Surgery",
+            "Pediatrics",
+            "Obstetrics & Gynaecology",
+            "Orthopaedics",
+            "Dermatology",
+            "Psychiatry",
+            "Anaesthesiology",
+            "Radiodiagnosis",
+            "Emergency Medicine"
+        ]
     }
+},
 
-    let html="";
-    list.forEach(function(book,index){
-        let isFree=index===0 && subject==="Anatomy";
-        let badge=isFree
-            ?'<span class="badge free">FREE / OPEN ACCESS</span>'
-            :'<span class="badge paid">PAID / COPYRIGHTED</span>';
-        
-        let button=isFree
-            ?`<button class="bookButton" onclick="openBook('books/anatomy.pdf','${book}')">📖 Read Inside MedLib</button>`
-            :`<button class="bookButton" onclick="purchaseInfo('${book}')">🛒 Purchase / License</button>`;
+{
+    id: "bds",
+    name: "BDS",
+    icon: "🦷",
+    description: "Bachelor of Dental Surgery",
+    years: {
 
-        html+=`
-        <div class="book">
-            <div class="icon">📘</div>
-            <h3>${book}</h3>
-            ${badge}
-            <p>${isFree
-                ?"This book/resource can be opened directly inside MedLib when the authorized PDF is uploaded."
-                :"This is a copyrighted textbook. MedLib will provide access only after obtaining the appropriate rights or license."
-            }</p>
-            ${button}
-        </div>
-        `;
-    });
+        "1st Year": [
+            "General Anatomy",
+            "Physiology",
+            "Biochemistry",
+            "Dental Anatomy",
+            "Oral Histology"
+        ],
 
-    document.getElementById("bookList").innerHTML=html;
-    window.scrollTo(0,0);
+        "2nd Year": [
+            "General Pathology",
+            "Microbiology",
+            "Pharmacology",
+            "Dental Materials",
+            "Preclinical Prosthodontics",
+            "Preclinical Conservative Dentistry"
+        ],
+
+        "3rd Year": [
+            "General Medicine",
+            "General Surgery",
+            "Oral Pathology",
+            "Oral Medicine & Radiology",
+            "Periodontology",
+            "Conservative Dentistry & Endodontics"
+        ],
+
+        "4th Year": [
+            "Prosthodontics",
+            "Orthodontics",
+            "Pediatric Dentistry",
+            "Oral & Maxillofacial Surgery",
+            "Public Health Dentistry"
+        ],
+
+        "Internship": [
+            "Clinical Dentistry",
+            "Oral Surgery",
+            "Prosthodontics",
+            "Conservative Dentistry",
+            "Periodontology",
+            "Orthodontics",
+            "Pediatric Dentistry",
+            "Public Health Dentistry"
+        ]
+    }
+},
+
+{
+    id: "bpt",
+    name: "BPT",
+    icon: "🏃",
+    description: "Bachelor of Physiotherapy",
+    years: {
+
+        "1st Year": [
+            "Anatomy",
+            "Physiology",
+            "Biochemistry",
+            "Biomechanics",
+            "Psychology",
+            "Sociology"
+        ],
+
+        "2nd Year": [
+            "Exercise Therapy",
+            "Electrotherapy",
+            "Pathology",
+            "Microbiology",
+            "Pharmacology",
+            "General Medicine",
+            "General Surgery"
+        ],
+
+        "3rd Year": [
+            "Orthopaedics",
+            "Neurology",
+            "Cardiorespiratory Physiotherapy",
+            "Musculoskeletal Physiotherapy",
+            "Pediatric Physiotherapy"
+        ],
+
+        "4th Year": [
+            "Sports Physiotherapy",
+            "Geriatric Physiotherapy",
+            "Community Physiotherapy",
+            "Rehabilitation",
+            "Research Methodology",
+            "Clinical Practice"
+        ]
+    }
+},
+
+{
+    id: "nursing",
+    name: "B.Sc Nursing",
+    icon: "👩‍⚕️",
+    description: "Bachelor of Science in Nursing",
+    years: {
+
+        "1st Year": [
+            "Anatomy",
+            "Physiology",
+            "Biochemistry",
+            "Nutrition",
+            "Psychology",
+            "Sociology",
+            "Nursing Foundation"
+        ],
+
+        "2nd Year": [
+            "Pharmacology",
+            "Pathology",
+            "Genetics",
+            "Microbiology",
+            "Medical-Surgical Nursing I",
+            "Community Health Nursing I"
+        ],
+
+        "3rd Year": [
+            "Medical-Surgical Nursing II",
+            "Child Health Nursing",
+            "Mental Health Nursing",
+            "Obstetric & Gynaecological Nursing"
+        ],
+
+        "4th Year": [
+            "Community Health Nursing II",
+            "Nursing Education",
+            "Nursing Research",
+            "Nursing Management",
+            "Professional Practice"
+        ]
+    }
+},
+
+{
+    id: "bpharm",
+    name: "B.Pharm",
+    icon: "💊",
+    description: "Bachelor of Pharmacy",
+    years: {
+
+        "1st Year": [
+            "Human Anatomy & Physiology",
+            "Pharmaceutical Analysis",
+            "Pharmaceutics",
+            "Pharmaceutical Inorganic Chemistry",
+            "Pharmaceutical Organic Chemistry"
+        ],
+
+        "2nd Year": [
+            "Pathophysiology",
+            "Biochemistry",
+            "Pharmacology",
+            "Pharmaceutical Microbiology",
+            "Pharmacognosy",
+            "Physical Pharmaceutics"
+        ],
+
+        "3rd Year": [
+            "Medicinal Chemistry",
+            "Pharmacology",
+            "Industrial Pharmacy",
+            "Pharmaceutical Biotechnology",
+            "Biopharmaceutics & Pharmacokinetics",
+            "Pharmacognosy"
+        ],
+
+        "4th Year": [
+            "Clinical Pharmacy",
+            "Hospital Pharmacy",
+            "Pharmacovigilance",
+            "Drug Regulatory Affairs",
+            "Community Pharmacy",
+            "Research Project"
+        ]
+    }
+},
+
+{
+    id: "bams",
+    name: "BAMS",
+    icon: "🌿",
+    description: "Bachelor of Ayurvedic Medicine and Surgery",
+    years: {
+
+        "1st Year": [
+            "Sanskrit & Samhita",
+            "Padartha Vigyana",
+            "Rachana Sharira",
+            "Kriya Sharira"
+        ],
+
+        "2nd Year": [
+            "Dravyaguna Vigyana",
+            "Rasashastra & Bhaishajya Kalpana",
+            "Agada Tantra",
+            "Swasthavritta"
+        ],
+
+        "3rd Year": [
+            "Roganidana",
+            "Vikriti Vigyana",
+            "Charaka Samhita",
+            "Prasuti Tantra",
+            "Kaumarabhritya"
+        ],
+
+        "4th Year": [
+            "Kayachikitsa",
+            "Shalya Tantra",
+            "Shalakya Tantra",
+            "Panchakarma",
+            "Research Methodology"
+        ]
+    }
+},
+
+{
+    id: "bhms",
+    name: "BHMS",
+    icon: "🌱",
+    description: "Bachelor of Homoeopathic Medicine and Surgery",
+    years: {
+
+        "1st Year": [
+            "Anatomy",
+            "Physiology",
+            "Biochemistry",
+            "Homoeopathic Pharmacy",
+            "Organon of Medicine"
+        ],
+
+        "2nd Year": [
+            "Pathology",
+            "Microbiology",
+            "Forensic Medicine",
+            "Materia Medica",
+            "Organon of Medicine"
+        ],
+
+        "3rd Year": [
+            "Community Medicine",
+            "Practice of Medicine",
+            "Surgery",
+            "Obstetrics & Gynaecology",
+            "Materia Medica"
+        ],
+
+        "4th Year": [
+            "Pediatrics",
+            "Psychiatry",
+            "Repertory",
+            "Practice of Medicine",
+            "Surgery"
+        ]
+    }
+},
+
+{
+    id: "bums",
+    name: "BUMS",
+    icon: "🌿",
+    description: "Bachelor of Unani Medicine and Surgery",
+    years: {
+
+        "1st Year": [
+            "Anatomy",
+            "Physiology",
+            "Biochemistry",
+            "Munafeul Aza",
+            "Tashreehul Badan"
+        ],
+
+        "2nd Year": [
+            "Ilmul Advia",
+            "Tahaffuzi wa Samaji Tib",
+            "Mahiyatul Amraz",
+            "Ilmul Saidla"
+        ],
+
+        "3rd Year": [
+            "Ilmul Qabalat",
+            "Niswan wa Qabalat",
+            "Ilmul Atfal",
+            "Moalajat"
+        ],
+
+        "4th Year": [
+            "Jarahat",
+            "Ophthalmology & ENT",
+            "Psychiatry",
+            "Community Medicine"
+        ]
+    }
+},
+
+{
+    id: "bsms",
+    name: "BSMS",
+    icon: "🌿",
+    description: "Bachelor of Siddha Medicine and Surgery",
+    years: {
+
+        "1st Year": [
+            "Tamil & Medical Terminology",
+            "Anatomy",
+            "Physiology",
+            "Biochemistry"
+        ],
+
+        "2nd Year": [
+            "Pharmacology",
+            "Pathology",
+            "Microbiology",
+            "Gunapadam",
+            "Noi Nadal"
+        ],
+
+        "3rd Year": [
+            "Maruthuvam",
+            "Kuzhanthai Maruthuvam",
+            "Magalir Maruthuvam",
+            "Pothu Maruthuvam"
+        ],
+
+        "4th Year": [
+            "Sirappu Maruthuvam",
+            "Varmam",
+            "Surgery",
+            "Research Methodology"
+        ]
+    }
+},
+
+{
+    id: "bot",
+    name: "BOT",
+    icon: "🧑‍🦽",
+    description: "Bachelor of Occupational Therapy",
+    years: {
+
+        "1st Year": [
+            "Anatomy",
+            "Physiology",
+            "Psychology",
+            "Sociology"
+        ],
+
+        "2nd Year": [
+            "Biomechanics",
+            "Kinesiology",
+            "Occupational Therapy Foundations",
+            "Therapeutic Activities"
+        ],
+
+        "3rd Year": [
+            "Neurology",
+            "Orthopaedics",
+            "Pediatrics",
+            "Psychiatry",
+            "Rehabilitation"
+        ],
+
+        "4th Year": [
+            "Geriatrics",
+            "Community Rehabilitation",
+            "Hand Therapy",
+            "Assistive Technology",
+            "Research Methodology"
+        ]
+    }
+},
+
+{
+    id: "optometry",
+    name: "Optometry",
+    icon: "👁️",
+    description: "Bachelor of Optometry",
+    years: {
+
+        "1st Year": [
+            "Anatomy",
+            "Physiology",
+            "Biochemistry",
+            "Geometrical Optics",
+            "Physical Optics"
+        ],
+
+        "2nd Year": [
+            "Ocular Anatomy",
+            "Ocular Physiology",
+            "Ocular Pathology",
+            "Pharmacology",
+            "Clinical Optometry"
+        ],
+
+        "3rd Year": [
+            "Refraction",
+            "Binocular Vision",
+            "Contact Lenses",
+            "Pediatric Optometry",
+            "Dispensing Optics"
+        ],
+
+        "4th Year": [
+            "Low Vision",
+            "Community Optometry",
+            "Ophthalmic Instruments",
+            "Clinical Practice",
+            "Research"
+        ]
+    }
+},
+
+{
+    id: "radiology",
+    name: "Medical Imaging / Radiology",
+    icon: "🩻",
+    description: "Medical Imaging Technology",
+    years: {
+
+        "1st Year": [
+            "Anatomy",
+            "Physiology",
+            "Pathology",
+            "Radiation Physics"
+        ],
+
+        "2nd Year": [
+            "Radiographic Techniques",
+            "Radiographic Positioning",
+            "Radiation Protection",
+            "X-ray Imaging"
+        ],
+
+        "3rd Year": [
+            "CT",
+            "MRI",
+            "Ultrasound",
+            "Mammography",
+            "Contrast Media"
+        ],
+
+        "4th Year": [
+            "Interventional Radiology",
+            "Nuclear Medicine",
+            "Image Processing",
+            "Patient Care",
+            "Clinical Training"
+        ]
+    }
+},
+
+{
+    id: "mlt",
+    name: "Medical Laboratory Technology",
+    icon: "🔬",
+    description: "Medical Laboratory Science",
+    years: {
+
+        "1st Year": [
+            "Anatomy",
+            "Physiology",
+            "Biochemistry",
+            "Pathology"
+        ],
+
+        "2nd Year": [
+            "Microbiology",
+            "Hematology",
+            "Clinical Biochemistry",
+            "Immunology",
+            "Serology"
+        ],
+
+        "3rd Year": [
+            "Histopathology",
+            "Cytology",
+            "Blood Banking",
+            "Parasitology",
+            "Molecular Diagnostics"
+        ],
+
+        "4th Year": [
+            "Medical Genetics",
+            "Laboratory Management",
+            "Advanced Diagnostics",
+            "Clinical Training",
+            "Research"
+        ]
+    }
+},
+
+{
+    id: "anesthesia",
+    name: "Anesthesia Technology",
+    icon: "💉",
+    description: "Anaesthesia and Critical Care Technology",
+    years: {
+
+        "1st Year": [
+            "Anatomy",
+            "Physiology",
+            "Biochemistry",
+            "Pathology"
+        ],
+
+        "2nd Year": [
+            "Pharmacology",
+            "Microbiology",
+            "Anaesthesia Equipment",
+            "General Anaesthesia"
+        ],
+
+        "3rd Year": [
+            "Regional Anaesthesia",
+            "Airway Management",
+            "Critical Care",
+            "Emergency Medicine",
+            "Patient Monitoring"
+        ],
+
+        "4th Year": [
+            "Pain Management",
+            "Advanced Critical Care",
+            "Operation Theatre Practice",
+            "Clinical Training"
+        ]
+    }
+},
+
+{
+    id: "ott",
+    name: "Operation Theatre Technology",
+    icon: "🏥",
+    description: "Operation Theatre and Surgical Technology",
+    years: {
+
+        "1st Year": [
+            "Anatomy",
+            "Physiology",
+            "Pathology",
+            "Microbiology"
+        ],
+
+        "2nd Year": [
+            "Pharmacology",
+            "Surgical Procedures",
+            "Anaesthesia",
+            "Sterilization",
+            "Infection Control"
+        ],
+
+        "3rd Year": [
+            "Surgical Instruments",
+            "OT Management",
+            "Emergency Care",
+            "Patient Safety",
+            "Clinical Training"
+        ]
+    }
+},
+
+{
+    id: "cardiac",
+    name: "Cardiac Care Technology",
+    icon: "❤️",
+    description: "Cardiovascular and Cardiac Care Technology",
+    years: {
+
+        "1st Year": [
+            "Anatomy",
+            "Physiology",
+            "Biochemistry",
+            "Pathology"
+        ],
+
+        "2nd Year": [
+            "Pharmacology",
+            "ECG",
+            "Cardiovascular Diseases",
+            "Cardiac Emergencies"
+        ],
+
+        "3rd Year": [
+            "Echocardiography",
+            "Cardiac Catheterization",
+            "ICU & Critical Care",
+            "CPR",
+            "Cardiac Rehabilitation"
+        ]
+    }
+},
+
+{
+    id: "respiratory",
+    name: "Respiratory Therapy",
+    icon: "🫁",
+    description: "Respiratory and Critical Care Technology",
+    years: {
+
+        "1st Year": [
+            "Anatomy",
+            "Physiology",
+            "Biochemistry",
+            "Pathology"
+        ],
+
+        "2nd Year": [
+            "Pharmacology",
+            "Respiratory Diseases",
+            "Pulmonary Function Testing",
+            "Oxygen Therapy"
+        ],
+
+        "3rd Year": [
+            "Mechanical Ventilation",
+            "Critical Care",
+            "Airway Management",
+            "Sleep Medicine",
+            "Pulmonary Rehabilitation"
+        ]
+    }
+},
+
+{
+    id: "audiology",
+    name: "Audiology & Speech-Language Pathology",
+    icon: "👂",
+    description: "Audiology and Speech-Language Sciences",
+    years: {
+
+        "1st Year": [
+            "Anatomy",
+            "Physiology",
+            "Psychology",
+            "Linguistics",
+            "Acoustics"
+        ],
+
+        "2nd Year": [
+            "Audiology",
+            "Hearing Assessment",
+            "Hearing Aids",
+            "Speech Disorders",
+            "Language Disorders"
+        ],
+
+        "3rd Year": [
+            "Voice Disorders",
+            "Swallowing Disorders",
+            "Pediatric Audiology",
+            "Cochlear Implants",
+            "Rehabilitation"
+        ]
+    }
+},
+
+{
+    id: "nutrition",
+    name: "Nutrition & Dietetics",
+    icon: "🥗",
+    description: "Clinical Nutrition and Dietetics",
+    years: {
+
+        "1st Year": [
+            "Human Anatomy",
+            "Physiology",
+            "Biochemistry",
+            "Food Science"
+        ],
+
+        "2nd Year": [
+            "Nutrition",
+            "Clinical Nutrition",
+            "Therapeutic Diets",
+            "Community Nutrition"
+        ],
+
+        "3rd Year": [
+            "Pediatric Nutrition",
+            "Geriatric Nutrition",
+            "Sports Nutrition",
+            "Food Safety",
+            "Diet Counselling"
+        ]
+    }
 }
 
-/* =========================================
-PDF READER
-========================================= */
-function openBook(url,title){
-    document.getElementById("reader").style.display="block";
-    document.getElementById("readerTitle").innerText=title;
-    document.getElementById("pdfFrame").src=url;
-}
+];
 
-function closeReader(){
-    document.getElementById("reader").style.display="none";
-    document.getElementById("pdfFrame").src="";
-}
 
-/* =========================================
-PURCHASE
-========================================= */
-function purchaseInfo(book){
-    alert("📚 "+book+"\n\nThis textbook is copyrighted.\n\nMedLib will add legal purchasing and licensed reading after the required publisher agreement is available.");
-}
+/* =========================================================
+   SUBJECT TOPICS
+========================================================= */
 
-/* =========================================
-BACK
-========================================= */
-function backSubjects(){
-    openCourse(currentCourse);
-}
+const topicTemplates = {
 
-/* =========================================
-SEARCH
-========================================= */
-function searchCourses(){
-    let query=document.getElementById("searchBox").value.toLowerCase();
-    let cards=document.querySelectorAll("#homeCourses .card");
+    "Anatomy": [
+        "General Anatomy",
+        "Upper Limb",
+        "Lower Limb",
+        "Thorax",
+        "Abdomen",
+        "Pelvis",
+        "Head & Neck",
+        "Neuroanatomy",
+        "Histology",
+        "Embryology",
+        "Clinical Anatomy"
+    ],
 
-    cards.forEach(function(card){
-        if(card.innerText.toLowerCase().includes(query)){
-            card.style.display="block";
-        }else{
-            card.style.display="none";
-        }
-    });
-}
+    "Physiology": [
+        "General Physiology",
+        "Blood",
+        "Nerve & Muscle",
+        "Cardiovascular System",
+        "Respiratory System",
+        "Gastrointestinal System",
+        "Renal System",
+        "Endocrine System",
+        "Reproductive System",
+        "Central Nervous System",
+        "Special Senses"
+    ],
 
-/* =========================================
-SIGN UP
-========================================= */
-function signup(){
-    let name=document.getElementById("name").value;
-    let email=document.getElementById("email").value;
-    let password=document.getElementById("password").value;
+    "Biochemistry": [
+        "Carbohydrate Metabolism",
+        "Protein Metabolism",
+        "Lipid Metabolism",
+        "Enzymes",
+        "Vitamins",
+        "Minerals",
+        "Molecular Biology",
+        "Genetics",
+        "Clinical Biochemistry",
+        "Nutrition"
+    ],
 
-    if(!name || !email || !password){
-        alert("Please fill all fields.");
+    "Pathology": [
+        "Cell Injury",
+        "Inflammation",
+        "Hemodynamic Disorders",
+        "Neoplasia",
+        "Genetic Disorders",
+        "Immune Disorders",
+        "Hematology",
+        "Cardiovascular Pathology",
+        "Respiratory Pathology",
+        "Renal Pathology",
+        "Gastrointestinal Pathology"
+    ],
+
+    "Pharmacology": [
+        "General Pharmacology",
+        "Autonomic Nervous System",
+        "Cardiovascular Drugs",
+        "CNS Drugs",
+        "Antimicrobials",
+        "Endocrine Drugs",
+        "Respiratory Drugs",
+        "Gastrointestinal Drugs",
+        "Chemotherapy",
+        "Drugs for Blood Disorders"
+    ],
+
+    "Microbiology": [
+        "General Microbiology",
+        "Bacteriology",
+        "Virology",
+        "Mycology",
+        "Parasitology",
+        "Immunology",
+        "Sterilization",
+        "Hospital Infection Control",
+        "Clinical Microbiology"
+    ],
+
+    "General Medicine": [
+        "Clinical Examination",
+        "Cardiology",
+        "Respiratory Medicine",
+        "Gastroenterology",
+        "Neurology",
+        "Nephrology",
+        "Endocrinology",
+        "Rheumatology",
+        "Infectious Diseases",
+        "Hematology",
+        "Emergency Medicine"
+    ],
+
+    "General Surgery": [
+        "Principles of Surgery",
+        "Wounds",
+        "Shock",
+        "Trauma",
+        "Abdomen",
+        "Breast",
+        "Thyroid",
+        "Hernia",
+        "Vascular Surgery",
+        "Urology",
+        "Neurosurgery"
+    ],
+
+    "Pediatrics": [
+        "Growth & Development",
+        "Neonatology",
+        "Nutrition",
+        "Pediatric Infections",
+        "Respiratory Disorders",
+        "Gastrointestinal Disorders",
+        "Neurology",
+        "Pediatric Emergencies"
+    ],
+
+    "Obstetrics & Gynaecology": [
+        "Pregnancy",
+        "Antenatal Care",
+        "Normal Labour",
+        "Abnormal Labour",
+        "High-Risk Pregnancy",
+        "Postnatal Care",
+        "Gynaecological Disorders",
+        "Infertility",
+        "Contraception",
+        "Gynaecological Oncology"
+    ],
+
+    "Orthopaedics": [
+        "Fractures",
+        "Dislocations",
+        "Arthritis",
+        "Spine Disorders",
+        "Sports Injuries",
+        "Bone Tumours",
+        "Joint Replacement",
+        "Paediatric Orthopaedics"
+    ],
+
+    "Psychiatry": [
+        "Introduction to Psychiatry",
+        "Mood Disorders",
+        "Anxiety Disorders",
+        "Psychotic Disorders",
+        "Substance Use Disorders",
+        "Personality Disorders",
+        "Child Psychiatry",
+        "Emergency Psychiatry"
+    ],
+
+    "Ophthalmology": [
+        "Eye Anatomy",
+        "Optics",
+        "Cataract",
+        "Glaucoma",
+        "Retina",
+        "Cornea",
+        "Uvea",
+        "Neuro-Ophthalmology",
+        "Ocular Trauma"
+    ],
+
+    "Otorhinolaryngology (ENT)": [
+        "Ear",
+        "Nose",
+        "Paranasal Sinuses",
+        "Throat",
+        "Larynx",
+        "Hearing Disorders",
+        "Vertigo",
+        "ENT Infections",
+        "Head & Neck Tumours"
+    ]
+};
+
+
+/* =========================================================
+   DISPLAY COURSES
+========================================================= */
+
+function displayCourses(list = courses) {
+
+    const grid = document.getElementById("courseGrid");
+
+    if(list.length === 0) {
+        grid.innerHTML =
+            `<div class="no-results">
+                No courses found.
+            </div>`;
         return;
     }
 
-    alert("Welcome to MedLib, "+name+"! 🎉");
+    grid.innerHTML = list.map(course => `
+
+        <div class="course-card"
+             onclick="openCourse('${course.id}')">
+
+            <div class="icon">${course.icon}</div>
+
+            <h3>${course.name}</h3>
+
+            <p>${course.description}</p>
+
+        </div>
+
+    `).join("");
 }
 
-/* =========================================
-START WEBSITE
-========================================= */
-loadCourses();
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function searchCourses() {
+
+    const search =
+        document.getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const filtered = courses.filter(course => {
+
+        const courseText =
+            course.name.toLowerCase() +
+            " " +
+            course.description.toLowerCase() +
+            " " +
+            Object.values(course.years)
+                .flat()
+                .join(" ")
+                .toLowerCase();
+
+        return courseText.includes(search);
+    });
+
+    displayCourses(filtered);
+}
+
+
+/* =========================================================
+   OPEN COURSE
+========================================================= */
+
+let currentCourse = null;
+
+function openCourse(courseId) {
+
+    currentCourse =
+        courses.find(c => c.id === courseId);
+
+    if(!currentCourse) return;
+
+    document.getElementById("homePage")
+        .style.display = "none";
+
+    document.getElementById("subjectPage")
+        .style.display = "none";
+
+    document.getElementById("coursePage")
+        .style.display = "block";
+
+    document.getElementById("courseHeader")
+        .innerHTML = `
+
+            <h1>
+                ${currentCourse.icon}
+                ${currentCourse.name}
+            </h1>
+
+            <p>
+                ${currentCourse.description}
+            </p>
+
+        `;
+
+    renderYears();
+}
+
+
+/* =========================================================
+   RENDER YEARS
+========================================================= */
+
+function renderYears() {
+
+    const container =
+        document.getElementById("yearsContainer");
+
+    container.innerHTML = "";
+
+    Object.entries(currentCourse.years)
+        .forEach(([year, subjects]) => {
+
+            const section =
+                document.createElement("div");
+
+            section.className = "year-section";
+
+            section.innerHTML = `
+
+                <div class="year-title">
+                    ${year}
+                </div>
+
+                <div class="subject-grid">
+
+                    ${subjects.map(subject => `
+
+                        <div class="subject"
+                             onclick="openSubject('${escapeText(subject)}')">
+
+                            <h4>${subject}</h4>
+
+                            <small>
+                                View chapters →
+                            </small>
+
+                        </div>
+
+                    `).join("")}
+
+                </div>
+
+            `;
+
+            container.appendChild(section);
+        });
+}
+
+
+/* =========================================================
+   SUBJECT PAGE
+========================================================= */
+
+function openSubject(subjectName) {
+
+    document.getElementById("coursePage")
+        .style.display = "none";
+
+    document.getElementById("subjectPage")
+        .style.display = "block";
+
+    const topics =
+        topicTemplates[subjectName] ||
+        generateTopics(subjectName);
+
+    document.getElementById("subjectContent")
+        .innerHTML = `
+
+            <div class="topic-container">
+
+                <h1>
+                    ${subjectName}
+                </h1>
+
+                <p style="margin-top:8px;color:#64748b;">
+                    ${currentCourse.name}
+                </p>
+
+                <div class="topic-list">
+
+                    ${topics.map((topic,index) => `
+
+                        <div class="topic">
+                            <strong>
+                                ${index + 1}. ${topic}
+                            </strong>
+
+                            <p style="
+                                margin-top:6px;
+                                color:#64748b;
+                                font-size:14px;
+                            ">
+                                Notes • Textbook • MCQs •
+                                Flashcards
+                            </p>
+                        </div>
+
+                    `).join("")}
+
+                </div>
+
+            </div>
+        `;
+}
+
+
+/* =========================================================
+   BACK BUTTONS
+========================================================= */
+
+function showHome() {
+
+    document.getElementById("coursePage")
+        .style.display = "none";
+
+    document.getElementById("subjectPage")
+        .style.display = "none";
+
+    document.getElementById("homePage")
+        .style.display = "block";
+
+    document.getElementById("searchInput").value = "";
+
+    displayCourses();
+}
+
+
+function goBackToCourse() {
+
+    document.getElementById("subjectPage")
+        .style.display = "none";
+
+    document.getElementById("coursePage")
+        .style.display = "block";
+}
+
+
+/* =========================================================
+   FALLBACK TOPICS
+========================================================= */
+
+function generateTopics(subject) {
+
+    return [
+        "Introduction to " + subject,
+        "Basic Concepts",
+        "Structure & Classification",
+        "Normal Function",
+        "Clinical Applications",
+        "Common Disorders",
+        "Diagnosis",
+        "Management",
+        "Important Clinical Cases",
+        "MCQs & Revision"
+    ];
+}
+
+
+/* =========================================================
+   SECURITY HELPER
+========================================================= */
+
+function escapeText(text) {
+
+    return text
+        .replace(/\\/g, "\\\\")
+        .replace(/'/g, "\\'");
+}
+
+
+/* =========================================================
+   START MEDLIB
+========================================================= */
+
+displayCourses();
+
 </script>
+
 </body>
 </html>
